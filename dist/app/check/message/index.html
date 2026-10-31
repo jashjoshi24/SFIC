@@ -346,11 +346,80 @@
 
     if (btnAnalyze) {
       btnAnalyze.addEventListener('click', () => {
+        const text = textarea ? textarea.value.trim() : '';
+        if (!text) {
+          showToast('કૃપા કરી વિશ્લેષણ માટે મેસેજ દાખલ કરો');
+          textarea?.focus();
+          return;
+        }
+
+        btnAnalyze.disabled = true;
         btnAnalyze.classList.add('animate-pulse');
+        const origText = btnAnalyze.innerHTML;
+        btnAnalyze.innerHTML = '<span class="material-symbols-outlined animate-spin text-[20px]">progress_activity</span><span>વિશ્લેષણ ચાલુ છે...</span>';
+
         setTimeout(() => {
+          btnAnalyze.disabled = false;
           btnAnalyze.classList.remove('animate-pulse');
-          showToast('નવું AI વિશ્લેષણ પૂર્ણ થયું (૮૮/૧૦૦ જોખમ)');
-        }, 600);
+          btnAnalyze.innerHTML = origText;
+
+          if (window.SG && window.SG.analyseMessage) {
+            const result = window.SG.analyseMessage(text);
+            const isHigh = result.riskLevel === 'high' || result.score >= 50;
+            const isMedium = result.riskLevel === 'medium' || (result.score >= 25 && result.score < 50);
+
+            // Update top risk badge in right panel
+            const verdictTitle = document.querySelector('.lg\\:col-span-7 h1, .lg\\:col-span-7 span.font-headline-md');
+            if (verdictTitle) {
+              verdictTitle.textContent = result.riskLabel;
+              verdictTitle.className = 'font-headline-md text-headline-md tracking-tight font-bold ' + (isHigh ? 'text-danger' : isMedium ? 'text-tertiary' : 'text-secondary');
+            }
+
+            // Update indicators list
+            const indicatorsContainer = document.querySelector('.lg\\:col-span-7 .grid.grid-cols-1.gap-2\\.5');
+            if (indicatorsContainer && result.indicators.length > 0) {
+              indicatorsContainer.innerHTML = result.indicators.map((ind, i) => `
+                <div class="p-3.5 rounded-xl bg-surface flex items-start gap-3 transition-colors hover:bg-surface-dim">
+                  <div class="w-8 h-8 rounded-lg ${isHigh ? 'bg-danger/20 text-danger' : 'bg-tertiary/20 text-tertiary'} flex items-center justify-center shrink-0 mt-0.5">
+                    <span class="material-symbols-outlined text-[18px]">${i === 0 ? 'alarm_on' : i === 1 ? 'link_off' : 'badge'}</span>
+                  </div>
+                  <div class="flex flex-col flex-1 min-w-0">
+                    <div class="flex items-center justify-between gap-2">
+                      <span class="font-label-md text-label-md text-text-primary font-bold">${i+1}. ${ind.label}</span>
+                      <span class="px-2 py-0.5 rounded bg-surface-raised text-danger font-label-sm text-[10px] font-semibold uppercase">Red Flag</span>
+                    </div>
+                    <p class="font-body-sm text-body-sm text-text-muted mt-1 leading-relaxed">${ind.desc}</p>
+                  </div>
+                </div>
+              `).join('');
+            }
+
+            // Update advice steps
+            const adviceContainer = document.querySelector('.lg\\:col-span-7 .space-y-2\\.5');
+            if (adviceContainer && result.advice.length > 0) {
+              adviceContainer.innerHTML = result.advice.map((step, i) => `
+                <div class="flex items-start gap-3">
+                  <span class="w-5 h-5 rounded-full ${isHigh ? 'bg-danger/20 text-danger' : 'bg-secondary/20 text-secondary'} font-label-sm text-label-sm font-bold flex items-center justify-center shrink-0 mt-0.5">${i+1}</span>
+                  <p class="font-body-md text-body-md text-text-primary">${step}</p>
+                </div>
+              `).join('');
+            }
+
+            showToast('AI વિશ્લેષણ પૂર્ણ: જોખમ સ્કોર ' + result.score + '/100');
+
+            try {
+              const history = JSON.parse(localStorage.getItem('sg_recent_scans') || '[]');
+              history.unshift({
+                type: 'message',
+                input: text.substring(0, 80),
+                score: result.score,
+                riskLevel: result.riskLevel,
+                timestamp: new Date().toLocaleTimeString('gu-IN')
+              });
+              localStorage.setItem('sg_recent_scans', JSON.stringify(history.slice(0, 10)));
+            } catch(e) {}
+          }
+        }, 800);
       });
     }
 

@@ -326,11 +326,31 @@
         });
       });
 
+      function handleFile(file) {
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          const imgEl = document.querySelector('section.lg\\:col-span-6 img');
+          if (imgEl) {
+            imgEl.src = e.target.result;
+            imgEl.classList.remove('opacity-60');
+            imgEl.classList.add('opacity-90');
+          }
+          if (window.SG && window.SG.analyseQRorImage) {
+            const result = window.SG.analyseQRorImage(file.name);
+            alert('AI વિઝન સ્કેન પૂર્ણ!\n\nફાઈલ: ' + file.name + '\nજોખમ સ્કોર: ' + result.score + '/100\nપરિણામ: ' + result.riskLabel + '\nડીકોડ થયેલ પેલોડ: ' + result.decodedPayload);
+          }
+        };
+        reader.readAsDataURL(file);
+      }
+
+      fileInput.addEventListener('change', (e) => {
+        if (e.target.files.length > 0) handleFile(e.target.files[0]);
+      });
+
       dropzone.addEventListener('drop', (e) => {
         const files = e.dataTransfer.files;
-        if (files.length > 0) {
-          alert('ચિત્ર વિશ્લેષણ માટે સ્વીકારવામાં આવ્યું છે. (AI Forensic Analysis initiated)');
-        }
+        if (files.length > 0) handleFile(files[0]);
       });
     }
 
@@ -348,15 +368,26 @@
       audioBtn.addEventListener('click', () => {
         if ('speechSynthesis' in window) {
           window.speechSynthesis.cancel();
-          const text = "ચેતવણી! આ ક્યૂ આર કોડ એક ગંભીર છેતરપિંડી છે. વીજળી કાપવાનો ખોટો ડર બતાવી અંગત ખાતામાં પૈસા પડાવવાનો પ્રયાસ થઈ રહ્યો છે. આ ક્યૂ આર સ્કેન કરશો નહીં.";
+          const lang = (window.SG && window.SG.lang) ? window.SG.lang() : 'gu';
+          let text = "ચેતવણી! આ ક્યૂ આર કોડ એક ગંભીર છેતરપિંડી છે. વીજળી કાપવાનો ખોટો ડર બતાવી અંગત ખાતામાં પૈસા પડાવવાનો પ્રયાસ થઈ રહ્યો છે. આ ક્યૂ આર સ્કેન કરશો નહીં.";
+          let voiceLang = 'gu-IN';
+
+          if (lang === 'hi') {
+            text = "चेतावनी! यह क्यूआर कोड एक गंभीर धोखाधड़ी है। बिजली काटने का झूठा डर दिखाकर व्यक्तिगत खाते में पैसे मांगने का प्रयास है। इसे स्कैन न करें।";
+            voiceLang = 'hi-IN';
+          } else if (lang === 'en') {
+            text = "Warning! This QR code is a fraudulent impersonation scam. It attempts to divert utility bill payments to a private personal account. Do not scan or pay.";
+            voiceLang = 'en-IN';
+          }
+
           const utterance = new SpeechSynthesisUtterance(text);
-          utterance.lang = 'gu-IN';
+          utterance.lang = voiceLang;
           utterance.rate = 0.95;
           window.speechSynthesis.speak(utterance);
           audioBtn.classList.add('text-primary');
           setTimeout(() => audioBtn.classList.remove('text-primary'), 4000);
         } else {
-          alert('ઓડિયો સપોર્ટ ઉપલબ્ધ નથી');
+          alert('ઓડિયો સ્પીચ સપોર્ટ ઉપલબ્ધ નથી');
         }
       });
     }

@@ -1,3 +1,17 @@
+// Load Surakshit Gujarat Shared Engines & Master Translations
+(function () {
+  function ensureScript(src) {
+    if (!document.querySelector(`script[src="${src}"]`)) {
+      const s = document.createElement('script')
+      s.src = src
+      document.head.appendChild(s)
+    }
+  }
+  ensureScript('/translations-data.js')
+  ensureScript('/lang-engine.js')
+  ensureScript('/mock-engine.js')
+})()
+
 const routeDocuments = new Set([
   '/app',
   '/app/assistant',

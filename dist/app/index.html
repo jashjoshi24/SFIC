@@ -486,40 +486,87 @@
   }
 
   function triggerScanAnimation() {
-    const btn = document.getElementById('verifyBtn');
-    const resultBox = document.getElementById('scanResultBox');
-    if (!btn || !resultBox) return;
+    const btn = document.getElementById('verifyBtn')?.addEventListener('click', () => {
+    const input = document.getElementById('fraudInput');
+    const val = input ? input.value.trim() : '';
+    if (!val) {
+      input?.focus();
+      return;
+    }
 
-    const originalText = btn.innerHTML;
-    btn.innerHTML = '<span class="material-symbols-outlined text-xl animate-spin">refresh</span><span>તપાસ ચાલુ છે...</span>';
-    btn.disabled = true;
+    const btn = document.getElementById('verifyBtn');
+    if (btn) btn.innerHTML = '<span class="material-symbols-outlined text-xl animate-spin">progress_activity</span><span>સ્કેન...</span>';
 
     setTimeout(() => {
-      btn.innerHTML = originalText;
-      btn.disabled = false;
-      resultBox.classList.remove('hidden');
-      resultBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    }, 900);
-  }
+      if (btn) btn.innerHTML = '<span class="material-symbols-outlined text-xl">verified_user</span><span>ચકાસો (Scan)</span>';
+      const resultBox = document.getElementById('scanResultBox');
+      if (resultBox) {
+        let result = null;
+        if (/^https?:\/\//i.test(val) || val.includes('.com') || val.includes('.xyz') || val.includes('.ru')) {
+          result = window.SG?.analyseURL ? window.SG.analyseURL(val) : null;
+        } else {
+          result = window.SG?.analyseMessage ? window.SG.analyseMessage(val) : null;
+        }
 
-  document.getElementById('verifyBtn')?.addEventListener('click', () => {
-    const input = document.getElementById('fraudInput');
-    if (input && input.value.trim() !== '') {
-      triggerScanAnimation();
-    } else {
-      input?.focus();
-    }
+        if (result) {
+          const isHigh = result.riskLevel === 'high' || result.score >= 50;
+          resultBox.innerHTML = `
+            <div class="flex items-start gap-3">
+              <div class="p-2 rounded-xl ${isHigh ? 'bg-error-container/30 text-error' : 'bg-secondary-container/30 text-secondary'} shrink-0">
+                <span class="material-symbols-outlined text-2xl">${isHigh ? 'dangerous' : 'verified'}</span>
+              </div>
+              <div class="flex flex-col">
+                <div class="flex items-center gap-2">
+                  <span class="font-label-lg text-label-lg ${isHigh ? 'text-error' : 'text-secondary'}">${result.riskLabel}</span>
+                  <span class="px-2 py-0.5 rounded-full ${isHigh ? 'bg-danger/20 text-danger' : 'bg-secondary/20 text-secondary'} text-[11px] font-semibold">જોખમ: ${result.score}%</span>
+                </div>
+                <span class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+                  ${isHigh ? 'આ શંકાસ્પદ સાયબર જોખમ છે. કોઈ લિંક ન ખોલો અને ક્યારેય કોઈને પાસવર્ડ કે OTP આપશો નહીં.' : 'કોઈ તાત્કાલિક સાયબર જોખમ મળ્યું નથી. છતાં અજાણ્યા નંબર સામે સાવચેત રહો.'}
+                </span>
+              </div>
+            </div>
+            <div class="flex items-center gap-2 shrink-0">
+              <a href="/emergency" class="px-4 py-2 rounded-xl bg-danger text-on-error font-label-sm text-label-sm hover:brightness-110">
+                ૧૯૩૦ પર ફરિયાદ નોંધાવો
+              </a>
+            </div>
+          `;
+        }
+        resultBox.classList.remove('hidden');
+        resultBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    }, 800);
   });
 
   document.getElementById('voiceBtn')?.addEventListener('click', () => {
     const input = document.getElementById('fraudInput');
-    if (input) {
-      input.value = "બોલો... (Listening in Gujarati...)";
-      setTimeout(() => {
-        input.value = "મને વીજળી બિલ ભરવા માટે એક અજાણ્યા નંબર પરથી મેસેજ મળ્યો છે.";
-        triggerScanAnimation();
-      }, 1200);
+    if (!input) return;
+
+    const SpeechRec = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (SpeechRec) {
+      try {
+        const recognition = new SpeechRec();
+        const lang = (window.SG && window.SG.lang) ? window.SG.lang() : 'gu';
+        recognition.lang = lang === 'hi' ? 'hi-IN' : lang === 'en' ? 'en-IN' : 'gu-IN';
+        input.value = "સાંભળી રહ્યા છીએ... (Listening...)";
+        recognition.onresult = (event) => {
+          input.value = event.results[0][0].transcript;
+          document.getElementById('verifyBtn')?.click();
+        };
+        recognition.onerror = () => {
+          input.value = "તમારું વીજળી બિલ બાકી છે, આજે રાત્રે લાઈટ કપાશે.";
+          document.getElementById('verifyBtn')?.click();
+        };
+        recognition.start();
+        return;
+      } catch(e) {}
     }
+
+    input.value = "સાંભળી રહ્યા છીએ... (Listening...)";
+    setTimeout(() => {
+      input.value = "મને વીજળી બિલ ભરવા માટે એક અજાણ્યા નંબર પરથી મેસેજ મળ્યો છે.";
+      document.getElementById('verifyBtn')?.click();
+    }, 1200);
   });
 </script></main></div>
 
