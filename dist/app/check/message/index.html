@@ -1,0 +1,417 @@
+<!DOCTYPE html><html class="dark" lang="gu"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_dashboard" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700&amp;family=Manrope:wght@400;500;600&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface-raised":"#241B16","background":"#161311","inverse-primary":"#a04100","on-secondary-fixed-variant":"#00513a","text-muted":"#B7AAA0","secondary":"#61dcac","on-error-container":"#ffdad6","border-hairline":"rgba(255, 239, 220, 0.12)","on-secondary-fixed":"#002115","error-container":"#93000a","primary-fixed":"#ffdbcc","surface-dim":"#161311","primary-strong":"#F15A24","outline-variant":"#584238","surface-soft":"#30231B","on-tertiary-fixed":"#281900","on-primary-fixed":"#351000","surface-variant":"#383431","surface":"#191411","on-tertiary-fixed-variant":"#604100","on-secondary-container":"#003121","secondary-container":"#14a479","on-background":"#e9e1dd","tertiary":"#f9bc4f","surface-container-low":"#1e1b19","inverse-surface":"#e9e1dd","surface-container-lowest":"#110e0c","surface-container-high":"#2d2927","primary":"#ffb693","on-primary":"#561f00","primary-fixed-dim":"#ffb693","bg-base":"#100D0B","inverse-on-surface":"#34302d","on-surface-variant":"#dfc0b2","secondary-fixed":"#7ff9c7","on-tertiary-container":"#4b3200","surface-container-highest":"#383431","surface-tint":"#ffb693","on-error":"#690005","on-tertiary":"#432c00","secondary-fixed-dim":"#61dcac","danger":"#F06464","on-secondary":"#003827","tertiary-fixed-dim":"#f9bc4f","outline":"#a78b7f","on-primary-fixed-variant":"#7a3000","on-surface":"#e9e1dd","surface-bright":"#3d3836","on-primary-container":"#612400","tertiary-fixed":"#ffdeac","text-primary":"#F8F3ED","info":"#65A9E8","primary-container":"#ff7a2f","error":"#ffb4ab","tertiary-container":"#cf962b","surface-container":"#221f1d"},borderRadius:{DEFAULT:"0.25rem",lg:"0.5rem",xl:"0.75rem",full:"9999px"},spacing:{"space-lg":"1.5rem",gutter:"1.5rem","space-md":"1rem","gutter-mobile":"1rem",margin:"2rem","space-xs":"0.25rem","space-sm":"0.5rem","margin-mobile":"1rem","space-xl":"2.5rem"},fontFamily:{"headline-lg":["Plus Jakarta Sans"],"body-sm":["Manrope"],"headline-xl-mobile":["Plus Jakarta Sans"],"headline-xl":["Plus Jakarta Sans"],"body-lg":["Manrope"],"label-lg":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"],"headline-sm":["Plus Jakarta Sans"],"label-md":["Plus Jakarta Sans"],"label-sm":["Plus Jakarta Sans"],"headline-lg-mobile":["Plus Jakarta Sans"],"body-md":["Manrope"]},fontSize:{"headline-lg":["32px",{lineHeight:"40px",letterSpacing:"-0.015em",fontWeight:"600"}],"body-sm":["13px",{lineHeight:"20px",fontWeight:"400"}],"headline-xl-mobile":["32px",{lineHeight:"40px",letterSpacing:"-0.01em",fontWeight:"700"}],"headline-xl":["48px",{lineHeight:"58px",letterSpacing:"-0.02em",fontWeight:"700"}],"body-lg":["17px",{lineHeight:"28px",fontWeight:"400"}],"label-lg":["14px",{lineHeight:"20px",letterSpacing:"0.01em",fontWeight:"600"}],"headline-md":["22px",{lineHeight:"30px",letterSpacing:"-0.01em",fontWeight:"600"}],"headline-sm":["18px",{lineHeight:"26px",fontWeight:"600"}],"label-md":["12px",{lineHeight:"16px",letterSpacing:"0.02em",fontWeight:"600"}],"label-sm":["11px",{lineHeight:"14px",letterSpacing:"0.03em",fontWeight:"500"}],"headline-lg-mobile":["24px",{lineHeight:"32px",letterSpacing:"-0.01em",fontWeight:"600"}],"body-md":["15px",{lineHeight:"24px",fontWeight:"400"}]}}}};</script></head><body class="bg-bg-base text-on-surface font-body-md text-body-md min-h-screen selection:bg-primary-container selection:text-on-primary-container"><aside class="fixed left-0 top-0 h-screen w-72 bg-surface-container-lowest/90 backdrop-blur-2xl z-50 flex flex-col justify-between shadow-[0_0_28px_rgba(0,0,0,0.7)]"><div class="flex flex-col"><div class="h-20 px-space-md flex items-center justify-between"><a class="flex items-center gap-space-sm" data-path="dashboard" href="/app"><img alt="Surakshit Gujarat Emblem" class="h-8 w-auto object-contain" src="/brand-mark.svg"><div class="flex flex-col"><div class="flex items-center gap-1.5"><span class="font-headline-sm text-headline-sm text-text-primary tracking-tight">સુરક્ષિત ગુજરાત</span><span class="inline-flex items-center px-1.5 py-0.5 rounded-full bg-secondary-container/20 text-secondary text-[10px] font-label-sm font-semibold tracking-wide uppercase">AI Kavach</span></div><span class="font-label-sm text-label-sm text-text-muted">Cyber Suraksha Kendra</span></div></a></div><div class="px-space-md py-space-xs"><div class="flex items-center justify-between px-space-sm py-1.5 rounded-lg bg-surface-raised"><div class="flex items-center gap-2"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-secondary"></span></span><span class="font-label-sm text-label-sm text-on-surface-variant">Active Shield Live</span></div><span class="font-label-sm text-label-sm text-secondary font-medium">24x7 Ready</span></div></div><nav class="px-space-sm mt-space-sm space-y-1" data-active-classes="bg-primary-container text-on-primary-container font-semibold shadow-[0_4px_16px_rgba(241,90,36,0.3)]"><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-raised hover:text-on-surface transition-all group" data-path="dashboard" href="/app"><span class="material-symbols-outlined text-[20px] transition-colors group-hover:text-primary">shield</span><div class="flex flex-col"><span class="font-label-lg text-label-lg">Dashboard</span><span class="font-label-sm text-label-sm opacity-70">મુખ્ય પૃષ્ઠ</span></div></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-raised hover:text-on-surface transition-all group" data-path="gujarati-ai-assistant" href="/app/assistant"><span class="material-symbols-outlined text-[20px] transition-colors group-hover:text-primary">smart_toy</span><div class="flex flex-col"><span class="font-label-lg text-label-lg">Gujarati AI Assistant</span><span class="font-label-sm text-label-sm opacity-70">સાયબર સહાયક AI</span></div></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-raised hover:text-on-surface transition-all group" data-path="check-message-call" href="/app/check/message"><span class="material-symbols-outlined text-[20px] transition-colors group-hover:text-primary">sms</span><div class="flex flex-col"><span class="font-label-lg text-label-lg">Check Message / Call</span><span class="font-label-sm text-label-sm opacity-70">શંકાસ્પદ મેસેજ તપાસો</span></div></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-raised hover:text-on-surface transition-all group" data-path="phishing-url-checker" href="/app/check/url"><span class="material-symbols-outlined text-[20px] transition-colors group-hover:text-primary">link</span><div class="flex flex-col"><span class="font-label-lg text-label-lg">Phishing URL Checker</span><span class="font-label-sm text-label-sm opacity-70">લિંક સુરક્ષા સ્કેનર</span></div></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-raised hover:text-on-surface transition-all group" data-path="screenshot-qr-scanner" href="/app/check/image"><span class="material-symbols-outlined text-[20px] transition-colors group-hover:text-primary">qr_code_scanner</span><div class="flex flex-col"><span class="font-label-lg text-label-lg">Screenshot / QR Scanner</span><span class="font-label-sm text-label-sm opacity-70">QR સ્કેન અને સ્ક્રીનશોટ</span></div></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-raised hover:text-on-surface transition-all group" data-path="complaint-generator" href="/emergency"><span class="material-symbols-outlined text-[20px] transition-colors group-hover:text-primary">description</span><div class="flex flex-col"><span class="font-label-lg text-label-lg">Complaint Generator</span><span class="font-label-sm text-label-sm opacity-70">સાયબર ફરિયાદ ડ્રાફ્ટ</span></div></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-raised hover:text-on-surface transition-all group" data-path="scam-alerts" href="/awareness"><span class="material-symbols-outlined text-[20px] transition-colors group-hover:text-primary">warning</span><div class="flex flex-col"><span class="font-label-lg text-label-lg">Scam Alerts</span><span class="font-label-sm text-label-sm opacity-70">તાજા ફ્રોડ એલર્ટ્સ</span></div></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-raised hover:text-on-surface transition-all group" data-path="emergency-help" href="/emergency"><span class="material-symbols-outlined text-[20px] text-danger">fmd_bad</span><div class="flex flex-col"><span class="font-label-lg text-label-lg text-danger">Emergency Help</span><span class="font-label-sm text-label-sm opacity-70">ત્વરિત સહાય (1930)</span></div></a></nav></div><div class="p-space-md"><div class="p-3.5 rounded-xl bg-surface-raised/80 backdrop-blur-md flex flex-col gap-2.5"><div class="flex items-center justify-between"><span class="font-label-sm text-label-sm text-text-muted">Helpline Desk</span><span class="font-label-sm text-label-sm text-primary font-semibold">National Portal</span></div><div class="flex items-center gap-2"><span class="material-symbols-outlined text-tertiary text-lg">phone_in_talk</span><span class="font-headline-sm text-headline-sm text-text-primary tracking-wider">1930</span></div><span class="font-body-sm text-body-sm text-text-muted">રાષ્ટ્રીય સાયબર ક્રાઇમ સહાયતા કેન્દ્ર (1930) / cybercrime.gov.in</span></div></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-20 bg-surface-container-lowest/80 backdrop-blur-xl z-40 px-gutter flex items-center justify-between"><div class="flex items-center gap-space-md"><img alt="Surakshit Gujarat Emblem" class="h-8 w-auto object-contain" src="/brand-mark.svg"><div class="relative flex items-center w-80 lg:w-96"><span class="material-symbols-outlined absolute left-3.5 text-text-muted text-lg">search</span><input class="w-full pl-10 pr-20 py-2 rounded-xl bg-surface text-text-primary placeholder:text-text-muted/60 font-body-sm text-body-sm focus:outline-none focus:ring-1 focus:ring-primary-container transition-all" placeholder="મેસેજ, નંબર કે વેબસાઇટ શોધો..." type="text"><div class="absolute right-2.5 flex items-center gap-1 px-1.5 py-0.5 rounded bg-surface-raised font-label-sm text-label-sm text-text-muted"><kbd class="font-sans text-[11px]">⌘</kbd><kbd class="font-sans text-[11px]">K</kbd></div></div></div><div class="flex items-center gap-space-md"><div class="flex items-center p-1 rounded-full bg-surface-raised text-on-surface-variant font-label-sm text-label-sm"><button class="px-3 py-1 rounded-full bg-primary-container text-on-primary-container font-semibold transition-all shadow-sm" type="button">ગુજરાતી</button><button class="px-3 py-1 rounded-full text-on-surface-variant hover:text-on-surface transition-all" type="button">हिंदी</button><button class="px-3 py-1 rounded-full text-on-surface-variant hover:text-on-surface transition-all" type="button">English</button></div><a class="relative inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-error-container/30 text-error hover:bg-error-container/40 transition-all font-label-md text-label-md" href="tel:1930"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-danger opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-danger"></span></span><span class="font-semibold">1930 Cyber Helpline</span></a><button aria-label="Notifications" class="relative p-2 rounded-full text-on-surface-variant hover:bg-surface-raised hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-1.5 right-1.5 h-2 w-2 rounded-full bg-primary-container ring-2 ring-bg-base"></span></button><div class="flex items-center gap-space-sm pl-2"><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-1 ring-border-hairline" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvPWtDcDYdjnUO02xCx-n1FBSVpKL8CXbp_7H355VnMb2whkg3TwNdmTkz3MUjFA5xT79_EVxyQCjd5iPpI0Fdn6imA3CoX7aJkftun8qDtexquQ2IDsSRwO1yp4eFYh3L477vvxAwcy1F3FBi8I-XdN__saLl6febWqYJW4AmxpvffykpOZRugvBJqDSHdz9_Z3kXAic7iNOITtnXW3x6mwLqjP8oEax4g_DWl-k"><div class="hidden xl:flex flex-col text-left"><span class="font-label-md text-label-md text-text-primary leading-tight">ડેમો વપરાશકર્તા (Demo User)</span><span class="font-label-sm text-label-sm text-text-muted">નાગરિક ડેમો મોડ</span></div></div></div></header><main class="w-full pt-20 bg-bg-base min-h-screen px-gutter pb-space-xl"><div class="flex flex-col w-full">
+<div class="relative w-full max-w-7xl mx-auto space-y-6">
+<div class="w-full p-3 rounded-xl bg-surface-container-low border border-border-hairline flex items-center gap-2.5 text-text-muted font-body-sm text-body-sm"><span class="material-symbols-outlined text-primary text-[18px] shrink-0">info</span><span class=""><strong>સૂચના:</strong> સ્વતંત્ર નાગરિક સાયબર જાગૃતિ સહાયક — આ સત્તાવાર સરકારી કે પોલીસ વેબસાઇટ નથી. સત્તાવાર ફરિયાદ માટે <a href="https://cybercrime.gov.in" target="_blank" class="text-primary underline hover:text-primary-strong font-medium">cybercrime.gov.in</a> અથવા <strong class="text-text-primary">૧૯૩૦</strong> પર સંપર્ક કરો.</span></div><div class="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-2">
+<div>
+<div class="flex items-center gap-2 mb-1.5">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-surface-raised text-primary font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px]">shield_with_heart</span>
+            ગુજરાત નાગરિક સાયબર કવચ
+          </span>
+<span class="font-label-sm text-label-sm text-text-muted">· રીઅલ-ટાઇમ હિબ્રિડ ડિટેક્શન</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-text-primary tracking-tight">
+          શંકાસ્પદ મેસેજ અને કોલ સ્કેનર
+        </h1>
+<p class="font-body-md text-body-md text-text-muted mt-1">
+          WhatsApp, SMS અથવા બેંક નોટિફિકેશનનું AI ફોરેન્સિક વિશ્લેષણ મેળવો.
+        </p>
+</div>
+<div class="flex items-center gap-3">
+<div class="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-surface-raised shadow-sm">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-secondary"></span>
+</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">સુરક્ષા ડેટાબેઝ: અપડેટ ૨ મિનિટ પહેલાં</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+<div class="lg:col-span-5 flex flex-col space-y-5">
+<div class="p-5 rounded-2xl bg-surface-raised shadow-xl flex flex-col gap-4 relative overflow-hidden">
+<div class="absolute -top-12 -left-12 w-40 h-40 bg-primary-container/10 rounded-full blur-3xl pointer-events-none"></div>
+<div class="flex p-1 rounded-xl bg-surface-container-lowest gap-1">
+<button class="flex-1 py-2 px-2.5 rounded-lg bg-surface-raised text-text-primary font-label-md text-label-md font-semibold text-center transition-all shadow-sm flex items-center justify-center gap-1.5" id="tab-sms" type="button">
+<span class="material-symbols-outlined text-[16px] text-primary">chat</span>
+<span class="">WhatsApp / SMS</span>
+</button>
+<button class="flex-1 py-2 px-2 rounded-lg text-text-muted hover:text-text-primary font-label-md text-label-md text-center transition-all flex items-center justify-center gap-1" id="tab-call" type="button">
+<span class="material-symbols-outlined text-[16px]">call</span>
+<span class="">શંકાસ્પદ કોલ</span>
+</button>
+<button class="flex-1 py-2 px-2 rounded-lg text-text-muted hover:text-text-primary font-label-md text-label-md text-center transition-all flex items-center justify-center gap-1" id="tab-email" type="button">
+<span class="material-symbols-outlined text-[16px]">mail</span>
+<span class="">ઈમેલ સંદેશ</span>
+</button>
+</div>
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<label class="font-label-md text-label-md text-on-surface-variant flex items-center gap-1.5" for="scam-text-input">
+<span class="material-symbols-outlined text-[16px] text-primary">edit_note</span>
+                મેસેજ અહીં પેસ્ટ કરો (Paste Message Text)
+              </label>
+<span class="font-label-sm text-label-sm text-text-muted" id="char-counter">૧૬૭ અક્ષરો</span>
+</div>
+<div class="relative rounded-xl bg-surface p-3.5 focus-within:bg-surface-dim transition-all">
+<textarea class="w-full bg-transparent text-text-primary font-body-md text-body-md placeholder:text-text-muted/50 focus:outline-none resize-none leading-relaxed" id="scam-text-input" placeholder="દા.ત. તમારા ખાતામાં ₹૨૫,૦૦૦ લોટરી લાગી છે..." rows="7">Dear Customer, Your SBI Account 4892 will be suspended today at 8:00 PM due to pending PAN KYC. Update immediately at https://sbi-kyc-quickupdate.xyz/verify or call 98250XXXXX to avoid freeze.</textarea>
+<div class="flex items-center justify-between pt-2">
+<div class="flex items-center gap-1 text-danger font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[15px]">flag</span>
+<span class="">સંદિગ્ધ લિંક મળી આવી</span>
+</div>
+<button class="text-primary hover:text-primary-strong font-label-sm text-label-sm flex items-center gap-1 transition-colors" id="btn-paste" type="button">
+<span class="material-symbols-outlined text-[15px]">content_paste</span>
+                  ક્લિપબોર્ડ પેસ્ટ
+                </button>
+</div>
+</div>
+</div>
+<div class="p-3 rounded-xl bg-surface-container-low/70 flex items-start gap-2.5">
+<span class="material-symbols-outlined text-secondary text-[18px] shrink-0 mt-0.5">lock</span>
+<div class="flex flex-col gap-0.5">
+<span class="font-label-sm text-label-sm text-text-primary font-semibold">સંપૂર્ણ ગુપ્તતા &amp; સુરક્ષા ગેરંટી</span>
+<p class="font-body-sm text-body-sm text-text-muted leading-tight">
+                તમારી અંગત માહિતી એન્ક્રિપ્ટેડ છે. અમે કોઈ પાસવર્ડ, બેંક નંબર કે OTP સર્વર પર સંગ્રહિત કરતા નથી.
+              </p>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row items-center gap-2.5 pt-1">
+<button class="w-full sm:flex-1 py-3 px-4 rounded-xl bg-primary-container text-on-primary-container font-label-lg text-label-lg font-bold flex items-center justify-center gap-2 hover:bg-primary-strong transition-all shadow-lg shadow-primary-container/20 active:scale-[0.98]" id="btn-analyze" type="button">
+<span class="material-symbols-outlined text-[20px]">troubleshoot</span>
+<span class="">વિશ્લેષણ કરો (Analyse)</span>
+</button>
+<div class="flex items-center gap-2 w-full sm:w-auto">
+<button class="flex-1 sm:flex-initial py-3 px-3.5 rounded-xl bg-surface hover:bg-surface-bright text-text-primary font-label-md text-label-md flex items-center justify-center gap-1.5 transition-all" id="btn-sample" title="બીજો નમૂનો લોડ કરો" type="button">
+<span class="material-symbols-outlined text-[16px] text-tertiary">casino</span>
+<span class="">નમૂનો</span>
+</button>
+<button class="py-3 px-3.5 rounded-xl bg-surface hover:bg-error-container/20 text-text-muted hover:text-error font-label-md text-label-md flex items-center justify-center transition-all" id="btn-clear" title="ટેક્સ્ટ સાફ કરો" type="button">
+<span class="material-symbols-outlined text-[18px]">backspace</span>
+</button>
+</div>
+</div>
+</div>
+<div class="p-4 rounded-2xl bg-surface-container-low shadow-md flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-surface-raised flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[22px]">history</span>
+</div>
+<div>
+<div class="font-label-md text-label-md text-text-primary">છેલ્લા ૨૪ કલાકમાં ચકાસેલા</div>
+<div class="font-body-sm text-body-sm text-text-muted">૧૨,૪૫૦+ નાગરિકો દ્વારા સુરક્ષા સ્કેન</div>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-surface-raised font-label-sm text-label-sm text-secondary font-semibold">
+            ૯૪% અટકાવેલ ફ્રોડ
+          </span>
+</div>
+<div class="relative rounded-2xl overflow-hidden shadow-lg h-36 bg-surface-raised">
+<img class="w-full h-full object-cover opacity-35" data-alt="An atmospheric dimly lit cyber defense command hub located in Gandhinagar, Gujarat. Indian IT officers inspecting real-time fraud alerts and data visualisations on curved holographic displays with warm saffron and soft amber illumination." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCuZM3XZcM_D2bpW758A8Abf7aKX1HCk47JRjMSvMJKPgRvYAAzsv_XxNyq8FHL5_pe6mcGsobbw-7fMuSj8_vixQNQKjIEE68Wlb68P1u5soXYpaWHZUWYu-1cXJ0yuwDh-wEFKoaAtpp9YyKSQ07oYizobc1YEvJAyJSKU0pAxtXOkVEtbZhC3H13o_aaQga3ndYc49YeJA2fgreqrblIB5_EBxWq_dIZrSbufY">
+<div class="absolute inset-0 bg-gradient-to-t from-bg-base via-surface-raised/70 to-transparent p-4 flex flex-col justify-end">
+<span class="font-label-sm text-label-sm text-primary font-semibold uppercase tracking-wider">સતર્ક રહો, સુરક્ષિત રહો</span>
+<span class="font-headline-sm text-headline-sm text-text-primary leading-tight">રાષ્ટ્રીય સાયબર જાગૃતિ સહાયતા કેન્દ્ર (1930)</span>
+</div>
+</div>
+</div>
+<div class="lg:col-span-7 flex flex-col space-y-5">
+<div class="relative p-6 rounded-2xl bg-surface-raised shadow-xl overflow-hidden">
+<div class="absolute top-0 right-0 w-64 h-64 bg-danger/10 rounded-full blur-3xl pointer-events-none"></div>
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6">
+<div class="flex items-center gap-3">
+<div class="px-3 py-2 rounded-xl bg-danger/20 border border-danger/30 text-danger flex flex-col items-center justify-center shrink-0"><span class="material-symbols-outlined text-[24px]">warning</span><span class="font-label-sm text-label-sm font-bold mt-0.5">ઉચ્ચ જોખમ</span></div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2 flex-wrap">
+<span class="font-headline-md text-headline-md text-text-primary tracking-tight font-bold">
+                    ગંભીર જોખમ (High Risk Scam)
+                  </span>
+</div>
+<p class="font-body-sm text-body-sm text-text-muted mt-0.5">
+                  આ એક અત્યંત જોખમી અને સુનિશ્ચિત સાયબર ફ્રોડ સંદેશ છે.
+                </p>
+</div>
+</div>
+<div class="self-start sm:self-center">
+<span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-danger/20 text-danger font-label-md text-label-md font-bold shadow-sm">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-danger opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-danger"></span>
+</span>
+                નકલી ફિશિંગ સંદેશ (Phishing Fraud)
+              </span>
+</div>
+</div>
+<div class="space-y-3 pt-2">
+<div class="flex items-center justify-between">
+<h2 class="font-label-lg text-label-lg text-text-primary font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]">fingerprint</span>
+                શોધી કાઢેલા ફોરેન્સિક પુરાવા (Forensic Indicators)
+              </h2>
+<span class="font-label-sm text-label-sm text-text-muted">૩ જોખમી તત્વો મળ્યા</span>
+</div>
+<div class="grid grid-cols-1 gap-2.5">
+<div class="p-3.5 rounded-xl bg-surface flex items-start gap-3 transition-colors hover:bg-surface-dim">
+<div class="w-8 h-8 rounded-lg bg-danger/20 text-danger flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[18px]">alarm_on</span>
+</div>
+<div class="flex flex-col flex-1 min-w-0">
+<div class="flex items-center justify-between gap-2">
+<span class="font-label-md text-label-md text-text-primary font-bold">
+                      ૧. Urgency Tactic (કટોકટી ઊભી કરવી)
+                    </span>
+<span class="px-2 py-0.5 rounded bg-surface-raised text-danger font-label-sm text-[10px] font-semibold uppercase">અત્યંત શંકાસ્પદ</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-muted mt-1 leading-relaxed">
+<strong class="text-text-primary">"8:00 PM સુધીમાં ખાતું બંધ થવાનો ડર"</strong> બતાવવામાં આવ્યો છે. છેતરપિંડી કરનારા વ્યક્તિને વિચારવાનો કે વેરિફાય કરવાનો સમય ન આપવા આવા ડેડલાઇન ટેક્ટિક્સ વાપરે છે.
+                  </p>
+</div>
+</div>
+<div class="p-3.5 rounded-xl bg-surface flex items-start gap-3 transition-colors hover:bg-surface-dim">
+<div class="w-8 h-8 rounded-lg bg-danger/20 text-danger flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[18px]">link_off</span>
+</div>
+<div class="flex flex-col flex-1 min-w-0">
+<div class="flex items-center justify-between gap-2">
+<span class="font-label-md text-label-md text-text-primary font-bold">
+                      ૨. Lookalike Domain (નકલી વેબસાઇટ લિંક)
+                    </span>
+<span class="px-2 py-0.5 rounded bg-surface-raised text-danger font-label-sm text-[10px] font-semibold uppercase">ક્લોન સાઇટ</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-muted mt-1 leading-relaxed">
+<code class="px-1.5 py-0.5 rounded bg-surface-raised text-primary font-sans text-xs">sbi-kyc-quickupdate.xyz</code> એ ભારતીય સ્ટેટ બેંકની સત્તાવાર વેબસાઇટ (<span class="text-secondary font-semibold">onlinesbi.sbi</span> અથવા <span class="text-secondary font-semibold">sbi.co.in</span>) નથી. આ લિંક પર ક્લિક કરવાથી પાસવર્ડ ચોરાઈ શકે છે.
+                  </p>
+</div>
+</div>
+<div class="p-3.5 rounded-xl bg-surface flex items-start gap-3 transition-colors hover:bg-surface-dim">
+<div class="w-8 h-8 rounded-lg bg-tertiary/20 text-tertiary flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[18px]">badge</span>
+</div>
+<div class="flex flex-col flex-1 min-w-0">
+<div class="flex items-center justify-between gap-2">
+<span class="font-label-md text-label-md text-text-primary font-bold">
+                      ૩. Fake KYC Pretext (ખોટું કેવાયસી બહાનું)
+                    </span>
+<span class="px-2 py-0.5 rounded bg-surface-raised text-tertiary font-label-sm text-[10px] font-semibold uppercase">નિયમ વિરુદ્ધ</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-muted mt-1 leading-relaxed">
+                    RBI માર્ગદર્શિકા મુજબ કોઈ પણ બેંક ક્યારેય SMS માં લિંક મોકલીને PAN કે આધાર કાર્ડ વિગતો માંગતી નથી.
+                  </p>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-6 pt-5 bg-surface-container-low -mx-6 -mb-6 p-6">
+<h3 class="font-headline-sm text-headline-sm text-text-primary font-bold flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-secondary text-[20px]">verified_user</span>
+              તાત્કાલિક સુરક્ષિત પગલાં (What Should You Do Now?)
+            </h3>
+<div class="space-y-2.5">
+<div class="flex items-start gap-3">
+<span class="w-5 h-5 rounded-full bg-danger/20 text-danger font-label-sm text-label-sm font-bold flex items-center justify-center shrink-0 mt-0.5">૧</span>
+<p class="font-body-md text-body-md text-text-primary">
+<strong class="text-danger">આ લિંક ક્યારેય ખોલશો નહીં</strong> અને કોઈપણ પ્રકારની માહિતી સબમિટ કરશો નહીં.
+                </p>
+</div>
+<div class="flex items-start gap-3">
+<span class="w-5 h-5 rounded-full bg-surface-raised text-on-surface-variant font-label-sm text-label-sm font-bold flex items-center justify-center shrink-0 mt-0.5">૨</span>
+<p class="font-body-md text-body-md text-text-primary">
+                  આ મોકલનાર નંબરને WhatsApp/મેસેન્જરમાં <strong class="text-text-primary">બ્લોક (Block)</strong> કરો અને સ્પામ તરીકે રિપોર્ટ કરો.
+                </p>
+</div>
+<div class="flex items-start gap-3">
+<span class="w-5 h-5 rounded-full bg-surface-raised text-on-surface-variant font-label-sm text-label-sm font-bold flex items-center justify-center shrink-0 mt-0.5">૩</span>
+<p class="font-body-md text-body-md text-text-primary">
+                  જો તમે ભૂલથી લિંક ખોલી દીધી હોય તો તાત્કાલિક તમારો <strong class="text-tertiary">નેટબેંકિંગ પાસવર્ડ અને UPI પિન</strong> બદલી નાખો.
+                </p>
+</div>
+</div>
+<div class="mt-6 pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+<button class="flex-1 py-3 px-4 rounded-xl bg-danger text-on-error font-label-lg text-label-lg font-bold flex items-center justify-center gap-2 hover:bg-danger/90 transition-all shadow-lg shadow-danger/25 active:scale-[0.98]" type="button">
+<span class="material-symbols-outlined text-[20px]">report</span>
+<span class="">૧૯૩૦ પર ફરિયાદ ડ્રાફ્ટ કરો</span>
+</button>
+<button class="py-3 px-4 rounded-xl bg-surface-raised hover:bg-surface text-text-primary font-label-md text-label-md flex items-center justify-center gap-2 transition-all" id="btn-save-result" type="button">
+<span class="material-symbols-outlined text-[18px] text-primary">bookmark</span>
+<span class="">રિપોર્ટ સાચવો</span>
+</button>
+<button class="py-3 px-4 rounded-xl bg-secondary-container/20 hover:bg-secondary-container/30 text-secondary font-label-md text-label-md font-semibold flex items-center justify-center gap-2 transition-all" id="btn-share-whatsapp" type="button">
+<svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+<path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-5.46-4.45-9.92-9.91-9.92zm0 18.15c-1.49 0-2.95-.4-4.22-1.16l-.3-.18-3.13.82.83-3.05-.2-.32a8.21 8.21 0 0 1-1.26-4.36c0-4.56 3.71-8.27 8.28-8.27 4.56 0 8.27 3.71 8.27 8.27 0 4.56-3.71 8.25-8.27 8.25zm4.53-6.19c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.02-1.24-.75-.67-1.26-1.5-1.4-1.75-.15-.25-.02-.39.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.17.04-.32-.02-.45-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.32-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.78 2.72 4.31 3.81.6.26 1.07.41 1.44.53.61.19 1.16.17 1.6.1.49-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.06-.11-.23-.19-.48-.32z"></path>
+</svg>
+<span class="">પરિવાર સાથે શેર</span>
+</button>
+</div>
+</div>
+</div>
+<div class="p-4 rounded-2xl bg-surface-raised shadow-md flex items-center justify-between gap-4">
+<div class="flex items-center gap-3 min-w-0">
+<span class="material-symbols-outlined text-tertiary text-[24px] shrink-0">help_center</span>
+<div class="truncate">
+<span class="font-label-md text-label-md text-text-primary block">તમને કોઈ અન્ય શંકા છે?</span>
+<span class="font-body-sm text-body-sm text-text-muted truncate block">અમારા ગુજરાતી સાયબર AI સહાયક સાથે લાઈવ વાતચીત કરો</span>
+</div>
+</div>
+<button class="shrink-0 px-3.5 py-1.5 rounded-lg bg-surface text-text-primary hover:bg-surface-bright font-label-md text-label-md font-semibold transition-all" type="button">
+            AI સાથે ચેટ કરો
+          </button>
+</div><div class="mt-4 p-3 rounded-xl bg-surface-container-lowest/80 text-center text-text-muted font-label-sm text-label-sm border border-border-hairline">સ્વતંત્ર નાગરિક સાયબર જાગૃતિ સહાયક — આ સત્તાવાર સરકારી કે પોલીસ વેબસાઇટ નથી. સત્તાવાર ફરિયાદ માટે cybercrime.gov.in અથવા ૧૯૩૦ પર સંપર્ક કરો.</div>
+</div>
+</div>
+</div>
+<div class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 px-4 py-2.5 rounded-xl bg-surface-raised text-text-primary font-label-md text-label-md shadow-2xl opacity-0 pointer-events-none transition-all duration-300 flex items-center gap-2" id="toast">
+<span class="material-symbols-outlined text-secondary text-[18px]">check_circle</span>
+<span id="toast-text" class="">સફળતાપૂર્વક સાચવવામાં આવ્યું</span>
+</div>
+</div>
+<script>
+  (function() {
+    const textarea = document.getElementById('scam-text-input');
+    const charCounter = document.getElementById('char-counter');
+    const btnClear = document.getElementById('btn-clear');
+    const btnSample = document.getElementById('btn-sample');
+    const btnPaste = document.getElementById('btn-paste');
+    const btnAnalyze = document.getElementById('btn-analyze');
+    const btnSave = document.getElementById('btn-save-result');
+    const btnShare = document.getElementById('btn-share-whatsapp');
+    const toast = document.getElementById('toast');
+    const toastText = document.getElementById('toast-text');
+
+    const toGujaratiDigits = (num) => {
+      const gujaratiDigits = ['૦', '૧', '૨', '૩', '૪', '૫', '૬', '૭', '૮', '૯'];
+      return num.toString().split('').map(d => gujaratiDigits[d] || d).join('');
+    };
+
+    const updateCounter = () => {
+      if (!textarea || !charCounter) return;
+      const count = textarea.value.length;
+      charCounter.textContent = `${toGujaratiDigits(count)} અક્ષરો`;
+    };
+
+    if (textarea) {
+      textarea.addEventListener('input', updateCounter);
+    }
+
+    const showToast = (message) => {
+      if (!toast || !toastText) return;
+      toastText.textContent = message;
+      toast.classList.remove('opacity-0', 'pointer-events-none');
+      toast.classList.add('opacity-100');
+      setTimeout(() => {
+        toast.classList.remove('opacity-100');
+        toast.classList.add('opacity-0', 'pointer-events-none');
+      }, 3000);
+    };
+
+    if (btnClear && textarea) {
+      btnClear.addEventListener('click', () => {
+        textarea.value = '';
+        updateCounter();
+        textarea.focus();
+        showToast('સંદેશ ખાલી કરવામાં આવ્યો');
+      });
+    }
+
+    const samples = [
+      "Dear Customer, Your SBI Account 4892 will be suspended today at 8:00 PM due to pending PAN KYC. Update immediately at https://sbi-kyc-quickupdate.xyz/verify or call 98250XXXXX to avoid freeze.",
+      "તમારું વિજળી બિલ બાકી હોવાથી આજે રાત્રે ૯:૩૦ વાગ્યે વીજ જોડાણ કાપી નાખવામાં આવશે. તાત્કાલિક સંપર્ક કરો ૮૫૨૯XXXXXX પર. - MGVCL Official",
+      "Congratulations! You won ₹50,00,000 in Kaun Banega Crorepati WhatsApp Lucky Draw! Send details to +91 97230XXXXX immediately to claim lottery code KBC40."
+    ];
+    let sampleIndex = 0;
+
+    if (btnSample && textarea) {
+      btnSample.addEventListener('click', () => {
+        sampleIndex = (sampleIndex + 1) % samples.length;
+        textarea.value = samples[sampleIndex];
+        updateCounter();
+        showToast('નવો નમૂનો લોડ થયો');
+      });
+    }
+
+    if (btnPaste && textarea) {
+      btnPaste.addEventListener('click', async () => {
+        try {
+          if (navigator.clipboard) {
+            const text = await navigator.clipboard.readText();
+            if (text) {
+              textarea.value = text;
+              updateCounter();
+              showToast('ક્લિપબોર્ડમાંથી પેસ્ટ કર્યું');
+            }
+          }
+        } catch (err) {
+          showToast('પેસ્ટ પરવાનગી ન મળી, મેન્યુઅલી પેસ્ટ કરો');
+        }
+      });
+    }
+
+    if (btnAnalyze) {
+      btnAnalyze.addEventListener('click', () => {
+        btnAnalyze.classList.add('animate-pulse');
+        setTimeout(() => {
+          btnAnalyze.classList.remove('animate-pulse');
+          showToast('નવું AI વિશ્લેષણ પૂર્ણ થયું (૮૮/૧૦૦ જોખમ)');
+        }, 600);
+      });
+    }
+
+    if (btnSave) {
+      btnSave.addEventListener('click', () => {
+        showToast('તપાસ પરિણામ તમારા ડેશબોર્ડમાં સાચવવામાં આવ્યું');
+      });
+    }
+
+    if (btnShare) {
+      btnShare.addEventListener('click', () => {
+        const text = encodeURIComponent('સાવધાન! SBI PAN KYC નામનો મેસેજ નકલી છે અને 88% ઉચ્ચ જોખમ ધરાવે છે. કોઈ લિંક ખોલશો નહીં. ચકાસો: સુરક્ષિત ગુજરાત AI કવચ.');
+        window.open(`https://api.whatsapp.com/send?text=${text}`, '_blank');
+      });
+    }
+
+    const tabSms = document.getElementById('tab-sms');
+    const tabCall = document.getElementById('tab-call');
+    const tabEmail = document.getElementById('tab-email');
+    const tabs = [tabSms, tabCall, tabEmail];
+
+    tabs.forEach(t => {
+      if (!t) return;
+      t.addEventListener('click', () => {
+        tabs.forEach(item => {
+          if (!item) return;
+          item.classList.remove('bg-surface-raised', 'text-text-primary', 'font-semibold', 'shadow-sm');
+          item.classList.add('text-text-muted');
+        });
+        t.classList.add('bg-surface-raised', 'text-text-primary', 'font-semibold', 'shadow-sm');
+        t.classList.remove('text-text-muted');
+      });
+    });
+
+  })();
+</script></main></div>
+
+
+<script id="surakshit-global-navigation">
+(function(){
+ const routes = {
+ 'landing-page':'/','dashboard':'/app','gujarati-ai-assistant':'/app/assistant',
+ 'check-message-call':'/app/check/message','phishing-url-checker':'/app/check/url',
+ 'screenshot-qr-scanner':'/app/check/image','screenshot-qr-analyzer':'/app/check/image',
+ 'emergency-help':'/emergency','scam-awareness-library':'/awareness',
+ 'scam-alerts':'/awareness','scam-alerts-district-intel':'/awareness',
+ 'complaint-generator':'/emergency'
+ };
+ document.querySelectorAll('[data-path]').forEach(el=>{
+   const target=routes[el.getAttribute('data-path')];
+   if(target && el.tagName==='A') el.setAttribute('href',target);
+ });
+ document.querySelectorAll('a[href="#"]').forEach(a=>{
+   const label=(a.innerText||a.getAttribute('aria-label')||'').trim().toLowerCase();
+   if(/login|sign in|પ્રવેશ/.test(label)) a.href='/login';
+   else if(/profile|setting|account|પ્રોફાઇલ/.test(label)) a.href='/app/profile';
+   else if(/admin/.test(label)) a.href='/admin';
+   else if(/article|read more|વધુ વાંચો/.test(label)) a.href='/awareness/article';
+ });
+ // keep navigation within the app and allow browser back/forward naturally
+})();
+</script>
+<script src="/route-links.js"></script>
+</body></html>
