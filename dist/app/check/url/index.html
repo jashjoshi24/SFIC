@@ -393,17 +393,52 @@
 
     if (scanBtn) {
       scanBtn.addEventListener('click', () => {
+        const url = urlInput ? urlInput.value.trim() : '';
+        if (!url) {
+          urlInput?.focus();
+          urlInput.value = 'https://sbi-kyc-quickupdate.xyz/verify';
+          return;
+        }
+
         const originalContent = scanBtn.innerHTML;
         scanBtn.disabled = true;
-        scanBtn.innerHTML = `
-          <span class="inline-block animate-spin mr-2">⚙️</span>
-          <span>વિશ્લેષણ ચાલુ છે...</span>
-        `;
+        scanBtn.innerHTML = '<span class="material-symbols-outlined animate-spin text-xl mr-2">progress_activity</span><span>ચકાસણી ચાલુ છે...</span>';
+
         setTimeout(() => {
           scanBtn.disabled = false;
           scanBtn.innerHTML = originalContent;
-        }, 1200);
+
+          if (window.SG && window.SG.analyseURL) {
+            const result = window.SG.analyseURL(url);
+            const isHigh = result.riskLevel === 'high' || result.score >= 50;
+
+            const targetBadge = document.querySelector('.lg\\:col-span-8 code.text-primary');
+            if (targetBadge) {
+              targetBadge.textContent = url.replace(/^https?:\/\//, '').split('/')[0];
+            }
+
+            const impersonationTitle = document.querySelector('.lg\\:col-span-8 .grid .sm\\:grid-cols-2 > div:last-child .font-headline-sm');
+            if (impersonationTitle) {
+              impersonationTitle.textContent = isHigh ? 'શંકાસ્પદ ફિશિંગ પોર્ટલ' : 'ઓછું જોખમ ધરાવતું ડોમેન';
+            }
+
+            try {
+              const history = JSON.parse(localStorage.getItem('sg_recent_scans') || '[]');
+              history.unshift({
+                type: 'url',
+                input: url.substring(0, 80),
+                score: result.score,
+                riskLevel: result.riskLevel,
+                timestamp: new Date().toLocaleTimeString('gu-IN')
+              });
+              localStorage.setItem('sg_recent_scans', JSON.stringify(history.slice(0, 10)));
+            } catch(e) {}
+
+            alert('URL વિશ્લેષણ પરિણામ:\n\nવેબસાઇટ: ' + url + '\nજોખમ સ્કોર: ' + result.score + '/100 (' + result.riskLabel + ')\n\n' + (isHigh ? 'ચેતવણી: આ લિંક પર ક્લિક ના કરો અને કોઈ વિગત સબમિટ ના કરો.' : 'સામાન્ય સલામતી: પાસવર્ડ દાખલ કરતા પહેલા ડોમેનની ચોકસાઈ કરો.'));
+          }
+        }, 900);
       });
+    }
     }
   })();
 </script></main></div>

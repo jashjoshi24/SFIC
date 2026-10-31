@@ -405,7 +405,10 @@
 </footer>
 </div>
 <script>
+  let activeScanTab = 'msg';
+
   function switchScanTab(tabName) {
+    activeScanTab = tabName;
     const panels = {
       'msg': document.getElementById('panel-msg'),
       'link': document.getElementById('panel-link'),
@@ -418,16 +421,16 @@
       'qr': document.getElementById('tab-qr')
     };
 
-    // Hide all panels, reset active button states
     Object.keys(panels).forEach(key => {
-      if (panels[key]) panels[key].classList.add('hidden');
-      if (panels[key]) panels[key].classList.remove('flex');
+      if (panels[key]) {
+        panels[key].classList.add('hidden');
+        panels[key].classList.remove('flex');
+      }
       if (buttons[key]) {
         buttons[key].className = 'tab-btn px-4 py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface font-label-md text-label-md font-semibold transition-all';
       }
     });
 
-    // Show target panel and apply active classes
     if (panels[tabName]) {
       panels[tabName].classList.remove('hidden');
       panels[tabName].classList.add('flex');
@@ -445,6 +448,7 @@
     } else if (type === 'msg2') {
       input.value = "વર્ક ફ્રોમ હોમ: YouTube વીડિયો લાઈક કરીને રોજના ₹૨,૫૦૦ કમાઓ. ટેલિગ્રામ પર જોડાઓ @quick-task-gujarat અને તમારો બોનસ ક્લેમ કરો.";
     }
+    switchScanTab('msg');
   }
 
   function executeScanDemo() {
@@ -452,16 +456,98 @@
     const resultBox = document.getElementById('scan-result');
     if (!btn || !resultBox) return;
 
+    let inputVal = '';
+    if (activeScanTab === 'msg') {
+      inputVal = (document.getElementById('msg-input')?.value || '').trim();
+      if (!inputVal) {
+        fillSample('msg1');
+        inputVal = (document.getElementById('msg-input')?.value || '').trim();
+      }
+    } else if (activeScanTab === 'link') {
+      inputVal = (document.getElementById('link-input')?.value || '').trim();
+      if (!inputVal) {
+        document.getElementById('link-input').value = 'https://sbi-kyc-verify-quick.xyz/login';
+        inputVal = 'https://sbi-kyc-verify-quick.xyz/login';
+      }
+    } else {
+      inputVal = 'QR Payment: upi://pay?pa=fake.msebupdate@oksbi&pn=DiscomPower&am=1480';
+    }
+
     btn.disabled = true;
-    btn.innerHTML = '<span class="material-symbols-outlined text-xl animate-spin">progress_activity</span><span>તપાસ થઈ રહી છે...</span>';
+    btn.innerHTML = '<span class="material-symbols-outlined text-xl animate-spin">progress_activity</span><span>વિશ્લેષણ ચાલુ છે...</span>';
 
     setTimeout(() => {
       btn.disabled = false;
       btn.innerHTML = '<span class="material-symbols-outlined text-xl">security</span><span>ચકાસો (Scan Now)</span>';
+
+      let result = null;
+      if (activeScanTab === 'msg' && window.SG?.analyseMessage) {
+        result = window.SG.analyseMessage(inputVal);
+      } else if (activeScanTab === 'link' && window.SG?.analyseURL) {
+        result = window.SG.analyseURL(inputVal);
+      } else if (window.SG?.analyseQRorImage) {
+        result = window.SG.analyseQRorImage(inputVal);
+      }
+
+      if (result) {
+        const isHigh = result.riskLevel === 'high' || result.score >= 50;
+        const isMedium = result.riskLevel === 'medium' || (result.score >= 25 && result.score < 50);
+        const iconName = isHigh ? 'dangerous' : (isMedium ? 'warning' : 'verified_user');
+        const colorClass = isHigh ? 'text-danger' : (isMedium ? 'text-tertiary' : 'text-secondary');
+        const badgeBg = isHigh ? 'bg-danger/20 text-danger' : (isMedium ? 'bg-tertiary/20 text-tertiary' : 'bg-secondary/20 text-secondary');
+
+        resultBox.innerHTML = `
+          <div class="flex items-center justify-between flex-wrap gap-2">
+            <div class="flex items-center gap-2.5">
+              <span class="material-symbols-outlined ${colorClass} text-2xl animate-pulse">${iconName}</span>
+              <span class="font-headline-sm text-headline-sm ${colorClass} font-bold">${result.riskLabel || 'જોખમ મૂલ્યાંકન'}</span>
+            </div>
+            <span class="px-3 py-1 rounded-full ${badgeBg} font-label-md text-label-md font-bold">સ્કોર: ${result.score} / 100</span>
+          </div>
+          <div class="mt-2 text-text-primary font-body-md text-body-md leading-relaxed">
+            ${result.indicators && result.indicators.length > 0
+              ? `<div class="font-label-sm text-label-sm text-text-muted mb-1 font-semibold uppercase">શોધાયેલા ફોરેન્સિક સૂચકો (Detected Red Flags):</div>
+                 <div class="flex flex-wrap gap-1.5 mb-2">
+                   ${result.indicators.map(ind => `<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-surface-raised border border-border-hairline text-on-surface text-label-sm font-medium"><span class="w-1.5 h-1.5 rounded-full ${isHigh ? 'bg-danger' : 'bg-tertiary'}"></span>${ind.label}</span>`).join('')}
+                 </div>`
+              : '<span class="text-text-muted">કોઈ તાત્કાલિક સાયબર જોખમ મળ્યું નથી. છતાં અજાણ્યા સ્ત્રોત સામે સાવચેત રહો.</span>'
+            }
+          </div>
+          <div class="flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-border-hairline/10 mt-1">
+            <span class="font-label-sm text-label-sm text-text-muted flex items-center gap-1.5">
+              <span class="material-symbols-outlined text-sm text-primary">policy</span>
+              ${isHigh ? 'તાત્કાલિક પગલું: આ લિંક ન ખોલો અને 1930 પર ફરિયાદ નોંધો.' : 'સલાહ: ક્યારેય કોઈને બેંક OTP કે UPI PIN આપશો નહીં.'}
+            </span>
+            <div class="flex items-center gap-2">
+              <a class="px-3 py-1.5 rounded-lg bg-danger/15 text-danger hover:bg-danger/25 font-label-sm text-label-sm font-semibold flex items-center gap-1 transition-all" data-path="emergency-help" href="/emergency">
+                <span class="material-symbols-outlined text-sm">description</span>
+                <span>ફરિયાદ ડ્રાફ્ટ</span>
+              </a>
+              <a class="px-3 py-1.5 rounded-lg bg-surface-raised hover:bg-surface-variant text-text-primary font-label-sm text-label-sm flex items-center gap-1 transition-all" data-path="dashboard" href="/app">
+                <span>ડૅશબોર્ડ વિગત</span>
+                <span class="material-symbols-outlined text-xs">arrow_forward</span>
+              </a>
+            </div>
+          </div>
+        `;
+
+        try {
+          const history = JSON.parse(localStorage.getItem('sg_recent_scans') || '[]');
+          history.unshift({
+            type: activeScanTab,
+            input: inputVal.substring(0, 80),
+            score: result.score,
+            riskLevel: result.riskLevel,
+            timestamp: new Date().toLocaleTimeString('gu-IN')
+          });
+          localStorage.setItem('sg_recent_scans', JSON.stringify(history.slice(0, 10)));
+        } catch(e) {}
+      }
+
       resultBox.classList.remove('hidden');
       resultBox.classList.add('flex');
       resultBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    }, 900);
+    }, 800);
   }
 </script></main></div><a class="fixed bottom-8 right-8 z-50 inline-flex items-center gap-2.5 px-5 py-3 rounded-full bg-danger text-on-error font-headline-sm text-headline-sm shadow-[0_8px_24px_rgba(240,100,100,0.45)] hover:scale-105 active:scale-95 transition-all group" data-path="emergency-help" href="/emergency"><span class="material-symbols-outlined text-[24px] animate-pulse">e911_emergency</span><div class="flex flex-col text-left"><span class="leading-none">તાત્કાલિક ફરિયાદ</span><span class="font-label-sm text-label-sm text-on-error/80 font-normal leading-tight">Instant 1930 Alert</span></div></a>
 
