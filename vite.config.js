@@ -29,6 +29,7 @@ function cleanRouteFallback() {
 
   return {
     name: 'surakshit-gujarat-clean-route-fallback',
+    enforce: 'pre',
     configureServer(server) {
       server.middlewares.use(rewrite)
     },
