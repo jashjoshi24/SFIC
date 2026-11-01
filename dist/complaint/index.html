@@ -1,0 +1,686 @@
+<!DOCTYPE html><html class="dark" lang="gu"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_dashboard" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700&amp;family=Manrope:wght@400;500;600&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface-raised":"#241B16","background":"#161311","inverse-primary":"#a04100","on-secondary-fixed-variant":"#00513a","text-muted":"#B7AAA0","secondary":"#61dcac","on-error-container":"#ffdad6","border-hairline":"rgba(255, 239, 220, 0.12)","on-secondary-fixed":"#002115","error-container":"#93000a","primary-fixed":"#ffdbcc","surface-dim":"#161311","primary-strong":"#F15A24","outline-variant":"#584238","surface-soft":"#30231B","on-tertiary-fixed":"#281900","on-primary-fixed":"#351000","surface-variant":"#383431","surface":"#191411","on-tertiary-fixed-variant":"#604100","on-secondary-container":"#003121","secondary-container":"#14a479","on-background":"#e9e1dd","tertiary":"#f9bc4f","surface-container-low":"#1e1b19","inverse-surface":"#e9e1dd","surface-container-lowest":"#110e0c","surface-container-high":"#2d2927","primary":"#ffb693","on-primary":"#561f00","primary-fixed-dim":"#ffb693","bg-base":"#100D0B","inverse-on-surface":"#34302d","on-surface-variant":"#dfc0b2","secondary-fixed":"#7ff9c7","on-tertiary-container":"#4b3200","surface-container-highest":"#383431","surface-tint":"#ffb693","on-error":"#690005","on-tertiary":"#432c00","secondary-fixed-dim":"#61dcac","danger":"#F06464","on-secondary":"#003827","tertiary-fixed-dim":"#f9bc4f","outline":"#a78b7f","on-primary-fixed-variant":"#7a3000","on-surface":"#e9e1dd","surface-bright":"#3d3836","on-primary-container":"#612400","tertiary-fixed":"#ffdeac","text-primary":"#F8F3ED","info":"#65A9E8","primary-container":"#ff7a2f","error":"#ffb4ab","tertiary-container":"#cf962b","surface-container":"#221f1d"},borderRadius:{DEFAULT:"0.25rem",lg:"0.5rem",xl:"0.75rem",full:"9999px"},spacing:{"space-lg":"1.5rem",gutter:"1.5rem","space-md":"1rem","gutter-mobile":"1rem",margin:"2rem","space-xs":"0.25rem","space-sm":"0.5rem","margin-mobile":"1rem","space-xl":"2.5rem"},fontFamily:{"headline-lg":["Plus Jakarta Sans"],"body-sm":["Manrope"],"headline-xl-mobile":["Plus Jakarta Sans"],"headline-xl":["Plus Jakarta Sans"],"body-lg":["Manrope"],"label-lg":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"],"headline-sm":["Plus Jakarta Sans"],"label-md":["Plus Jakarta Sans"],"label-sm":["Plus Jakarta Sans"],"headline-lg-mobile":["Plus Jakarta Sans"],"body-md":["Manrope"]},fontSize:{"headline-lg":["32px",{lineHeight:"40px",letterSpacing:"-0.015em",fontWeight:"600"}],"body-sm":["13px",{lineHeight:"20px",fontWeight:"400"}],"headline-xl-mobile":["32px",{lineHeight:"40px",letterSpacing:"-0.01em",fontWeight:"700"}],"headline-xl":["48px",{lineHeight:"58px",letterSpacing:"-0.02em",fontWeight:"700"}],"body-lg":["17px",{lineHeight:"28px",fontWeight:"400"}],"label-lg":["14px",{lineHeight:"20px",letterSpacing:"0.01em",fontWeight:"600"}],"headline-md":["22px",{lineHeight:"30px",letterSpacing:"-0.01em",fontWeight:"600"}],"headline-sm":["18px",{lineHeight:"26px",fontWeight:"600"}],"label-md":["12px",{lineHeight:"16px",letterSpacing:"0.02em",fontWeight:"600"}],"label-sm":["11px",{lineHeight:"14px",letterSpacing:"0.03em",fontWeight:"500"}],"headline-lg-mobile":["24px",{lineHeight:"32px",letterSpacing:"-0.01em",fontWeight:"600"}],"body-md":["15px",{lineHeight:"24px",fontWeight:"400"}]}}}};</script></head>
+<body class="bg-bg-base text-on-surface font-body-md text-body-md min-h-screen selection:bg-primary-container selection:text-on-primary-container">
+<aside class="fixed left-0 top-0 h-screen w-72 bg-surface-container-lowest/90 backdrop-blur-2xl z-50 flex flex-col justify-between shadow-[0_0_28px_rgba(0,0,0,0.7)]">
+<div class="flex flex-col">
+<div class="h-20 px-space-md flex items-center justify-between">
+<a class="flex items-center gap-space-sm" data-path="dashboard" href="/app">
+<img alt="Surakshit Gujarat Emblem" class="h-8 w-auto object-contain" src="/brand-mark.svg">
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="font-headline-sm text-headline-sm text-text-primary tracking-tight">સુરક્ષિત ગુજરાત</span>
+<span class="inline-flex items-center px-1.5 py-0.5 rounded-full bg-secondary-container/20 text-secondary text-[10px] font-label-sm font-semibold tracking-wide uppercase">AI Kavach</span>
+</div>
+<span class="font-label-sm text-label-sm text-text-muted">Cyber Suraksha Kendra</span>
+</div>
+</a>
+</div>
+<div class="px-space-md py-space-xs">
+<div class="flex items-center justify-between px-space-sm py-1.5 rounded-lg bg-surface-raised">
+<div class="flex items-center gap-2">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-secondary"></span>
+</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Active Shield Live</span>
+</div>
+<span class="font-label-sm text-label-sm text-secondary font-medium">24x7 Ready</span>
+</div>
+</div>
+<nav class="px-space-sm mt-space-sm space-y-1" data-active-classes="bg-primary-container text-on-primary-container font-semibold shadow-[0_4px_16px_rgba(241,90,36,0.3)]">
+<a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-raised hover:text-on-surface transition-all group" data-path="dashboard" href="/app">
+<span class="material-symbols-outlined text-[20px] transition-colors group-hover:text-primary">shield</span>
+<div class="flex flex-col"><span class="font-label-lg text-label-lg">Dashboard</span><span class="font-label-sm text-label-sm opacity-70">મુખ્ય પૃષ્ઠ</span></div>
+</a>
+<a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-raised hover:text-on-surface transition-all group" data-path="gujarati-ai-assistant" href="/app/assistant">
+<span class="material-symbols-outlined text-[20px] transition-colors group-hover:text-primary">smart_toy</span>
+<div class="flex flex-col"><span class="font-label-lg text-label-lg">Gujarati AI Assistant</span><span class="font-label-sm text-label-sm opacity-70">સાયબર સહાયક AI</span></div>
+</a>
+<a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-raised hover:text-on-surface transition-all group" data-path="check-message-call" href="/app/check/message">
+<span class="material-symbols-outlined text-[20px] transition-colors group-hover:text-primary">sms</span>
+<div class="flex flex-col"><span class="font-label-lg text-label-lg">Check Message / Call</span><span class="font-label-sm text-label-sm opacity-70">શંકાસ્પદ મેસેજ તપાસો</span></div>
+</a>
+<a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-raised hover:text-on-surface transition-all group" data-path="phishing-url-checker" href="/app/check/url">
+<span class="material-symbols-outlined text-[20px] transition-colors group-hover:text-primary">link</span>
+<div class="flex flex-col"><span class="font-label-lg text-label-lg">Phishing URL Checker</span><span class="font-label-sm text-label-sm opacity-70">લિંક સુરક્ષા સ્કેનર</span></div>
+</a>
+<a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-raised hover:text-on-surface transition-all group" data-path="screenshot-qr-scanner" href="/app/check/image">
+<span class="material-symbols-outlined text-[20px] transition-colors group-hover:text-primary">qr_code_scanner</span>
+<div class="flex flex-col"><span class="font-label-lg text-label-lg">Screenshot / QR Scanner</span><span class="font-label-sm text-label-sm opacity-70">QR સ્કેન અને સ્ક્રીનશોટ</span></div>
+</a>
+<a aria-current="page" class="flex items-center gap-space-sm px-space-md py-2.5 rounded-xl transition-all group bg-primary-container text-on-primary-container font-semibold shadow-[0_4px_16px_rgba(241,90,36,0.3)]" data-path="complaint-generator" href="/app/complaint">
+<span class="material-symbols-outlined text-[20px] transition-colors">description</span>
+<div class="flex flex-col"><span class="font-label-lg text-label-lg">Complaint Generator</span><span class="font-label-sm text-label-sm opacity-70">સાયબર ફરિયાદ ડ્રાફ્ટ</span></div>
+</a>
+<a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-raised hover:text-on-surface transition-all group" data-path="scam-alerts" href="/awareness">
+<span class="material-symbols-outlined text-[20px] transition-colors group-hover:text-primary">warning</span>
+<div class="flex flex-col"><span class="font-label-lg text-label-lg">Scam Alerts</span><span class="font-label-sm text-label-sm opacity-70">તાજા ફ્રોડ એલર્ટ્સ</span></div>
+</a>
+<a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-raised hover:text-on-surface transition-all group" data-path="emergency-help" href="/emergency">
+<span class="material-symbols-outlined text-[20px] text-danger">fmd_bad</span>
+<div class="flex flex-col"><span class="font-label-lg text-label-lg text-danger">Emergency Help</span><span class="font-label-sm text-label-sm opacity-70">ત્વરિત સહાય (1930)</span></div>
+</a>
+</nav>
+</div>
+<div class="p-space-md">
+<div class="p-3.5 rounded-xl bg-surface-raised/80 backdrop-blur-md flex flex-col gap-2.5">
+<div class="flex items-center justify-between"><span class="font-label-sm text-label-sm text-text-muted">Helpline Desk</span><span class="font-label-sm text-label-sm text-primary font-semibold">National Portal</span></div>
+<div class="flex items-center gap-2"><span class="material-symbols-outlined text-tertiary text-lg">phone_in_talk</span><span class="font-headline-sm text-headline-sm text-text-primary tracking-wider">1930</span></div>
+<span class="font-body-sm text-body-sm text-text-muted">Gujarat State Police &amp; MHA Cyber Crime Coordination Unit</span>
+</div>
+</div>
+</aside>
+
+<div class="pl-72">
+<header class="fixed top-0 left-72 right-0 h-20 bg-surface-container-lowest/80 backdrop-blur-xl z-40 px-gutter flex items-center justify-between">
+<div class="flex items-center gap-space-md">
+<img alt="Surakshit Gujarat Emblem" class="h-8 w-auto object-contain" src="/brand-mark.svg">
+<div class="relative flex items-center w-80 lg:w-96">
+<span class="material-symbols-outlined absolute left-3.5 text-text-muted text-lg">search</span>
+<input class="w-full pl-10 pr-20 py-2 rounded-xl bg-surface text-text-primary placeholder:text-text-muted/60 font-body-sm text-body-sm focus:outline-none focus:ring-1 focus:ring-primary-container transition-all" placeholder="મેસેજ, નંબર કે વેબસાઇટ શોધો..." type="text">
+<div class="absolute right-2.5 flex items-center gap-1 px-1.5 py-0.5 rounded bg-surface-raised font-label-sm text-label-sm text-text-muted">
+<kbd class="font-sans text-[11px]">⌘</kbd><kbd class="font-sans text-[11px]">K</kbd>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-space-md">
+<div class="flex items-center p-1 rounded-full bg-surface-raised text-on-surface-variant font-label-sm text-label-sm">
+<button class="px-3 py-1 rounded-full bg-primary-container text-on-primary-container font-semibold transition-all shadow-sm" type="button">ગુજરાતી</button>
+<button class="px-3 py-1 rounded-full text-on-surface-variant hover:text-on-surface transition-all" type="button">हिंदी</button>
+<button class="px-3 py-1 rounded-full text-on-surface-variant hover:text-on-surface transition-all" type="button">English</button>
+</div>
+<a class="relative inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-error-container/30 text-error hover:bg-error-container/40 transition-all font-label-md text-label-md" href="tel:1930">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-danger opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-danger"></span>
+</span>
+<span class="font-semibold">1930 Cyber Helpline</span>
+</a>
+<button aria-label="Notifications" class="relative p-2 rounded-full text-on-surface-variant hover:bg-surface-raised hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-[22px]">notifications</span>
+<span class="absolute top-1.5 right-1.5 h-2 w-2 rounded-full bg-primary-container ring-2 ring-bg-base"></span>
+</button>
+<div class="flex items-center gap-space-sm pl-2">
+<img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-1 ring-border-hairline" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvPWtDcDYdjnUO02xCx-n1FBSVpKL8CXbp_7H355VnMb2whkg3TwNdmTkz3MUjFA5xT79_EVxyQCjd5iPpI0Fdn6imA3CoX7aJkftun8qDtexquQ2IDsSRwO1yp4eFYh3L477vvxAwcy1F3FBi8I-XdN__saLl6febWqYJW4AmxpvffykpOZRugvBJqDSHdz9_Z3kXAic7iNOITtnXW3x6mwLqjP8oEax4g_DWl-k">
+<div class="hidden xl:flex flex-col text-left">
+<span class="font-label-md text-label-md text-text-primary leading-tight">ધ્રુવી પટેલ (Dhruvi Patel)</span>
+<span class="font-label-sm text-label-sm text-text-muted">અમદાવાદ પશ્ચિમ · નાગરિક</span>
+</div>
+</div>
+</div>
+</header>
+
+<main class="w-full pt-20 bg-bg-base min-h-screen px-gutter pb-space-xl">
+<div class="flex flex-col w-full">
+
+<!-- Top Banner for Complaint Generator -->
+<div class="relative w-full overflow-hidden rounded-2xl bg-surface-raised p-space-md lg:p-space-lg shadow-xl mb-space-lg mt-4">
+<div class="absolute -right-20 -top-20 w-80 h-80 rounded-full bg-primary-container/15 blur-3xl pointer-events-none"></div>
+<div class="absolute left-1/3 -bottom-24 w-64 h-64 rounded-full bg-secondary-container/10 blur-3xl pointer-events-none"></div>
+<div class="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-space-md">
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-2 flex-wrap">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary-container/20 text-primary-strong text-label-sm font-label-sm font-semibold">
+<span class="material-symbols-outlined text-[16px]">description</span>
+સત્તાવાર સાયબર ફરિયાદ જનરેટર
+</span>
+<span class="px-2.5 py-0.5 rounded-full bg-secondary-container/20 text-secondary font-label-sm text-label-sm">
+CFCFRMS ૧૯૩૦ માન્ય ફોર્મેટ
+</span>
+<span class="px-2.5 py-0.5 rounded-full bg-surface text-text-muted font-label-sm text-label-sm">
+ઓટો-ડ્રાફ્ટિંગ ટૂલ
+</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-text-primary tracking-tight">
+સાયબર ક્રાઈમ કાનૂની ફરિયાદ ડ્રાફ્ટ જનરેટર
+</h1>
+<p class="font-body-md text-body-md text-text-muted max-w-2xl leading-relaxed">
+નાણાકીય છેતરપિંડી, OTP સ્કેમ કે ડિજિટલ અરેસ્ટનો ભોગ બન્યા હોવ તો નીચે વિગતો ભરો. સિસ્ટમ આપમેળે ગુજરાત સાયબર પોલીસ અને ૧૯૩૦ હેલ્પડેસ્ક માટે સચોટ, કાનૂની ભાષામાં ફરિયાદ પત્ર તૈયાર કરશે.
+</p>
+</div>
+<div class="flex items-center gap-3 shrink-0">
+<a href="https://cybercrime.gov.in" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-surface hover:bg-surface-soft text-text-primary font-label-md text-label-md transition-all shadow-sm">
+<span class="material-symbols-outlined text-primary text-[18px]">open_in_new</span>
+cybercrime.gov.in પોર્ટલ
+</a>
+<a href="tel:1930" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-danger text-on-error font-label-md text-label-md shadow-md hover:scale-[1.02] active:scale-95 transition-all">
+<span class="material-symbols-outlined text-[18px]">call</span>
+૧૯૩૦ હેલ્પલાઇન
+</a>
+</div>
+</div>
+</div>
+
+<!-- Scenario Selector Pills -->
+<section class="mb-space-lg flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">crisis_alert</span>
+<h2 class="font-headline-sm text-headline-sm text-text-primary">૧. ઝડપી સ્કેમ પ્રકાર પસંદ કરો (Quick Scenarios)</h2>
+</div>
+<span class="font-label-sm text-label-sm text-text-muted">પસંદ કરતાં ફોર્મ આપમેળે ભરાશે</span>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3" id="scenario-selector">
+<button class="scenario-btn text-left p-3.5 rounded-xl bg-surface-raised shadow-md transition-all flex flex-col justify-between gap-3 group relative overflow-hidden ring-1 ring-primary-container/40" data-scenario="upi" type="button">
+<div class="flex items-center justify-between w-full">
+<span class="material-symbols-outlined text-primary text-[22px]">payments</span>
+<span class="scenario-badge px-2 py-0.5 rounded-full bg-primary-container/20 text-primary-strong font-label-sm text-label-sm">સક્રિય (Active)</span>
+</div>
+<div>
+<div class="font-label-lg text-label-lg text-text-primary font-semibold group-hover:text-primary transition-colors">UPI / બેંકમાંથી પૈસા કપાયા</div>
+<div class="font-body-sm text-body-sm text-text-muted leading-snug mt-1">ખોટી QR લિંક, ફ્રોડ કલેક્ટ રિક્વેસ્ટ કે અનઓથોરાઇઝ્ડ ડેબિટ</div>
+</div>
+</button>
+
+<button class="scenario-btn text-left p-3.5 rounded-xl bg-surface shadow-md transition-all flex flex-col justify-between gap-3 group relative overflow-hidden" data-scenario="otp" type="button">
+<div class="flex items-center justify-between w-full">
+<span class="material-symbols-outlined text-text-muted group-hover:text-tertiary transition-colors text-[22px]">password</span>
+<span class="scenario-badge hidden px-2 py-0.5 rounded-full bg-tertiary/20 text-tertiary font-label-sm text-label-sm">સક્રિય</span>
+</div>
+<div>
+<div class="font-label-lg text-label-lg text-text-primary font-semibold group-hover:text-tertiary transition-colors">OTP / કાર્ડ વિગતો શેર થઈ ગઈ</div>
+<div class="font-body-sm text-body-sm text-text-muted leading-snug mt-1">બેંક કર્મચારી કે લોટરીના નામે CVV અથવા OTP ફોન પર આપ્યો</div>
+</div>
+</button>
+
+<button class="scenario-btn text-left p-3.5 rounded-xl bg-surface shadow-md transition-all flex flex-col justify-between gap-3 group relative overflow-hidden" data-scenario="digital-arrest" type="button">
+<div class="flex items-center justify-between w-full">
+<span class="material-symbols-outlined text-text-muted group-hover:text-danger transition-colors text-[22px]">videocam_off</span>
+<span class="scenario-badge hidden px-2 py-0.5 rounded-full bg-danger/20 text-danger font-label-sm text-label-sm">સક્રિય</span>
+</div>
+<div>
+<div class="font-label-lg text-label-lg text-text-primary font-semibold group-hover:text-danger transition-colors">ડિજિટલ એરેસ્ટ / ધમકી કૉલ</div>
+<div class="font-body-sm text-body-sm text-text-muted leading-snug mt-1">CBI, કસ્ટમ્સ, નાર્કોટિક્સના નકલી અધિકારી બની કેમેરા સામે પૈસા પડાવ્યા</div>
+</div>
+</button>
+
+<button class="scenario-btn text-left p-3.5 rounded-xl bg-surface shadow-md transition-all flex flex-col justify-between gap-3 group relative overflow-hidden" data-scenario="loan-app" type="button">
+<div class="flex items-center justify-between w-full">
+<span class="material-symbols-outlined text-text-muted group-hover:text-secondary transition-colors text-[22px]">security_update_warning</span>
+<span class="scenario-badge hidden px-2 py-0.5 rounded-full bg-secondary/20 text-secondary font-label-sm text-label-sm">સક્રિય</span>
+</div>
+<div>
+<div class="font-label-lg text-label-lg text-text-primary font-semibold group-hover:text-secondary transition-colors">નકલી લોન એપ / એક્સટોર્શન</div>
+<div class="font-body-sm text-body-sm text-text-muted leading-snug mt-1">APK દ્વારા સંપર્કો ચોરીને મોર્ફ કરેલા ફોટાથી ધમકી અને બ્લેકમેઇલ</div>
+</div>
+</button>
+</div>
+</section>
+
+<!-- Main Form & Live Complaint Preview Grid -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-space-lg">
+
+<!-- Left: Form Inputs & Evidence Checklist (5 cols) -->
+<div class="xl:col-span-5 flex flex-col gap-space-md">
+
+<!-- Card: Form Details -->
+<div class="p-space-md lg:p-6 rounded-2xl bg-surface-raised shadow-xl flex flex-col gap-4">
+<div class="flex items-center gap-2.5 pb-2 border-b border-border-hairline">
+<span class="flex items-center justify-center w-7 h-7 rounded-full bg-primary-container text-on-primary-container font-headline-sm text-label-md font-bold">૨</span>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-text-primary">ઘટના અને ટ્રાન્ઝેક્શન વિગતો</h3>
+<span class="font-label-sm text-label-sm text-text-muted">નીચેની તમામ વિગતો ડ્રાફ્ટમાં સામેલ થશે</span>
+</div>
+</div>
+
+<form class="flex flex-col gap-3.5" id="complaint-form">
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-text-primary" for="form-category">છેતરપિંડીનો પ્રકાર (Category)</label>
+<select class="w-full px-3.5 py-2.5 rounded-xl bg-surface text-text-primary font-body-sm text-body-sm focus:outline-none focus:ring-1 focus:ring-primary-container" id="form-category">
+<option value="UPI Fraud / ખોટી પેમેન્ટ કલેક્ટ રિક્વેસ્ટ">UPI Fraud / ખોટી પેમેન્ટ કલેક્ટ રિક્વેસ્ટ</option>
+<option value="નકલી વીજળી બિલ લિંક ડેબિટ (Electricity Bill APK)">નકલી વીજળી બિલ લિંક ડેબિટ (Electricity Bill APK)</option>
+<option value="ડિજિટલ એરેસ્ટ કૉલ મની ટ્રાન્સફર (CBI/Police Extortion)">ડિજિટલ એરેસ્ટ કૉલ મની ટ્રાન્સફર (CBI/Police)</option>
+<option value="ઓનલાઇન પાર્ટ-ટાઇમ જોબ / ટેલિગ્રામ ટાસ્ક સ્કેમ">ઓનલાઇન પાર્ટ-ટાઇમ જોબ / ટેલિગ્રામ ટાસ્ક સ્કેમ</option>
+<option value="ATM / ક્રેડિટ કાર્ડ ક્લોનિંગ અથવા OTP સ્કેમ">ATM / ક્રેડિટ કાર્ડ ક્લોનિંગ અથવા OTP સ્કેમ</option>
+<option value="નકલી લોન એપ બ્લેકમેઇલ અને ઓનલાઇન એક્સટોર્શન">નકલી લોન એપ બ્લેકમેઇલ અને ઓનલાઇન એક્સટોર્શન</option>
+</select>
+</div>
+
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-text-primary" for="form-amount">નુકસાન રકમ (₹)</label>
+<div class="relative flex items-center">
+<span class="absolute left-3 font-semibold text-text-muted text-body-md">₹</span>
+<input class="w-full pl-8 pr-3.5 py-2.5 rounded-xl bg-surface text-text-primary font-body-sm text-body-sm focus:outline-none focus:ring-1 focus:ring-primary-container" id="form-amount" type="text" value="25,000">
+</div>
+</div>
+
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-text-primary" for="form-utr">ટ્રાન્ઝેક્શન UTR / Ref</label>
+<input class="w-full px-3.5 py-2.5 rounded-xl bg-surface text-text-primary font-body-sm text-body-sm focus:outline-none focus:ring-1 focus:ring-primary-container font-mono" id="form-utr" placeholder="દા.ત. 410294821039" type="text" value="UTR-4829104928">
+</div>
+</div>
+
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-text-primary" for="form-datetime">ઘટનાની તારીખ અને સમય</label>
+<input class="w-full px-3.5 py-2.5 rounded-xl bg-surface text-text-primary font-body-sm text-body-sm focus:outline-none focus:ring-1 focus:ring-primary-container" id="form-datetime" placeholder="દા.ત. 24 ઑક્ટોબર, 11:30 AM" type="text" value="આજે બપોરે 02:15 વાગ્યે">
+</div>
+
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-text-primary" for="form-sender-bank">તમારું બેંક ખાતું / UPI એપ્લિકેશન</label>
+<input class="w-full px-3.5 py-2.5 rounded-xl bg-surface text-text-primary font-body-sm text-body-sm focus:outline-none focus:ring-1 focus:ring-primary-container" id="form-sender-bank" type="text" value="State Bank of India (SBI) / Google Pay">
+</div>
+
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-text-primary" for="form-fraud-account">આરોપીનું UPI ID / મોબાઈલ / ખાતું</label>
+<input class="w-full px-3.5 py-2.5 rounded-xl bg-surface text-text-primary font-body-sm text-body-sm focus:outline-none focus:ring-1 focus:ring-primary-container font-mono" id="form-fraud-account" type="text" value="fastrefund.support@icici (+91 98250 19283)">
+</div>
+</form>
+</div>
+
+<!-- Evidence Checklist Card -->
+<div class="p-space-md rounded-2xl bg-surface-raised shadow-lg flex flex-col gap-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-[20px]">checklist</span>
+<h4 class="font-headline-sm text-headline-sm text-text-primary">ફરિયાદ સાથે જોડવાના પુરાવા (Checklist)</h4>
+</div>
+<div class="space-y-2 text-body-sm">
+<label class="flex items-start gap-2.5 p-2 rounded-lg bg-surface cursor-pointer">
+<input checked="" class="mt-1 h-4 w-4 rounded bg-surface-raised text-primary-container focus:ring-0" type="checkbox">
+<span class="text-on-surface">બેંક ડેબિટ SMS અને મિની સ્ટેટમેન્ટ (૧૨ અંકનો UTR દેખાતો હોવો જરૂરી)</span>
+</label>
+<label class="flex items-start gap-2.5 p-2 rounded-lg bg-surface cursor-pointer">
+<input checked="" class="mt-1 h-4 w-4 rounded bg-surface-raised text-primary-container focus:ring-0" type="checkbox">
+<span class="text-on-surface">ઠગ સાથેની WhatsApp ચેટ, કોલ રેકોર્ડ કે SMS ના સ્ક્રીનશોટ</span>
+</label>
+<label class="flex items-start gap-2.5 p-2 rounded-lg bg-surface cursor-pointer">
+<input checked="" class="mt-1 h-4 w-4 rounded bg-surface-raised text-primary-container focus:ring-0" type="checkbox">
+<span class="text-on-surface">UPI પેમેન્ટ એપ્લિકેશન (GPay/PhonePe/Paytm) ની રસીદ PDF</span>
+</label>
+</div>
+</div>
+
+</div>
+
+<!-- Right: Live Complaint Preview & Actions (7 cols) -->
+<div class="xl:col-span-7 flex flex-col gap-space-md">
+
+<div class="p-space-md lg:p-6 rounded-2xl bg-surface-raised shadow-xl flex flex-col gap-4">
+<div class="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-border-hairline">
+<div class="flex items-center gap-2.5">
+<span class="flex items-center justify-center w-7 h-7 rounded-full bg-secondary-container text-on-secondary-container font-headline-sm text-label-md font-bold">૩</span>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-text-primary">તૈયાર થયેલ કાનૂની ફરિયાદ ડ્રાફ્ટ</h3>
+<span class="font-label-sm text-label-sm text-text-muted">લાઈવ અપડેટ · ૧૯૩૦ & સાયબર સેલ ફોર્મેટ</span>
+</div>
+</div>
+
+<!-- Language Switcher for Draft -->
+<div class="flex items-center p-1 rounded-full bg-surface text-on-surface-variant font-label-sm text-label-sm" id="draft-lang-toggle">
+<button class="px-3 py-1 rounded-full bg-primary-container text-on-primary-container font-semibold transition-all" data-dlang="gu" id="btn-lang-gu" type="button">ગુજરાતી</button>
+<button class="px-3 py-1 rounded-full text-on-surface-variant hover:text-on-surface transition-all" data-dlang="hi" id="btn-lang-hi" type="button">हिंदी</button>
+<button class="px-3 py-1 rounded-full text-on-surface-variant hover:text-on-surface transition-all" data-dlang="en" id="btn-lang-en" type="button">English</button>
+</div>
+</div>
+
+<!-- Complaint Preview Box -->
+<div class="relative flex flex-col">
+<div class="flex items-center justify-between px-4 py-2 rounded-t-xl bg-surface border-b border-border-hairline text-label-sm text-text-muted">
+<span class="flex items-center gap-1.5 text-secondary font-semibold">
+<span class="material-symbols-outlined text-[16px]">verified</span>
+સત્તાવાર સાયબર સેલ ફરિયાદ નમૂનો
+</span>
+<span class="text-[12px]">તારીખ: <span id="current-draft-date"></span></span>
+</div>
+
+<textarea class="w-full h-[400px] p-4 bg-surface-container-lowest text-text-primary font-mono text-[13px] leading-relaxed resize-none focus:outline-none select-all" id="complaint-text" readonly=""></textarea>
+
+<div class="flex flex-wrap items-center justify-between gap-3 p-3 rounded-b-xl bg-surface border-t border-border-hairline">
+<div class="flex items-center gap-2">
+<button class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-primary-container hover:bg-primary-strong text-on-primary-container font-label-md text-label-md transition-all shadow-md active:scale-95" id="copy-btn" type="button">
+<span class="material-symbols-outlined text-[18px]">content_copy</span>
+<span id="copy-text-label">ડ્રાફ્ટ કૉપિ કરો (Copy Text)</span>
+</button>
+
+<button class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-surface-raised hover:bg-surface-soft text-text-primary font-label-md text-label-md transition-all shadow-sm" id="download-pdf-btn" type="button">
+<span class="material-symbols-outlined text-primary text-[18px]">download</span>
+<span class="">ટેક્સ્ટ ફાઇલ ડાઉનલોડ (.txt)</span>
+</button>
+</div>
+
+<a href="https://cybercrime.gov.in" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-raised text-secondary hover:text-text-primary text-label-sm font-semibold transition-colors">
+<span>cybercrime.gov.in પર પેસ્ટ કરો</span>
+<span class="material-symbols-outlined text-[16px]">open_in_new</span>
+</a>
+</div>
+</div>
+
+<!-- Notice -->
+<div class="p-3.5 rounded-xl bg-surface text-body-sm text-text-muted flex items-start gap-2.5">
+<span class="material-symbols-outlined text-primary text-[18px] shrink-0 mt-0.5">info</span>
+<span>આ ડ્રાફ્ટ સીધો કૉપિ કરીને cybercrime.gov.in પર "Report Financial Fraud" કેટેગરીમાં અથવા ૧૯૩૦ પર કૉલ કર્યા બાદ એસએમએસમાં મળેલ લિંકમાં પેસ્ટ કરી શકાય છે.</span>
+</div>
+
+</div>
+
+<!-- Golden Hour Next Steps -->
+<div class="p-space-md rounded-2xl bg-surface-raised shadow-lg flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<h4 class="font-headline-sm text-headline-sm text-text-primary">ફરિયાદ ડ્રાફ્ટ કર્યા પછીના તાત્કાલિક પગલાં</h4>
+<span class="px-2.5 py-0.5 rounded-full bg-danger/20 text-danger text-label-sm font-semibold">અત્યંત મહત્વપૂર્ણ</span>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1">
+<div class="p-3 rounded-xl bg-surface flex flex-col gap-1.5">
+<div class="flex items-center gap-2 text-primary font-semibold text-label-md">
+<span class="material-symbols-outlined text-[18px]">call</span>
+૧. ૧૯૩૦ પર કૉલ કરો
+</div>
+<span class="text-body-sm text-text-muted">હેલ્પલાઇન પર તાત્કાલિક આ ડ્રાફ્ટ મુજબ વિગતો આપો જેથી બેંક ખાતું ફ્રીઝ થાય.</span>
+</div>
+<div class="p-3 rounded-xl bg-surface flex flex-col gap-1.5">
+<div class="flex items-center gap-2 text-secondary font-semibold text-label-md">
+<span class="material-symbols-outlined text-[18px]">account_balance</span>
+૨. બેંકને જાણ કરો
+</div>
+<span class="text-body-sm text-text-muted">તમારી બેંક શાખા અથવા ટોલ-ફ્રી નંબર પર લેખિતમાં આ ફરિયાદ આપી રકમ હોલ્ડ કરાવો.</span>
+</div>
+<div class="p-3 rounded-xl bg-surface flex flex-col gap-1.5">
+<div class="flex items-center gap-2 text-tertiary font-semibold text-label-md">
+<span class="material-symbols-outlined text-[18px]">lock</span>
+૩. UPI &amp; કાર્ડ બ્લોક
+</div>
+<span class="text-body-sm text-text-muted">નેટબેંકિંગ પાસવર્ડ બદલો અને શંકાસ્પદ UPI ID અથવા કાર્ડ તાત્કાલિક બ્લોક કરો.</span>
+</div>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+</main>
+</div>
+
+<script>
+  (function initComplaintGenerator() {
+    const scenarioBtns = document.querySelectorAll('.scenario-btn');
+    const categorySelect = document.getElementById('form-category');
+    const amountInput = document.getElementById('form-amount');
+    const utrInput = document.getElementById('form-utr');
+    const datetimeInput = document.getElementById('form-datetime');
+    const senderBankInput = document.getElementById('form-sender-bank');
+    const fraudAccountInput = document.getElementById('form-fraud-account');
+    const complaintText = document.getElementById('complaint-text');
+    const copyBtn = document.getElementById('copy-btn');
+    const copyLabel = document.getElementById('copy-text-label');
+    const downloadPdfBtn = document.getElementById('download-pdf-btn');
+    const dateLabel = document.getElementById('current-draft-date');
+
+    const btnLangGu = document.getElementById('btn-lang-gu');
+    const btnLangHi = document.getElementById('btn-lang-hi');
+    const btnLangEn = document.getElementById('btn-lang-en');
+
+    if (dateLabel) {
+      dateLabel.textContent = new Date().toLocaleDateString('gu-IN');
+    }
+
+    let currentDraftLang = (window.SG && typeof window.SG.lang === 'function') ? window.SG.lang() : (localStorage.getItem('sg_lang') || 'gu');
+
+    function syncDraftLangButtons() {
+      const allBtns = [btnLangGu, btnLangHi, btnLangEn];
+      allBtns.forEach(b => {
+        if (!b) return;
+        b.classList.remove('bg-primary-container', 'text-on-primary-container', 'font-semibold');
+        b.classList.add('text-on-surface-variant');
+      });
+      const activeBtn = currentDraftLang === 'hi' ? btnLangHi : (currentDraftLang === 'en' ? btnLangEn : btnLangGu);
+      if (activeBtn) {
+        activeBtn.classList.add('bg-primary-container', 'text-on-primary-container', 'font-semibold');
+        activeBtn.classList.remove('text-on-surface-variant');
+      }
+    }
+
+    [btnLangGu, btnLangHi, btnLangEn].forEach(b => {
+      if (!b) return;
+      b.addEventListener('click', () => {
+        currentDraftLang = b.getAttribute('data-dlang') || 'gu';
+        syncDraftLangButtons();
+        updateComplaintText();
+      });
+    });
+
+    const scenarioData = {
+      upi: {
+        category: 'UPI Fraud / ખોટી પેમેન્ટ કલેક્ટ રિક્વેસ્ટ',
+        amount: '25,000',
+        utr: 'UTR-4829104928',
+        datetime: 'આજે બપોરે 02:15 વાગ્યે',
+        senderBank: 'State Bank of India (SBI) / Google Pay',
+        fraudAccount: 'fastrefund.support@icici (+91 98250 19283)'
+      },
+      otp: {
+        category: 'ATM / ક્રેડિટ કાર્ડ ક્લોનિંગ અથવા OTP સ્કેમ',
+        amount: '48,500',
+        utr: 'TXN-9920194812',
+        datetime: 'આજે સવારે 11:20 વાગ્યે',
+        senderBank: 'Bank of Baroda (BOB) Debit Card',
+        fraudAccount: 'કૉલર: +91 70291 88392 (નકલી બેંક મેનેજર)'
+      },
+      'digital-arrest': {
+        category: 'ડિજિટલ એરેસ્ટ કૉલ મની ટ્રાન્સફર (CBI/Police Extortion)',
+        amount: '1,50,000',
+        utr: 'RTGS-N29482019',
+        datetime: 'ગઈકાલે સાંજે 05:40 વાગ્યે',
+        senderBank: 'HDFC Bank NetBanking',
+        fraudAccount: 'A/C 50200918231 (નકલી સરકારી વેરિફિકેશન ખાતું)'
+      },
+      'loan-app': {
+        category: 'નકલી લોન એપ બ્લેકમેઇલ અને ઓનલાઇન એક્સટોર્શન',
+        amount: '15,000',
+        utr: 'IMPS-774910283',
+        datetime: 'આજે બપોરે 12:00 વાગ્યે',
+        senderBank: 'Paytm Payments Bank',
+        fraudAccount: 'InstantCash APK / WhatsApp: +91 91283 00192'
+      }
+    };
+
+    function generateComplaint(data) {
+      const cat = data.cat || '';
+      const amt = data.amt || '';
+      const utr = data.utr || '';
+      const dt = data.dt || '';
+      const sBank = data.sBank || '';
+      const fAcc = data.fAcc || '';
+
+      if (currentDraftLang === 'hi') {
+        return `प्रति,
+માનનીય સાયબર ક્રાઈમ પોલીસ ઇન્સ્પેક્ટર / 1930 હેલ્પડેસ્ક અધિકારી,
+સાયબર ક્રાઈમ સેલ, ગુજરાત રાજ્ય।
+
+વિષય: નાણાકીય સાયબર છેતરપિંડી બાબતે ત્વરિત ફરિયાદ અને ખાતું ફ્રીઝ કરવા અંગે।
+
+મહોદય/મહોદયા,
+હું નમ્રતાપૂર્વક જણાવું છું કે ${dt} ના રોજ અજાણ્યા ઠગ દ્વારા મારી સાથે સાયબર છેતરપિંડી કરવામાં આવી અને મારા ખાતામાંથી અનધિકૃત નાણાં ટ્રાન્સફર કરાવી લેવામાં આવ્યા છે।
+
+વિગતવાર માહિતી નીચે મુજબ છે:
+૧. છેતરપિંડીનો પ્રકાર: ${cat}
+૨. કપાયેલી રકમ: ₹${amt}
+૩. ટ્રાન્ઝેક્શન UTR / સંદર્ભ સંખ્યા: ${utr}
+૪. મારું બેંક ખાતું / પ્લેટફોર્મ: ${sBank}
+૫. શંકાસ્પદ UPI ID / ખાતું / નંબર: ${fAcc}
+
+મેં મારી બેંકને પણ આ ટ્રાન્ઝેક્શન તાત્કાલિક રોકવા માટે જાણ કરી છે. આપ સાહેબને નમ્ર વિનંતી કે ૧૯૩૦ (CFCFRMS) અંતર્ગત શંકાસ્પદ બેંક ખાતામાં ઉપરોક્ત રકમ હોલ્ડ/ફ્રીઝ કરાવો અને આરોપી વિરુદ્ધ કાયદેસર કાર્યવાહી કરો।
+
+સંલગ્ન પ્રમાણ: બેંક ડેબિટ SMS સ્ક્રીનશોટ અને ચેટ રેકોર્ડ।
+
+આપનો/આપની વિશ્વાસુ,
+[આપનું પૂરું નામ]
+સંપર્ક: [આપનો મોબાઇલ નંબર]
+તારીખ: ${new Date().toLocaleDateString('hi-IN')}`;
+      } else if (currentDraftLang === 'en') {
+        return `To,
+The Cyber Crime Police Station / 1930 Nodal Officer,
+Cyber Crime Investigation Cell, Gujarat State.
+
+Subject: Formal complaint regarding financial cyber fraud & immediate fund freeze request.
+
+Respected Officer,
+I, [Your Full Name], wish to report a financial cyber fraud incident that occurred on ${dt}, resulting in unauthorized deduction from my account.
+
+Details of the fraudulent transaction:
+1. Category of Incident: ${cat}
+2. Amount Defrauded: INR ${amt}
+3. Transaction UTR / Ref Number: ${utr}
+4. Victim Bank / Platform: ${sBank}
+5. Suspect UPI ID / Mobile / Beneficiary: ${fAcc}
+
+I have already requested my bank to place an immediate stop-payment marker. I urgently request the authorities to trigger a freeze on the beneficiary account under the National Citizen Financial Cyber Fraud Reporting Management System (1930 - CFCFRMS) and take necessary legal action against the accused.
+
+Attachments enclosed: Transaction SMS screenshots, UPI payment receipts, and conversation transcripts.
+
+Sincerely,
+[Your Full Name]
+Contact: [Your Mobile Number]
+Date: ${new Date().toLocaleDateString('en-IN')}`;
+      } else {
+        return `પ્રતિ,
+માનનીય સાયબર ક્રાઈમ પોલીસ ઇન્સ્પેક્ટર શ્રી / ૧૯૩૦ હેલ્પડેસ્ક અધિકારીશ્રી,
+સાયબર ક્રાઈમ સેલ, ગુજરાત રાજ્ય.
+
+વિષય: નાણાકીય સાયબર છેતરપિંડી બાબતે ત્વરિત ફરિયાદ અને ખાતું ફ્રીઝ કરવા અંગે.
+
+મહોદયશ્રી,
+હું (પીડિત નાગરિક) નમ્રતાપૂર્વક જણાવું છું કે ${dt} ના રોજ અજાણ્યા ઠગ દ્વારા છેતરપિંડી આચરી મારા ખાતામાંથી અનધિકૃત નાણાં ટ્રાન્સફર કરાવી લેવામાં આવ્યા છે.
+
+વિગતવાર માહિતી નીચે મુજબ છે:
+૧. છેતરપિંડીનો પ્રકાર: ${cat}
+૨. કપાયેલી રકમ: ₹${amt}
+૩. ટ્રાન્ઝેક્શન UTR / રેફરન્સ નંબર: ${utr}
+૪. મારું બેંક ખાતું / પ્લેટફોર્મ: ${sBank}
+૫. સામાવાળા આરોપીનું UPI ID / ખાતું / નંબર: ${fAcc}
+
+મેં મારી બેંકને પણ આ ટ્રાન્ઝેક્શન તાત્કાલિક રોકવા માટે જાણ કરી છે. આપ સાહેબને નમ્ર વિનંતી કે ૧૯૩૦ ફાઇનાન્સિયલ ફ્રોડ રિપોર્ટિંગ એન્ડ મેનેજમેન્ટ સિસ્ટમ (CFCFRMS) અંતર્ગત સામાવાળા બેંક ખાતામાં ઉપરોક્ત રકમ હોલ્ડ/ફ્રીઝ કરાવી આપવા અને આરોપી સામે કાયદેસર કાર્યવાહી કરવા કૃપા કરશો.
+
+સાથે જોડેલ પુરાવા: બેંક ડેબિટ SMS સ્ક્રીનશોટ અને ચેટ રેકોર્ડ.
+
+આપનો/આપની વિશ્વાસુ,
+[આપનું પૂરું નામ]
+સંપર્ક: [આપનો મોબાઇલ નંબર]
+તારીખ: ${new Date().toLocaleDateString('gu-IN')}`;
+      }
+    }
+
+    function updateComplaintText() {
+      if (!complaintText) return;
+      const data = {
+        cat: categorySelect ? categorySelect.value : '',
+        amt: amountInput ? amountInput.value : '',
+        utr: utrInput ? utrInput.value : '',
+        dt: datetimeInput ? datetimeInput.value : '',
+        sBank: senderBankInput ? senderBankInput.value : '',
+        fAcc: fraudAccountInput ? fraudAccountInput.value : ''
+      };
+      complaintText.value = generateComplaint(data);
+    }
+
+    // Scenario switching
+    scenarioBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        scenarioBtns.forEach(b => {
+          b.classList.remove('ring-1', 'ring-primary-container/40', 'bg-surface-raised');
+          b.classList.add('bg-surface');
+          const badge = b.querySelector('.scenario-badge');
+          if (badge) badge.classList.add('hidden');
+        });
+
+        btn.classList.add('ring-1', 'ring-primary-container/40', 'bg-surface-raised');
+        btn.classList.remove('bg-surface');
+        const activeBadge = btn.querySelector('.scenario-badge');
+        if (activeBadge) activeBadge.classList.remove('hidden');
+
+        const key = btn.getAttribute('data-scenario');
+        const data = scenarioData[key];
+        if (data) {
+          if (categorySelect) categorySelect.value = data.category;
+          if (amountInput) amountInput.value = data.amount;
+          if (utrInput) utrInput.value = data.utr;
+          if (datetimeInput) datetimeInput.value = data.datetime;
+          if (senderBankInput) senderBankInput.value = data.senderBank;
+          if (fraudAccountInput) fraudAccountInput.value = data.fraudAccount;
+          updateComplaintText();
+        }
+      });
+    });
+
+    // Inputs live sync
+    [categorySelect, amountInput, utrInput, datetimeInput, senderBankInput, fraudAccountInput].forEach(el => {
+      if (el) {
+        el.addEventListener('input', updateComplaintText);
+        el.addEventListener('change', updateComplaintText);
+      }
+    });
+
+    // Copy to clipboard
+    if (copyBtn && complaintText) {
+      copyBtn.addEventListener('click', () => {
+        const text = complaintText.value;
+        if (!text.trim()) return;
+        navigator.clipboard.writeText(text).then(() => {
+          if (copyLabel) copyLabel.textContent = 'કૉપિ થઈ ગયું! ✓ (Copied)';
+          copyBtn.classList.add('text-secondary');
+          setTimeout(() => {
+            if (copyLabel) copyLabel.textContent = 'ડ્રાફ્ટ કૉપિ કરો (Copy Text)';
+            copyBtn.classList.remove('text-secondary');
+          }, 2500);
+        }).catch(() => {
+          complaintText.select();
+          document.execCommand('copy');
+        });
+      });
+    }
+
+    // Download as .txt
+    if (downloadPdfBtn && complaintText) {
+      downloadPdfBtn.addEventListener('click', () => {
+        const text = complaintText.value;
+        if (!text.trim()) { alert('Please enter incident details first.'); return; }
+        const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'Cyber_Complaint_1930_' + Date.now() + '.txt';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+      });
+    }
+
+    // Listen to global lang changes
+    document.addEventListener('langchange', () => {
+      currentDraftLang = (window.SG && typeof window.SG.lang === 'function') ? window.SG.lang() : 'gu';
+      syncDraftLangButtons();
+      updateComplaintText();
+    });
+
+    syncDraftLangButtons();
+    updateComplaintText();
+  })();
+</script>
+
+<script id="surakshit-global-navigation">
+(function(){
+ const routes = {
+ 'landing-page':'/','dashboard':'/app','gujarati-ai-assistant':'/app/assistant',
+ 'check-message-call':'/app/check/message','phishing-url-checker':'/app/check/url',
+ 'screenshot-qr-scanner':'/app/check/image','screenshot-qr-analyzer':'/app/check/image',
+ 'emergency-help':'/emergency','scam-awareness-library':'/awareness',
+ 'scam-alerts':'/awareness','scam-alerts-district-intel':'/awareness',
+ 'complaint-generator':'/app/complaint'
+ };
+ document.querySelectorAll('[data-path]').forEach(el=>{
+   const target=routes[el.getAttribute('data-path')];
+   if(target && el.tagName==='A') el.setAttribute('href',target);
+ });
+ document.querySelectorAll('a[href="#"]').forEach(a=>{
+   const label=(a.innerText||a.getAttribute('aria-label')||'').trim().toLowerCase();
+   if(/login|sign in|પ્રવેશ/.test(label)) a.href='/login';
+   else if(/profile|setting|account|પ્રોફાઇલ/.test(label)) a.href='/app/profile';
+   else if(/admin/.test(label)) a.href='/admin';
+   else if(/article|read more|વધુ વાંચો/.test(label)) a.href='/awareness/article';
+ });
+})();
+</script>
+<script src="/route-links.js"></script>
+</body></html>
