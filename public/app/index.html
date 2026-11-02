@@ -19,9 +19,8 @@
 <h1 class="font-headline-xl text-headline-xl text-text-primary tracking-tight">નમસ્તે, નાગરિક! આજે શું ચકાસવા માંગો છો?</h1>
 <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">તમારી ડિજિટલ સુરક્ષા કવચ સક્રિય છે — શંકાસ્પદ મેસેજ, લિંક કે કૉલની ચકાસણી કરો અને સાયબર ફ્રોડથી સુરક્ષિત રહો.</p>
 </div>
-<!-- Live Shield Meter Pill -->
-
 </section>
+
 <!-- Hero Radiant Scan Console -->
 <section class="w-full my-4">
 <div class="relative rounded-3xl bg-surface-raised p-6 lg:p-8 shadow-[0_20px_50px_rgba(0,0,0,0.6)] overflow-hidden">
@@ -43,68 +42,54 @@
 <span class="font-label-sm text-label-sm text-secondary px-2.5 py-1 rounded-full bg-secondary-container/20 font-medium">ગુજરાતી ભાષા સપોર્ટ સક્રિય</span>
 </div>
 </div>
-<!-- Main Input Area -->
-<div class="relative flex flex-col md:flex-row items-stretch md:items-center gap-3 p-2 rounded-2xl bg-surface shadow-inner">
-<div class="flex items-center pl-3 pr-2 text-text-muted">
+
+<!-- Main Input Area (Standardized Height & Alignment) -->
+<div class="relative flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 p-2 rounded-2xl bg-surface shadow-inner border border-border-hairline">
+<div class="flex items-center pl-3 pr-1 text-text-muted shrink-0">
 <span class="material-symbols-outlined text-2xl text-primary">search_check</span>
 </div>
-<input class="w-full bg-transparent py-3 text-text-primary placeholder:text-text-muted/60 font-body-md text-body-md focus:outline-none" id="fraudInput" placeholder="શંકાસ્પદ મેસેજ, WhatsApp લિંક અથવા અજાણ્યો ફોન નંબર અહીં પેસ્ટ કરો..." type="text">
-<div class="flex items-center gap-2 self-end md:self-auto pr-1">
-<button aria-label="Voice input" class="p-2.5 rounded-xl bg-surface-raised text-text-muted hover:text-text-primary hover:bg-surface-soft transition-all" id="voiceBtn" title="ગુજરાતીમાં બોલો" type="button">
+<input class="w-full bg-transparent py-2.5 px-2 text-text-primary placeholder:text-text-muted/60 font-body-md text-body-md focus:outline-none min-w-0" id="fraudInput" placeholder="શંકાસ્પદ મેસેજ, WhatsApp લિંક અથવા અજાણ્યો ફોન નંબર અહીં પેસ્ટ કરો..." type="text">
+<div class="flex items-center gap-2 justify-end shrink-0 pl-1">
+<button aria-label="Voice input" class="h-11 w-11 flex items-center justify-center rounded-xl bg-surface-raised text-text-muted hover:text-text-primary hover:bg-surface-soft transition-all shrink-0" id="voiceBtn" title="ગુજરાતીમાં બોલો" type="button">
 <span class="material-symbols-outlined text-xl">mic</span>
 </button>
-<button aria-label="QR / Photo upload" class="p-2.5 rounded-xl bg-surface-raised text-text-muted hover:text-text-primary hover:bg-surface-soft transition-all" title="સ્ક્રીનશોટ અથવા QR કોડ અપલોડ કરો" type="button">
+<button aria-label="QR / Photo upload" class="h-11 w-11 flex items-center justify-center rounded-xl bg-surface-raised text-text-muted hover:text-text-primary hover:bg-surface-soft transition-all shrink-0" title="સ્ક્રીનશોટ અથવા QR કોડ અપલોડ કરો" type="button">
 <span class="material-symbols-outlined text-xl">photo_camera</span>
 </button>
-<button class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-primary-container text-on-primary-container font-label-lg text-label-lg hover:bg-primary-strong transition-all shadow-[0_4px_20px_rgba(241,90,36,0.35)] shrink-0 active:scale-95" id="verifyBtn" type="button">
-<span class="material-symbols-outlined text-xl">verified_user</span>
-<span class="">ચકાસો (Scan)</span>
+<button class="h-11 px-5 rounded-xl bg-primary-container text-on-primary-container font-label-md text-label-md font-bold hover:bg-primary-strong transition-all shadow-[0_4px_16px_rgba(241,90,36,0.3)] shrink-0 inline-flex items-center justify-center gap-2 whitespace-nowrap active:scale-95" id="verifyBtn" type="button">
+<span class="material-symbols-outlined text-[19px]">verified_user</span>
+<span>ચકાસો (Scan)</span>
 </button>
 </div>
 </div>
+
 <!-- Quick Suggestion Chips -->
 <div class="flex flex-wrap items-center gap-2 pt-1">
 <span class="font-label-sm text-label-sm text-text-muted flex items-center gap-1 mr-1">
 <span class="material-symbols-outlined text-sm">history_edu</span> ઝડપી પ્રશ્નો:
-            </span>
+</span>
 <button class="px-3 py-1.5 rounded-full bg-surface-soft text-on-surface-variant font-label-sm text-label-sm hover:text-text-primary hover:bg-surface-variant transition-all" onclick="fillInput('તમારું વીજળી બિલ બાકી છે, રાત્રે ૯ વાગ્યે લાઈટ કપાશે. તુરંત આ APK ડાઉનલોડ કરો.')" type="button">
               ⚡ વીજળી બિલ કાપવાનો મેસેજ
-            </button>
+</button>
 <button class="px-3 py-1.5 rounded-full bg-surface-soft text-on-surface-variant font-label-sm text-label-sm hover:text-text-primary hover:bg-surface-variant transition-all" onclick="fillInput('તમારું બેંક ખાતું KYC વિના બ્લોક થઈ ગયું છે. અનબ્લોક કરવા લિંક ખોલો: http://sbi-kyc-update.xyz')" type="button">
               🏦 નકલી SBI KYC લિંક
-            </button>
+</button>
 <button class="px-3 py-1.5 rounded-full bg-surface-soft text-on-surface-variant font-label-sm text-label-sm hover:text-text-primary hover:bg-surface-variant transition-all" onclick="fillInput('કોંગ્રેચ્યુલેશન્સ! તમે ₹૨૫,૦૦,૦૦૦ ની KBC લોટરી જીતી લીધી છે. પ્રોસેસિંગ ફી માટે ₹૫,૦૦૦ આ UPI પર મોકલો.')" type="button">
               🎁 લોટરી મેસેજ ચકાસો
-            </button>
+</button>
 <button class="px-3 py-1.5 rounded-full bg-surface-soft text-on-surface-variant font-label-sm text-label-sm hover:text-text-primary hover:bg-surface-variant transition-all" onclick="fillInput('UPI ID: refund-secure-pay@ybl — ₹14,500 રિવર્સલ માટે તમારો પિન દાખલ કરો.')" type="button">
               💳 શંકાસ્પદ UPI ટ્રાન્ઝેક્શન
-            </button>
+</button>
 </div>
-<!-- Dynamic Verification Result Notification (Simulated) -->
-<div class="hidden p-4 rounded-2xl bg-surface border-0 shadow-lg mt-1 flex flex-col md:flex-row md:items-center justify-between gap-4" id="scanResultBox">
-<div class="flex items-start gap-3">
-<div class="p-2 rounded-xl bg-error-container/30 text-error shrink-0">
-<span class="material-symbols-outlined text-2xl">dangerous</span>
+
+<!-- Structured Full-Width Verification Result Container -->
+<div class="hidden p-6 rounded-2xl bg-surface border border-border-hairline shadow-2xl mt-3 flex flex-col gap-5 transition-all" id="scanResultBox">
 </div>
-<div class="flex flex-col">
-<div class="flex items-center gap-2">
-<span class="font-label-lg text-label-lg text-error">ચેતવણી: આ મેસેજ ૧૦૦% સાયબર છેતરપિંડી છે!</span>
-<span class="px-2 py-0.5 rounded-full bg-danger/20 text-danger text-[11px] font-semibold">જોખમ: 96%</span>
-</div>
-<span class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
-                  આ વીજળી બિલ છેતરપિંડી (Light Bill Fraud) નો ભાગ છે. કોઈ લિંક ન ખોલો અને ક્યારેય કોઈ APK એપ ઇન્સ્ટોલ કરશો નહીં.
-                </span>
-</div>
-</div>
-<div class="flex items-center gap-2 shrink-0">
-<button class="px-4 py-2 rounded-xl bg-danger text-on-error font-label-sm text-label-sm hover:brightness-110" type="button">
-                બ્લોક કરો &amp; રિપોર્ટ કરો
-              </button>
-</div>
-</div>
+
 </div>
 </div>
 </section>
+
 <!-- Four Strategic Tool Tiles (Bento Grid) -->
 <section class="w-full my-6">
 <div class="flex items-center justify-between mb-4">
@@ -112,10 +97,9 @@
 <h2 class="font-headline-sm text-headline-sm text-text-primary">મુખ્ય સાયબર સુરક્ષા ટૂલ્સ</h2>
 <span class="font-body-sm text-body-sm text-text-muted">AI-સંચાલિત પૃથ્થકરણ સાધનો વડે સુરક્ષિત રહો</span>
 </div>
-
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5">
-<!-- Tile 1: SMS / WhatsApp Scam Checker -->
+<!-- Tile 1 -->
 <a class="group relative flex flex-col justify-between p-6 rounded-2xl bg-surface-raised hover:bg-surface-soft transition-all duration-300 shadow-md" data-path="check-message-call" href="/app/check/message">
 <div class="flex flex-col gap-4">
 <div class="flex items-center justify-between">
@@ -124,24 +108,24 @@
 </div>
 <span class="px-2.5 py-1 rounded-full bg-secondary-container/20 text-secondary font-label-sm text-[11px] font-semibold">
                 99.4% ચોકસાઈ
-              </span>
+</span>
 </div>
 <div class="flex flex-col gap-1">
 <h3 class="font-headline-sm text-headline-sm text-text-primary group-hover:text-primary transition-colors">
                 સંદેશ ચકાસણી
-              </h3>
+</h3>
 <span class="font-label-sm text-label-sm text-text-muted">SMS &amp; WhatsApp Checker</span>
 <p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-1">
                 મેસેજમાં છુપાયેલ કાનૂની ધમકીઓ, લોભામણી ઑફરો અને નકલી નોકરીના મેસેજનું ગુજરાતીમાં વિશ્લેષણ.
-              </p>
+</p>
 </div>
 </div>
 <div class="pt-4 flex items-center justify-between text-primary font-label-md text-label-md">
-<span class="">મેસેજ તપાસો</span>
+<span>મેસેજ તપાસો</span>
 <span class="material-symbols-outlined text-lg group-hover:translate-x-1 transition-transform">arrow_forward</span>
 </div>
 </a>
-<!-- Tile 2: Phishing URL Scanner -->
+<!-- Tile 2 -->
 <a class="group relative flex flex-col justify-between p-6 rounded-2xl bg-surface-raised hover:bg-surface-soft transition-all duration-300 shadow-md" data-path="phishing-url-checker" href="/app/check/url">
 <div class="flex flex-col gap-4">
 <div class="flex items-center justify-between">
@@ -150,24 +134,24 @@
 </div>
 <span class="px-2.5 py-1 rounded-full bg-surface text-tertiary font-label-sm text-[11px] font-semibold flex items-center gap-1">
 <span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span> રિયલ-ટાઇમ
-              </span>
+</span>
 </div>
 <div class="flex flex-col gap-1">
 <h3 class="font-headline-sm text-headline-sm text-text-primary group-hover:text-primary transition-colors">
                 લિંક વિશ્લેષણ
-              </h3>
+</h3>
 <span class="font-label-sm text-label-sm text-text-muted">Phishing URL Scanner</span>
 <p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-1">
                 બેંક કે શોપિંગ સાઇટ જેવી દેખાતી નકલી વેબસાઇટ્સ, સ્પૂફ ડોમેન્સ અને દૂષિત સર્વર ઓળખો.
-              </p>
+</p>
 </div>
 </div>
 <div class="pt-4 flex items-center justify-between text-tertiary font-label-md text-label-md">
-<span class="">લિંક સ્કેન કરો</span>
+<span>લિંક સ્કેન કરો</span>
 <span class="material-symbols-outlined text-lg group-hover:translate-x-1 transition-transform">arrow_forward</span>
 </div>
 </a>
-<!-- Tile 3: Screenshot & QR Scanner -->
+<!-- Tile 3 -->
 <a class="group relative flex flex-col justify-between p-6 rounded-2xl bg-surface-raised hover:bg-surface-soft transition-all duration-300 shadow-md" data-path="screenshot-qr-scanner" href="/app/check/image">
 <div class="flex flex-col gap-4">
 <div class="flex items-center justify-between">
@@ -176,24 +160,24 @@
 </div>
 <span class="px-2.5 py-1 rounded-full bg-info/10 text-info font-label-sm text-[11px] font-semibold">
                 OCR વિઝન
-              </span>
+</span>
 </div>
 <div class="flex flex-col gap-1">
 <h3 class="font-headline-sm text-headline-sm text-text-primary group-hover:text-primary transition-colors">
                 QR અને ફોટો સ્કેનર
-              </h3>
+</h3>
 <span class="font-label-sm text-label-sm text-text-muted">Screenshot &amp; QR Analyzer</span>
 <p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-1">
                 દુકાન કે ઓનલાઇન ચુકવણી વખતે મળેલા શંકાસ્પદ QR કોડ અથવા પેમેન્ટ સ્લિપનું ત્વરિત વિશ્લેષણ.
-              </p>
+</p>
 </div>
 </div>
 <div class="pt-4 flex items-center justify-between text-info font-label-md text-label-md">
-<span class="">ફોટો અપલોડ કરો</span>
+<span>ફોટો અપલોડ કરો</span>
 <span class="material-symbols-outlined text-lg group-hover:translate-x-1 transition-transform">arrow_forward</span>
 </div>
 </a>
-<!-- Tile 4: Gujarati AI Assistant -->
+<!-- Tile 4 -->
 <a class="group relative flex flex-col justify-between p-6 rounded-2xl bg-surface-raised hover:bg-surface-soft transition-all duration-300 shadow-md overflow-hidden" data-path="gujarati-ai-assistant" href="/app/assistant">
 <div class="absolute -top-10 -right-10 w-28 h-28 bg-primary-container/20 rounded-full blur-2xl pointer-events-none"></div>
 <div class="flex flex-col gap-4 relative z-10">
@@ -203,28 +187,28 @@
 </div>
 <span class="px-2.5 py-1 rounded-full bg-primary-container/20 text-primary font-label-sm text-[11px] font-semibold flex items-center gap-1">
 <span class="material-symbols-outlined text-xs">mic</span> અવાજ સક્રિય
-              </span>
+</span>
 </div>
 <div class="flex flex-col gap-1">
 <h3 class="font-headline-sm text-headline-sm text-text-primary group-hover:text-primary transition-colors">
                 સાયબર મિત્ર AI
-              </h3>
+</h3>
 <span class="font-label-sm text-label-sm text-text-muted">Gujarati AI Copilot</span>
 <p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-1">
                 તમારી માતૃભાષામાં સીધી વાતચીત કરી સાયબર સલાહ લો. કોઈપણ સમયે ૨૪x૭ માર્ગદર્શન.
-              </p>
+</p>
 </div>
 </div>
 <div class="pt-4 flex items-center justify-between text-primary font-label-md text-label-md relative z-10">
-<span class="">વાતચીત શરૂ કરો</span>
+<span>વાતચીત શરૂ કરો</span>
 <span class="material-symbols-outlined text-lg group-hover:translate-x-1 transition-transform">arrow_forward</span>
 </div>
 </a>
 </div>
 </section>
-<!-- Visual Dashboard Section: Threat Index Graph & Recent Incident Stream -->
+
+<!-- Visual Dashboard Section -->
 <section class="w-full my-6 grid grid-cols-1 xl:grid-cols-12 gap-6">
-<!-- Left 7-cols: Gujarat Cyber Threat Index -->
 <div class="xl:col-span-7 flex flex-col p-6 rounded-3xl bg-surface-raised shadow-xl">
 <div class="flex flex-wrap items-center justify-between gap-3 pb-6">
 <div class="flex flex-col">
@@ -239,9 +223,7 @@
 <button class="px-3 py-1 rounded-lg text-text-muted hover:text-text-primary font-label-sm text-label-sm" type="button">રાષ્ટ્રીય દર</button>
 </div>
 </div>
-<!-- SVG Cyber Curve Chart -->
 <div class="relative w-full h-56 pt-2 pb-2">
-<!-- Subtle Grid Lines -->
 <div class="absolute inset-0 flex flex-col justify-between pointer-events-none opacity-20">
 <div class="w-full h-px bg-on-surface-variant"></div>
 <div class="w-full h-px bg-on-surface-variant"></div>
@@ -255,18 +237,12 @@
 <stop offset="100%" stop-color="#FF7A2F" stop-opacity="0.0"></stop>
 </linearGradient>
 </defs>
-<!-- Area Fill -->
 <path d="M 0,140 Q 80,130 140,85 T 280,105 T 410,40 T 540,75 L 540,180 L 0,180 Z" fill="url(#chartGradient)"></path>
-<!-- Glowing Threat Curve -->
 <path d="M 0,140 Q 80,130 140,85 T 280,105 T 410,40 T 540,75" fill="none" stroke="#FF7A2F" stroke-linecap="round" stroke-width="3"></path>
-<!-- Reference Marker 1 (Jan Peak: Fake Stock Scams) -->
 <circle class="animate-pulse" cx="140" cy="85" fill="#FF7A2F" r="4.5"></circle>
-<!-- Reference Marker 2 (Current Spike: Digital Arrests) -->
 <circle cx="410" cy="40" fill="#F06464" r="5"></circle>
 <circle class="animate-ping" cx="410" cy="40" fill="none" opacity="0.6" r="10" stroke="#F06464" stroke-width="1.5"></circle>
 </svg>
-<!-- Floating Data Markers -->
-
 <div class="absolute top-2 right-1/4 p-2 rounded-xl bg-error-container/80 shadow-md backdrop-blur-md pointer-events-none flex flex-col">
 <div class="flex items-center gap-1">
 <span class="material-symbols-outlined text-xs text-on-error-container">warning</span>
@@ -275,11 +251,10 @@
 <span class="font-headline-sm text-xs text-on-error-container font-bold">તાજેતરનું સૌથી મોટું જોખમ</span>
 </div>
 </div>
-<!-- Chart Timeline & Stats Sub-strip -->
 <div class="flex items-center justify-between text-text-muted font-label-sm text-label-sm pt-4">
-<span class="">જાન્યુઆરી ૨૦૨૫</span>
-<span class="">ફેબ્રુઆરી ૨૦૨૫</span>
-<span class="">માર્ચ ૨૦૨૫</span>
+<span>જાન્યુઆરી ૨૦૨૫</span>
+<span>ફેબ્રુઆરી ૨૦૨૫</span>
+<span>માર્ચ ૨૦૨૫</span>
 <span class="text-primary font-semibold">એપ્રિલ ૨૦૨૫ (હાલમાં)</span>
 </div>
 <div class="grid grid-cols-3 gap-3 pt-6 mt-4 bg-surface rounded-2xl p-4">
@@ -300,7 +275,7 @@
 </div>
 </div>
 </div>
-<!-- Right 5-cols: Recent Incident Stream -->
+
 <div class="xl:col-span-5 flex flex-col p-6 rounded-3xl bg-surface-raised shadow-xl justify-between">
 <div class="flex items-center justify-between pb-4">
 <div class="flex flex-col">
@@ -309,10 +284,9 @@
 </div>
 <a class="font-label-sm text-label-sm text-primary hover:underline" data-path="scam-alerts" href="/awareness">
             બધા જુઓ
-          </a>
+</a>
 </div>
 <div class="flex flex-col gap-3.5 my-auto">
-<!-- Item 1: High Risk Loan Approval Scam -->
 <div class="p-3.5 rounded-2xl bg-surface flex items-start justify-between gap-3 shadow-sm hover:bg-surface-soft transition-all">
 <div class="flex items-start gap-3 min-w-0">
 <div class="p-2 rounded-xl bg-error-container/30 text-error shrink-0 mt-0.5">
@@ -323,19 +297,18 @@
 <span class="font-label-md text-label-md text-text-primary truncate">WhatsApp લોન મંજૂરી મેસેજ</span>
 <span class="px-2 py-0.5 rounded-full bg-danger/20 text-danger font-label-sm text-[10px] font-semibold shrink-0">
                     ઉચ્ચ જોખમ (88%)
-                  </span>
+</span>
 </div>
 <span class="font-body-sm text-body-sm text-text-muted truncate mt-0.5">
                   "કોઈ દસ્તાવેજ વિના ₹૫ લાખ તુરંત મંજૂર..." • ચાઈનીઝ લોન એપ ફ્રોડ
-                </span>
+</span>
 <span class="font-label-sm text-[11px] text-danger mt-1 flex items-center gap-1">
 <span class="material-symbols-outlined text-xs">shield_lock</span> સિસ્ટમ દ્વારા આપમેળે બ્લોક કરેલ
-                </span>
+</span>
 </div>
 </div>
 <span class="font-label-sm text-[11px] text-text-muted shrink-0">૧૦ મિ. પહેલાં</span>
 </div>
-<!-- Item 2: Suspicious Electricity SMS -->
 <div class="p-3.5 rounded-2xl bg-surface flex items-start justify-between gap-3 shadow-sm hover:bg-surface-soft transition-all">
 <div class="flex items-start gap-3 min-w-0">
 <div class="p-2 rounded-xl bg-tertiary-container/30 text-tertiary shrink-0 mt-0.5">
@@ -346,19 +319,18 @@
 <span class="font-label-md text-label-md text-text-primary truncate">વીજળી બિલ કપાત SMS</span>
 <span class="px-2 py-0.5 rounded-full bg-tertiary-container/30 text-tertiary font-label-sm text-[10px] font-semibold shrink-0">
                     સાવચેત રહો (64%)
-                  </span>
+</span>
 </div>
 <span class="font-body-sm text-body-sm text-text-muted truncate mt-0.5">
                   "PGVCL અધિકારી સંપર્ક નંબર: 98790xxxxx" • નકલી એજન્ટ નંબર
-                </span>
+</span>
 <span class="font-label-sm text-[11px] text-tertiary mt-1 flex items-center gap-1">
 <span class="material-symbols-outlined text-xs">help</span> ચકાસણી પેન્ડિંગ / તપાસ હેઠળ
-                </span>
+</span>
 </div>
 </div>
 <span class="font-label-sm text-[11px] text-text-muted shrink-0">૪૫ મિ. પહેલાં</span>
 </div>
-<!-- Item 3: Official Safe SBI Alert -->
 <div class="p-3.5 rounded-2xl bg-surface flex items-start justify-between gap-3 shadow-sm hover:bg-surface-soft transition-all">
 <div class="flex items-start gap-3 min-w-0">
 <div class="p-2 rounded-xl bg-secondary-container/20 text-secondary shrink-0 mt-0.5">
@@ -369,64 +341,65 @@
 <span class="font-label-md text-label-md text-text-primary truncate">અધિકૃત SBI ટ્રાન્ઝેક્શન એલર્ટ</span>
 <span class="px-2 py-0.5 rounded-full bg-secondary-container/20 text-secondary font-label-sm text-[10px] font-semibold shrink-0">
                     સુરક્ષિત (Safe)
-                  </span>
+</span>
 </div>
 <span class="font-body-sm text-body-sm text-text-muted truncate mt-0.5">
                   Header: "SBIINB" • માન્ય બેંકિંગ હેડર અને ડિજિટલ સહી ચકાસાયેલ
-                </span>
+</span>
 <span class="font-label-sm text-[11px] text-secondary mt-1 flex items-center gap-1">
 <span class="material-symbols-outlined text-xs">check_circle</span> અધિકૃત સ્ત્રોત
-                </span>
+</span>
 </div>
 </div>
 <span class="font-label-sm text-[11px] text-text-muted shrink-0">૨ કલાક પહેલાં</span>
 </div>
 </div>
 <div class="pt-4 flex items-center justify-between text-text-muted font-label-sm text-label-sm">
-<span class="">સલામત સંચાલન સ્તર: ૧૦૦% ગોપનીય</span>
+<span>સલામત સંચાલન સ્તર: ૧૦૦% ગોપનીય</span>
 <span class="flex items-center gap-1 text-secondary">
 <span class="w-2 h-2 rounded-full bg-secondary"></span> એન્ડ-ટુ-એન્ડ એન્ક્રિપ્ટેડ
-          </span>
+</span>
 </div>
 </div>
 </section>
-<!-- Visual Storytelling Featurettes: Local Cyber Trends -->
+
+<!-- Visual Storytelling Featurettes -->
 <section class="w-full my-6 grid grid-cols-1 md:grid-cols-2 gap-6">
 <div class="relative rounded-3xl overflow-hidden bg-surface-raised p-6 flex flex-col justify-end min-h-[220px] shadow-xl group">
 <div class="absolute inset-0 bg-gradient-to-t from-bg-base via-bg-base/70 to-transparent z-10"></div>
-<img class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-30" data-alt="A cinematic close-up of a smartphone screen held by a person in Gujarat displaying a secure digital banking verification shield with warm amber and saffron light accents in a dark room environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDlkskaaeCqd-M675U_IqaXptK_NyBpi2RxCK7MVR8uQmrhSwSB0RRrFkJ4YKlYbLiy10nTWeQBm1tj4n9upXKeOLEVMmZGwO2I3prQ4aafXNUu7ijJMeCzbS-bcoHq9orfia_vo1nJHdU2f3KQfhF2ShIS3Y0W9i0kpMF0eok-gP2qkHIkYF95-Q7xF7FM3ySbUAdpx7wgfCOC3dAE7yBHikKZW4uwyx1ssAyPf0">
+<img class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-30" data-alt="Smartphone screen" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDlkskaaeCqd-M675U_IqaXptK_NyBpi2RxCK7MVR8uQmrhSwSB0RRrFkJ4YKlYbLiy10nTWeQBm1tj4n9upXKeOLEVMmZGwO2I3prQ4aafXNUu7ijJMeCzbS-bcoHq9orfia_vo1nJHdU2f3KQfhF2ShIS3Y0W9i0kpMF0eok-gP2qkHIkYF95-Q7xF7FM3ySbUAdpx7wgfCOC3dAE7yBHikKZW4uwyx1ssAyPf0">
 <div class="relative z-20 flex flex-col gap-2">
 <span class="px-3 py-1 rounded-full bg-primary-container text-on-primary-container font-label-sm text-[11px] font-semibold w-fit">
             નવીનતમ ચેતવણી
-          </span>
+</span>
 <h3 class="font-headline-sm text-headline-sm text-text-primary">
             ગુજરાતમાં 'ડિજિટલ એરેસ્ટ' સાયબર કૌભાંડથી બચો
-          </h3>
+</h3>
 <p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
             પોલીસ, CBI કે કસ્ટમ્સ અધિકારી ક્યારેય વીડિયો કોલ પર પૈસાની માંગણી કરતા નથી કે ડિજિટલ અટકાયત કરતા નથી.
-          </p>
+</p>
 </div>
 </div>
 <div class="relative rounded-3xl overflow-hidden bg-surface-raised p-6 flex flex-col justify-end min-h-[220px] shadow-xl group">
 <div class="absolute inset-0 bg-gradient-to-t from-bg-base via-bg-base/70 to-transparent z-10"></div>
-<img class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-30" data-alt="A warm cinematic image of an Indian family in Gujarat reviewing online cyber safety tips together on a tablet with golden warm light and dark espresso modern background tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDC2E0xXSLNYNUjRL9sYAtFRX-4C7FE-G-dcoipEn7FXdGlUQs3B8RKuFLddNfsWcbHrhubcErqyr-V0YRKSdNZe2nfNlNWMhUrsosLxBseTxdqFJuo0_Ukb6kgIfebcBGYx03fL28SPMysNPy1RTNLPXJ7TrmGUD0-Ley_dmxiE9HkLGqv2vFevlWagV0E0bHVaLcShbB0WMlkgA_DLq1OM5yGlIH4N21rmH1IruY">
+<img class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-30" data-alt="Indian family" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDC2E0xXSLNYNUjRL9sYAtFRX-4C7FE-G-dcoipEn7FXdGlUQs3B8RKuFLddNfsWcbHrhubcErqyr-V0YRKSdNZe2nfNlNWMhUrsosLxBseTxdqFJuo0_Ukb6kgIfebcBGYx03fL28SPMysNPy1RTNLPXJ7TrmGUD0-Ley_dmxiE9HkLGqv2vFevlWagV0E0bHVaLcShbB0WMlkgA_DLq1OM5yGlIH4N21rmH1IruY">
 <div class="relative z-20 flex flex-col gap-2">
 <span class="px-3 py-1 rounded-full bg-secondary-container/30 text-secondary font-label-sm text-[11px] font-semibold w-fit">
             પરિવાર સુરક્ષા ટિપ
-          </span>
+</span>
 <h3 class="font-headline-sm text-headline-sm text-text-primary">
             વડીલો માટે UPI પિન સુરક્ષા માર્ગદર્શિકા
-          </h3>
+</h3>
 <p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
             યાદ રાખો: પૈસા મેળવવા માટે ક્યારેય UPI પિન નાખવાની જરૂર પડતી નથી. પિન ફક્ત પૈસા ચૂકવવા માટે જ છે.
-          </p>
+</p>
 </div>
 </div>
 </section>
-<!-- Emergency Action Card: Financial Fraud 1930 Alert (Prominent Callout) -->
+
+<!-- Emergency Action Card -->
 <section class="w-full my-6">
 <div class="relative rounded-3xl bg-surface-raised p-6 lg:p-8 overflow-hidden shadow-[0_16px_40px_rgba(240,100,100,0.15)]">
-<!-- Subtle Coral/Red Ambient Glow -->
 <div class="absolute -right-16 -top-16 w-80 h-80 bg-danger/15 rounded-full blur-[100px] pointer-events-none"></div>
 <div class="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
 <div class="flex items-start gap-4 max-w-2xl">
@@ -437,44 +410,46 @@
 <div class="flex items-center gap-2">
 <span class="px-2.5 py-0.5 rounded-full bg-danger text-on-error font-label-sm text-label-sm font-semibold uppercase">
                   ઇમરજન્સી હેલ્પલાઇન
-                </span>
+</span>
 <span class="font-label-sm text-label-sm text-danger font-semibold">ગોલ્ડન અવર (Golden Hour) સક્રિય</span>
 </div>
 <h3 class="font-headline-md text-headline-md text-text-primary">
                 નાણાકીય છેતરપિંડી થઈ છે? તાત્કાલિક ૧૯૩૦ પર કૉલ કરો!
-              </h3>
+</h3>
 <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
                 જો તમારા ખાતામાંથી અજાણ્યા વ્યવહારથી પૈસા કપાયા હોય, તો ૨ કલાકની અંદર ૧૯૩૦ પર સંપર્ક કરો જેથી ગુજરાત સાયબર સેલ બેંક વ્યવહારને તુરંત ફ્રીઝ (હોલ્ડ) કરી શકે.
-              </p>
+</p>
 </div>
 </div>
 <div class="flex flex-wrap items-center gap-3 shrink-0">
 <a class="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-2xl bg-danger text-on-error font-headline-sm text-headline-sm hover:scale-105 active:scale-95 transition-all shadow-[0_8px_25px_rgba(240,100,100,0.4)]" href="tel:1930">
 <span class="material-symbols-outlined text-2xl">call</span>
-<span class="">કૉલ કરો ૧૯૩૦</span>
+<span>કૉલ કરો ૧૯૩૦</span>
 </a>
 <a class="inline-flex items-center gap-2 px-5 py-3.5 rounded-2xl bg-surface text-text-primary hover:bg-surface-soft transition-all font-label-lg text-label-lg" data-path="complaint-generator" href="/emergency">
 <span class="material-symbols-outlined text-xl">post_add</span>
-<span class="">ફરિયાદ ડ્રાફ્ટ બનાવો</span>
+<span>ફરિયાદ ડ્રાફ્ટ બનાવો</span>
 </a>
 </div>
 </div>
 </div>
 </section>
+
 <!-- Bottom Reassurance Strip -->
 <footer class="w-full pt-4 pb-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-text-muted font-body-sm text-body-sm">
 <div class="flex items-center gap-2">
 <span class="material-symbols-outlined text-secondary text-lg">verified_user</span>
-<span class="">સુરક્ષિત ગુજરાત • ગુજરાત પોલીસ અને કેન્દ્રીય ગૃહ મંત્રાલય (MHA) સાયબર પહેલ</span>
+<span>સુરક્ષિત ગુજરાત • ગુજરાત પોલીસ અને કેન્દ્રીય ગૃહ મંત્રાલય (MHA) સાયબર પહેલ</span>
 </div>
 <div class="flex items-center gap-4 font-label-sm text-label-sm">
 <a class="hover:text-text-primary transition-colors" href="https://cybercrime.gov.in" rel="noopener" target="_blank">cybercrime.gov.in</a>
-<span class="">•</span>
-<span class="">નાગરિક સહાયતા પોર્ટલ v2.4</span>
+<span>•</span>
+<span>નાગરિક સહાયતા પોર્ટલ v2.4</span>
 </div>
 </footer>
 </div>
 </div>
+
 <script>
   function fillInput(text) {
     const input = document.getElementById('fraudInput');
@@ -485,91 +460,313 @@
     }
   }
 
-  function triggerScanAnimation() {
-    const btn = document.getElementById('verifyBtn')?.addEventListener('click', () => {
+  async function triggerScanAnimation() {
     const input = document.getElementById('fraudInput');
     const val = input ? input.value.trim() : '';
+
     if (!val) {
-      input?.focus();
-      return;
+        input?.focus();
+        return;
     }
 
     const btn = document.getElementById('verifyBtn');
-    if (btn) btn.innerHTML = '<span class="material-symbols-outlined text-xl animate-spin">progress_activity</span><span>સ્કેન...</span>';
+    const resultBox = document.getElementById('scanResultBox');
 
-    setTimeout(() => {
-      if (btn) btn.innerHTML = '<span class="material-symbols-outlined text-xl">verified_user</span><span>ચકાસો (Scan)</span>';
-      const resultBox = document.getElementById('scanResultBox');
-      if (resultBox) {
-        let result = null;
-        if (/^https?:\/\//i.test(val) || val.includes('.com') || val.includes('.xyz') || val.includes('.ru')) {
-          result = window.SG?.analyseURL ? window.SG.analyseURL(val) : null;
-        } else {
-          result = window.SG?.analyseMessage ? window.SG.analyseMessage(val) : null;
+    if (!resultBox) return;
+
+    const originalButtonHTML = btn?.innerHTML;
+    const API_BASE_URL = 'http://localhost:5000/api/scans';
+
+    const escapeHTML = (value) => String(value ?? '').replace(
+        /[&<>"']/g,
+        char => ({
+            '&': '&amp;',
+            '<': '&lt;',
+            '>': '&gt;',
+            '"': '&quot;',
+            "'": '&#39;'
+        })[char]
+    );
+
+    const isDirectURL =
+        !/\s/.test(val) &&
+        (
+            /^(https?:\/\/|www\.)/i.test(val) ||
+            /^[a-z0-9-]+(?:\.[a-z0-9-]+)+(?:[/:?#].*)?$/i.test(val)
+        );
+
+    if (btn) {
+        btn.disabled = true;
+        btn.classList.add('opacity-75');
+        btn.innerHTML = '<span class="material-symbols-outlined text-[19px] animate-spin">progress_activity</span><span>સ્કેન...</span>';
+    }
+
+    resultBox.classList.remove('hidden');
+    resultBox.innerHTML = `
+        <div class="flex items-center gap-3 p-4 text-text-muted justify-center">
+            <span class="material-symbols-outlined animate-spin text-primary text-2xl">progress_activity</span>
+            <span class="font-body-md text-text-primary">તમારા મેસેજ/લિંકનું વિશ્લેષણ થઈ રહ્યું છે...</span>
+        </div>
+    `;
+
+    try {
+        const endpoint = isDirectURL
+            ? `${API_BASE_URL}/url`
+            : `${API_BASE_URL}/message`;
+
+        const payload = isDirectURL
+            ? { url: val }
+            : { message: val };
+
+        const response = await fetch(endpoint, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(payload)
+        });
+
+        const data = await response.json();
+
+        if (!response.ok || !data.success) {
+            throw new Error(data.message || 'Unable to analyse this input.');
         }
 
-        if (result) {
-          const isHigh = result.riskLevel === 'high' || result.score >= 50;
-          resultBox.innerHTML = `
-            <div class="flex items-start gap-3">
-              <div class="p-2 rounded-xl ${isHigh ? 'bg-error-container/30 text-error' : 'bg-secondary-container/30 text-secondary'} shrink-0">
-                <span class="material-symbols-outlined text-2xl">${isHigh ? 'dangerous' : 'verified'}</span>
-              </div>
-              <div class="flex flex-col">
-                <div class="flex items-center gap-2">
-                  <span class="font-label-lg text-label-lg ${isHigh ? 'text-error' : 'text-secondary'}">${result.riskLabel}</span>
-                  <span class="px-2 py-0.5 rounded-full ${isHigh ? 'bg-danger/20 text-danger' : 'bg-secondary/20 text-secondary'} text-[11px] font-semibold">જોખમ: ${result.score}%</span>
+        const result = data.result;
+        if (!result) {
+            throw new Error('Invalid analysis response from server.');
+        }
+
+        const riskLevel = String(result.riskLevel || 'unknown').toLowerCase();
+        const isHigh = riskLevel === 'high';
+        const isMedium = riskLevel === 'medium';
+
+        const riskLabel = {
+            high: 'ઉચ્ચ જોખમ (High Risk Fraud)',
+            medium: 'મધ્યમ જોખમ (Medium Risk Warning)',
+            safe: 'કોઈ ચોક્કસ જોખમ સંકેત મળ્યો નથી (Safe / Low Risk)',
+            low: 'ઓછું જોખમ (Low Risk / Safe)'
+        }[riskLevel] || 'જોખમનું સ્તર અજ્ઞાત';
+
+        const riskTheme = isHigh
+            ? { bg: 'bg-danger/15', text: 'text-danger', border: 'border-danger/30', badgeBg: 'bg-danger/20 text-danger', icon: 'dangerous' }
+            : isMedium
+                ? { bg: 'bg-tertiary/15', text: 'text-tertiary', border: 'border-tertiary/30', badgeBg: 'bg-tertiary/20 text-tertiary', icon: 'warning' }
+                : { bg: 'bg-secondary/15', text: 'text-secondary', border: 'border-secondary/30', badgeBg: 'bg-secondary/20 text-secondary', icon: 'verified' };
+
+        const indicatorList = Array.isArray(result.indicators) ? result.indicators : [];
+
+        const indicatorsHTML = indicatorList.length
+            ? indicatorList.map((item, idx) => {
+                const label = typeof item === 'object' ? item.label || item.id || 'સંદિગ્ધ સંકેત' : item;
+                const desc = typeof item === 'object' ? item.description || '' : '';
+                return `
+                    <div class="p-3 rounded-xl bg-surface-raised border border-border-hairline flex items-start gap-2.5">
+                        <span class="material-symbols-outlined text-[18px] ${riskTheme.text} shrink-0 mt-0.5">flag</span>
+                        <div class="flex flex-col">
+                            <span class="font-label-md text-label-md text-text-primary font-semibold">${idx + 1}. ${escapeHTML(label)}</span>
+                            ${desc ? `<p class="font-body-sm text-xs text-text-muted mt-0.5 leading-relaxed">${escapeHTML(desc)}</p>` : ''}
+                        </div>
+                    </div>
+                `;
+            }).join('')
+            : `<div class="p-3.5 rounded-xl bg-surface-raised border border-border-hairline flex items-center gap-2.5 text-secondary">
+                 <span class="material-symbols-outlined text-lg">check_circle</span>
+                 <span class="font-body-sm text-sm">કોઈ રૂપરેખાંકિત (Configured) જોખમી સંકેતો મળ્યા નથી.</span>
+               </div>`;
+
+        let guidanceContent = '';
+        if (Array.isArray(data.guidance) && data.guidance.length) {
+            guidanceContent = data.guidance.map(item => {
+                const actions = Array.isArray(item.actions) ? item.actions : [];
+                const precautions = Array.isArray(item.precautions) ? item.precautions : [];
+                const sources = Array.isArray(item.sources) ? item.sources : [];
+
+                return `
+                    <div class="space-y-3">
+                        ${item.title ? `<h4 class="font-label-lg text-label-lg text-text-primary font-bold flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[18px]">policy</span>${escapeHTML(item.title)}</h4>` : ''}
+                        ${item.explanation ? `<p class="font-body-sm text-sm text-text-muted leading-relaxed">${escapeHTML(item.explanation)}</p>` : ''}
+                        
+                        ${actions.length ? `
+                            <div class="mt-2 space-y-1.5">
+                                <span class="font-label-sm text-xs font-semibold text-text-primary uppercase tracking-wider block">ભલામણ કરેલ સુરક્ષા પગલાં:</span>
+                                <ul class="space-y-1.5 pl-1">
+                                    ${actions.map(act => `<li class="flex items-start gap-2 text-sm text-text-primary"><span class="w-1.5 h-1.5 rounded-full bg-primary shrink-0 mt-2"></span><span>${escapeHTML(act)}</span></li>`).join('')}
+                                </ul>
+                            </div>
+                        ` : ''}
+
+                        ${precautions.length ? `
+                            <div class="mt-2 space-y-1.5">
+                                <span class="font-label-sm text-xs font-semibold text-text-primary uppercase tracking-wider block">સાવચેતીઓ:</span>
+                                <ul class="space-y-1.5 pl-1">
+                                    ${precautions.map(prec => `<li class="flex items-start gap-2 text-xs text-text-muted"><span class="w-1 h-1 rounded-full bg-tertiary shrink-0 mt-1.5"></span><span>${escapeHTML(prec)}</span></li>`).join('')}
+                                </ul>
+                            </div>
+                        ` : ''}
+
+                        ${sources.length ? `
+                            <div class="pt-2 flex flex-wrap items-center gap-3">
+                                <span class="text-xs text-text-muted">સત્તાવાર લિંક:</span>
+                                ${sources.map(s => `<a href="${escapeHTML(s.url)}" target="_blank" rel="noopener noreferrer" class="text-xs text-primary underline hover:text-primary-strong inline-flex items-center gap-1">${escapeHTML(s.name || 'સત્તાવાર પોર્ટલ')}<span class="material-symbols-outlined text-[13px]">open_in_new</span></a>`).join('')}
+                            </div>
+                        ` : ''}
+                    </div>
+                `;
+            }).join('<hr class="border-border-hairline my-4">');
+        }
+
+        const disclaimer = data.guidanceDisclaimer || result.disclaimer || result.message || 'આ વિશ્લેષણ ઉપલબ્ધ ડિટેક્શન નિયમો પર આધારિત છે. શંકાસ્પદ મેસેજ કે કૉલ માટે સત્તાવાર ૧૯૩૦ પર સંપર્ક કરો.';
+
+        resultBox.innerHTML = `
+            <!-- Top Summary Header Card -->
+            <div class="p-4 sm:p-5 rounded-2xl ${riskTheme.bg} border ${riskTheme.border} flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div class="flex items-start gap-3.5">
+                    <div class="w-12 h-12 rounded-xl bg-surface flex items-center justify-center shrink-0 shadow-sm ${riskTheme.text}">
+                        <span class="material-symbols-outlined text-3xl">${riskTheme.icon}</span>
+                    </div>
+                    <div class="flex flex-col">
+                        <div class="flex items-center gap-2.5 flex-wrap">
+                            <span class="font-headline-sm text-lg font-bold ${riskTheme.text}">${escapeHTML(riskLabel)}</span>
+                            <span class="px-2.5 py-0.5 rounded-full ${riskTheme.badgeBg} text-xs font-bold shadow-sm">
+                                જોખમ સ્કોર: ${escapeHTML(result.score || 0)}/100
+                            </span>
+                        </div>
+                        <p class="font-body-sm text-sm text-text-muted mt-1 leading-relaxed">
+                            ${isHigh 
+                                ? 'ધ્યાન રાખો: આ સંદેશમાં જાણીતા નાણાકીય છેતરપિંડીના સંકેતો મળ્યા છે. કોઈ વિગત કે OTP આપશો નહીં.' 
+                                : isMedium 
+                                    ? 'સાવધાન: આ સંદેશમાં શંકાસ્પદ કડીઓ છે. કોઈપણ લિંક ખોલતા પહેલાં સંસ્થાનો સત્તાવાર સંપર્ક કરો.' 
+                                    : 'આ સંદેશમાં કોઈ સ્પષ્ટ જોખમી પેટર્ન મળી નથી. તેમ છતાં અજાણી વિનંતીઓ સામે સતર્ક રહો.'}
+                        </p>
+                    </div>
                 </div>
-                <span class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
-                  ${isHigh ? 'આ શંકાસ્પદ સાયબર જોખમ છે. કોઈ લિંક ન ખોલો અને ક્યારેય કોઈને પાસવર્ડ કે OTP આપશો નહીં.' : 'કોઈ તાત્કાલિક સાયબર જોખમ મળ્યું નથી. છતાં અજાણ્યા નંબર સામે સાવચેત રહો.'}
-                </span>
-              </div>
+                <div class="flex sm:flex-col items-center sm:items-end justify-between shrink-0 gap-1.5 border-t sm:border-t-0 border-border-hairline pt-2 sm:pt-0">
+                    <span class="font-label-sm text-[11px] text-text-muted font-mono">Scan ID: ${escapeHTML(data.scanId || 'LIVE')}</span>
+                    <button onclick="document.getElementById('scanResultBox').classList.add('hidden')" class="text-xs text-text-muted hover:text-text-primary px-2 py-1 rounded bg-surface/60 transition-colors" type="button">બંધ કરો ✕</button>
+                </div>
             </div>
-            <div class="flex items-center gap-2 shrink-0">
-              <a href="/emergency" class="px-4 py-2 rounded-xl bg-danger text-on-error font-label-sm text-label-sm hover:brightness-110">
-                ૧૯૩૦ પર ફરિયાદ નોંધાવો
-              </a>
+
+            <!-- Bento Details Split: Left Indicators, Right Actions -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 w-full">
+                <!-- Left 5-Cols: Detected Indicators -->
+                <div class="lg:col-span-5 flex flex-col gap-3 p-4 rounded-xl bg-surface-container border border-border-hairline">
+                    <div class="flex items-center justify-between pb-1">
+                        <span class="font-label-md text-label-md text-text-primary font-bold flex items-center gap-1.5">
+                            <span class="material-symbols-outlined text-primary text-[18px]">fingerprint</span>
+                            મળેલા જોખમી સંકેતો (${indicatorList.length})
+                        </span>
+                    </div>
+                    <div class="space-y-2.5 overflow-y-auto max-h-72 pr-1">
+                        ${indicatorsHTML}
+                    </div>
+                </div>
+
+                <!-- Right 7-Cols: Security Actions & Guidance -->
+                <div class="lg:col-span-7 flex flex-col justify-between p-4 sm:p-5 rounded-xl bg-surface-container border border-border-hairline gap-4">
+                    <div>
+                        ${guidanceContent || `
+                            <p class="text-sm text-text-muted">હાલમાં આ પેટર્ન માટે કોઈ વધારાની વિશિષ્ટ માર્ગદર્શિકા ઉપલબ્ધ નથી.</p>
+                        `}
+                    </div>
+
+                    <!-- Bottom Action Buttons inside the panel -->
+                    <div class="pt-3 border-t border-border-hairline flex flex-wrap items-center justify-between gap-3">
+                        <span class="font-body-sm text-xs text-text-muted max-w-sm">${escapeHTML(disclaimer)}</span>
+                        <div class="flex items-center gap-2 shrink-0">
+                            <a href="tel:1930" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-danger hover:bg-danger/90 text-on-error font-label-sm text-xs font-bold shadow-md transition-all">
+                                <span class="material-symbols-outlined text-base">call</span>
+                                <span>૧૯૩૦ હેલ્પલાઇન</span>
+                            </a>
+                            <a href="/emergency" class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-surface-raised hover:bg-surface-soft text-text-primary font-label-sm text-xs font-semibold transition-all">
+                                <span class="material-symbols-outlined text-base">report</span>
+                                <span>ફરિયાદ ડ્રાફ્ટ</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
-          `;
+        `;
+
+    } catch (error) {
+        console.error('Scan request failed:', error);
+        resultBox.innerHTML = `
+            <div class="p-4 rounded-xl bg-error-container/20 border border-error-container/40 flex items-start gap-3 text-error">
+                <span class="material-symbols-outlined text-2xl">error</span>
+                <div class="flex flex-col">
+                    <strong class="font-label-lg">ચકાસણી પૂર્ણ થઈ શકી નથી</strong>
+                    <p class="text-sm text-on-surface-variant mt-1">${escapeHTML(error.message)}</p>
+                    <span class="text-xs text-text-muted mt-2">ખાતરી કરો કે Backend Server (Port 5000) ચાલુ છે.</span>
+                </div>
+            </div>
+        `;
+    } finally {
+        if (btn) {
+            btn.disabled = false;
+            btn.classList.remove('opacity-75');
+            btn.innerHTML = originalButtonHTML || '<span class="material-symbols-outlined text-[19px]">verified_user</span><span>ચકાસો (Scan)</span>';
         }
-        resultBox.classList.remove('hidden');
-        resultBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      }
-    }, 800);
+        resultBox.scrollIntoView({
+            behavior: 'smooth',
+            block: 'nearest'
+        });
+    }
+  }
+
+  document.getElementById('verifyBtn')?.addEventListener('click', triggerScanAnimation);
+
+  document.getElementById('fraudInput')?.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      triggerScanAnimation();
+    }
   });
 
-  document.getElementById('voiceBtn')?.addEventListener('click', () => {
+    document.getElementById('voiceBtn')?.addEventListener('click', () => {
     const input = document.getElementById('fraudInput');
     if (!input) return;
 
     const SpeechRec = window.SpeechRecognition || window.webkitSpeechRecognition;
-    if (SpeechRec) {
-      try {
-        const recognition = new SpeechRec();
-        const lang = (window.SG && window.SG.lang) ? window.SG.lang() : 'gu';
-        recognition.lang = lang === 'hi' ? 'hi-IN' : lang === 'en' ? 'en-IN' : 'gu-IN';
-        input.value = "સાંભળી રહ્યા છીએ... (Listening...)";
-        recognition.onresult = (event) => {
-          input.value = event.results[0][0].transcript;
-          document.getElementById('verifyBtn')?.click();
-        };
-        recognition.onerror = () => {
-          input.value = "તમારું વીજળી બિલ બાકી છે, આજે રાત્રે લાઈટ કપાશે.";
-          document.getElementById('verifyBtn')?.click();
-        };
-        recognition.start();
-        return;
-      } catch(e) {}
+
+    if (!SpeechRec) {
+      alert('તમારા બ્રાઉઝરમાં Voice Input સપોર્ટ ઉપલબ્ધ નથી. કૃપા કરીને મેસેજ ટાઇપ કરો.');
+      return;
     }
 
-    input.value = "સાંભળી રહ્યા છીએ... (Listening...)";
-    setTimeout(() => {
-      input.value = "મને વીજળી બિલ ભરવા માટે એક અજાણ્યા નંબર પરથી મેસેજ મળ્યો છે.";
-      document.getElementById('verifyBtn')?.click();
-    }, 1200);
+    try {
+      const recognition = new SpeechRec();
+      const lang = (window.SG && window.SG.lang) ? window.SG.lang() : 'gu';
+
+      recognition.lang = lang === 'hi' ? 'hi-IN' : lang === 'en' ? 'en-IN' : 'gu-IN';
+
+      recognition.onstart = () => {
+        input.placeholder = 'સાંભળી રહ્યા છીએ...';
+      };
+
+      recognition.onresult = (event) => {
+  const transcript = event.results[0][0].transcript.trim();
+
+  if (transcript) {
+    input.value = transcript;
+    input.dispatchEvent(new Event('input', { bubbles: true }));
+  }
+};
+
+      recognition.onerror = () => {
+        alert('અવાજ ઓળખી શકાયો નથી. ફરી પ્રયાસ કરો અથવા મેસેજ ટાઇપ કરો.');
+        input.placeholder = 'શંકાસ્પદ મેસેજ અહીં પેસ્ટ કરો...';
+      };
+
+      recognition.onend = () => {
+        input.placeholder = 'શંકાસ્પદ મેસેજ, WhatsApp લિંક અથવા અજાણ્યો ફોન નંબર અહીં પેસ્ટ કરો...';
+      };
+
+      recognition.start();
+    } catch (error) {
+      alert('Voice Input શરૂ થઈ શક્યું નથી. કૃપા કરીને ફરી પ્રયાસ કરો.');
+    }
   });
 </script></main></div>
-
 
 <script id="surakshit-global-navigation">
 (function(){
@@ -592,7 +789,6 @@
    else if(/admin/.test(label)) a.href='/admin';
    else if(/article|read more|વધુ વાંચો/.test(label)) a.href='/awareness/article';
  });
- // keep navigation within the app and allow browser back/forward naturally
 })();
 </script>
 <script src="/route-links.js"></script>
