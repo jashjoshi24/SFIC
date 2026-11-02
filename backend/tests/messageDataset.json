@@ -1,0 +1,703 @@
+
+[
+{
+"id": 1,
+"message": "Dear Customer, your SBI YONO account has been suspended due to pending KYC. Update immediately at http://bit.ly/sbi-kyc-verify to avoid permanent deactivation.",
+"expected": "scam",
+"category": "kyc",
+"language": "english"
+},
+{
+"id": 2,
+"message": "Dear Customer, your KYC verification for A/C ending 4092 has been successfully completed on 12-Oct-2024. No further action is required. - HDFC Bank",
+"expected": "legitimate",
+"category": "kyc",
+"language": "english"
+},
+{
+"id": 3,
+"message": "તમારું બેંક ખાતું આજે રાત્રે 9 વાગ્યે KYC અધૂરું હોવાથી બ્લોક થઈ જશે. તુરંત આ લિંક પર ક્લિક કરી આધાર નંબર અપડેટ કરો: http://bank-update-online.in",
+"expected": "scam",
+"category": "kyc",
+"language": "gujarati"
+},
+{
+"id": 4,
+"message": "ગ્રાહક મિત્રો, સાયબર સેલની ચેતવણી: બેંક ક્યારેય ફોન પર કે SMS દ્વારા લિંક મોકલીને KYC અપડેટ કરવાનું કહેતી નથી. કોઈ પણ અજાણી લિંક ખોલવી નહીં.",
+"expected": "legitimate",
+"category": "kyc",
+"language": "gujarati"
+},
+{
+"id": 5,
+"message": "Tamaru PNB khata ma KYC pending che. Account block thay te pela aaje j 98250XXXXX par call kari adhar details aapo.",
+"expected": "scam",
+"category": "kyc",
+"language": "gujarati-transliterated"
+},
+{
+"id": 6,
+"message": "Bhai mane aje ek message aavyo ke bank account block thai jashe, pan me branch ma check karyu to emne kidhu ke badhu barabar che, fraud message hato.",
+"expected": "legitimate",
+"category": "kyc",
+"language": "gujarati-transliterated"
+},
+{
+"id": 7,
+"message": "Urgent: Your transaction of Rs 48,500 is on hold. Please share the 6-digit OTP sent to your registered mobile number with our executive to approve the transfer.",
+"expected": "scam",
+"category": "otp",
+"language": "english"
+},
+{
+"id": 8,
+"message": "459021 is your secret OTP for login to ICICI NetBanking. Valid for 3 mins. Never share your OTP, password or UPI PIN with anyone, including bank staff.",
+"expected": "legitimate",
+"category": "otp",
+"language": "english"
+},
+{
+"id": 9,
+"message": "તમારા ક્રેડિટ કાર્ડ રિવોર્ડ પોઈન્ટ્સ રોકડમાં જમા કરવા માટે હમણાં જ આવેલા 6 આંકડાનો OTP અમને WhatsApp પર મોકલો. રકમ રૂ. 7,450 છે.",
+"expected": "scam",
+"category": "otp",
+"language": "gujarati"
+},
+{
+"id": 10,
+"message": "તમારા ડેબિટ કાર્ડ વ્યવહાર માટે વન ટાઈમ પાસવર્ડ (OTP) 883102 છે. આ OTP કોઈની પણ સાથે શેર કરશો નહીં. બેંક ક્યારેય OTP માંગતી નથી.",
+"expected": "legitimate",
+"category": "otp",
+"language": "gujarati"
+},
+{
+"id": 11,
+"message": "Sir tamara refund transfer mate mobile par OTP aavyo che, jaldi bolo etle account ma transfer initiate thai jaay.",
+"expected": "scam",
+"category": "otp",
+"language": "gujarati-transliterated"
+},
+{
+"id": 12,
+"message": "Papa tame koi ne OTP na aapta, phone aave to pan nahi. Bank wada kadi OTP nathi mangta.",
+"expected": "legitimate",
+"category": "otp",
+"language": "gujarati-transliterated"
+},
+{
+"id": 13,
+"message": "Congratulations! You have been selected for Amazon Part-time review job. Earn Rs. 3000 to 8000 daily from home. Join Telegram: t.me/amazon_careers_india",
+"expected": "scam",
+"category": "job",
+"language": "english"
+},
+{
+"id": 14,
+"message": "Dear Candidate, thank you for applying for Senior Node.js Developer at Tata Consultancy Services. Your interview is scheduled for Friday. Details sent via official email.",
+"expected": "legitimate",
+"category": "job",
+"language": "english"
+},
+{
+"id": 15,
+"message": "ઘરે બેઠા યુટ્યુબ વીડિયો લાઈક કરીને રોજના રૂ. 2,500 કમાઓ. કોઈ અનુભવની જરૂર નથી. રજીસ્ટ્રેશન ફી માત્ર રૂ. 499 ભરીને કામ શરૂ કરો: wa.me/919988776655",
+"expected": "scam",
+"category": "job",
+"language": "gujarati"
+},
+{
+"id": 16,
+"message": "ગુજરાત પંચાયત સેવા પસંદગી મંડળ (GPSSB) દ્વારા તલાટી કમ મંત્રી ભરતી પરીક્ષાની હોલ ટિકિટ સત્તાવાર વેબસાઇટ ojas.gujarat.gov.in પર ઉપલબ્ધ છે.",
+"expected": "legitimate",
+"category": "job",
+"language": "gujarati"
+},
+{
+"id": 17,
+"message": "Work from home job opportunity: Data entry mate daily Rs 1500 malse. Pehla Rs 350 security deposit aapvi padse je refundable che. Click: tinyurl.com/guj-job-now",
+"expected": "scam",
+"category": "job",
+"language": "gujarati-transliterated"
+},
+{
+"id": 18,
+"message": "Aaje college ma Infosys nu campus placement che, badha documents ane updated resume sathe 10 vage seminar hall ma pahochi jajo.",
+"expected": "legitimate",
+"category": "job",
+"language": "gujarati-transliterated"
+},
+{
+"id": 19,
+"message": "Pre-approved Personal Loan of Rs. 5,00,000 without CIBIL score or ITR! Disbursal in 10 minutes. Pay 1% processing fee of Rs. 5,000 to UPI ID: quickloan@ybl",
+"expected": "scam",
+"category": "loan",
+"language": "english"
+},
+{
+"id": 20,
+"message": "Dear Customer, your Axis Bank Home Loan application no. HL88410 is currently under underwriting review. Our representative may contact you for property inspection.",
+"expected": "legitimate",
+"category": "loan",
+"language": "english"
+},
+{
+"id": 21,
+"message": "પ્રધાનમંત્રી મુદ્રા યોજના હેઠળ કોઈપણ ગેરેંટી વગર રૂ. 10 લાખની લોન મેળવો. મંજૂરી મેળવવા ફાઈલ ચાર્જ પેટે રૂ. 2,999 આ ખાતામાં જમા કરો.",
+"expected": "scam",
+"category": "loan",
+"language": "gujarati"
+},
+{
+"id": 22,
+"message": "તમારી કાર લોન અરજી નં. 4921 મંજૂર થઈ ગઈ છે. લોન એગ્રીમેન્ટ સાઈન કરવા માટે તમારી નજીકની બેંક ઓફ બરોડા શાખાની મુલાકાત લો.",
+"expected": "legitimate",
+"category": "loan",
+"language": "gujarati"
+},
+{
+"id": 23,
+"message": "Instant cash loan approved for Rs 2,00,000. Download this quick APK file now to receive funds directly in your wallet: http://fastrupee.app/download.apk",
+"expected": "scam",
+"category": "loan",
+"language": "gujarati-transliterated"
+},
+{
+"id": 24,
+"message": "Maro education loan no installment aaje deduct thayo che pan EMI receipt portal par nathi batavti. Branch ma phone karvo padshe.",
+"expected": "legitimate",
+"category": "loan",
+"language": "gujarati-transliterated"
+},
+{
+"id": 25,
+"message": "Electricity Bill Alert: Your power supply will be disconnected tonight at 9:30 PM because previous month bill was unpaid. Immediately contact officer Sharma at 9876543210.",
+"expected": "scam",
+"category": "electricity",
+"language": "english"
+},
+{
+"id": 26,
+"message": "Dear Consumer, your DGVCL electricity bill for Consumer No 04821938 for amount Rs 1,420 is due on 20-Oct-2024. Pay online safely at https://www.dgvcl.com",
+"expected": "legitimate",
+"category": "electricity",
+"language": "english"
+},
+{
+"id": 27,
+"message": "પ્રિય ગ્રાહક, તમારા વીજળીનું બિલ અપડેટ ન હોવાથી આજે રાત્રે કનેક્શન કાપી નાખવામાં આવશે. તાત્કાલિક અમારા લાઈનમેન પટેલ સાહેબને 7894561230 પર કોલ કરો.",
+"expected": "scam",
+"category": "electricity",
+"language": "gujarati"
+},
+{
+"id": 28,
+"message": "ટોરેન્ટ પાવર: ગ્રાહક નં 1093849 નું ઓક્ટોબર માસનું વીજ બિલ રૂ. 2,150 સફળતાપૂર્વક ચૂકવાઈ ગયું છે. સંદર્ભ નંબર TXN9940192 છે. આભાર.",
+"expected": "legitimate",
+"category": "electricity",
+"language": "gujarati"
+},
+{
+"id": 29,
+"message": "MGVCL notice: Tamaru light bill baki che ane aaje ratre connection cut thase. Bill update karva mate a link parathi app download karo: http://bit.do/mgvcl-pay",
+"expected": "scam",
+"category": "electricity",
+"language": "gujarati-transliterated"
+},
+{
+"id": 30,
+"message": "PGVCL update: Substation maintenance kaam lidhe aavti kale savare 8 thi 12 darmiyan tame je area ma raho cho tya light bandh rahese. Kripya nodh lesho.",
+"expected": "legitimate",
+"category": "electricity",
+"language": "gujarati-transliterated"
+},
+{
+"id": 31,
+"message": "You have won a cash prize of Rs. 25,00,000 in KBC Jio Lucky Draw! To claim your winning amount, transfer Rs. 12,500 government tax to KBC manager Rana Pratap.",
+"expected": "scam",
+"category": "lottery",
+"language": "english"
+},
+{
+"id": 32,
+"message": "Congratulations! You have earned 450 reward points on your Indian Oil fuel purchase. Redeem points for fuel discounts at any authorized Indian Oil petrol pump.",
+"expected": "legitimate",
+"category": "lottery",
+"language": "english"
+},
+{
+"id": 33,
+"message": "અભિનંદન! તમારો મોબાઈલ નંબર ટાટા મોટર્સ લકી ડ્રોમાં પસંદ થયો છે અને તમે જીતી ચૂક્યા છો હેરિયર કાર. ગાડીનું રજીસ્ટ્રેશન કરવા માટે રૂ. 15,000 આ ખાતામાં ભરો.",
+"expected": "scam",
+"category": "lottery",
+"language": "gujarati"
+},
+{
+"id": 34,
+"message": "દિવાળી બમ્પર લકી ડ્રોની સત્તાવાર જાહેરાત આવતીકાલે સાંજે 5 વાગ્યે સોશિયલ મીડિયા પર લાઈવ કરવામાં આવશે. ભાગ લેનાર તમામ ગ્રાહકોને શુભેચ્છાઓ.",
+"expected": "legitimate",
+"category": "lottery",
+"language": "gujarati"
+},
+{
+"id": 35,
+"message": "Tamari lottery lagi che Rs 50 lakh ni Dubai shopping festival ma. Amount claim karva WhatsApp karo: +923001234567 par tamaro passport photo mokli ne.",
+"expected": "scam",
+"category": "lottery",
+"language": "gujarati-transliterated"
+},
+{
+"id": 36,
+"message": "Google Pay scratch card mathi mane Rs 15 cashback aavyu ane direct bank account ma credit pan thai gayu.",
+"expected": "legitimate",
+"category": "lottery",
+"language": "gujarati-transliterated"
+},
+{
+"id": 37,
+"message": "NOTICE FROM TRAI & CYBER CRIME: Your mobile SIM card is registered in illegal narcotics trade and money laundering. Digital arrest order issued. Join Skype immediately for verification.",
+"expected": "scam",
+"category": "impersonation",
+"language": "english"
+},
+{
+"id": 38,
+"message": "Gujarat Police Advisory: Beware of fake calls posing as Mumbai Police, CBI, or ED threatening digital arrest. Law enforcement never conducts interrogations or arrests via Skype/WhatsApp video calls.",
+"expected": "legitimate",
+"category": "impersonation",
+"language": "english"
+},
+{
+"id": 39,
+"message": "દિલ્હી સાયબર ક્રાઈમ બ્રાન્ચ: તમારા આધાર કાર્ડ પરથી 15 શંકાસ્પદ બેંક ખાતા ખોલાયા છે. તમારી સામે વોરંટ નીકળ્યું છે. ધરપકડ ટાળવા આ નંબર 8912345678 પર તુરંત સંપર્ક કરો.",
+"expected": "scam",
+"category": "impersonation",
+"language": "gujarati"
+},
+{
+"id": 40,
+"message": "અમદાવાદ શહેર ટ્રાફિક પોલીસ: તમારું ઇ-ચલણ નં GJ01-2024-9102 પેન્ડિંગ છે. દંડની ચૂકવણી અધિકૃત સરકારી પોર્ટલ echallan.gujarat.gov.in પર જઈને કરો.",
+"expected": "legitimate",
+"category": "impersonation",
+"language": "gujarati"
+},
+{
+"id": 41,
+"message": "CBI Officer Rathod bolu chu. Tamara nam par parcel ma 200 gram MD drugs pakdayu che. Case khatam karvo hoy to aaje j Rs 1,00,000 transfer karo nahitar police aavse ghare.",
+"expected": "scam",
+"category": "impersonation",
+"language": "gujarati-transliterated"
+},
+{
+"id": 42,
+"message": "Mane aaje ek call aavyo hato ke CBI mathi bolu chu, me turant phone muki didho ane 1930 cyber crime helpline par complaint kari didhi.",
+"expected": "legitimate",
+"category": "impersonation",
+"language": "gujarati-transliterated"
+},
+{
+"id": 43,
+"message": "India Post: Your package IND981240 cannot be delivered due to incomplete street address. Update address within 12 hours and pay Rs. 48 re-delivery fee at: https://indiapost-parcel-redelivery.top",
+"expected": "scam",
+"category": "delivery",
+"language": "english"
+},
+{
+"id": 44,
+"message": "India Post Tracking: Consignment EG938472910IN delivered to addressee on 14/10/2024 at Surat Head Post Office. Track details at https://www.indiapost.gov.in",
+"expected": "legitimate",
+"category": "delivery",
+"language": "english"
+},
+{
+"id": 45,
+"message": "ઇન્ડિયા પોસ્ટ ચેતવણી: તમારું કન્સાઇનમેન્ટ સરનામું ખોટું હોવાથી અટકાવી દેવામાં આવ્યું છે. રદ્દીકરણ અટકાવવા અને સરનામું સુધારવા રૂ. 25 કસ્ટમ ફી ભરો: http://track-post-service.xyz",
+"expected": "scam",
+"category": "delivery",
+"language": "gujarati"
+},
+{
+"id": 46,
+"message": "તમારો બ્લુ ડાર્ટ કુરિયર ટ્રેકિંગ નંબર 7739102941 છે. ડિલિવરી એક્ઝિક્યુટિવ રાહુલ (મોબાઈલ: 98240XXXXX) આજે બપોરે 2 થી 5 વચ્ચે પાર્સલ ડિલિવર કરવા આવશે.",
+"expected": "legitimate",
+"category": "delivery",
+"language": "gujarati"
+},
+{
+"id": 47,
+"message": "BlueDart delivery alert: Tamara parcel ma custom tax baki che Rs 95. A link open kari ne pay karo nahitar parcel return thase: https://bluedart-clearence.link",
+"expected": "scam",
+"category": "delivery",
+"language": "gujarati-transliterated"
+},
+{
+"id": 48,
+"message": "Amazon order no 402-9912093 out for delivery. OTP for delivery is 3910. Driver ne OTP parcel hath ma aavya pachhi j aapvo.",
+"expected": "legitimate",
+"category": "delivery",
+"language": "gujarati-transliterated"
+},
+{
+"id": 49,
+"message": "Urgent Security Alert: An unauthorized device tried to log into your HDFC Netbanking from Kolkata. If this was not you, block your card by sending your MPIN to 9825123456.",
+"expected": "scam",
+"category": "otp",
+"language": "english"
+},
+{
+"id": 50,
+"message": "Security Alert: Login detected from Chrome on Windows at 09:15 AM. If this was you, please ignore this email. If not, reset your password at https://accounts.google.com",
+"expected": "legitimate",
+"category": "otp",
+"language": "english"
+},
+{
+"id": 51,
+"message": "તમારા ક્રેડિટ કાર્ડ પર વાર્ષિક શુલ્ક માફ કરવા માટે અને લિમિટ ડબલ કરવા માટે આ ફોર્મ ભરો અને કાર્ડ નંબર તથા CVV નાખો: http://cardlimit-upgrade.site",
+"expected": "scam",
+"category": "banking",
+"language": "gujarati"
+},
+{
+"id": 52,
+"message": "તમારા સ્ટેટ બેંક ખાતામાંથી રૂ. 3,500 ATM રોકડ ઉપાડ તારીખ 15-10-2024 ના રોજ થયો છે. જો આ વ્યવહાર તમે ન કર્યો હોય તો 1800-11-2211 પર તુરંત સંપર્ક કરો.",
+"expected": "legitimate",
+"category": "banking",
+"language": "gujarati"
+},
+{
+"id": 53,
+"message": "Kotak 811 account upgrade offer: Zero balance account ma free credit card male che. Claim karva aaje j tamaro pan card number ane ATM PIN reply ma moklo.",
+"expected": "scam",
+"category": "banking",
+"language": "gujarati-transliterated"
+},
+{
+"id": 54,
+"message": "Me bank ma phone kari ne maru debit card block karavi didhu kem ke wallet mathi card harai gayu hatu.",
+"expected": "legitimate",
+"category": "banking",
+"language": "gujarati-transliterated"
+},
+{
+"id": 55,
+"message": "Dear user, your PAN card is not linked to your SBI Bank account. Penalty of Rs. 10,000 will be charged tomorrow. Link instantly at: http://pan-aadhaar-link-sbi.top",
+"expected": "scam",
+"category": "kyc",
+"language": "english"
+},
+{
+"id": 56,
+"message": "Income Tax Department notification: Last date to link PAN with Aadhaar is approaching. Verify your status online only on official website https://eportal.incometax.gov.in",
+"expected": "legitimate",
+"category": "kyc",
+"language": "english"
+},
+{
+"id": 57,
+"message": "મહત્વપૂર્ણ સૂચના: તમારું બેંક ઓફ બરોડા એકાઉન્ટ આજ રાત્રે 8 વાગ્યાથી સ્થગિત થશે. ફરી ચાલુ કરવા માટે http://bob-rekyc.info પર જઈ તાત્કાલિક પાન કાર્ડ અપલોડ કરો.",
+"expected": "scam",
+"category": "kyc",
+"language": "gujarati"
+},
+{
+"id": 58,
+"message": "તમારા ખાતામાં વિદેશથી આવેલી રકમ જમા કરવા માટે ફેડરલ બેંકની મુખ્ય શાખામાં KYC દસ્તાવેજો રૂબરૂ જમા કરાવો. ફોન પર કોઈ માહિતી આપશો નહીં.",
+"expected": "legitimate",
+"category": "kyc",
+"language": "gujarati"
+},
+{
+"id": 59,
+"message": "Aadhaar authentication failed for your bank account. Avoid freezing of account by verifying biometrics online here: http://uidai-kyc-verify.online",
+"expected": "scam",
+"category": "kyc",
+"language": "gujarati-transliterated"
+},
+{
+"id": 60,
+"message": "Aadhar center par jaine biometrics update karavi lidha che, aakho divas line ma ubha rehvu padyu pan KYC update thai gayu.",
+"expected": "legitimate",
+"category": "kyc",
+"language": "gujarati-transliterated"
+},
+{
+"id": 61,
+"message": "Exclusive Offer! You have won an iPhone 15 Pro Max in Flipkart Diwali festive contest. Pay nominal delivery and GST charges of Rs. 1,499 via UPI to claim: flipkart-gift.cc",
+"expected": "scam",
+"category": "lottery",
+"language": "english"
+},
+{
+"id": 62,
+"message": "Flipkart Big Billion Days: Your order OD1209381029 for Samsung Galaxy M34 has been shipped and will be delivered by Thursday. Track inside the Flipkart app.",
+"expected": "legitimate",
+"category": "delivery",
+"language": "english"
+},
+{
+"id": 63,
+"message": "ધનતેરસ બમ્પર ઓફર! તનિષ્ક તરફથી 10 ગ્રામ સોનાનો સિક્કો જીતવા બદલ અભિનંદન. કુરિયર ચાર્જ રૂ. 750 ચૂકવી તમારો સિક્કો મેળવો: http://gold-fest-reward.com",
+"expected": "scam",
+"category": "lottery",
+"language": "gujarati"
+},
+{
+"id": 64,
+"message": "તનિષ્ક જ્વેલર્સ: ધનતેરસ નિમિત્તે સોનાના દાગીના પર મેકિંગ ચાર્જ પર 20% સુધીની છૂટ મેળવો. નજીકના શોરૂમની મુલાકાત લો. નિયમો અને શરતો લાગુ.",
+"expected": "legitimate",
+"category": "lottery",
+"language": "gujarati"
+},
+{
+"id": 65,
+"message": "KBC registration ticket confirm thai gai che. Amitabh Bachchan sathe hot seat par ramva mate selection fee Rs 5,500 Google Pay karo 98760XXXXX par.",
+"expected": "scam",
+"category": "lottery",
+"language": "gujarati-transliterated"
+},
+{
+"id": 66,
+"message": "Mara friend ne KBC lottery na nam par phone aavyo hato ke 25 lakh lagya che, pan me ene samjaviyo ke a badhi fraud scheme hoy che, paisa na moklis.",
+"expected": "legitimate",
+"category": "lottery",
+"language": "gujarati-transliterated"
+},
+{
+"id": 67,
+"message": "Attention: Mumbai Customs has confiscated a DHL courier in your name containing passports, credit cards and banned medicines. Pay clearance fine of Rs. 35,000 to avoid arrest warrant.",
+"expected": "scam",
+"category": "impersonation",
+"language": "english"
+},
+{
+"id": 68,
+"message": "DHL Express Notification: Waybill 4819204910 is cleared by Indian Customs at Mumbai Gateway and is scheduled for final destination transit. No customs duty payable.",
+"expected": "legitimate",
+"category": "delivery",
+"language": "english"
+},
+{
+"id": 69,
+"message": "સાયબર ક્રાઈમ હેડક્વાર્ટર અમદાવાદ: તમારી વિરુદ્ધ ગેરકાયદેસર વ્યવહારોની FIR દાખલ કરવામાં આવી છે. ધરપકડથી બચવા તાત્કાલિક સાયબર ઇન્સ્પેક્ટર જોશી સાથે 9925012345 પર વાત કરો.",
+"expected": "scam",
+"category": "impersonation",
+"language": "gujarati"
+},
+{
+"id": 70,
+"message": "અમદાવાદ શહેર પોલીસ કમિશનર કચેરી દ્વારા નાગરિકો માટે જાહેર હિતમાં જારી: સોશિયલ મીડિયા પર અજાણી વ્યક્તિ દ્વારા મોકલેલી શંકાસ્પદ ફાઈલ કે વિડીયો લિંક ખોલવી નહીં.",
+"expected": "legitimate",
+"category": "impersonation",
+"language": "gujarati"
+},
+{
+"id": 71,
+"message": "Narcotics Control Bureau: Tamara pan card sathe link thayela parcel ma narcotics substance malyu che. Case court ma na moklvo hoy to settle karo aaje j.",
+"expected": "scam",
+"category": "impersonation",
+"language": "gujarati-transliterated"
+},
+{
+"id": 72,
+"message": "Police station ma jaine driving license gum thava ange police complaint no dairy entry number lai aavyo chu.",
+"expected": "legitimate",
+"category": "impersonation",
+"language": "gujarati-transliterated"
+},
+{
+"id": 73,
+"message": "Direct hiring in Singapore Airlines as ground staff. Monthly salary 2,500 SGD. No exam, direct selection. Pay medical test fee Rs. 4,200 to our agent.",
+"expected": "scam",
+"category": "job",
+"language": "english"
+},
+{
+"id": 74,
+"message": "Career update: Your application for Front-End Developer has been shortlisted by Cognizant. The technical assessment link will be activated on Monday via official Cognizant portal.",
+"expected": "legitimate",
+"category": "job",
+"language": "english"
+},
+{
+"id": 75,
+"message": "સરકારી માન્યતા પ્રાપ્ત ઘરે બેઠા પેકિંગ કામ. દર મહિને રૂ. 30,000 ફિક્સ પગાર. મશીન અને કાચો માલ મેળવવા એડવાન્સ સિક્યોરિટી રૂ. 1,500 ભરો. મોબાઈલ: 9712345678",
+"expected": "scam",
+"category": "job",
+"language": "gujarati"
+},
+{
+"id": 76,
+"message": "ગુજરાત જાહેર સેવા આયોગ (GPSC): ક્લાસ 1 અને 2 પરીક્ષાનું પરિણામ સત્તાવાર પોર્ટલ gpsc.gujarat.gov.in પર જાહેર કરવામાં આવ્યું છે.",
+"expected": "legitimate",
+"category": "job",
+"language": "gujarati"
+},
+{
+"id": 77,
+"message": "Hotel management company ma part time review writing mate vacancy che. Daily 2 hour work and Rs 2000 payout. Training kit mate Rs 500 transfer karo.",
+"expected": "scam",
+"category": "job",
+"language": "gujarati-transliterated"
+},
+{
+"id": 78,
+"message": "Naukri.com profile update kari didhi che ane aaje do-traan reputed companies mathi interview call mate mail aavya che.",
+"expected": "legitimate",
+"category": "job",
+"language": "gujarati-transliterated"
+},
+{
+"id": 79,
+"message": "UGVCL Emergency Alert: Power bill payment for month 09/2024 failed. Power supply cut within 1 hour. Pay overdue bill immediately using this link: http://ugvcl-billpay.me",
+"expected": "scam",
+"category": "electricity",
+"language": "english"
+},
+{
+"id": 80,
+"message": "Torrent Power Reminder: Your electricity bill payment of Rs 3,840 is scheduled for auto-debit on 18-Oct-2024. Ensure sufficient balance in your bank account.",
+"expected": "legitimate",
+"category": "electricity",
+"language": "english"
+},
+{
+"id": 81,
+"message": "વીજળી બિલ નોટિસ: તમારા મીટરનું લાસ્ટ મંથ રીડિંગ અટક્યું હોવાથી કનેક્શન કાપવાનો આદેશ થયો છે. સુધારવા માટે તરત જ સપોર્ટ અધિકારીને 8824156789 પર ફોન કરો.",
+"expected": "scam",
+"category": "electricity",
+"language": "gujarati"
+},
+{
+"id": 82,
+"message": "DGVCL ગ્રાહક સેવા: અમે અમારા ગ્રાહકોને વિનંતી કરીએ છીએ કે વીજળી બિલ ભરવા માટે હંમેશા સત્તાવાર વેબસાઇટ અથવા અધિકૃત કલેક્શન સેન્ટરનો જ ઉપયોગ કરવો.",
+"expected": "legitimate",
+"category": "electricity",
+"language": "gujarati"
+},
+{
+"id": 83,
+"message": "Light bill update: Tamari pichli pavti pending bolay che. Ratre 10 vage transformer mathi connection kapi nakhashe. Solve karva call karo 9012345678.",
+"expected": "scam",
+"category": "electricity",
+"language": "gujarati-transliterated"
+},
+{
+"id": 84,
+"message": "Torrent power nu bill me Google Pay thi bhari didhu hatu ane bill receipt pan download thai gai che, transaction bilkul safe rahyu.",
+"expected": "legitimate",
+"category": "electricity",
+"language": "gujarati-transliterated"
+},
+{
+"id": 85,
+"message": "FedEx Delivery Exception: Parcel awaiting delivery at Ahmedabad clearance hub due to unpaid customs fee of Rs. 85. Complete payment now: https://fedex-in-customs.org",
+"expected": "scam",
+"category": "delivery",
+"language": "english"
+},
+{
+"id": 86,
+"message": "FedEx Express: Package with tracking no 78201948201 has departed our Ahmedabad sort facility and is in transit to destination. Delivery by 6:00 PM tomorrow.",
+"expected": "legitimate",
+"category": "delivery",
+"language": "english"
+},
+{
+"id": 87,
+"message": "તમારું સ્પીડ પોસ્ટ પાર્સલ વજન વિસંગતતાના કારણે પોસ્ટ ઓફિસમાં અટક્યું છે. વધારાનો રૂ. 30 વજન ચાર્જ આ લિંક પર ભરી પાર્સલ છોડાવો: http://indiapost-hub.site",
+"expected": "scam",
+"category": "delivery",
+"language": "gujarati"
+},
+{
+"id": 88,
+"message": "પોસ્ટ ઓફિસ સેવિંગ્સ બેંક ગ્રાહકો માટે સૂચના: તમારા એકાઉન્ટમાં વ્યાજ જમા થઈ ચૂક્યું છે. પાસબુક પ્રિન્ટ કરાવવા નજીકની શાખાનો સંપર્ક કરો.",
+"expected": "legitimate",
+"category": "delivery",
+"language": "gujarati"
+},
+{
+"id": 89,
+"message": "Delhivery parcel notice: Tamara delivery address ma flat number missing che etle parcel reject thayu che. Address update karo ane Rs 15 pay karo: http://tiny.cc/delh-upd",
+"expected": "scam",
+"category": "delivery",
+"language": "gujarati-transliterated"
+},
+{
+"id": 90,
+"message": "Delhivery courier boy aaje aavyo hato ane otp verify karine myntra nu parcel delivery kari gayu. Product ekdam barabar che.",
+"expected": "legitimate",
+"category": "delivery",
+"language": "gujarati-transliterated"
+},
+{
+"id": 91,
+"message": "Aadhaar Card Update mandatory: Government has made biometric re-validation compulsory for all mobile numbers. Click https://uidai-aadhar-reverify.com to avoid SIM disconnection.",
+"expected": "scam",
+"category": "kyc",
+"language": "english"
+},
+{
+"id": 92,
+"message": "UIDAI Notification: Your Aadhaar was successfully used for authentication at EPFO portal on 16-10-2024 at 14:22:10. If not done by you, lock biometrics via mAadhaar App.",
+"expected": "legitimate",
+"category": "kyc",
+"language": "english"
+},
+{
+"id": 93,
+"message": "તમારું SBI ક્રેડિટ કાર્ડ શંકાસ્પદ વ્યવહારના કારણે બ્લોક કરવામાં આવ્યું છે. કાર્ડ રી-એક્ટીવેટ કરવા માટે તાત્કાલિક તમારા 16 આંકડાનો કાર્ડ નંબર અને CVV અહીં દાખલ કરો: http://sbi-card-reactivate.co",
+"expected": "scam",
+"category": "banking",
+"language": "gujarati"
+},
+{
+"id": 94,
+"message": "સ્ટેટ બેંક ઓફ ઇન્ડિયા સુરક્ષા ટીપ: ઓનલાઇન ખરીદી કરતી વખતે તમારા કાર્ડની વિગતો કે OTP ક્યારેય અન્ય કોઈ વ્યક્તિ સાથે શેર ન કરો.",
+"expected": "legitimate",
+"category": "banking",
+"language": "gujarati"
+},
+{
+"id": 95,
+"message": "Paytm KYC expire thai gayu che. 24 kalak ma wallet ane bank transfer bandh thai jashe. Wallet chalu rakhva aa link par click karo: http://paytm-kyc-desk.in",
+"expected": "scam",
+"category": "kyc",
+"language": "gujarati-transliterated"
+},
+{
+"id": 96,
+"message": "Paytm wallet ma petrol bharava mate Rs 500 add karya hata ane payment successful thai gayu che, koi issue nathi.",
+"expected": "legitimate",
+"category": "banking",
+"language": "gujarati-transliterated"
+},
+{
+"id": 97,
+"message": "Loan Approval Letter: Your pre-approved loan of Rs 3,50,000 from Bajaj Finserv is ready for transfer. Pay documentation stamp paper charges Rs 1,850 to initiate disbursement.",
+"expected": "scam",
+"category": "loan",
+"language": "english"
+},
+{
+"id": 98,
+"message": "Bajaj Finserv Advisory: Beware of fraudsters issuing fake loan approval letters demanding processing or stamp duty fees via personal UPI IDs or bank accounts.",
+"expected": "legitimate",
+"category": "loan",
+"language": "english"
+},
+{
+"id": 99,
+"message": "ઝીરો વ્યાજ દરે તાત્કાલિક પર્સનલ લોન મેળવો. માત્ર 2 મિનિટમાં ખાતામાં નાણાં જમા. ફાઈલ ચાર્જ રૂ. 999 ચૂકવવા આ લિંક પર ક્લિક કરો: http://quick-rupee-loan.in",
+"expected": "scam",
+"category": "loan",
+"language": "gujarati"
+},
+{
+"id": 100,
+"message": "HDFC Bank loan status update: Mara home loan application no 78102 nu property verification complete thai gayu che ane loan approval letter branch thi lai levo padshe.",
+"expected": "legitimate",
+"category": "loan",
+"language": "gujarati-transliterated"
+}
+]
