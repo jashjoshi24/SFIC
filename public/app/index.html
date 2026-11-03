@@ -427,7 +427,7 @@
 <span class="material-symbols-outlined text-2xl">call</span>
 <span>કૉલ કરો ૧૯૩૦</span>
 </a>
-<a class="inline-flex items-center gap-2 px-5 py-3.5 rounded-2xl bg-surface text-text-primary hover:bg-surface-soft transition-all font-label-lg text-label-lg" data-path="complaint-generator" href="/emergency">
+<a class="inline-flex items-center gap-2 px-5 py-3.5 rounded-2xl bg-surface text-text-primary hover:bg-surface-soft transition-all font-label-lg text-label-lg" data-path="complaint-generator" href="/app/complaint">
 <span class="material-symbols-outlined text-xl">post_add</span>
 <span>ફરિયાદ ડ્રાફ્ટ બનાવો</span>
 </a>
@@ -791,7 +791,7 @@ if (response.status === 401) {
  'screenshot-qr-scanner':'/app/check/image','screenshot-qr-analyzer':'/app/check/image',
  'emergency-help':'/emergency','scam-awareness-library':'/awareness',
  'scam-alerts':'/awareness','scam-alerts-district-intel':'/awareness',
- 'complaint-generator':'/emergency'
+ 'complaint-generator':'/app/complaint'
  };
  document.querySelectorAll('[data-path]').forEach(el=>{
    const target=routes[el.getAttribute('data-path')];
