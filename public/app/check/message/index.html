@@ -666,16 +666,23 @@ let selectedType = 'sms';
       btnAnalyze.innerHTML = '<span class="material-symbols-outlined animate-spin text-[20px]">progress_activity</span><span>વિશ્લેષણ ચાલુ છે...</span>';
 
       try {
-        const response = await fetch(API_URL, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-  message,
-  type: selectedType
-})
-        });
+        const token = sessionStorage.getItem('citizenToken');
+
+if (!token) {
+  throw new Error('Please log in again. Citizen token not found.');
+}
+
+const response = await fetch(API_URL, {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+    'Authorization': `Bearer ${token}`
+  },
+  body: JSON.stringify({
+    message,
+    type: selectedType
+  })
+});
 
         const data = await response.json().catch(() => ({}));
 

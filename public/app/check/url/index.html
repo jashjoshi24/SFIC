@@ -459,12 +459,20 @@ function displayResult(data) {
         `;
 
         try {
-            const response = await fetch(API_URL, {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ url })
-            });
+            const token = sessionStorage.getItem("citizenToken");
 
+if (!token) {
+    throw new Error("Please log in again. Citizen token not found.");
+}
+
+const response = await fetch(API_URL, {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`
+    },
+    body: JSON.stringify({ url })
+});
             const data = await response.json();
             if (!response.ok || !data.success) {
                 throw new Error(data.message || "URL તપાસવામાં સમસ્યા આવી.");

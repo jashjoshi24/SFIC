@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Login | Surakshit Gujarat</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      background: #171411;
+      color: #f7eee3;
+      font-family: Arial, sans-serif;
+    }
+    .login-card {
+      width: min(92%, 410px);
+      padding: 34px;
+      border: 1px solid #59432e;
+      border-radius: 16px;
+      background: #262019;
+    }
+    h2 { margin-top: 0; }
+    p { color: #c8b8a5; }
+    label { display: block; margin: 18px 0 7px; }
+    input {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #6b5945;
+      border-radius: 8px;
+      background: #171411;
+      color: white;
+    }
+    button {
+      width: 100%;
+      margin-top: 24px;
+      padding: 13px;
+      border: 0;
+      border-radius: 8px;
+      background: #d97732;
+      color: #171411;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    #message { margin-top: 15px; color: #ffad91; }
+  </style>
+</head>
+<body>
+  <div class="login-card">
+    <h2>Surakshit Gujarat</h2>
+    <p>Administrator Login</p>
+
+    <form id="adminLoginForm">
+      <label for="email">Admin Email</label>
+      <input id="email" type="email" required autocomplete="username">
+
+      <label for="password">Password</label>
+      <input id="password" type="password" required autocomplete="current-password">
+
+      <button id="loginButton" type="submit">Login as Admin</button>
+      <div id="message" role="alert"></div>
+    </form>
+  </div>
+
+  <script>
+    const form = document.getElementById("adminLoginForm");
+    const message = document.getElementById("message");
+    const button = document.getElementById("loginButton");
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      message.textContent = "";
+      button.disabled = true;
+      button.textContent = "Signing in...";
+
+      try {
+        const response = await fetch("http://localhost:5000/api/admin/login", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            email: document.getElementById("email").value.trim(),
+            password: document.getElementById("password").value
+          })
+        });
+
+        const data = await response.json();
+
+        if (!response.ok || !data.token || !data.admin) {
+          throw new Error(data.message || "Invalid admin credentials");
+        }
+
+        sessionStorage.setItem("sfic_admin_token", data.token);
+        sessionStorage.setItem("sfic_admin", JSON.stringify(data.admin));
+
+        window.location.replace("/admin/index.html");
+      } catch (error) {
+        message.textContent = error.message || "Login failed. Check server connection.";
+      } finally {
+        button.disabled = false;
+        button.textContent = "Login as Admin";
+      }
+    });
+  </script>
+</body>
+</html>

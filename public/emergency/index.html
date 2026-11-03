@@ -323,7 +323,7 @@
 </button>
 
 <!-- Live Generated Complaint Document Preview Box -->
-<div class="flex flex-col gap-2 pt-2">
+<div id="complaint-preview" class="hidden flex flex-col gap-2 pt-2"></div>
 <div class="flex items-center justify-between">
 <span class="font-label-md text-label-md text-text-primary flex items-center gap-1.5 font-semibold">
 <span class="material-symbols-outlined text-secondary text-[18px]">verified</span>
@@ -411,6 +411,24 @@
 };
 
     function updateComplaintText() {
+      const preview = document.getElementById("complaint-preview");
+
+const hasIncidentDetails =
+  amountInput?.value.trim() ||
+  utrInput?.value.trim() ||
+  senderBankInput?.value.trim() ||
+  fraudAccountInput?.value.trim();
+
+if (!datetimeInput?.value.trim() || !hasIncidentDetails) {
+    complaintText.value = "";
+
+    preview?.classList.add("hidden");
+
+    if (copyBtn) copyBtn.disabled = true;
+    if (downloadPdfBtn) downloadPdfBtn.disabled = true;
+
+    return;
+}
       const cat = categorySelect ? categorySelect.value : '';
 
       const placeholders = currentLang === 'gu'
@@ -484,6 +502,11 @@ Sincerely,
 [Your Name]
 Contact: [Your Contact Number]`;
       }
+
+      preview?.classList.remove("hidden");
+
+if (copyBtn) copyBtn.disabled = false;
+if (downloadPdfBtn) downloadPdfBtn.disabled = false;
     }
 
     // Scenario switching
@@ -543,73 +566,89 @@ Contact: [Your Contact Number]`;
     const complaintForm = document.getElementById("complaint-form");
 
     if (complaintForm) {
-      complaintForm.addEventListener("submit", async (event) => {
-        event.preventDefault();
 
-        const finalComplaintText = complaintText.value.trim();
+complaintForm.addEventListener("submit", async (event) => {
+  event.preventDefault();
 
-const hasIncidentDetails =
-  amountInput.value.trim() ||
-  utrInput.value.trim() ||
-  senderBankInput.value.trim() ||
-  fraudAccountInput.value.trim();
+  const finalComplaintText = complaintText.value.trim();
 
-if (!datetimeInput.value.trim() || !hasIncidentDetails) {
-  alert("Please enter the incident date/time and at least one incident detail.");
-  return;
-}
+  const category = categorySelect.value.trim();
+  const amount = amountInput.value.trim();
+  const utr = utrInput.value.trim();
+  const dateTime = datetimeInput.value.trim();
+  const bank = senderBankInput.value.trim();
+  const suspect = fraudAccountInput.value.trim();
 
-        const incidentDescription = finalComplaintText;
+  const hasIncidentDetails = category || amount || utr || bank || suspect;
 
-        const submitButton = document.getElementById("generate-complaint-btn");
+  if (!dateTime || !hasIncidentDetails || !finalComplaintText) {
+    alert("Please enter the incident date/time, at least one incident detail, and generate the complaint draft.");
+    return;
+  }
 
-        try {
-          if (submitButton) {
-            submitButton.disabled = true;
-            submitButton.textContent = "Saving draft...";
-          }
+  // Store incident facts separately from the formatted complaint letter.
+  const incidentDescription = [
+    category && `Incident type: ${category}`,
+    dateTime && `Incident date/time: ${dateTime}`,
+    amount && `Amount: ${amount}`,
+    utr && `Transaction ID: ${utr}`,
+    bank && `Bank/Platform: ${bank}`,
+    suspect && `Suspect details: ${suspect}`
+  ].filter(Boolean).join("\n");
 
-          const response = await fetch(
-            `http://localhost:5000/api/guidance/complaint`,
-            {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json"
-              },
-              body: JSON.stringify({
-                incidentDescription,
-                incidentDate: datetimeInput.value,
-                amount: amountInput.value,
-                transactionId: utrInput.value,
-                platform: senderBankInput.value,
-                suspectDetails: fraudAccountInput.value.trim()
-              })
-            }
-          );
+  const submitButton = document.getElementById("generate-complaint-btn");
 
-          let data;
+  try {
+    if (submitButton) {
+      submitButton.disabled = true;
+      submitButton.textContent = "Saving draft...";
+    }
 
-try {
-  data = await response.json();
-} catch {
-  throw new Error("Invalid response from complaint service.");
-}
+    const token = sessionStorage.getItem("citizenToken");
 
-          if (!response.ok || !data.success) {
-            throw new Error(data.message || "Unable to save complaint draft.");
-          }
+    if (!token) {
+      throw new Error("Please log in again. Citizen token not found.");
+    }
 
-          alert(`Complaint draft saved successfully. Draft ID: ${data.complaintId}`);
-        } catch (error) {
-          console.error("Complaint API error:", error);
-          alert(error.message || "Could not connect to the complaint service.");
-        } finally {
-          if (submitButton) {
-            submitButton.disabled = false;
-            submitButton.textContent = "Save Complaint Draft";
-          }
-        }
-      });
+    const response = await fetch(
+      "http://localhost:5000/api/guidance/complaint",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${token}`
+        },
+        body: JSON.stringify({
+          incidentDescription,
+          complaintText: finalComplaintText,
+          incidentDate: dateTime,
+          amount,
+          transactionId: utr,
+          platform: bank,
+          suspectDetails: suspect
+        })
+      }
+    );
+
+    const data = await response.json();
+
+    if (!response.ok || !data.success) {
+      throw new Error(data.message || "Unable to save complaint draft.");
+    }
+
+    alert(`Complaint draft saved successfully. Draft ID: ${data.complaintId}`);
+
+  } catch (error) {
+    console.error("Complaint API error:", error);
+    alert(error.message || "Could not connect to the complaint service.");
+  } finally {
+    if (submitButton) {
+      submitButton.disabled = false;
+      submitButton.textContent = "Save Complaint Draft";
+    }
+  }
+});
+
     }
 
     // Copy to clipboard
@@ -643,8 +682,7 @@ try {
       });
     }
 
-    // Generate initial complaint preview when the page loads
-    updateComplaintText();
+
 
   })();
 </script></main></div>
