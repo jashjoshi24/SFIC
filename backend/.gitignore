@@ -1,0 +1,14 @@
+node_modules/
+.env
+
+# AI model caches and temporary audio (never commit model weights or recordings)
+model-cache/
+whisper-service/model-cache/
+whisper-service/.venv/
+whisper-service/__pycache__/
+*.pyc
+*.wav
+*.mp3
+*.m4a
+*.webm
+*.flac

@@ -1,0 +1,206 @@
+
+{
+  "otp": {
+    "title": "OTP and Banking Fraud",
+    "explanation": "The message contains signals related to OTP or banking fraud. These signals do not confirm fraud. Verify the request independently before taking action.",
+    "actions": [
+      "Never share your OTP, UPI PIN, CVV or banking password with anyone.",
+      "If you disclosed banking credentials, contact your bank immediately through its official contact channel and ask what protective action is required.",
+      "If an unauthorized transaction or financial loss occurred, call 1930 promptly and report it at https://cybercrime.gov.in/.",
+      "Keep transaction IDs, suspicious messages and other relevant evidence for reporting."
+    ],
+    "precautions": [
+      "Do not approve unexpected UPI collect requests.",
+      "Do not install remote-access applications at an unknown caller's request.",
+      "Do not click unverified banking links.",
+      "Never enter your UPI PIN to receive money."
+    ],
+    "sources": [
+      {
+        "name": "National Cyber Crime Reporting Portal",
+        "url": "https://cybercrime.gov.in/"
+      },
+      {
+        "name": "RBI Financial Awareness Messages",
+        "url": "https://www.rbi.org.in/commonperson/images/FAME202426022024.pdf"
+      }
+    ]
+  },
+  "kyc": {
+    "title": "Fake KYC and Aadhaar Fraud",
+    "explanation": "The message contains signals associated with KYC or identity-verification scams. Verify the request with the relevant institution using independently obtained contact details.",
+    "actions": [
+      "Contact your bank or service provider through its official website or application to verify the KYC request.",
+      "Use the official UIDAI website for Aadhaar-related information.",
+      "Do not submit additional credentials or documents until the request is independently verified."
+    ],
+    "precautions": [
+      "Never disclose Aadhaar OTPs to unauthorized entities.",
+      "Do not upload identity documents to unknown websites.",
+      "Do not trust messages threatening immediate account suspension without independent verification."
+    ],
+    "sources": [
+      {
+        "name": "UIDAI Aadhaar Usage - Dos and Don'ts",
+        "url": "https://uidai.gov.in/images/Aadhaar_Usage-Dos_and_Donts.pdf"
+      },
+      {
+        "name": "National Cyber Crime Reporting Portal",
+        "url": "https://cybercrime.gov.in/"
+      }
+    ]
+  },
+  "job": {
+    "title": "Fake Job and Task Scams",
+    "explanation": "The message contains signals associated with suspicious job offers or task-based earning schemes. Verify the employer and payment conditions independently.",
+    "actions": [
+      "Verify the employer through its official website and independently obtained contact details.",
+      "Check the job description, payment conditions and organization before sharing documents or making payments.",
+      "If you transferred money, contact your bank or payment provider immediately.",
+      "For financial cyber fraud, call 1930 promptly and report the incident at https://cybercrime.gov.in/."
+    ],
+    "precautions": [
+      "Be cautious of registration fees, security deposits and advance payments.",
+      "Do not share banking passwords, OTPs or UPI PINs with recruiters.",
+      "Do not trust guaranteed earnings without verifying the organization.",
+      "Do not share identity documents with unverified recruiters."
+    ],
+    "sources": [
+      {
+        "name": "National Cyber Crime Reporting Portal",
+        "url": "https://cybercrime.gov.in/"
+      }
+    ]
+  },
+  "loan": {
+    "title": "Loan and Advance-Fee Scams",
+    "explanation": "The message contains signals associated with suspicious loan offers or advance-fee requests. Verify the lender and its association with an RBI-regulated bank or NBFC.",
+    "actions": [
+      "Check the lender's association with an RBI-regulated bank or NBFC through that institution's official website.",
+      "Review the Key Fact Statement, interest rate, charges and loan terms before accepting an offer.",
+      "If you shared banking information or noticed unauthorized transactions, contact your bank immediately.",
+      "If money was lost through cyber fraud, call 1930 promptly and report the incident at https://cybercrime.gov.in/.",
+      "If a suspicious application accessed your personal information, review its permissions and seek help from your bank or a trusted technical professional."
+    ],
+    "precautions": [
+      "Do not pay unknown agents who guarantee loan approval.",
+      "Avoid downloading loan applications from SMS or social-media links.",
+      "Be cautious of applications requesting unnecessary access to contacts, call logs, files or media.",
+      "Do not share OTPs, UPI PINs or banking passwords."
+    ],
+    "sources": [
+      {
+        "name": "RBI Guidelines on Digital Lending",
+        "url": "https://systemhealth.rbi.org.in/Scripts/NotificationUser.aspx_Id%3D12382%26Mode%3D0.html"
+      },
+      {
+        "name": "RBI Financial Awareness Messages",
+        "url": "https://www.rbi.org.in/commonperson/images/FAME202426022024.pdf"
+      },
+      {
+        "name": "National Cyber Crime Reporting Portal",
+        "url": "https://cybercrime.gov.in/"
+      }
+    ]
+  },
+  "lottery": {
+    "title": "Lottery and Prize Scams",
+    "explanation": "The message contains signals associated with unexpected lottery winnings or prize claims. Verify the announcement directly with the organization before responding.",
+    "actions": [
+      "Verify the announcement through the organization's independently obtained official contact details.",
+      "Do not make payments or disclose personal information to claim an unexpected prize.",
+      "Preserve the message, sender details and transaction records if you suspect fraud.",
+      "If you transferred money, contact your bank immediately, call 1930 promptly and report the incident at https://cybercrime.gov.in/."
+    ],
+    "precautions": [
+      "Do not pay unexpected fees to claim a prize.",
+      "Do not share identity documents or banking details with unknown contacts.",
+      "Do not trust unexpected prize announcements without independent verification.",
+      "Do not click unknown prize-claim links."
+    ],
+    "sources": [
+      {
+        "name": "National Cyber Crime Reporting Portal",
+        "url": "https://cybercrime.gov.in/"
+      }
+    ]
+  },
+  "digital_arrest": {
+    "title": "Digital Arrest and Government Impersonation",
+    "explanation": "The message contains signals associated with threats or impersonation of government and law-enforcement authorities. Verify any official communication independently.",
+    "actions": [
+      "End suspicious calls and independently verify the caller's identity through the department's official contact details.",
+      "Do not transfer money or disclose financial information because someone threatens arrest or legal action.",
+      "Preserve call details, messages, phone numbers and transaction records where available.",
+      "If money was transferred, contact your bank immediately, call 1930 promptly and report the incident at https://cybercrime.gov.in/."
+    ],
+    "precautions": [
+      "Do not transfer money to settle alleged criminal cases under pressure.",
+      "Do not share banking credentials, OTPs or UPI PINs.",
+      "Do not follow instructions to remain on video calls or keep the incident secret.",
+      "Do not trust callers merely because they display official-looking documents, logos or identification."
+    ],
+    "sources": [
+      {
+        "name": "National Cyber Crime Reporting Portal",
+        "url": "https://cybercrime.gov.in/"
+      },
+      {
+        "name": "Ministry of Home Affairs",
+        "url": "https://www.mha.gov.in/"
+      }
+    ]
+  },
+ 
+  "general": {
+    "title": "General Cyber Safety",
+    "explanation": "No specific configured scam category was identified. This does not establish that the message is genuine or safe.",
+    "actions": [
+      "Verify the sender through an independent, trusted channel.",
+      "Avoid sharing sensitive information until the request is verified.",
+      "If you shared banking credentials, contact your bank immediately.",
+      "If you suspect financial cyber fraud, call 1930 promptly and report it at https://cybercrime.gov.in/."
+    ],
+    "precautions": [
+      "Do not click suspicious links.",
+      "Never share OTPs, UPI PINs or passwords.",
+      "Do not install applications sent by unknown contacts.",
+      "Be cautious of messages creating urgency, fear or promises of unexpected rewards."
+    ],
+    "sources": [
+      {
+        "name": "National Cyber Crime Reporting Portal",
+        "url": "https://cybercrime.gov.in/"
+      }
+    ]
+  },
+  "url": {
+    "title": "Suspicious URL and Phishing Protection",
+    "explanation": "The URL contains one or more configured risk indicators. These signals do not confirm that the website is fraudulent. Verify the domain independently before interacting with it.",
+    "actions": [
+      "Do not open suspicious links or enter passwords, OTPs, UPI PINs or banking details.",
+      "Visit the institution's official website by typing its known address yourself.",
+      "Check the exact domain for spelling changes, extra words and misleading subdomains.",
+      "If you entered banking credentials, contact your bank immediately through its official contact channel.",
+      "If money was lost through cyber fraud, call 1930 promptly and report it at https://cybercrime.gov.in/.",
+      "Preserve the suspicious URL and relevant messages as evidence."
+    ],
+    "precautions": [
+      "Do not assume HTTPS means a website is legitimate.",
+      "Do not trust a website simply because its URL contains a familiar company or bank name.",
+      "Avoid shortened links when their destination cannot be independently verified.",
+      "Never enter OTPs, passwords or financial information on an unverified website.",
+      "Do not download applications or files from suspicious websites."
+    ],
+    "sources": [
+      {
+        "name": "National Cyber Crime Reporting Portal",
+        "url": "https://cybercrime.gov.in/"
+      },
+      {
+        "name": "RBI Financial Awareness Messages",
+        "url": "https://www.rbi.org.in/commonperson/images/FAME202426022024.pdf"
+      }
+    ]
+  }
+}

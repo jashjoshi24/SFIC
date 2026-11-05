@@ -1,0 +1,520 @@
+<!DOCTYPE html><html class="dark" lang="gu"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_dashboard" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700&amp;family=Manrope:wght@400;500;600&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary-fixed":"#ffdbcc","on-tertiary":"#432c00","on-secondary":"#003827","on-secondary-fixed":"#002115","surface-container":"#221f1d","primary-strong":"#F15A24","on-secondary-container":"#003121","surface":"#191411","on-error":"#690005","surface-tint":"#ffb693","text-muted":"#B7AAA0","on-tertiary-fixed":"#281900","tertiary-fixed-dim":"#f9bc4f","surface-variant":"#383431","on-primary-container":"#612400","secondary-fixed-dim":"#61dcac","on-tertiary-fixed-variant":"#604100","secondary-fixed":"#7ff9c7","border-hairline":"rgba(255, 239, 220, 0.12)","on-tertiary-container":"#4b3200","on-primary":"#561f00","danger":"#F06464","inverse-primary":"#a04100","bg-base":"#100D0B","primary-container":"#ff7a2f","surface-container-high":"#2d2927","outline-variant":"#584238","tertiary-fixed":"#ffdeac","primary":"#ffb693","surface-bright":"#3d3836","tertiary-container":"#cf962b","on-surface":"#e9e1dd","info":"#65A9E8","background":"#161311","tertiary":"#f9bc4f","surface-container-lowest":"#110e0c","secondary-container":"#14a479","surface-dim":"#161311","on-surface-variant":"#dfc0b2","on-primary-fixed":"#351000","surface-container-highest":"#383431","on-primary-fixed-variant":"#7a3000","surface-raised":"#241B16","on-error-container":"#ffdad6","text-primary":"#F8F3ED","primary-fixed-dim":"#ffb693","error":"#ffb4ab","error-container":"#93000a","outline":"#a78b7f","inverse-surface":"#e9e1dd","surface-container-low":"#1e1b19","surface-soft":"#30231B","on-background":"#e9e1dd","secondary":"#61dcac","inverse-on-surface":"#34302d","on-secondary-fixed-variant":"#00513a"},borderRadius:{DEFAULT:"0.25rem",lg:"0.5rem",xl:"0.75rem",full:"9999px"},spacing:{"space-lg":"1.5rem",gutter:"1.5rem",margin:"2rem","space-md":"1rem","gutter-mobile":"1rem","space-sm":"0.5rem","space-xl":"2.5rem","space-xs":"0.25rem","margin-mobile":"1rem"},fontFamily:{"headline-lg-mobile":["Plus Jakarta Sans"],"headline-sm":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"],"body-md":["Manrope"],"body-sm":["Manrope"],"headline-xl-mobile":["Plus Jakarta Sans"],"headline-xl":["Plus Jakarta Sans"],"label-md":["Plus Jakarta Sans"],"body-lg":["Manrope"],"label-sm":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"label-lg":["Plus Jakarta Sans"]},fontSize:{"headline-lg-mobile":["24px",{lineHeight:"32px",letterSpacing:"-0.01em",fontWeight:"600"}],"headline-sm":["18px",{lineHeight:"26px",fontWeight:"600"}],"headline-md":["22px",{lineHeight:"30px",letterSpacing:"-0.01em",fontWeight:"600"}],"body-md":["15px",{lineHeight:"24px",fontWeight:"400"}],"body-sm":["13px",{lineHeight:"20px",fontWeight:"400"}],"headline-xl-mobile":["32px",{lineHeight:"40px",letterSpacing:"-0.01em",fontWeight:"700"}],"headline-xl":["48px",{lineHeight:"58px",letterSpacing:"-0.02em",fontWeight:"700"}],"label-md":["12px",{lineHeight:"16px",letterSpacing:"0.02em",fontWeight:"600"}],"body-lg":["17px",{lineHeight:"28px",fontWeight:"400"}],"label-sm":["11px",{lineHeight:"14px",letterSpacing:"0.03em",fontWeight:"500"}],"headline-lg":["32px",{lineHeight:"40px",letterSpacing:"-0.015em",fontWeight:"600"}],"label-lg":["14px",{lineHeight:"20px",letterSpacing:"0.01em",fontWeight:"600"}]}}}};</script></head><body class="bg-bg-base text-on-surface font-body-md text-body-md min-h-screen selection:bg-primary-container selection:text-on-primary-container"><aside class="fixed left-0 top-0 h-screen w-72 bg-surface-container-lowest/90 backdrop-blur-2xl z-50 flex flex-col justify-between shadow-[0_0_28px_rgba(0,0,0,0.7)]"><div class="flex flex-col"><div class="h-20 px-space-md flex items-center justify-between"><a class="flex items-center gap-space-sm" data-path="dashboard" href="/app"><img alt="Surakshit Gujarat Emblem" class="h-8 w-auto object-contain" src="/brand-mark.svg"><div class="flex flex-col"><div class="flex items-center gap-1.5"><span class="font-headline-sm text-headline-sm text-text-primary tracking-tight">Surakshit Gujarat</span><span class="inline-flex items-center px-1.5 py-0.5 rounded-full bg-secondary-container/20 text-secondary text-[10px] font-label-sm font-semibold tracking-wide uppercase">AI KAVACH</span></div><span class="font-label-sm text-label-sm text-text-muted">Cyber Suraksha Kendra</span></div></a></div><div class="px-space-md py-space-xs"><div class="flex items-center justify-between px-space-sm py-1.5 rounded-lg bg-surface-raised"><div class="flex items-center gap-2"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-secondary"></span></span><span class="font-label-sm text-label-sm text-on-surface-variant">Active Shield Live</span></div><span class="font-label-sm text-label-sm text-secondary font-medium">24x7 Ready</span></div></div><nav class="px-space-sm mt-space-sm space-y-1"><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-raised hover:text-on-surface transition-all group" data-path="dashboard" href="/app"><span class="material-symbols-outlined text-[20px] transition-colors group-hover:text-primary">shield</span><div class="flex flex-col"><span class="font-label-lg text-label-lg">Dashboard</span><span class="font-label-sm text-label-sm opacity-70">મુખ્ય પૃષ્ઠ</span></div></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-raised hover:text-on-surface transition-all group" data-path="gujarati-ai-assistant" href="/app/assistant"><span class="material-symbols-outlined text-[20px] transition-colors group-hover:text-primary">smart_toy</span><div class="flex flex-col"><span class="font-label-lg text-label-lg">Gujarati AI Assistant</span><span class="font-label-sm text-label-sm opacity-70">સાયબર સહાયક AI</span></div></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-raised hover:text-on-surface transition-all group" data-path="check-message-call" href="/app/check/message"><span class="material-symbols-outlined text-[20px] transition-colors group-hover:text-primary">sms</span><div class="flex flex-col"><span class="font-label-lg text-label-lg">Check Message / Call</span><span class="font-label-sm text-label-sm opacity-70">શંકાસ્પદ મેસેજ તપાસો</span></div></a><a aria-current="page" class="flex items-center gap-space-sm px-space-md py-2.5 rounded-xl bg-primary-container text-on-primary-container font-semibold shadow-[0_4px_16px_rgba(241,90,36,0.3)] transition-all" data-path="phishing-url-checker" href="/app/check/url"><span class="material-symbols-outlined text-[20px]">link</span><div class="flex flex-col"><span class="font-label-lg text-label-lg">Phishing URL Checker</span><span class="font-label-sm text-label-sm opacity-90">લિંક સુરક્ષા સ્કેનર</span></div></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-raised hover:text-on-surface transition-all group" data-path="screenshot-qr-scanner" href="/app/check/image"><span class="material-symbols-outlined text-[20px] transition-colors group-hover:text-primary">qr_code_scanner</span><div class="flex flex-col"><span class="font-label-lg text-label-lg">Screenshot / QR Scanner</span><span class="font-label-sm text-label-sm opacity-70">QR સ્કેન અને સ્ક્રીનશોટ</span></div></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-raised hover:text-on-surface transition-all group" data-path="complaint-generator" href="/emergency"><span class="material-symbols-outlined text-[20px] transition-colors group-hover:text-primary">description</span><div class="flex flex-col"><span class="font-label-lg text-label-lg">Complaint Generator</span><span class="font-label-sm text-label-sm opacity-70">સાયબર ફરિયાદ ડ્રાફ્ટ</span></div></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-raised hover:text-on-surface transition-all group" data-path="scam-alerts" href="/awareness"><span class="material-symbols-outlined text-[20px] transition-colors group-hover:text-primary">warning</span><div class="flex flex-col"><span class="font-label-lg text-label-lg">Scam Alerts</span><span class="font-label-sm text-label-sm opacity-70">તાજા ફ્રોડ એલર્ટ્સ</span></div></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-raised hover:text-on-surface transition-all group" data-path="emergency-help" href="/emergency"><span class="material-symbols-outlined text-[20px] text-danger">fmd_bad</span><div class="flex flex-col"><span class="font-label-lg text-label-lg text-danger">Emergency Help</span><span class="font-label-sm text-label-sm opacity-70">ત્વરિત સહાય (1930)</span></div></a></nav></div><div class="p-space-md"><div class="p-3.5 rounded-xl bg-surface-raised/80 backdrop-blur-md flex flex-col gap-2.5"><div class="flex items-center justify-between"><span class="font-label-sm text-label-sm text-text-muted">Helpline Desk</span><span class="font-label-sm text-label-sm text-primary font-semibold">National Portal</span></div><div class="flex items-center gap-2"><span class="material-symbols-outlined text-tertiary text-lg">phone_in_talk</span><span class="font-headline-sm text-headline-sm text-text-primary tracking-wider">1930</span></div><span class="font-body-sm text-body-sm text-text-muted">રાષ્ટ્રીય સાયબર ક્રાઇમ સહાયતા કેન્દ્ર (1930)</span></div></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-20 bg-surface-container-lowest/80 backdrop-blur-xl z-40 px-gutter flex items-center justify-between"><div class="flex items-center gap-space-md"><img alt="Surakshit Gujarat Emblem" class="h-8 w-auto object-contain" src="/brand-mark.svg"><div class="relative flex items-center w-80 lg:w-96"><span class="material-symbols-outlined absolute left-3.5 text-text-muted text-lg">search</span><input class="w-full pl-10 pr-20 py-2 rounded-xl bg-surface text-text-primary placeholder:text-text-muted/60 font-body-sm text-body-sm focus:outline-none focus:ring-1 focus:ring-primary-container transition-all" placeholder="મેસેજ, નંબર કે વેબસાઇટ શોધો..." type="text"><div class="absolute right-2.5 flex items-center gap-1 px-1.5 py-0.5 rounded bg-surface-raised font-label-sm text-label-sm text-text-muted"><kbd class="font-sans text-[11px]">⌘</kbd><kbd class="font-sans text-[11px]">K</kbd></div></div></div><div class="flex items-center gap-space-md"><div class="flex items-center p-1 rounded-full bg-surface-raised text-on-surface-variant font-label-sm text-label-sm"><button class="px-3 py-1 rounded-full text-on-surface-variant hover:text-on-surface transition-all" type="button">ગુજરાતી</button><button class="px-3 py-1 rounded-full text-on-surface-variant hover:text-on-surface transition-all" type="button">हिंदी</button><button class="px-3 py-1 rounded-full bg-primary-container text-on-primary-container font-semibold transition-all shadow-sm" type="button">English</button></div><a class="relative inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-error-container/30 text-error hover:bg-error-container/40 transition-all font-label-md text-label-md" href="tel:1930"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-danger opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-danger"></span></span><span class="font-semibold">1930 Cyber Helpline</span></a><button aria-label="Notifications" class="relative p-2 rounded-full text-on-surface-variant hover:bg-surface-raised hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-1.5 right-1.5 h-2 w-2 rounded-full bg-primary-container ring-2 ring-bg-base"></span></button><div class="flex items-center gap-space-sm pl-2"><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-1 ring-border-hairline" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvPWtDcDYdjnUO02xCx-n1FBSVpKL8CXbp_7H355VnMb2whkg3TwNdmTkz3MUjFA5xT79_EVxyQCjd5iPpI0Fdn6imA3CoX7aJkftun8qDtexquQ2IDsSRwO1yp4eFYh3L477vvxAwcy1F3FBi8I-XdN__saLl6febWqYJW4AmxpvffykpOZRugvBJqDSHdz9_Z3kXAic7iNOITtnXW3x6mwLqjP8oEax4g_DWl-k"><div class="hidden xl:flex flex-col text-left"><span class="font-label-md text-label-md text-text-primary leading-tight">ડેમો વપરાશકર્તા</span><span class="font-label-sm text-label-sm text-text-muted">Demo User</span></div></div></div></header><main class="w-full pt-20 bg-bg-base min-h-screen px-gutter pb-space-xl"><div class="flex flex-col w-full max-w-7xl mx-auto">
+<div class="relative w-full overflow-hidden pb-12">
+<!-- Ambient Warm Saffron & Dark Espresso Glows -->
+<div class="absolute -top-24 left-1/4 w-[600px] h-[340px] rounded-full bg-primary-container/10 blur-[130px] pointer-events-none"></div>
+<div class="absolute top-48 right-10 w-[420px] h-[280px] rounded-full bg-danger/10 blur-[120px] pointer-events-none"></div>
+
+<!-- Header Section -->
+<div class="relative flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8 pt-4">
+<div class="space-y-2">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-raised shadow-sm">
+<span class="inline-block w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+<span class="font-label-sm text-label-sm text-primary font-medium tracking-wide">AI સાયબર રક્ષક · URL Structure Risk Analysis</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-text-primary tracking-tight">
+          શંકાસ્પદ લિંક અને URL સ્કેનર <span class="font-headline-sm text-headline-sm text-text-muted font-normal block sm:inline">(Phishing URL Scanner)</span>
+</h1>
+<p class="font-body-md text-body-md text-text-muted max-w-2xl">
+          કોઈપણ અજાણી લિંક ખોલ્યા વિના તેની URL રચનામાં રહેલા સામાન્ય જોખમી સંકેતો તપાસો. આ તપાસ સંપૂર્ણ phishing verification નથી.
+        </p>
+</div>
+</div>
+
+<!-- Main Scanner Input Console -->
+<div class="relative bg-surface rounded-2xl p-6 sm:p-8 shadow-xl mb-10 overflow-hidden">
+<div class="absolute -right-16 -top-16 w-56 h-56 bg-primary-container/15 rounded-full blur-3xl pointer-events-none"></div>
+<div class="flex flex-col gap-4">
+<div class="flex items-center justify-between">
+<label class="font-label-lg text-label-lg text-text-primary flex items-center gap-2" for="url-target-input">
+<span class="material-symbols-outlined text-primary text-xl">link</span>
+            ચકાસણી માટે વેબસાઇટ કે લિંક અહીં દાખલ કરો (Enter URL to Scan)
+          </label>
+<span class="font-label-sm text-label-sm text-tertiary flex items-center gap-1"><span class="material-symbols-outlined text-sm text-tertiary">warning</span>સાવચેતી: HTTPS હોવું એ વેબસાઇટ અસલી હોવાની ગેરંટી નથી.</span>
+</div>
+
+<!-- Input Bar with Dual Action Controls -->
+<div class="relative flex flex-col md:flex-row items-stretch md:items-center gap-3">
+<div class="relative flex-1 group">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-text-muted text-xl group-focus-within:text-primary-container transition-colors">search_check</span>
+</div>
+<input class="w-full pl-12 pr-28 py-3.5 bg-surface-container rounded-xl text-text-primary font-body-md text-body-md placeholder:text-text-muted/50 focus:outline-none focus:bg-surface-raised shadow-inner transition-all" id="url-target-input" placeholder="અહીં શંકાસ્પદ લિંક અથવા URL પેસ્ટ કરો (દા.ત. https://...)" type="text" value="" autocomplete="off" spellcheck="false">
+<button class="absolute inset-y-1.5 right-2 px-3 flex items-center gap-1 rounded-lg bg-surface-variant hover:bg-surface-bright text-text-muted hover:text-text-primary font-label-md text-label-md transition-colors" id="btn-paste" type="button">
+<span class="material-symbols-outlined text-sm">content_paste</span>
+<span>પેસ્ટ કરો</span>
+</button>
+</div>
+<button class="px-7 py-3.5 rounded-xl bg-primary-container hover:bg-primary-strong text-on-primary-container font-headline-sm text-headline-sm font-semibold shadow-lg shadow-primary-container/25 flex items-center justify-center gap-2 active:scale-95 transition-all" id="btn-scan" type="button">
+<span class="material-symbols-outlined text-xl">security_update_good</span>
+<span>લિંક ચકાસો (Check Link)</span>
+</button>
+</div>
+
+<!-- Quick Info Badges Below Input -->
+<div class="flex flex-wrap items-center justify-between gap-3 pt-2">
+<div class="flex flex-wrap items-center gap-2">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-raised text-text-muted font-label-sm text-label-sm">
+    <span class="material-symbols-outlined text-xs text-secondary">link</span>
+    URL Structure Analysis
+</span>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-raised text-text-muted font-label-sm text-label-sm">
+    <span class="material-symbols-outlined text-xs text-primary">warning</span>
+    Heuristic Risk Detection
+</span>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-raised text-text-muted font-label-sm text-label-sm">
+    <span class="material-symbols-outlined text-xs text-tertiary">verified_user</span>
+    No Automatic URL Visits
+</span>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Security Guidance & Actionable Steps (Balanced 7 / 5 Grid) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-10 items-stretch">
+<!-- Left Card: Guidance (7 Columns) -->
+<div class="lg:col-span-7 bg-surface rounded-2xl p-6 flex flex-col justify-between shadow-xl relative overflow-hidden">
+<div>
+<div class="flex items-center justify-between mb-4">
+<span class="font-label-md text-label-md text-text-muted uppercase tracking-wider">લિંક સુરક્ષા માર્ગદર્શિકા</span>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-secondary/15 text-secondary font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>નાગરિક સુરક્ષા
+</span>
+</div>
+<div class="rounded-xl bg-surface-raised p-4 mb-4 border border-border-hairline">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-2xl shrink-0">shield</span>
+<div class="space-y-1.5">
+<h3 class="font-headline-sm text-headline-sm text-text-primary font-semibold">લિંક ખોલ્યા વિના સુરક્ષિત ચકાસણી</h3>
+<p class="font-body-sm text-body-sm text-text-muted leading-relaxed">કોઈપણ શંકાસ્પદ લિંક બ્રાઉઝરમાં આપમેળે ખુલશે નહીં (Zero Auto-Launch). URL દાખલ કરી 'લિંક ચકાસો' બટન દબાવો.</p>
+</div>
+</div>
+</div>
+<div class="p-4 rounded-xl bg-surface-container space-y-2 mb-4">
+<span class="font-label-sm text-label-sm text-text-primary font-semibold flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm text-tertiary">policy</span>સાયબર સુરક્ષા નિયમ
+</span>
+<p class="font-body-sm text-body-sm text-text-muted leading-relaxed">શોર્ટન કરેલી લિંક (bit.ly, tinyurl) અથવા અજાણ્યા ડોમેનને સાવચેતીથી તપાસો. લિંક ખોલતા પહેલાં સંબંધિત સંસ્થાની સત્તાવાર વેબસાઇટ અથવા સંપર્ક માધ્યમથી તેની ખરાઈ કરો.</p>
+</div>
+</div>
+<div class="pt-2 flex items-center justify-between font-label-sm text-label-sm text-text-muted border-t border-border-hairline">
+<span>સામાન્ય સાયબર સુરક્ષા સૂચન</span>
+<span class="text-primary font-medium flex items-center gap-1"><span class="material-symbols-outlined text-sm">info</span>સામાન્ય સુરક્ષા માર્ગદર્શન</span>
+</div>
+</div>
+
+<!-- Right Card: Actionable Defense Steps (5 Columns) -->
+<div class="lg:col-span-5 bg-surface rounded-2xl p-6 shadow-xl flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-primary-container text-2xl">shield_with_heart</span>
+<h2 class="font-headline-md text-headline-md text-text-primary">Actionable Defense Steps</h2>
+</div>
+<p class="font-body-sm text-body-sm text-text-muted mb-5 leading-relaxed">આ લિંક જોતા જ આપના ડિજિટલ એકાઉન્ટને Safe રાખવા નીચે મુજબ કરો:</p>
+<div class="space-y-3">
+<div class="flex items-start gap-3 p-3.5 rounded-xl bg-surface-container">
+<div class="w-8 h-8 rounded-lg bg-danger/15 text-danger flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-lg">do_not_touch</span>
+</div>
+<div class="space-y-0.5">
+<h3 class="font-label-lg text-label-lg text-text-primary font-bold">1. શંકાસ્પદ લિંક ખોલશો નહીં</h3>
+<p class="font-body-sm text-body-sm text-text-muted leading-tight">કોઈપણ અજાણી લિંક પર OTP, ATM PIN, પાસવર્ડ કે બેંકની વિગતો આપશો નહીં.</p>
+</div>
+</div>
+<div class="flex items-start gap-3 p-3.5 rounded-xl bg-surface-container">
+<div class="w-8 h-8 rounded-lg bg-tertiary/15 text-tertiary flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-lg">block</span>
+</div>
+<div class="space-y-0.5">
+<h3 class="font-label-lg text-label-lg text-text-primary font-bold">2. WhatsApp ગ્રૂપમાં ફોરવર્ડ અટકાવો</h3>
+<p class="font-body-sm text-body-sm text-text-muted leading-tight">તમારા પરિવાર અને મિત્રોને ચેતવો જેથી તેઓ છેતરપિંડીનો ભોગ ન બને.</p>
+</div>
+</div>
+<div class="flex items-start gap-3 p-3.5 rounded-xl bg-surface-container">
+<div class="w-8 h-8 rounded-lg bg-primary-container/15 text-primary flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-lg">lock_reset</span>
+</div>
+<div class="space-y-0.5">
+<h3 class="font-label-lg text-label-lg text-text-primary font-bold">3. જો બેંક વિગતો શેર થઈ ગઈ હોય</h3>
+<p class="font-body-sm text-body-sm text-text-muted leading-tight">તરત જ બેંકનો સંપર્ક કરી કાર્ડ અથવા એકાઉન્ટ બ્લોક કરાવો અને ૧૯૩૦ પર જાણ કરો.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-6 pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+<a class="flex-1 py-2.5 px-4 rounded-xl bg-danger hover:bg-danger/90 text-on-error font-label-md text-label-md font-semibold flex items-center justify-center gap-2 shadow-md transition-all" href="tel:1930">
+<span class="material-symbols-outlined text-lg">call</span>
+<span>1930 પર ફરિયાદ નોંધાવો</span>
+</a>
+<button class="py-2.5 px-4 rounded-xl bg-surface-raised hover:bg-surface-bright text-text-primary font-label-md text-label-md flex items-center justify-center gap-2 transition-colors" type="button">
+<span class="material-symbols-outlined text-lg text-tertiary">share</span>
+<span>ચેતવણી શેર કરો</span>
+</button>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</main></div>
+
+<script>
+(function () {
+    const API_URL = "http://localhost:5000/api/scans/url";
+
+    const pasteBtn = document.getElementById("btn-paste");
+    const scanBtn = document.getElementById("btn-scan");
+    const urlInput = document.getElementById("url-target-input");
+
+    if (!pasteBtn || !scanBtn || !urlInput) {
+        console.error("URL Checker elements not found.");
+        return;
+    }
+
+    // Dynamic result section
+    const resultPanel = document.createElement("section");
+    resultPanel.className = "hidden bg-surface rounded-2xl p-6 sm:p-8 shadow-xl mb-10";
+
+    const scannerCard = scanBtn.closest(".relative.bg-surface.rounded-2xl");
+    if (scannerCard) {
+        scannerCard.insertAdjacentElement("afterend", resultPanel);
+    } else {
+        console.error("Scanner card not found.");
+        return;
+    }
+
+    // Clipboard paste
+    pasteBtn.addEventListener("click", async function () {
+        try {
+            const text = await navigator.clipboard.readText();
+            if (text) {
+                urlInput.value = text.trim();
+            } else {
+                alert("ક્લિપબોર્ડમાં કોઈ URL મળ્યું નથી.");
+            }
+        } catch (error) {
+            alert("ક્લિપબોર્ડ ઍક્સેસ થઈ શક્યું નથી. URL મેન્યુઅલી પેસ્ટ કરો.");
+        }
+    });
+
+    // Error rendering
+    function showError(message) {
+        resultPanel.classList.remove("hidden");
+        resultPanel.innerHTML = `
+            <div class="flex items-start gap-3">
+                <span class="material-symbols-outlined text-danger text-2xl">error</span>
+                <div>
+                    <h2 class="text-text-primary font-semibold mb-2">URL તપાસી શકાયું નથી</h2>
+                    <p id="url-error-message" class="text-text-muted text-sm"></p>
+                </div>
+            </div>
+        `;
+        resultPanel.querySelector("#url-error-message").textContent = message;
+    }
+
+    // Display actual backend results
+    
+function displayResult(data) {
+    const result = data.result;
+
+    if (
+        !result ||
+        !Array.isArray(result.indicators) ||
+        typeof result.score !== "number" ||
+        !["low", "medium", "high"].includes(result.riskLevel)
+    ) {
+        showError("Backend તરફથી અમાન્ય પરિણામ મળ્યું.");
+        return;
+    }
+
+    const guidanceList = Array.isArray(data.guidance)
+        ? data.guidance
+        : [];
+
+    resultPanel.innerHTML = `
+        <div class="flex flex-wrap items-center justify-between gap-3 mb-5">
+            <div>
+                <h2 class="font-headline-md text-headline-md text-text-primary">
+                    URL વિશ્લેષણ પરિણામ
+                </h2>
+                <p class="font-body-sm text-text-muted">
+                    Backend દ્વારા મળેલું વાસ્તવિક વિશ્લેષણ
+                </p>
+            </div>
+            <span id="url-risk-badge" class="px-3 py-1 rounded-full font-label-md text-label-md font-semibold"></span>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-5">
+            <div class="bg-surface-container rounded-xl p-4">
+                <p class="text-text-muted font-label-sm">જોખમ સ્કોર</p>
+                <p id="url-risk-score" class="text-text-primary text-2xl font-bold mt-2"></p>
+                <p class="text-text-muted text-xs">Heuristic score / 100</p>
+            </div>
+
+            <div class="bg-surface-container rounded-xl p-4">
+                <p class="text-text-muted font-label-sm">ડોમેન</p>
+                <p id="url-domain" class="text-text-primary font-semibold mt-2 break-all"></p>
+            </div>
+
+            <div class="bg-surface-container rounded-xl p-4">
+                <p class="text-text-muted font-label-sm">વિશ્લેષણ સ્થિતિ</p>
+                <p id="url-status" class="text-secondary font-semibold mt-2"></p>
+            </div>
+        </div>
+
+        <div class="mb-5">
+            <h3 class="text-text-primary font-semibold mb-3">
+                મળેલા સંકેતો (Detected Indicators)
+            </h3>
+            <div id="url-indicators" class="space-y-2 text-text-muted font-body-sm"></div>
+        </div>
+
+        <div class="bg-surface-container rounded-xl p-4 mb-4">
+            <h3 class="text-text-primary font-semibold mb-2">સુરક્ષા ભલામણ</h3>
+            <p id="url-recommendation" class="text-text-muted font-body-sm leading-relaxed"></p>
+        </div>
+
+        <div id="url-guidance-container" class="space-y-4 mb-4"></div>
+
+        <div class="bg-surface-raised rounded-xl p-4">
+            <p id="url-disclaimer" class="text-text-muted text-xs leading-relaxed"></p>
+            <p id="url-guidance-disclaimer" class="text-text-muted text-xs leading-relaxed mt-2"></p>
+        </div>
+
+        <p id="url-scan-id" class="text-text-muted text-xs mt-4"></p>
+    `;
+
+    const badge = resultPanel.querySelector("#url-risk-badge");
+
+    const riskStyles = {
+        low: { label: "ઓછું જોખમ (Low)", className: "bg-secondary/15 text-secondary" },
+        medium: { label: "મધ્યમ જોખમ (Medium)", className: "bg-tertiary/15 text-tertiary" },
+        high: { label: "ઊંચું જોખમ (High)", className: "bg-danger/15 text-danger" }
+    };
+
+    const risk = riskStyles[result.riskLevel];
+    badge.textContent = risk.label;
+    badge.className += " " + risk.className;
+
+    resultPanel.querySelector("#url-risk-score").textContent = `${result.score}/100`;
+    resultPanel.querySelector("#url-domain").textContent =
+        result.domain || result.hostname || "ઉપલબ્ધ નથી";
+    resultPanel.querySelector("#url-status").textContent =
+        result.status || "ઉપલબ્ધ નથી";
+    resultPanel.querySelector("#url-recommendation").textContent =
+        result.recommendation || "કોઈ ભલામણ ઉપલબ્ધ નથી.";
+    resultPanel.querySelector("#url-disclaimer").textContent =
+        result.disclaimer || "";
+    resultPanel.querySelector("#url-guidance-disclaimer").textContent =
+        data.guidanceDisclaimer || "";
+    resultPanel.querySelector("#url-scan-id").textContent =
+        `Scan ID: ${data.scanId}`;
+
+    // Render detected indicators.
+    const indicatorContainer = resultPanel.querySelector("#url-indicators");
+
+    if (result.indicators.length === 0) {
+        const emptyMessage = document.createElement("p");
+        emptyMessage.textContent =
+            "કોઈ ઓળખાયેલા જોખમી સંકેતો મળ્યા નથી. આ વેબસાઇટ સુરક્ષિત હોવાની ગેરંટી નથી.";
+        indicatorContainer.appendChild(emptyMessage);
+    } else {
+        result.indicators.forEach(function (indicator) {
+            const item = document.createElement("div");
+            item.className =
+                "flex items-start justify-between gap-3 p-3 rounded-lg bg-surface-raised";
+
+            const label = document.createElement("span");
+            label.textContent = indicator.label;
+
+            const weight = document.createElement("span");
+            weight.className = "text-primary font-semibold shrink-0";
+            weight.textContent = `+${indicator.weight}`;
+
+            item.append(label, weight);
+            indicatorContainer.appendChild(item);
+        });
+    }
+
+    // Render verified knowledge-base guidance.
+    const guidanceContainer =
+        resultPanel.querySelector("#url-guidance-container");
+
+    guidanceList.forEach(function (guidance) {
+        const card = document.createElement("div");
+        card.className = "bg-surface-container rounded-xl p-5";
+
+        const title = document.createElement("h3");
+        title.className = "text-text-primary font-semibold text-lg mb-2";
+        title.textContent = guidance.title || "સુરક્ષા માર્ગદર્શન";
+
+        const explanation = document.createElement("p");
+        explanation.className = "text-text-muted font-body-sm leading-relaxed mb-4";
+        explanation.textContent = guidance.explanation || "";
+
+        card.append(title, explanation);
+
+        function addGuidanceSection(heading, items) {
+            if (!Array.isArray(items) || items.length === 0) return;
+
+            const sectionTitle = document.createElement("h4");
+            sectionTitle.className =
+                "text-text-primary font-semibold text-sm mt-4 mb-2";
+            sectionTitle.textContent = heading;
+
+            const list = document.createElement("ul");
+            list.className =
+                "list-disc pl-5 space-y-2 text-text-muted font-body-sm";
+
+            items.forEach(function (itemText) {
+                const li = document.createElement("li");
+                li.textContent = itemText;
+                list.appendChild(li);
+            });
+
+            card.append(sectionTitle, list);
+        }
+
+        addGuidanceSection("શું કરવું (Recommended Actions)", guidance.actions);
+        addGuidanceSection("સાવચેતી (Precautions)", guidance.precautions);
+
+        if (Array.isArray(guidance.sources) && guidance.sources.length > 0) {
+            const sourceTitle = document.createElement("h4");
+            sourceTitle.className =
+                "text-text-primary font-semibold text-sm mt-4 mb-2";
+            sourceTitle.textContent = "સત્તાવાર સંદર્ભો (Official Sources)";
+
+            const sourceList = document.createElement("div");
+            sourceList.className = "flex flex-col gap-2";
+
+            guidance.sources.forEach(function (source) {
+                if (!source.url) return;
+
+                let parsedURL;
+
+                try {
+                    parsedURL = new URL(source.url);
+                } catch {
+                    return;
+                }
+
+                if (parsedURL.protocol !== "https:") return;
+
+                const link = document.createElement("a");
+                link.href = parsedURL.href;
+                link.target = "_blank";
+                link.rel = "noopener noreferrer";
+                link.className =
+                    "text-info hover:underline text-sm break-all";
+                link.textContent = source.name || parsedURL.hostname;
+
+                sourceList.appendChild(link);
+            });
+
+            if (sourceList.children.length > 0) {
+                card.append(sourceTitle, sourceList);
+            }
+        }
+
+        guidanceContainer.appendChild(card);
+    });
+
+    if (guidanceList.length === 0) {
+        const noGuidance = document.createElement("p");
+        noGuidance.className =
+            "bg-surface-container rounded-xl p-4 text-text-muted text-sm";
+        noGuidance.textContent =
+            "આ URL માટે વિશિષ્ટ માર્ગદર્શન ઉપલબ્ધ નથી.";
+        guidanceContainer.appendChild(noGuidance);
+    }
+
+    resultPanel.classList.remove("hidden");
+    resultPanel.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+// Backend scan call
+    async function scanURL() {
+        const url = urlInput.value.trim();
+
+        if (!url) {
+            showError("કૃપા કરીને તપાસવા માટે URL દાખલ કરો.");
+            urlInput.focus();
+            return;
+        }
+
+        const originalContent = scanBtn.innerHTML;
+        scanBtn.disabled = true;
+        scanBtn.classList.add("opacity-60", "cursor-not-allowed");
+        scanBtn.innerHTML = `
+            <span class="material-symbols-outlined animate-spin text-xl">progress_activity</span>
+            <span>ચકાસણી ચાલુ છે...</span>
+        `;
+
+        resultPanel.classList.remove("hidden");
+        resultPanel.innerHTML = `
+            <div class="flex items-center gap-3 text-text-muted">
+                <span class="material-symbols-outlined animate-spin text-primary text-2xl">progress_activity</span>
+                URL વિશ્લેષણ થઈ રહ્યું છે...
+            </div>
+        `;
+
+        try {
+            const response = await fetch(API_URL, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ url })
+            });
+
+            const data = await response.json();
+            if (!response.ok || !data.success) {
+                throw new Error(data.message || "URL તપાસવામાં સમસ્યા આવી.");
+            }
+
+            displayResult(data);
+        } catch (error) {
+            console.error("URL scan failed:", error);
+            showError(
+                error.message === "Failed to fetch"
+                    ? "Backend સાથે જોડાણ થઈ શક્યું નથી. ખાતરી કરો કે backend port 5000 પર ચાલુ છે."
+                    : error.message
+            );
+        } finally {
+            scanBtn.disabled = false;
+            scanBtn.classList.remove("opacity-60", "cursor-not-allowed");
+            scanBtn.innerHTML = originalContent;
+        }
+    }
+
+    scanBtn.addEventListener("click", scanURL);
+    urlInput.addEventListener("keydown", function (event) {
+        if (event.key === "Enter") {
+            scanURL();
+        }
+    });
+})();
+</script>
+<script id="surakshit-global-navigation">
+(function(){
+ const routes = {
+ 'landing-page':'/','dashboard':'/app','gujarati-ai-assistant':'/app/assistant',
+ 'check-message-call':'/app/check/message','phishing-url-checker':'/app/check/url',
+ 'screenshot-qr-scanner':'/app/check/image','screenshot-qr-analyzer':'/app/check/image',
+ 'emergency-help':'/emergency','scam-awareness-library':'/awareness',
+ 'scam-alerts':'/awareness','scam-alerts-district-intel':'/awareness',
+ 'complaint-generator':'/app/complaint'
+ };
+ document.querySelectorAll('[data-path]').forEach(el=>{
+   const target=routes[el.getAttribute('data-path')];
+   if(target && el.tagName==='A') el.setAttribute('href',target);
+ });
+ document.querySelectorAll('a[href="#"]').forEach(a=>{
+   const label=(a.innerText||a.getAttribute('aria-label')||'').trim().toLowerCase();
+   if(/login|sign in|પ્રવેશ/.test(label)) a.href='/login';
+   else if(/profile|setting|account|પ્રોફાઇલ/.test(label)) a.href='/app/profile';
+   else if(/admin/.test(label)) a.href='/admin';
+   else if(/article|read more|વધુ વાંચો/.test(label)) a.href='/awareness/article';
+ });
+})();
+</script>
+<script src="/route-links.js"></script>
+</body></html>
