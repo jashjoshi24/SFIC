@@ -1,5 +1,5 @@
 
-const { analyseURL } = require("../services/urlAnalysisService");
+const { analyseURLHybrid } = require("../services/urlAnalysisService");
 const pool = require("../config/db");
 const { analyseMessage } = require("../services/messageAnalysisService");
 const { getGuidance } = require("../services/guidanceService");
@@ -22,10 +22,9 @@ async function analyseMessageController(req, res) {
             });
         }
 
-        // Analyse the message.
+        // Existing message analysis.
         const result = analyseMessage(message);
 
-        // Generate guidance from the analysis result.
         const guidanceResult = getGuidance(result);
 
         // Save scan metadata, not the original message.
@@ -62,7 +61,6 @@ async function analyseMessageController(req, res) {
     }
 }
 
-
 async function analyseURLController(req, res) {
     try {
         const { url } = req.body || {};
@@ -81,21 +79,32 @@ async function analyseURLController(req, res) {
             });
         }
 
-                let result;
+        let result;
 
         try {
-            result = analyseURL(url);
+            // Run existing heuristics + both Google threat lookups.
+            result = await analyseURLHybrid(url);
         } catch (error) {
-            return res.status(400).json({
-                success: false,
-                message: error.message
-            });
+            // Invalid URL errors are client errors.
+            if (
+                error.message.includes("URL") ||
+                error.message.includes("HTTP") ||
+                error.message.includes("character") ||
+                error.message.includes("hostname")
+            ) {
+                return res.status(400).json({
+                    success: false,
+                    message: error.message
+                });
+            }
+
+            throw error;
         }
 
-        // Generate guidance for the URL analysis.
+        // Generate guidance using the combined result.
         const guidanceResult = getGuidance(result);
 
-        // Save URL scan metadata, not the submitted URL.
+        // Save scan metadata, not the submitted URL or API keys.
         const dbResult = await pool.query(
             `INSERT INTO scan_history
              (scan_type, risk_score, risk_level, indicators, analysis_status)
@@ -111,13 +120,13 @@ async function analyseURLController(req, res) {
         );
 
         return res.status(200).json({
-    success: true,
-    scanId: dbResult.rows[0].id,
-    createdAt: dbResult.rows[0].created_at,
-    result,
-    guidance: guidanceResult.guidance,
-    guidanceDisclaimer: guidanceResult.disclaimer
-});
+            success: true,
+            scanId: dbResult.rows[0].id,
+            createdAt: dbResult.rows[0].created_at,
+            result,
+            guidance: guidanceResult.guidance,
+            guidanceDisclaimer: guidanceResult.disclaimer
+        });
 
     } catch (error) {
         console.error("URL analysis error:", error.message);
@@ -129,8 +138,6 @@ async function analyseURLController(req, res) {
     }
 }
 
-
-// Export both controllers.
 module.exports = {
     analyseMessageController,
     analyseURLController

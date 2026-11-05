@@ -8,3 +8,4 @@ __pycache__/
 *.pyc
 model-cache/
 whisper-service/model-cache/
+backend/*.traineddata
