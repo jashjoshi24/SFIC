@@ -475,7 +475,11 @@
     if (!resultBox) return;
 
     const originalButtonHTML = btn?.innerHTML;
-    const API_BASE_URL = 'http://localhost:5000/api/scans';
+    const API_ROOT_URL = window.SFIC_API_BASE_URL ||
+      ((location.hostname === 'localhost' || location.hostname === '127.0.0.1')
+        ? 'http://localhost:5000'
+        : 'https://sfic-backend-7957075383.asia-south1.run.app');
+    const API_BASE_URL = `${API_ROOT_URL}/api/scans`;
 
     const escapeHTML = (value) => String(value ?? '').replace(
         /[&<>"']/g,
