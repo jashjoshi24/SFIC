@@ -26,7 +26,7 @@ router.post(
         const originalName = String(req.get("x-audio-filename") || "audio.webm");
         const safeName = originalName.split(/[\\/]/).pop().replace(/[^a-zA-Z0-9._-]/g, "_");
         const extension = safeName.includes(".") ? safeName.slice(safeName.lastIndexOf(".")).toLowerCase() : "";
-        if (!ALLOWED_EXTENSIONS.has(extension)) {
+        if (!allowedExtensions.includes(extension)) {
             return res.status(415).json({ success: false, message: "Unsupported audio format." });
         }
 
