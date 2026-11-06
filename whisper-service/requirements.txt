@@ -1,4 +1,1 @@
-fastapi>=0.115,<1.0
-uvicorn[standard]>=0.30,<1.0
-python-multipart>=0.0.9
-faster-whisper>=1.1,<2.0
+findstr /n /i "WHISPER_MODEL WhisperModel device compute_type" whisper-service\main.py
