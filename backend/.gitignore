@@ -12,3 +12,4 @@ whisper-service/__pycache__/
 *.m4a
 *.webm
 *.flac
+.env

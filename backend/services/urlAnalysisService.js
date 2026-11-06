@@ -57,11 +57,13 @@ function isDomainMatch(hostname, domains) {
 
 
 function validateAndParseURL(input) {
+function analyseURL(input) {
     if (typeof input !== "string" || !input.trim()) {
         throw new Error("Please provide a URL.");
     }
 
     let rawUrl = input.trim();
+    const rawUrl = input.trim();
 
     if (rawUrl.length > 2048) {
         throw new Error("URL exceeds the 2048 character limit.");
@@ -83,6 +85,8 @@ function validateAndParseURL(input) {
     // Example: www.example.com -> https://www.example.com
     if (!/^https?:\/\//i.test(rawUrl)) {
         rawUrl = `https://${rawUrl}`;
+    if (!/^https?:\/\//i.test(rawUrl)) {
+        throw new Error("Only HTTP and HTTPS URLs are supported.");
     }
 
     let parsedUrl;
@@ -157,6 +161,7 @@ function analyseURL(input) {
         reasons.push("Local or non-public hostname detected");
     }
 
+    // Detect a brand name in a domain that does not match its official domain.
     const registeredDomain = domainInfo.domain || hostname;
 
     for (const brand of TRUSTED_BRANDS) {
@@ -175,6 +180,7 @@ function analyseURL(input) {
     }
 
     // Keywords are weak signals. They do not independently prove phishing.
+    // Keywords are weak signals. They must not independently imply phishing.
     const urlText = `${hostname}${parsedUrl.pathname}`.toLowerCase();
 
     const matchedKeywords = SUSPICIOUS_KEYWORDS.filter(keyword =>
@@ -201,6 +207,8 @@ function analyseURL(input) {
             reason.startsWith("Possible ") &&
             reason.endsWith(" brand impersonation")
         ) {
+        if (reason.startsWith("Possible ") &&
+            reason.endsWith(" brand impersonation")) {
             return 35;
         }
 
@@ -539,3 +547,4 @@ module.exports = {
     analyseURL,
     analyseURLHybrid
 };
+module.exports = { analyseURL };

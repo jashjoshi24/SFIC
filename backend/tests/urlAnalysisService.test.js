@@ -10,6 +10,7 @@ const {
 // ------------------------------------------
 // EXISTING HEURISTIC TESTS
 // ------------------------------------------
+const { analyseURL } = require("../services/urlAnalysisService");
 
 test("Normal HTTPS URL should return no indicators", () => {
     const result = analyseURL("https://google.com");
@@ -53,6 +54,7 @@ test("URL with embedded credentials should be flagged", () => {
     const result = analyseURL(
         "https://user:pass@example.com"
     );
+    const result = analyseURL("https://user:pass@example.com");
 
     assert.ok(
         result.indicators.some(item =>
@@ -68,6 +70,11 @@ test("Bare domain should be accepted with HTTPS normalization", () => {
     assert.equal(result.riskLevel, "low");
     assert.equal(result.score, 0);
     assert.equal(result.indicators.length, 0);
+test("Plain text should be rejected", () => {
+    assert.throws(
+        () => analyseURL("google.com"),
+        /Only HTTP and HTTPS/
+    );
 });
 
 test("Unsupported protocol should be rejected", () => {
