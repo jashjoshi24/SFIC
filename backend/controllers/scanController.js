@@ -1,4 +1,5 @@
 
+const { analyseURLHybrid } = require("../services/urlAnalysisService");
 const { analyseURL } = require("../services/urlAnalysisService");
 const pool = require("../config/db");
 const { analyseMessage } = require("../services/messageAnalysisService");
@@ -22,6 +23,10 @@ async function analyseMessageController(req, res) {
             });
         }
 
+        // Existing message analysis.
+        const result = analyseMessage(message);
+
+        // Analyse the message.
         const result = analyseMessage(message);
         const guidanceResult = getGuidance(result);
 
@@ -80,6 +85,32 @@ async function analyseURLController(req, res) {
         let result;
 
         try {
+            // Run existing heuristics + both Google threat lookups.
+            result = await analyseURLHybrid(url);
+        } catch (error) {
+            // Invalid URL errors are client errors.
+            if (
+                error.message.includes("URL") ||
+                error.message.includes("HTTP") ||
+                error.message.includes("character") ||
+                error.message.includes("hostname")
+            ) {
+                return res.status(400).json({
+                    success: false,
+                    message: error.message
+                });
+            }
+
+            throw error;
+        }
+
+        // Generate guidance using the combined result.
+        const guidanceResult = getGuidance(result);
+
+        // Save scan metadata, not the submitted URL or API keys.
+                let result;
+
+        try {
             result = analyseURL(url);
         } catch (error) {
             return res.status(400).json({
@@ -113,6 +144,13 @@ async function analyseURLController(req, res) {
             guidance: guidanceResult.guidance,
             guidanceDisclaimer: guidanceResult.disclaimer
         });
+    success: true,
+    scanId: dbResult.rows[0].id,
+    createdAt: dbResult.rows[0].created_at,
+    result,
+    guidance: guidanceResult.guidance,
+    guidanceDisclaimer: guidanceResult.disclaimer
+});
 
     } catch (error) {
         console.error("URL analysis error:", error.message);
@@ -151,6 +189,10 @@ async function getScanHistoryController(req, res) {
         });
     }
 }
+module.exports = {
+    analyseMessageController,
+    analyseURLController
+};
 
 module.exports = {
     analyseMessageController,

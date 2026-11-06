@@ -67,6 +67,27 @@
 </div>
 </div>
 </div>
+<!-- Voice transcription: supports selecting an audio file or recording from the microphone. -->
+<div class="rounded-xl border border-border-hairline bg-surface-container-low/70 p-4 flex flex-col gap-3" id="voice-transcription-panel">
+  <div class="flex items-start gap-2">
+    <span class="material-symbols-outlined text-secondary text-[20px]">graphic_eq</span>
+    <div class="flex flex-col gap-0.5">
+      <span class="font-label-md text-label-md text-text-primary font-semibold">Voice message transcription</span>
+      <span class="font-body-sm text-body-sm text-text-muted">Upload an audio file or record a suspicious call/voice message. Gujarati, Hindi and English are detected automatically. The transcript stays in the spoken language.</span>
+    </div>
+  </div>
+  <input id="audio-file-input" type="file" accept="audio/*,.wav,.mp3,.m4a,.ogg,.webm,.weba,.flac,.mp4" class="hidden">
+  <div class="flex flex-col sm:flex-row gap-2">
+    <button id="btn-upload-audio" type="button" class="flex-1 py-2.5 px-3 rounded-lg bg-surface-raised text-text-primary font-label-md text-label-md flex items-center justify-center gap-2 hover:bg-surface-bright transition-all">
+      <span class="material-symbols-outlined text-[18px]">upload_file</span> Upload audio
+    </button>
+    <button id="btn-record-audio" type="button" class="flex-1 py-2.5 px-3 rounded-lg bg-secondary-container/20 text-secondary font-label-md text-label-md font-semibold flex items-center justify-center gap-2 hover:bg-secondary-container/30 transition-all">
+      <span class="material-symbols-outlined text-[18px]" id="record-audio-icon">mic</span><span id="record-audio-label">Record voice</span>
+    </button>
+  </div>
+  <audio id="audio-preview" controls class="hidden w-full"></audio>
+  <p id="transcription-status" role="status" aria-live="polite" class="font-body-sm text-body-sm text-text-muted">Maximum audio size: 25 MB. Your audio is sent to the SFIC transcription service for processing.</p>
+</div>
 <div class="p-3 rounded-xl bg-surface-container-low/70 flex items-start gap-2.5">
 <span class="material-symbols-outlined text-secondary text-[18px] shrink-0 mt-0.5">lock</span>
 <div class="flex flex-col gap-0.5">
@@ -205,6 +226,9 @@
 </div>
 <script>
 (function () {
+  const API_BASE_URL = window.SFIC_API_BASE_URL || ((location.hostname === 'localhost' || location.hostname === '127.0.0.1') ? 'http://localhost:5000' : '');
+  const API_URL = `${API_BASE_URL}/api/scans/message`;
+  const TRANSCRIPTION_API_URL = `${API_BASE_URL}/api/transcription/transcribe`;
   const API_URL = 'http://localhost:5000/api/scans/message';
 
   const textarea = document.getElementById('scam-text-input');
@@ -337,6 +361,137 @@ let selectedType = 'sms';
         }
       } catch (error) {
         showToast('પેસ્ટ પરવાનગી ન મળી, મેન્યુઅલી પેસ્ટ કરો');
+      }
+    });
+  }
+
+  // Audio upload and microphone recording (Faster-Whisper via the Node API).
+  const audioInput = document.getElementById('audio-file-input');
+  const uploadAudioButton = document.getElementById('btn-upload-audio');
+  const recordAudioButton = document.getElementById('btn-record-audio');
+  const recordAudioLabel = document.getElementById('record-audio-label');
+  const recordAudioIcon = document.getElementById('record-audio-icon');
+  const transcriptionStatus = document.getElementById('transcription-status');
+  const audioPreview = document.getElementById('audio-preview');
+  let mediaRecorder = null;
+  let recordingChunks = [];
+  let recordingStream = null;
+  let isTranscribing = false;
+
+  const setTranscriptionStatus = (message, isError = false) => {
+    if (!transcriptionStatus) return;
+    transcriptionStatus.textContent = message;
+    transcriptionStatus.className = `font-body-sm text-body-sm ${isError ? 'text-error' : 'text-text-muted'}`;
+  };
+
+  const transcribeAudioBlob = async (blob, filename) => {
+    if (!blob || !blob.size) {
+      setTranscriptionStatus('No audio data was captured. Please try again.', true);
+      return;
+    }
+    if (blob.size > 25 * 1024 * 1024) {
+      setTranscriptionStatus('Audio is larger than 25 MB. Please choose a shorter or smaller file.', true);
+      return;
+    }
+    if (isTranscribing) return;
+
+    isTranscribing = true;
+    if (uploadAudioButton) uploadAudioButton.disabled = true;
+    if (recordAudioButton) recordAudioButton.disabled = true;
+    setTranscriptionStatus('Transcribing audio… This can take a little while for longer recordings.');
+
+    try {
+      const response = await fetch(TRANSCRIPTION_API_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': blob.type || 'application/octet-stream',
+          'X-Audio-Filename': filename
+        },
+        body: blob
+      });
+      const data = await response.json().catch(() => ({}));
+      if (!response.ok || !data.success) {
+        throw new Error(data.message || 'The transcription service could not process this audio.');
+      }
+
+      if (!data.transcription || !data.transcription.trim()) {
+        setTranscriptionStatus('No speech was detected. Try a clearer recording with less background noise.', true);
+        return;
+      }
+
+      textarea.value = data.transcription.trim();
+      latestScan = null;
+      updateCounter();
+      textarea.focus();
+      const languageNames = { gu: 'Gujarati', hi: 'Hindi', en: 'English' };
+      const languageLabel = data.language_name || languageNames[data.language] || data.language || 'unknown';
+      setTranscriptionStatus(`Transcription complete (${languageLabel}). Review the text, then select Analyse to check for scam indicators.`);
+      showToast('Audio transcription completed. Please review the text.');
+    } catch (error) {
+      console.error('Audio transcription error:', error);
+      setTranscriptionStatus(error.message || 'Transcription failed. Check that the Whisper service is running.', true);
+    } finally {
+      isTranscribing = false;
+      if (uploadAudioButton) uploadAudioButton.disabled = false;
+      if (recordAudioButton) recordAudioButton.disabled = false;
+    }
+  };
+
+  if (uploadAudioButton && audioInput) {
+    uploadAudioButton.addEventListener('click', () => audioInput.click());
+    audioInput.addEventListener('change', async () => {
+      const file = audioInput.files && audioInput.files[0];
+      if (!file) return;
+      if (audioPreview) {
+        audioPreview.src = URL.createObjectURL(file);
+        audioPreview.classList.remove('hidden');
+      }
+      await transcribeAudioBlob(file, file.name);
+      audioInput.value = '';
+    });
+  }
+
+  if (recordAudioButton) {
+    recordAudioButton.addEventListener('click', async () => {
+      if (mediaRecorder && mediaRecorder.state === 'recording') {
+        mediaRecorder.stop();
+        return;
+      }
+      if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia || !window.MediaRecorder) {
+        setTranscriptionStatus('Microphone recording is not supported in this browser. Please upload an audio file instead.', true);
+        return;
+      }
+      try {
+        recordingStream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        recordingChunks = [];
+        const preferredMime = ['audio/webm;codecs=opus', 'audio/webm', 'audio/mp4'].find(type => MediaRecorder.isTypeSupported(type));
+        mediaRecorder = preferredMime ? new MediaRecorder(recordingStream, { mimeType: preferredMime }) : new MediaRecorder(recordingStream);
+        mediaRecorder.addEventListener('dataavailable', event => {
+          if (event.data && event.data.size) recordingChunks.push(event.data);
+        });
+        mediaRecorder.addEventListener('stop', async () => {
+          const recordedType = mediaRecorder.mimeType || 'audio/webm';
+          const extension = recordedType.includes('mp4') ? 'm4a' : 'webm';
+          const recording = new Blob(recordingChunks, { type: recordedType });
+          if (recordingStream) recordingStream.getTracks().forEach(track => track.stop());
+          recordingStream = null;
+          if (audioPreview) {
+            audioPreview.src = URL.createObjectURL(recording);
+            audioPreview.classList.remove('hidden');
+          }
+          recordAudioLabel.textContent = 'Record voice';
+          recordAudioIcon.textContent = 'mic';
+          await transcribeAudioBlob(recording, `voice-recording.${extension}`);
+        });
+        mediaRecorder.start();
+        recordAudioLabel.textContent = 'Stop recording';
+        recordAudioIcon.textContent = 'stop_circle';
+        setTranscriptionStatus('Recording… Select Stop recording when you have finished speaking.');
+      } catch (error) {
+        console.error('Microphone access error:', error);
+        if (recordingStream) recordingStream.getTracks().forEach(track => track.stop());
+        recordingStream = null;
+        setTranscriptionStatus('Microphone access was denied or unavailable. You can upload an audio file instead.', true);
       }
     });
   }

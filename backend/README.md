@@ -216,3 +216,31 @@ This command requires a test script to be configured in package.json.
 
 \- The platform does not guarantee fraud prevention or recovery of lost money.
 
+
+
+## Faster-Whisper audio transcription
+
+The Express backend exposes `POST /api/transcription/transcribe`. The browser sends raw audio bytes to this endpoint; Express forwards the upload to the private Python service configured by `WHISPER_SERVICE_URL`.
+
+Start the Python service separately from the repository root:
+
+```powershell
+cd whisper-service
+py -3.11 -m venv .venv
+.\.venv\Scripts\Activate.ps1
+pip install -r requirements.txt
+$env:WHISPER_MODEL_DIR="$PWD\model-cache"
+uvicorn main:app --reload --port 8000
+```
+
+Then start the existing Node backend in another terminal:
+
+```powershell
+cd backend
+npm install
+npm run dev
+```
+
+Set `WHISPER_SERVICE_URL` in the backend environment. The default is `http://127.0.0.1:8000`.
+
+The model is downloaded on the first Python service startup and cached under `WHISPER_MODEL_DIR`. Persist that directory on the deployment host; do not add model weights, `.env` files, or user audio recordings to Git. Microphone recording requires browser permission and HTTPS in production (localhost is allowed for development).

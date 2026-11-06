@@ -11,6 +11,18 @@ test('Empty message should return zero score', () => {
     assert.deepEqual(result.indicators, []);
 });
 
+test('Fake KYC message should detect KYC, OTP, urgency, and suspicious link', () => {
+    const message ='Your bank account will be blocked. Update your KYC immediately. Share OTP and click here https://bank-verification.com';
+    const result = analyseMessage(message);
+
+    assert.equal(result.riskLevel, 'high');
+    assert.equal(result.score, 100);
+
+    const indicatorIds = result.indicators.map(item => item.id);
+
+    assert.ok(indicatorIds.includes('otp'));
+    assert.ok(indicatorIds.includes('link'));
+    assert.ok(result.indicators.length >= 3);
 test('Fake KYC message should detect KYC, OTP, and urgency', () => {
     const message =
         'Your bank account will be blocked. Update your KYC immediately. Share OTP and click here https://fake-link.com';

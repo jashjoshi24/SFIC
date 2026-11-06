@@ -1,3 +1,812 @@
+
+<!DOCTYPE html>
+<html class="dark" lang="gu">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="shell-type" content="web_dashboard"/>
+  <title>Screenshot & QR Analyzer | સુરક્ષિત ગુજરાત</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary-strong": "#F15A24",
+            "primary-container": "#ff7a2f",
+            "secondary": "#61dcac",
+            "secondary-container": "#14a479",
+            "danger": "#F06464",
+            "tertiary": "#f9bc4f",
+            "bg-base": "#100D0B",
+            "surface": "#191411",
+            "surface-raised": "#241B16",
+            "surface-container": "#221f1d",
+            "surface-container-lowest": "#110e0c",
+            "surface-container-low": "#1e1b19",
+            "surface-variant": "#383431",
+            "text-primary": "#F8F3ED",
+            "text-muted": "#B7AAA0",
+            "on-surface": "#e9e1dd",
+            "on-surface-variant": "#dfc0b2",
+            "on-primary": "#561f00",
+            "on-error": "#690005",
+            "info": "#65A9E8"
+          },
+          fontFamily: {
+            headline: ["Plus Jakarta Sans"],
+            body: ["Manrope"]
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    html, body { margin: 0; padding: 0; }
+    body { overscroll-behavior: none; }
+    ::-webkit-scrollbar { display: none; }
+    .result-card { background: #191411; border: 1px solid rgba(255,239,220,.08); border-radius: 16px; padding: 20px; }
+    .result-value { overflow-wrap: anywhere; white-space: pre-wrap; }
+    .risk-high { color: #F06464; }
+    .risk-medium { color: #f9bc4f; }
+    .risk-low { color: #61dcac; }
+    .hidden-force { display: none !important; }
+    @media print {
+      aside, .top-header, .upload-area, .no-print, .emergency-button { display: none !important; }
+      body, main, .page-wrapper { background: white !important; color: black !important; }
+      .result-card { background: white !important; color: black !important; border: 1px solid #ccc; break-inside: avoid; }
+      .result-card * { color: black !important; }
+      .page-wrapper { margin: 0 !important; padding: 0 !important; }
+    }
+  </style>
+</head>
+
+<body class="bg-bg-base text-on-surface font-body min-h-screen">
+
+  <!-- Sidebar -->
+  <aside class="fixed left-0 top-0 h-screen w-72 bg-surface-container-lowest/95 backdrop-blur-2xl z-50 flex flex-col justify-between shadow-xl max-lg:hidden">
+    <div>
+      <div class="h-20 px-6 flex items-center">
+        <a class="flex items-center gap-3" href="/">
+          <img alt="Surakshit Gujarat Emblem" class="h-8 w-auto" src="/brand-mark.svg"/>
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="font-semibold text-text-primary">સુરક્ષિત ગુજરાત</span>
+              <span class="text-[10px] rounded-full px-2 py-0.5 bg-secondary-container/20 text-secondary">AI Kavach</span>
+            </div>
+            <span class="text-xs text-text-muted">Cyber Suraksha Kendra</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="px-4 py-3">
+        <div class="flex items-center justify-between px-3 py-2 rounded-lg bg-surface-raised">
+          <span class="text-sm text-on-surface-variant">● Active Shield Live</span>
+          <span class="text-xs text-secondary">24x7 Ready</span>
+        </div>
+      </div>
+
+      <nav class="px-3 mt-3 space-y-1">
+        <a class="block px-4 py-3 rounded-xl text-on-surface-variant hover:bg-surface-raised" href="/">
+          <span class="block font-semibold">Landing Page</span>
+          <span class="text-xs opacity-70">સુરક્ષિત ગુજરાત હોમ</span>
+        </a>
+        <a class="block px-4 py-3 rounded-xl text-on-surface-variant hover:bg-surface-raised" href="/app/check/url">
+          <span class="block font-semibold">Phishing URL Checker</span>
+          <span class="text-xs opacity-70">લિંક સુરક્ષા સ્કેનર</span>
+        </a>
+        <a aria-current="page" class="block px-4 py-3 rounded-xl bg-primary-container text-on-primary font-semibold shadow-lg" href="/app/check/image">
+          <span class="block">Screenshot & QR Analyzer</span>
+          <span class="text-xs opacity-80">સ્ક્રીનશોટ અને QR સ્કેનર</span>
+        </a>
+        <a class="block px-4 py-3 rounded-xl text-on-surface-variant hover:bg-surface-raised" href="/awareness">
+          <span class="block font-semibold">Scam Awareness Library</span>
+          <span class="text-xs opacity-70">સાયબર જાગૃતિ લાઇબ્રેરી</span>
+        </a>
+        <a class="block px-4 py-3 rounded-xl text-on-surface-variant hover:bg-surface-raised" href="/emergency">
+          <span class="block font-semibold">Emergency Help</span>
+          <span class="text-xs opacity-70">કટોકટી સહાય (1930)</span>
+        </a>
+      </nav>
+    </div>
+
+    <div class="p-5">
+      <div class="p-4 rounded-xl bg-surface-raised">
+        <div class="flex justify-between text-xs text-text-muted">
+          <span>Helpline Desk</span>
+          <span class="text-primary-strong">National Portal</span>
+        </div>
+        <div class="text-2xl font-bold text-text-primary mt-2">1930</div>
+        <p class="text-xs text-text-muted mt-2">National Cyber Crime Helpline</p>
+      </div>
+    </div>
+  </aside>
+
+  <div class="lg:pl-72">
+
+    <!-- Header -->
+    <header class="top-header fixed top-0 left-0 lg:left-72 right-0 h-20 bg-surface-container-lowest/90 backdrop-blur-xl z-40 px-6 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <img alt="Surakshit Gujarat" class="h-8 w-auto" src="/brand-mark.svg"/>
+        <div>
+          <div class="font-semibold text-text-primary">સુરક્ષિત ગુજરાત</div>
+          <div class="text-xs text-text-muted">Screenshot & QR Analyzer</div>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-4">
+        <a class="text-sm text-danger font-semibold hover:underline" href="tel:1930">
+          1930 Cyber Helpline
+        </a>
+      </div>
+    </header>
+
+    <main class="page-wrapper min-h-screen pt-24 px-4 md:px-8 pb-16">
+      <div class="max-w-7xl mx-auto space-y-8">
+
+        <!-- Page heading -->
+        <section class="flex flex-col md:flex-row md:items-end justify-between gap-5 pt-4">
+          <div class="space-y-3">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-raised text-sm text-on-surface-variant">
+              <span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+              AI Vision Engine · Real-time Optical Analysis
+            </div>
+
+            <h1 class="text-3xl md:text-4xl font-bold text-text-primary">
+              સ્ક્રીનશોટ અને QR કોડ એનાલાઇઝર
+            </h1>
+
+            <p class="text-text-muted max-w-2xl leading-relaxed">
+              શંકાસ્પદ ચુકવણી QR કોડ અથવા ચેટ સ્ક્રીનશોટ અપલોડ કરો અને AI કવચ દ્વારા સુરક્ષા વિશ્લેષણ મેળવો.
+            </p>
+          </div>
+
+          <div class="flex gap-3 no-print">
+            <button id="btn-audio-listen" class="px-4 py-3 rounded-xl bg-surface-raised text-text-primary hover:bg-surface-variant">
+              <span class="material-symbols-outlined align-middle text-primary">volume_up</span>
+              ગુજરાતી સાંભળો
+            </button>
+
+            <button id="btn-generate-report" disabled class="px-5 py-3 rounded-xl bg-primary-strong text-on-primary font-semibold disabled:opacity-40 disabled:cursor-not-allowed">
+              <span class="material-symbols-outlined align-middle">description</span>
+              રિપોર્ટ બનાવો
+            </button>
+          </div>
+        </section>
+
+        <!-- Upload -->
+        <section class="upload-area">
+          <div id="dropzone" class="relative cursor-pointer overflow-hidden rounded-2xl bg-surface-raised border-2 border-dashed border-white/10 p-8 md:p-12 text-center hover:border-primary-strong transition-all">
+            <div class="flex flex-col items-center gap-4">
+              <div class="w-16 h-16 rounded-2xl bg-surface-soft flex items-center justify-center text-primary-strong">
+                <span class="material-symbols-outlined text-4xl">document_scanner</span>
+              </div>
+
+              <div>
+                <h2 class="text-xl font-semibold text-text-primary">
+                  ડ્રેગ & ડ્રોપ કરો અથવા ફોટો પસંદ કરો
+                </h2>
+                <p class="text-sm text-text-muted mt-2">
+                  UPI QR સ્લિપ, WhatsApp સ્ક્રીનશોટ અથવા શંકાસ્પદ ઇમેજ અપલોડ કરો
+                </p>
+                <p class="text-xs text-text-muted mt-2">
+                  PNG, JPG, WebP · મહત્તમ 15MB
+                </p>
+              </div>
+
+              <div class="flex flex-wrap justify-center gap-2">
+                <span class="px-3 py-1 rounded-full bg-surface-container text-xs text-on-surface-variant">QR Code Detection</span>
+                <span class="px-3 py-1 rounded-full bg-surface-container text-xs text-on-surface-variant">Gujarati OCR</span>
+                <span class="px-3 py-1 rounded-full bg-surface-container text-xs text-on-surface-variant">URL Security Check</span>
+              </div>
+
+              <button type="button" id="choose-image" class="px-6 py-3 rounded-xl bg-primary-strong text-on-primary font-semibold hover:bg-primary-container">
+                <span class="material-symbols-outlined align-middle">upload_file</span>
+                ઇમેજ પસંદ કરો
+              </button>
+            </div>
+
+            <input accept="image/png,image/jpeg,image/webp" class="hidden" id="file-input" type="file"/>
+          </div>
+        </section>
+
+        <!-- Status -->
+        <div id="scan-status" role="status" aria-live="polite" class="hidden rounded-xl p-4 bg-surface-raised text-sm text-on-surface-variant"></div>
+
+        <!-- Loading -->
+        <div id="loading-panel" class="hidden rounded-2xl bg-surface-raised p-8 text-center">
+          <div class="inline-block w-10 h-10 border-4 border-primary-strong border-t-transparent rounded-full animate-spin"></div>
+          <h3 class="text-lg font-semibold mt-4 text-text-primary">ઇમેજનું વિશ્લેષણ થઈ રહ્યું છે...</h3>
+          <p class="text-sm text-text-muted mt-2">QR Detection, OCR અને URL Security Check ચાલી રહ્યા છે.</p>
+          <p class="text-xs text-text-muted mt-1">કૃપા કરીને રાહ જુઓ. મોટી ઇમેજમાં થોડો સમય લાગી શકે છે.</p>
+        </div>
+
+        <!-- Results -->
+        <section id="live-scan-results" class="hidden space-y-6">
+
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div>
+              <h2 class="text-2xl font-bold text-text-primary">સ્કેન પરિણામ</h2>
+              <p id="scan-filename" class="text-sm text-text-muted mt-1"></p>
+            </div>
+            <span id="scan-status-label" class="px-3 py-2 rounded-full bg-surface-raised text-sm text-secondary">
+              Analysis completed
+            </span>
+          </div>
+
+          <!-- Risk summary -->
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+            <div class="result-card">
+              <p class="text-sm text-text-muted">જોખમ સ્કોર</p>
+              <div class="flex items-baseline gap-1 mt-2">
+                <span id="result-score" class="text-4xl font-bold text-text-primary">--</span>
+                <span class="text-text-muted">/100</span>
+              </div>
+              <p class="text-xs text-text-muted mt-2">Heuristic / Hybrid score</p>
+            </div>
+
+            <div class="result-card">
+              <p class="text-sm text-text-muted">જોખમ સ્તર</p>
+              <p id="result-risk" class="text-2xl font-bold mt-3">--</p>
+              <p class="text-xs text-text-muted mt-2">Detected risk level</p>
+            </div>
+
+            <div class="result-card">
+              <p class="text-sm text-text-muted">QR કોડ મળ્યા</p>
+              <p id="result-qr-count" class="text-3xl font-bold text-text-primary mt-3">0</p>
+              <p class="text-xs text-text-muted mt-2">Decoded QR codes</p>
+            </div>
+
+            <div class="result-card">
+              <p class="text-sm text-text-muted">URL મળ્યા</p>
+              <p id="result-url-count" class="text-3xl font-bold text-text-primary mt-3">0</p>
+              <p class="text-xs text-text-muted mt-2">Extracted URLs</p>
+            </div>
+          </div>
+
+          <!-- Image and QR -->
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div class="result-card space-y-4">
+              <h3 class="font-semibold text-text-primary flex items-center gap-2">
+                <span class="material-symbols-outlined text-tertiary">image</span>
+                અપલોડ કરેલી ઇમેજ
+              </h3>
+              <div class="rounded-xl overflow-hidden bg-surface-container-lowest min-h-48 flex items-center justify-center">
+                <img id="image-preview" alt="Uploaded image preview" class="max-h-[480px] max-w-full object-contain"/>
+              </div>
+            </div>
+
+            <div class="result-card space-y-4">
+              <h3 class="font-semibold text-text-primary flex items-center gap-2">
+                <span class="material-symbols-outlined text-tertiary">qr_code_scanner</span>
+                ડીકોડ કરેલ QR માહિતી
+              </h3>
+              <div id="result-qr" class="space-y-3 text-sm text-text-muted">
+                કોઈ QR કોડ મળ્યો નથી.
+              </div>
+            </div>
+          </div>
+
+          <!-- URL findings -->
+          <div class="result-card space-y-4">
+            <h3 class="font-semibold text-text-primary flex items-center gap-2">
+              <span class="material-symbols-outlined text-primary">link</span>
+              URL સુરક્ષા વિશ્લેષણ
+            </h3>
+            <div id="result-urls" class="space-y-3 text-sm text-text-muted">
+              કોઈ URL મળ્યો નથી.
+            </div>
+          </div>
+
+          <!-- OCR -->
+          <div class="result-card space-y-4">
+            <h3 class="font-semibold text-text-primary flex items-center gap-2">
+              <span class="material-symbols-outlined text-tertiary">text_fields</span>
+              OCR દ્વારા મળેલ ટેક્સ્ટ
+            </h3>
+            <pre id="result-ocr" class="result-value whitespace-pre-wrap text-sm text-text-muted bg-surface-container p-4 rounded-xl max-h-96 overflow-auto">કોઈ ટેક્સ્ટ મળ્યો નથી.</pre>
+          </div>
+
+          <!-- Indicators -->
+          <div class="result-card space-y-4">
+            <h3 class="font-semibold text-text-primary flex items-center gap-2">
+              <span class="material-symbols-outlined text-danger">warning</span>
+              મળેલા જોખમના સંકેતો
+            </h3>
+            <div id="result-indicators" class="space-y-2 text-sm text-text-muted">
+              કોઈ જોખમનો સંકેત મળ્યો નથી.
+            </div>
+          </div>
+
+          <!-- Guidance -->
+          <div class="result-card space-y-4">
+            <h3 class="font-semibold text-text-primary flex items-center gap-2">
+              <span class="material-symbols-outlined text-secondary">verified_user</span>
+              સુરક્ષિત રહેવા માટે સૂચનો
+            </h3>
+            <div id="result-guidance" class="text-sm text-text-muted leading-relaxed">
+              વિશ્લેષણ પૂર્ણ થયા પછી સૂચનો અહીં દેખાશે.
+            </div>
+          </div>
+
+          <div class="result-card">
+            <h3 class="font-semibold text-text-primary mb-2">મહત્વપૂર્ણ નોંધ</h3>
+            <p id="result-disclaimer" class="text-sm text-text-muted leading-relaxed">
+              આ પરિણામ સ્વચાલિત વિશ્લેષણ પર આધારિત છે. કોઈપણ ચુકવણી કરતા પહેલાં સત્તાવાર સ્ત્રોતથી ચકાસણી કરો.
+            </p>
+          </div>
+
+          <div class="flex flex-wrap gap-3 no-print">
+            <button id="copy-results" class="px-5 py-3 rounded-xl bg-surface-raised text-text-primary hover:bg-surface-variant">
+              <span class="material-symbols-outlined align-middle">content_copy</span>
+              પરિણામ કોપી કરો
+            </button>
+            <button id="scan-another" class="px-5 py-3 rounded-xl bg-primary-strong text-on-primary font-semibold">
+              <span class="material-symbols-outlined align-middle">refresh</span>
+              બીજી ઇમેજ સ્કેન કરો
+            </button>
+          </div>
+        </section>
+
+        <!-- Awareness cards -->
+        <section class="rounded-2xl bg-surface p-6 space-y-5">
+          <div>
+            <h2 class="text-xl font-bold text-text-primary">સામાન્ય QR છેતરપિંડીથી સાવચેત રહો</h2>
+            <p class="text-sm text-text-muted mt-2">QR કોડ સ્કેન કરતાં પહેલાં આ બાબતો યાદ રાખો.</p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+            <div class="rounded-xl bg-surface-raised p-5 space-y-3">
+              <span class="text-danger material-symbols-outlined text-3xl">electric_bolt</span>
+              <h3 class="font-semibold text-text-primary">વીજળી બિલ સ્કેમ</h3>
+              <p class="text-sm text-text-muted">વીજળી કાપવાની ધમકી આપી તાત્કાલિક QR દ્વારા ચુકવણી કરવાનું કહેવામાં આવે છે.</p>
+            </div>
+
+            <div class="rounded-xl bg-surface-raised p-5 space-y-3">
+              <span class="text-tertiary material-symbols-outlined text-3xl">shopping_bag</span>
+              <h3 class="font-semibold text-text-primary">ઓનલાઇન વેચાણ સ્કેમ</h3>
+              <p class="text-sm text-text-muted">પૈસા મેળવવા માટે QR સ્કેન કરવા અથવા UPI PIN દાખલ કરવા કહેવામાં આવે છે.</p>
+            </div>
+
+            <div class="rounded-xl bg-surface-raised p-5 space-y-3">
+              <span class="text-primary-strong material-symbols-outlined text-3xl">local_police</span>
+              <h3 class="font-semibold text-text-primary">ઇ-ચલાન સ્કેમ</h3>
+              <p class="text-sm text-text-muted">નકલી ચલાન અથવા દંડની નોટિસ મોકલી શંકાસ્પદ લિંક દ્વારા ચુકવણી કરાવવામાં આવે છે.</p>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- Emergency button -->
+  <a class="emergency-button fixed bottom-6 right-6 z-50 inline-flex items-center gap-2 px-5 py-3 rounded-full bg-danger text-on-error font-semibold shadow-xl hover:scale-105 transition-all" href="/emergency">
+    <span class="material-symbols-outlined">e911_emergency</span>
+    તાત્કાલિક ફરિયાદ · 1930
+  </a>
+
+  <script>
+  (() => {
+    "use strict";
+
+    // For local development, frontend usually runs on port 5173
+    // Backend Express server runs on port 5000.
+    // If frontend and backend are deployed separately, set this to your backend URL.
+    const API_BASE =
+      window.SFIC_API_BASE_URL ||
+      (location.port === "5173" ? "http://localhost:5000" : location.origin);
+
+    const MAX_FILE_SIZE = 15 * 1024 * 1024;
+    const ALLOWED_TYPES = ["image/png", "image/jpeg", "image/webp"];
+
+    const dropzone = document.getElementById("dropzone");
+    const fileInput = document.getElementById("file-input");
+    const chooseImageBtn = document.getElementById("choose-image");
+    const statusBox = document.getElementById("scan-status");
+    const loadingPanel = document.getElementById("loading-panel");
+    const resultsSection = document.getElementById("live-scan-results");
+    const preview = document.getElementById("image-preview");
+
+    let latestResult = null;
+    let latestGuidance = null;
+    let latestDisclaimer = "";
+
+    function escapeHTML(value) {
+      return String(value ?? "").replace(/[&<>"']/g, char => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#039;"
+      })[char]);
+    }
+
+    function showStatus(message, isError = false) {
+      statusBox.classList.remove("hidden");
+      statusBox.className =
+        "rounded-xl p-4 text-sm " +
+        (isError
+          ? "bg-danger/10 text-danger border border-danger/20"
+          : "bg-surface-raised text-on-surface-variant");
+
+      statusBox.textContent = message;
+    }
+
+    function setLoading(isLoading) {
+      loadingPanel.classList.toggle("hidden", !isLoading);
+      chooseImageBtn.disabled = isLoading;
+      fileInput.disabled = isLoading;
+
+      chooseImageBtn.classList.toggle("opacity-50", isLoading);
+      dropzone.classList.toggle("opacity-60", isLoading);
+    }
+
+    function normalizeArray(value) {
+      if (Array.isArray(value)) return value;
+      if (value === null || value === undefined || value === "") return [];
+      return [value];
+    }
+
+    function getText(value) {
+      if (value === null || value === undefined) return "";
+      if (typeof value === "string" || typeof value === "number") {
+        return String(value);
+      }
+      if (typeof value === "object") {
+        return value.url || value.text || value.value || value.payload ||
+          JSON.stringify(value, null, 2);
+      }
+      return String(value);
+    }
+
+    function getRiskClass(level) {
+      const risk = String(level || "").toLowerCase();
+
+      if (risk.includes("high") || risk.includes("critical")) return "risk-high";
+      if (risk.includes("medium") || risk.includes("moderate")) return "risk-medium";
+      return "risk-low";
+    }
+
+    function renderList(container, items, emptyMessage, renderer) {
+      if (!items.length) {
+        container.innerHTML = `<p class="text-text-muted">${escapeHTML(emptyMessage)}</p>`;
+        return;
+      }
+
+      container.innerHTML = items.map(renderer).join("");
+    }
+
+    function renderResults(data, file) {
+      const result = data.result || data;
+      latestResult = result;
+      latestGuidance = data.guidance || result.guidance || null;
+      latestDisclaimer = data.disclaimer || result.disclaimer || "";
+
+      resultsSection.classList.remove("hidden");
+
+      document.getElementById("scan-filename").textContent =
+        `ફાઇલ: ${file.name} · ${(file.size / (1024 * 1024)).toFixed(2)} MB`;
+
+      document.getElementById("scan-status-label").textContent =
+        `Analysis: ${result.status || "completed"}`;
+
+      const score = Number(result.score ?? 0);
+      const riskLevel = result.riskLevel || result.risk_level || "unknown";
+
+      const scoreElement = document.getElementById("result-score");
+      scoreElement.textContent = Number.isFinite(score) ? score : "--";
+
+      const riskElement = document.getElementById("result-risk");
+      riskElement.textContent = String(riskLevel).toUpperCase();
+      riskElement.className =
+        "text-2xl font-bold mt-3 " + getRiskClass(riskLevel);
+
+      const qrCodes = normalizeArray(result.qrCodes || result.qr_codes);
+      const urls = normalizeArray(result.extractedURLs || result.extractedUrls || result.urls);
+      const indicators = normalizeArray(result.indicators);
+
+      document.getElementById("result-qr-count").textContent = qrCodes.length;
+      document.getElementById("result-url-count").textContent = urls.length;
+
+      renderList(
+        document.getElementById("result-qr"),
+        qrCodes,
+        "કોઈ QR કોડ મળ્યો નથી.",
+        (item, index) => {
+          const payload = getText(item);
+          return `
+            <div class="rounded-xl bg-surface-container p-4 space-y-2">
+              <div class="flex justify-between gap-2">
+                <span class="text-xs text-text-muted">QR Code ${index + 1}</span>
+                <button type="button" class="copy-single text-primary text-xs hover:underline" data-copy="${escapeHTML(payload)}">Copy</button>
+              </div>
+              <p class="result-value font-mono text-text-primary">${escapeHTML(payload)}</p>
+            </div>`;
+        }
+      );
+
+      renderList(
+        document.getElementById("result-urls"),
+        urls,
+        "કોઈ URL મળ્યો નથી.",
+        (item, index) => {
+          const url = getText(item);
+          const isObject = item && typeof item === "object";
+          const analysis = isObject ? (item.analysis || item.result || item) : null;
+
+          return `
+            <div class="rounded-xl bg-surface-container p-4 space-y-2">
+              <p class="text-xs text-text-muted">URL ${index + 1}</p>
+              <p class="result-value font-mono text-text-primary">${escapeHTML(url)}</p>
+              ${analysis ? `<pre class="text-xs text-text-muted whitespace-pre-wrap">${escapeHTML(JSON.stringify(analysis, null, 2))}</pre>` : ""}
+            </div>`;
+        }
+      );
+
+      const extractedText =
+        result.extractedText || result.extracted_text ||
+        result.ocrText || result.ocr_text || "";
+
+      document.getElementById("result-ocr").textContent =
+        extractedText || "ઇમેજમાંથી કોઈ ટેક્સ્ટ મળ્યો નથી.";
+
+      renderList(
+        document.getElementById("result-indicators"),
+        indicators,
+        "કોઈ જોખમનો સંકેત મળ્યો નથી.",
+        item => {
+          const label = getText(item);
+          return `
+            <div class="rounded-lg bg-surface-container p-3 flex items-start gap-2">
+              <span class="material-symbols-outlined text-danger text-lg">warning</span>
+              <span class="result-value">${escapeHTML(label)}</span>
+            </div>`;
+        }
+      );
+
+      const guidanceBox = document.getElementById("result-guidance");
+
+      if (latestGuidance) {
+        if (Array.isArray(latestGuidance)) {
+          guidanceBox.innerHTML = latestGuidance
+            .map(item => `<p class="mb-2">• ${escapeHTML(getText(item))}</p>`)
+            .join("");
+        } else if (typeof latestGuidance === "object") {
+          guidanceBox.innerHTML = `<pre class="whitespace-pre-wrap text-sm">${escapeHTML(JSON.stringify(latestGuidance, null, 2))}</pre>`;
+        } else {
+          guidanceBox.textContent = latestGuidance;
+        }
+      } else {
+        guidanceBox.textContent =
+          "કોઈપણ ચુકવણી કરતાં પહેલાં સત્તાવાર સ્ત્રોતથી QR અને પ્રાપ્તકર્તાની ચકાસણી કરો. અજાણી લિંક ખોલશો નહીં અને UPI PIN કોઈની સાથે શેર કરશો નહીં.";
+      }
+
+      document.getElementById("result-disclaimer").textContent =
+        latestDisclaimer ||
+        "આ પરિણામ સ્વચાલિત વિશ્લેષણ પર આધારિત છે. તે સંપૂર્ણ સુરક્ષાની ગેરંટી આપતું નથી. કોઈપણ ચુકવણી કરતાં પહેલાં સત્તાવાર સ્ત્રોતથી ચકાસણી કરો.";
+
+      document.getElementById("btn-generate-report").disabled = false;
+
+      resultsSection.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    async function scanImage(file) {
+      if (!file) return;
+
+      if (!ALLOWED_TYPES.includes(file.type)) {
+        showStatus("માત્ર PNG, JPG અને WebP ઇમેજ અપલોડ કરી શકાય છે.", true);
+        return;
+      }
+
+      if (file.size > MAX_FILE_SIZE) {
+        showStatus("ફાઇલ 15MB કરતાં મોટી છે. કૃપા કરીને નાની ઇમેજ પસંદ કરો.", true);
+        return;
+      }
+
+      if (file.size === 0) {
+        showStatus("પસંદ કરેલી ફાઇલ ખાલી છે.", true);
+        return;
+      }
+
+      const previewUrl = URL.createObjectURL(file);
+      preview.src = previewUrl;
+      preview.onload = () => URL.revokeObjectURL(previewUrl);
+
+      resultsSection.classList.add("hidden");
+      document.getElementById("btn-generate-report").disabled = true;
+
+      showStatus("ઇમેજ સર્વર પર મોકલવામાં આવી રહી છે અને વિશ્લેષણ શરૂ થઈ રહ્યું છે...");
+      setLoading(true);
+
+      try {
+        const formData = new FormData();
+        formData.append("image", file);
+
+        const response = await fetch(`${API_BASE}/api/scans/image`, {
+          method: "POST",
+          body: formData
+        });
+
+        let data;
+
+        try {
+          data = await response.json();
+        } catch {
+          throw new Error("સર્વર તરફથી યોગ્ય JSON જવાબ મળ્યો નથી.");
+        }
+
+        if (!response.ok || data.success === false) {
+          throw new Error(
+            data.message || data.error || `Server error (${response.status})`
+          );
+        }
+
+        renderResults(data, file);
+        showStatus("ઇમેજનું વિશ્લેષણ પૂર્ણ થયું છે.");
+      } catch (error) {
+        console.error("Image scan error:", error);
+
+        showStatus(
+          `સ્કેન કરવામાં સમસ્યા આવી: ${error.message}. Backend ચાલુ છે કે નહીં અને CORS સેટિંગ્સ તપાસો.`,
+          true
+        );
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    // File picker
+    dropzone.addEventListener("click", event => {
+      if (event.target.closest("button")) return;
+      if (!fileInput.disabled) fileInput.click();
+    });
+
+    chooseImageBtn.addEventListener("click", event => {
+      event.stopPropagation();
+      if (!fileInput.disabled) fileInput.click();
+    });
+
+    fileInput.addEventListener("change", event => {
+      const file = event.target.files && event.target.files[0];
+      if (file) scanImage(file);
+      fileInput.value = "";
+    });
+
+    // Drag and drop
+    ["dragenter", "dragover"].forEach(eventName => {
+      dropzone.addEventListener(eventName, event => {
+        event.preventDefault();
+        event.stopPropagation();
+        dropzone.classList.add("border-primary-strong", "bg-surface-variant");
+      });
+    });
+
+    ["dragleave", "drop"].forEach(eventName => {
+      dropzone.addEventListener(eventName, event => {
+        event.preventDefault();
+        event.stopPropagation();
+        dropzone.classList.remove("border-primary-strong", "bg-surface-variant");
+      });
+    });
+
+    dropzone.addEventListener("drop", event => {
+      if (fileInput.disabled) return;
+      const file = event.dataTransfer.files && event.dataTransfer.files[0];
+      if (file) scanImage(file);
+    });
+
+    // Copy one QR payload
+    document.addEventListener("click", async event => {
+      const button = event.target.closest(".copy-single");
+      if (!button) return;
+
+      try {
+        await navigator.clipboard.writeText(button.dataset.copy || "");
+        button.textContent = "Copied!";
+      } catch {
+        showStatus("કોપી કરી શકાયું નથી. ટેક્સ્ટ મેન્યુઅલી પસંદ કરો.", true);
+      }
+    });
+
+    // Copy complete results
+    document.getElementById("copy-results").addEventListener("click", async () => {
+      if (!latestResult) return;
+
+      const text = [
+        "SFIC Image / QR Scan Report",
+        `Risk Score: ${latestResult.score ?? "N/A"}/100`,
+        `Risk Level: ${latestResult.riskLevel || "Unknown"}`,
+        `Status: ${latestResult.status || "Unknown"}`,
+        `QR Codes: ${JSON.stringify(latestResult.qrCodes || [])}`,
+        `URLs: ${JSON.stringify(latestResult.extractedURLs || [])}`,
+        `OCR Text: ${latestResult.extractedText || ""}`,
+        `Indicators: ${JSON.stringify(latestResult.indicators || [])}`,
+        `Guidance: ${typeof latestGuidance === "string" ? latestGuidance : JSON.stringify(latestGuidance || "")}`,
+        `Disclaimer: ${latestDisclaimer}`
+      ].join("\n\n");
+
+      try {
+        await navigator.clipboard.writeText(text);
+        showStatus("સ્કેન રિપોર્ટ કોપી થઈ ગયો છે.");
+      } catch {
+        showStatus("રિપોર્ટ કોપી કરી શકાયો નથી.", true);
+      }
+    });
+
+    // Print report
+    document.getElementById("btn-generate-report").addEventListener("click", () => {
+      if (!latestResult) return;
+      window.print();
+    });
+
+    // Scan another image
+    document.getElementById("scan-another").addEventListener("click", () => {
+      fileInput.click();
+    });
+
+    // Read actual scan results using speech synthesis
+    document.getElementById("btn-audio-listen").addEventListener("click", () => {
+      if (!("speechSynthesis" in window)) {
+        showStatus("તમારા બ્રાઉઝરમાં ઓડિયો સ્પીચ સપોર્ટ ઉપલબ્ધ નથી.", true);
+        return;
+      }
+
+      if (!latestResult) {
+        showStatus("ઓડિયો સાંભળવા પહેલાં ઇમેજ સ્કેન કરો.", true);
+        return;
+      }
+
+      window.speechSynthesis.cancel();
+
+      const score = latestResult.score ?? 0;
+      const risk = latestResult.riskLevel || "unknown";
+      const qrCount = normalizeArray(latestResult.qrCodes).length;
+      const urlCount = normalizeArray(latestResult.extractedURLs).length;
+
+      const text =
+        `સ્કેન પૂર્ણ થયું છે. જોખમ સ્કોર ${score} માંથી 100 છે. જોખમનું સ્તર ${risk} છે. ` +
+        `${qrCount} QR કોડ અને ${urlCount} URL મળ્યા છે. ` +
+        `કોઈપણ ચુકવણી કરતાં પહેલાં પ્રાપ્તકર્તાની ચકાસણી કરો. શંકાસ્પદ છેતરપિંડી માટે 1930 પર સંપર્ક કરો.`;
+
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = "gu-IN";
+      utterance.rate = 0.9;
+
+      window.speechSynthesis.speak(utterance);
+    });
+
+  })();
+  </script>
+
+  <script id="surakshit-global-navigation">
+  (() => {
+    const routes = {
+      "landing-page": "/",
+      "phishing-url-checker": "/app/check/url",
+      "screenshot-qr-analyzer": "/app/check/image",
+      "scam-awareness-library": "/awareness",
+      "emergency-help": "/emergency"
+    };
+
+    document.querySelectorAll("[data-path]").forEach(element => {
+      const target = routes[element.getAttribute("data-path")];
+      if (target && element.tagName === "A") {
+        element.setAttribute("href", target);
+      }
+    });
+  })();
+  </script>
+
+  <script src="/route-links.js"></script>
+</body>
+</html>
 <!DOCTYPE html>
 
 <html class="dark" lang="gu"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700&amp;family=Manrope:wght@400;500;600&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
