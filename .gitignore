@@ -9,3 +9,4 @@ __pycache__/
 model-cache/
 whisper-service/model-cache/
 backend/*.traineddata
+dist/

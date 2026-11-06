@@ -1,5 +1,6 @@
 
 const { analyseURLHybrid } = require("../services/urlAnalysisService");
+const { analyseURL } = require("../services/urlAnalysisService");
 const pool = require("../config/db");
 const { analyseMessage } = require("../services/messageAnalysisService");
 const { getGuidance } = require("../services/guidanceService");
@@ -25,6 +26,10 @@ async function analyseMessageController(req, res) {
         // Existing message analysis.
         const result = analyseMessage(message);
 
+        // Analyse the message.
+        const result = analyseMessage(message);
+
+        // Generate guidance from the analysis result.
         const guidanceResult = getGuidance(result);
 
         // Save scan metadata, not the original message.
@@ -60,6 +65,7 @@ async function analyseMessageController(req, res) {
         });
     }
 }
+
 
 async function analyseURLController(req, res) {
     try {
@@ -105,6 +111,21 @@ async function analyseURLController(req, res) {
         const guidanceResult = getGuidance(result);
 
         // Save scan metadata, not the submitted URL or API keys.
+                let result;
+
+        try {
+            result = analyseURL(url);
+        } catch (error) {
+            return res.status(400).json({
+                success: false,
+                message: error.message
+            });
+        }
+
+        // Generate guidance for the URL analysis.
+        const guidanceResult = getGuidance(result);
+
+        // Save URL scan metadata, not the submitted URL.
         const dbResult = await pool.query(
             `INSERT INTO scan_history
              (scan_type, risk_score, risk_level, indicators, analysis_status)
@@ -127,6 +148,13 @@ async function analyseURLController(req, res) {
             guidance: guidanceResult.guidance,
             guidanceDisclaimer: guidanceResult.disclaimer
         });
+    success: true,
+    scanId: dbResult.rows[0].id,
+    createdAt: dbResult.rows[0].created_at,
+    result,
+    guidance: guidanceResult.guidance,
+    guidanceDisclaimer: guidanceResult.disclaimer
+});
 
     } catch (error) {
         console.error("URL analysis error:", error.message);
@@ -138,6 +166,12 @@ async function analyseURLController(req, res) {
     }
 }
 
+module.exports = {
+    analyseMessageController,
+    analyseURLController
+};
+
+// Export both controllers.
 module.exports = {
     analyseMessageController,
     analyseURLController

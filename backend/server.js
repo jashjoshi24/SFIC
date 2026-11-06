@@ -11,6 +11,7 @@ const scanRoutes = require("./routes/scanRoutes");
 const imageScanRoutes = require("./routes/imageScanRoutes");
 const guidanceRoutes = require("./routes/guidanceRoutes");
 const transcriptionRoutes = require("./routes/transcriptionRoutes");
+const guidanceRoutes = require("./routes/guidanceRoutes");
 
 const app = express();
 
@@ -87,6 +88,10 @@ const transcriptionLimiter = rateLimit({
 app.use("/api/transcription", transcriptionLimiter, transcriptionRoutes);
 
 // Start server
+// API routes
+app.use("/api/scans", scanLimiter, scanRoutes);
+app.use("/api/guidance", guidanceRoutes);
+
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
