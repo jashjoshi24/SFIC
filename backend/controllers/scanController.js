@@ -1,4 +1,5 @@
 
+const { analyseURLHybrid } = require("../services/urlAnalysisService");
 const { analyseURL } = require("../services/urlAnalysisService");
 const pool = require("../config/db");
 const { analyseMessage } = require("../services/messageAnalysisService");
@@ -21,6 +22,9 @@ async function analyseMessageController(req, res) {
                 message: "Message exceeds the 10000 character limit."
             });
         }
+
+        // Existing message analysis.
+        const result = analyseMessage(message);
 
         // Analyse the message.
         const result = analyseMessage(message);
@@ -81,6 +85,32 @@ async function analyseURLController(req, res) {
             });
         }
 
+        let result;
+
+        try {
+            // Run existing heuristics + both Google threat lookups.
+            result = await analyseURLHybrid(url);
+        } catch (error) {
+            // Invalid URL errors are client errors.
+            if (
+                error.message.includes("URL") ||
+                error.message.includes("HTTP") ||
+                error.message.includes("character") ||
+                error.message.includes("hostname")
+            ) {
+                return res.status(400).json({
+                    success: false,
+                    message: error.message
+                });
+            }
+
+            throw error;
+        }
+
+        // Generate guidance using the combined result.
+        const guidanceResult = getGuidance(result);
+
+        // Save scan metadata, not the submitted URL or API keys.
                 let result;
 
         try {
@@ -111,6 +141,13 @@ async function analyseURLController(req, res) {
         );
 
         return res.status(200).json({
+            success: true,
+            scanId: dbResult.rows[0].id,
+            createdAt: dbResult.rows[0].created_at,
+            result,
+            guidance: guidanceResult.guidance,
+            guidanceDisclaimer: guidanceResult.disclaimer
+        });
     success: true,
     scanId: dbResult.rows[0].id,
     createdAt: dbResult.rows[0].created_at,
@@ -129,6 +166,10 @@ async function analyseURLController(req, res) {
     }
 }
 
+module.exports = {
+    analyseMessageController,
+    analyseURLController
+};
 
 // Export both controllers.
 module.exports = {

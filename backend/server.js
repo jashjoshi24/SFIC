@@ -8,6 +8,9 @@ require("dotenv").config();
 
 const pool = require("./config/db");
 const scanRoutes = require("./routes/scanRoutes");
+const imageScanRoutes = require("./routes/imageScanRoutes");
+const guidanceRoutes = require("./routes/guidanceRoutes");
+const transcriptionRoutes = require("./routes/transcriptionRoutes");
 const guidanceRoutes = require("./routes/guidanceRoutes");
 
 const app = express();
@@ -35,6 +38,7 @@ const scanLimiter = rateLimit({
     }
 });
 
+// Home route
 app.get("/", (req, res) => {
     res.send("SFIC Backend is running!");
 });
@@ -59,6 +63,31 @@ app.get("/api/db-test", async (req, res) => {
     }
 });
 
+// Existing URL and message scanning routes
+app.use("/api/scans", scanLimiter, scanRoutes);
+
+// New QR and image scanning route
+app.use("/api/scans/image", scanLimiter, imageScanRoutes);
+
+// Guidance routes
+app.use("/api/guidance", guidanceRoutes);
+
+// Audio transcription rate limiter
+const transcriptionLimiter = rateLimit({
+    windowMs: 15 * 60 * 1000,
+    limit: 10,
+    standardHeaders: "draft-8",
+    legacyHeaders: false,
+    message: {
+        success: false,
+        message: "Too many transcription requests. Please try again later."
+    }
+});
+
+// Faster-Whisper transcription route
+app.use("/api/transcription", transcriptionLimiter, transcriptionRoutes);
+
+// Start server
 // API routes
 app.use("/api/scans", scanLimiter, scanRoutes);
 app.use("/api/guidance", guidanceRoutes);

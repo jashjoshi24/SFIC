@@ -1,3 +1,12 @@
 node_modules/
 .env
+.env.*
+!.env.example
+venv/
+.venv/
+__pycache__/
+*.pyc
+model-cache/
+whisper-service/model-cache/
+backend/*.traineddata
 dist/

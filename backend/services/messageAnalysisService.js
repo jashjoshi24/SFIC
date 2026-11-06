@@ -1,4 +1,5 @@
 
+const { parse } = require("tldts");
 const { parse } = require('tldts');
 
 const HIGH_RISK = 60;
@@ -29,11 +30,82 @@ function extractUrls(message) {
     )];
 }
 
+function isBankingSuspensionContext(message) {
+    const text = normalizeText(message);
+
+    const phrases = [
+        "online banking has been suspended",
+        "online banking is suspended",
+        "banking has been suspended",
+        "banking is suspended",
+        "bank account has been suspended",
+        "bank account is suspended",
+        "account has been suspended",
+        "account is suspended",
+        "account suspended",
+        "unlock your account",
+        "unlock your banking account",
+        "unlock online banking",
+        "bank account blocked",
+        "banking account blocked",
+
+        // Additional account-blocking phrases
+        "account will be blocked",
+        "account will be permanently blocked",
+        "account permanently blocked",
+        "account blocked due to suspicious activity",
+        "account will be blocked due to suspicious activity",
+        "bank account will be blocked",
+        "bank account will be permanently blocked",
+        "your account will be blocked",
+        "your account will be permanently blocked",
+        "your bank account will be blocked",
+        "your bank account will be permanently blocked",
+        "sbi account will be blocked",
+        "sbi account will be permanently blocked",
+        "account will be closed",
+        "account will be deactivated"
+    ];
+
+    return phrases.some(phrase =>
+        text.includes(normalizeText(phrase))
+    );
+}
+
+
+function analyseUrls(message) {
+    const text = normalizeText(message);
+    const bankingSuspensionContext =
+        isBankingSuspensionContext(message);
+
 function analyseUrls(message) {
     return extractUrls(message).map(url => {
         let parsedUrl;
 
         try {
+            let normalizedUrl = url.trim();
+
+            // Add HTTPS to bare domains extracted by OCR.
+            // Examples:
+            // www.example.com -> https://www.example.com
+            // example.com/path -> https://example.com/path
+
+            if (!/^https?:\/\//i.test(normalizedUrl)) {
+                if (/^[a-z][a-z0-9+.-]*:/i.test(normalizedUrl)) {
+                    throw new Error("Unsupported URL protocol.");
+                }
+
+                normalizedUrl = `https://${normalizedUrl}`;
+            }
+
+            parsedUrl = new URL(normalizedUrl);
+
+            if (
+                !["http:", "https:"].includes(parsedUrl.protocol) ||
+                !parsedUrl.hostname
+            ) {
+                throw new Error("Invalid URL format.");
+            }
             parsedUrl = new URL(
                 url.startsWith("www.") ? `https://${url}` :
                 /^[a-z0-9.-]+\//i.test(url) && !url.includes("://")
@@ -71,6 +143,25 @@ function analyseUrls(message) {
             reasons.push("URL contains embedded login credentials");
         }
 
+        const bankingActionTerms = [
+            "activation",
+            "activate",
+            "verification",
+            "verify",
+            "unlock",
+            "secure",
+            "update"
+        ];
+
+        if (
+            bankingSuspensionContext &&
+            bankingActionTerms.some(term => hostname.includes(term))
+        ) {
+            reasons.push(
+                "Banking suspension message links to an account activation or verification domain"
+            );
+        }
+
         return {
             url,
             hostname,
@@ -83,6 +174,10 @@ function analyseUrls(message) {
 const rules = [
     {
         id: "otp",
+        keywords: [
+            "otp", "one time password", "one-time password",
+            "ઓટીપી", "વન ટાઈમ પાસવર્ડ"
+        ],
         keywords: ["otp", "one time password", "one-time password", "ઓટીપી", "વન ટાઈમ પાસવર્ડ"],
         label: "OTP Request",
         description: "The message appears to request a one-time password.",
@@ -107,6 +202,65 @@ const rules = [
         weight: 22
     },
     {
+        id: "banking-suspension",
+        keywords: [
+            "online banking has been suspended",
+            "online banking is suspended",
+            "banking has been suspended",
+            "banking is suspended",
+            "bank account has been suspended",
+            "bank account is suspended",
+            "account has been suspended",
+            "account is suspended",
+            "account suspended",
+            "unlock your account",
+            "unlock your banking account",
+            "unlock online banking",
+            "bank account blocked",
+            "banking account blocked",
+
+            // Additional account-blocking keywords
+            "account will be blocked",
+            "account will be permanently blocked",
+            "account permanently blocked",
+            "account blocked due to suspicious activity",
+            "account will be blocked due to suspicious activity",
+            "bank account will be blocked",
+            "bank account will be permanently blocked",
+            "your account will be blocked",
+            "your account will be permanently blocked",
+            "your bank account will be blocked",
+            "your bank account will be permanently blocked",
+            "sbi account will be blocked",
+            "sbi account will be permanently blocked",
+            "account will be closed",
+            "account will be deactivated"
+        ],
+        label: "Banking Account Suspension Threat",
+        description: "The message claims that online banking or a bank account has been suspended, blocked or deactivated and may pressure the recipient to restore access.",
+        weight: 35
+    },
+    {
+        id: "suspicious-login-action",
+        keywords: [
+            "click here",
+            "click the link",
+            "click below",
+            "login to unlock",
+            "log in to unlock",
+            "sign in to unlock",
+            "verify your account here",
+            "activate your account here",
+            "unlock your account here",
+            "verify now",
+            "login now",
+            "log in now"
+        ],
+        label: "Suspicious Account Login or Unlock Link",
+        description: "The message directs the recipient to follow a link or log in to resolve a banking account issue.",
+        weight: 10
+    },
+    {
         id: "kyc",
         keywords: [
             "update your kyc", "complete your kyc",
@@ -119,6 +273,21 @@ const rules = [
             "biometric re-validation", "pan card is not linked",
             "aadhaar details", "આધાર નંબર અપડેટ",
             "કેવાયસી બાકી", "કેવાયસી અધૂરું",
+            "કેવાયસી અપડેટ", "પાન કાર્ડ અપલોડ",
+
+            // Additional KYC request keywords
+            "kyc details",
+            "your kyc details",
+            "reply with your kyc details",
+            "submit kyc details",
+            "provide your kyc details",
+            "update your kyc details",
+            "send your kyc details",
+            "share your kyc details",
+            "submit your kyc",
+            "provide kyc details",
+            "send kyc details",
+            "share kyc details"
             "કેવાયસી અપડેટ", "પાન કાર્ડ અપલોડ"
         ],
         label: "Possible Fake KYC",
@@ -146,6 +315,7 @@ const rules = [
             "narcotics control bureau", "avoid arrest",
             "avoid arrest warrant", "police will come",
             "ધરપકડ", "અરસ્ટ વોરંટ", "પોલીસ કેસ",
+            "સાયબર ક્રાઈમ", "સીબીઆઈ"
             "સાયબર ક્રાઈમ", "સીબીઆઈ",
         ],
         label: "Impersonation or Arrest Threat",
@@ -166,6 +336,23 @@ const rules = [
             "સિક્યોરિટી ડિપોઝિટ", "પેકિંગ કામ",
             "એડવાન્સ",
             "cbi officer",
+            "mumbai customs",
+            "indian customs",
+            "customs department",
+            "narcotics control bureau",
+            "parcel contains drugs",
+            "parcel containing narcotics",
+            "confiscated parcel",
+            "avoid arrest",
+            "case settlement",
+            "case khatam",
+            "police aavse",
+            "ghar par police",
+            "police આવશે",
+            "કસ્ટમ વિભાગ",
+            "નાર્કોટિક્સ",
+            "તમારા નામે પાર્સલ",
+            "ડ્રગ્સ પકડાયા"
 "mumbai customs",
 "indian customs",
 "customs department",
@@ -458,6 +645,11 @@ function getMatchedKeywords(rule, text) {
         return isOtpRequest(text) ? matched : [];
     }
 
+    // Do not flag login actions unless a banking suspension context exists.
+    if (rule.id === "suspicious-login-action") {
+        return isBankingSuspensionContext(text) ? matched : [];
+    }
+
     return matched;
 }
 
@@ -486,6 +678,65 @@ function analyseMessage(message) {
     const text = normalizeText(originalMessage);
 
     const incidentReport = isIncidentReport(text);
+
+    const indicators = rules.map(rule => {
+        const matchedKeywords = getMatchedKeywords(rule, text);
+
+        if (
+            matchedKeywords.length === 0 ||
+            isLegitimateContext(rule.id, text) ||
+            (
+                incidentReport &&
+                [
+                    "urgency",
+                    "kyc",
+                    "digital-arrest",
+                    "gujarati-bank-threat"
+                ].includes(rule.id)
+            )
+        ) {
+            return null;
+        }
+
+        return {
+            id: rule.id,
+            label: rule.label,
+            description: rule.description,
+            weight: rule.weight,
+            evidence: matchedKeywords
+        };
+    }).filter(Boolean);
+
+    const advancePaymentCategories = [
+        "job",
+        "loan",
+        "reward",
+        "gujarati-lottery",
+        "digital-arrest",
+        "gujarati-digital-arrest",
+        "delivery",
+        "kyc",
+        "gujarati-kyc"
+    ];
+
+    const hasAdvancePaymentContext = indicators.some(item =>
+        advancePaymentCategories.includes(item.id)
+    );
+
+    if (
+        hasAdvancePaymentContext &&
+        isAdvancePaymentDemand(text)
+    ) {
+        indicators.push({
+            id: "advance-payment",
+            label: "Advance Payment Demand",
+            description: "The message combines a suspicious service or offer with a demand for advance payment.",
+            weight: 20,
+            evidence: [
+                "Payment demand detected alongside a suspicious offer or threat"
+            ]
+        });
+    }
 
 const indicators = rules.map(rule => {
     const matchedKeywords = getMatchedKeywords(rule, text);
@@ -575,6 +826,7 @@ if (
     const hasThreat = [
         "urgency",
         "gujarati-bank-threat",
+        "banking-suspension",
         "digital-arrest",
         "gujarati-digital-arrest",
         "electricity",
@@ -614,6 +866,10 @@ if (
         0
     );
 
+    const score = Math.min(
+        100,
+        baseScore + combinationScore
+    );
     const score = Math.min(100, baseScore + combinationScore);
 
     let riskLevel = "safe";
@@ -639,4 +895,7 @@ if (
     };
 }
 
+module.exports = {
+    analyseMessage
+};
 module.exports = { analyseMessage };

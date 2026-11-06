@@ -26,6 +26,38 @@
       }
     ]
   },
+  "banking_phishing": {
+    "title": "Banking Account Suspension and Phishing",
+    "explanation": "The message contains signals associated with banking phishing, including account suspension warnings, requests to unlock an account, or links asking users to sign in. Scammers may use urgency and account-related threats to trick people into visiting fraudulent websites. These signals do not independently confirm fraud. Verify the message directly with your bank using independently obtained official contact details.",
+    "actions": [
+      "Do not click the link in the message or attempt to unlock your account through it.",
+      "Do not enter your banking username, password, OTP, card details or other financial information on the linked website.",
+      "Open your bank's official mobile application or manually enter its independently verified official website address to check your account status.",
+      "Contact your bank using the phone number printed on your card or published on its official website.",
+      "If you entered banking credentials on the suspicious website, contact your bank immediately and ask them to secure your account.",
+      "If you notice an unauthorized transaction or lose money, contact your bank immediately, call 1930 promptly and report the incident at https://cybercrime.gov.in/.",
+      "Preserve the suspicious message, sender details, URL and transaction records for reporting."
+    ],
+    "precautions": [
+      "Do not trust account suspension warnings without independently verifying them with your bank.",
+      "Do not use links received through unexpected SMS messages to access banking services.",
+      "Never share OTPs, UPI PINs, CVVs or banking passwords.",
+      "Do not assume a website is legitimate because it displays a bank's name or logo.",
+      "Do not assume HTTPS alone proves that a banking website is genuine.",
+      "Be cautious of domains containing bank names combined with words such as activation, unlock, secure or verification.",
+      "Do not respond to messages that pressure you to act immediately to avoid account restrictions."
+    ],
+    "sources": [
+      {
+        "name": "National Cyber Crime Reporting Portal",
+        "url": "https://cybercrime.gov.in/"
+      },
+      {
+        "name": "RBI Financial Awareness Messages",
+        "url": "https://www.rbi.org.in/commonperson/images/FAME202426022024.pdf"
+      }
+    ]
+  },
   "kyc": {
     "title": "Fake KYC and Aadhaar Fraud",
     "explanation": "The message contains signals associated with KYC or identity-verification scams. Verify the request with the relevant institution using independently obtained contact details.",
