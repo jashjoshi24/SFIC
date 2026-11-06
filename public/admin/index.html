@@ -46,673 +46,151 @@
 <div class="absolute right-1/4 -bottom-20 w-64 h-64 rounded-full bg-danger/10 blur-2xl pointer-events-none"></div>
 <div class="relative z-10 flex flex-col xl:flex-row xl:items-center xl:justify-between gap-space-md">
 <div class="flex flex-col gap-1.5"><div class="flex items-center gap-space-sm flex-wrap"><span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-raised text-primary text-label-sm font-label-sm"><span class="relative flex h-2 w-2"><span class="relative inline-flex rounded-full h-2 w-2 bg-primary-strong"></span></span>એડમિન કન્સોલ · સેન્ટ્રલ સિસ્ટમ</span><span class="px-2.5 py-0.5 rounded-full bg-secondary-container/20 text-secondary font-label-sm text-label-sm">પ્રોટોટાઇપ મોડ: શૈક્ષણિક નમૂનો</span></div><h1 class="font-headline-lg text-headline-lg text-text-primary tracking-tight">સિસ્ટમ સંચાલન (Platform Administration) — સુરક્ષિત ગુજરાત</h1><p class="font-body-md text-body-md text-text-muted">Cyber Threat Intelligence &amp; Citizen Safety Management Dashboard</p></div>
-<!-- Quick Action Controls -->
-<div class="flex items-center gap-space-sm flex-wrap">
-<button class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-primary-container text-on-primary-container font-label-lg text-label-lg shadow-md hover:bg-primary-strong transition-all transform active:scale-95" id="openNewPatternBtn">
-<span class="material-symbols-outlined text-[18px]">add_moderator</span>
-<span class="">નવો સ્કેમ પેટર્ન ઉમેરો</span>
-</button>
-<button class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-surface-raised text-text-primary font-label-lg text-label-lg shadow-sm hover:bg-surface-soft transition-all" id="openBroadcastModalBtn">
-<span class="material-symbols-outlined text-[18px] text-tertiary">cell_tower</span>
-<span class="">બ્રોડકાસ્ટ એલર્ટ મોકલો</span>
-</button>
+</div>
+</div>
 
-</div>
-</div>
-</div>
-<!-- KPI Metric Mosaic -->
-<div class="flex items-center justify-between px-4 py-2 mb-space-sm rounded-xl bg-surface-raised border border-border-hairline"><div class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[18px]">info</span><span class="font-label-sm text-label-sm text-text-muted">તમામ મેટ્રિક્સ, ચાર્ટ્સ અને લોગ્સ માત્ર <strong class="text-primary">શૈક્ષણિક નમૂના ડેટા (Sample Demo Data)</strong> છે.</span></div><span class="px-2 py-0.5 rounded-full bg-primary-container/20 text-primary font-label-sm text-label-sm font-semibold">સિમ્યુલેટેડ વ્યૂ</span></div><div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-space-md mb-space-lg">
-<!-- Metric 1: Total Scans -->
-<div class="relative overflow-hidden rounded-xl bg-surface-raised p-space-md shadow-lg flex flex-col justify-between">
-<div class="flex items-start justify-between">
-<div class="flex flex-col">
-<span class="font-label-sm text-label-sm uppercase tracking-wider text-text-muted">કુલ સ્કેન થયેલ કન્ટેન્ટ</span>
-<span class="font-headline-sm text-headline-sm text-on-surface">Total Scans Today</span>
-</div>
-<div class="p-2.5 rounded-xl bg-surface text-primary">
-<span class="material-symbols-outlined text-[24px]">manage_search</span>
-</div>
-</div>
-<div class="my-space-sm flex items-baseline gap-2">
-<span class="font-headline-xl text-headline-xl text-text-primary font-bold">૨૪,૮૫૦</span>
-<span class="inline-flex items-center text-label-sm font-label-sm text-primary px-2 py-0.5 rounded-full bg-primary-container/20">
-<span class="material-symbols-outlined text-[14px]">trending_up</span> +૧૮%
-        </span>
-</div>
-<div class="flex items-center justify-between text-body-sm font-body-sm text-text-muted">
-<span class="">સુરત &amp; અમદાવાદ સ્પાઇક સક્રિય</span>
-<span class="text-text-primary font-label-sm font-semibold">૮૯.૪% ઓટો-વેલિડેટ</span>
-</div>
-<!-- Mini Sparkline inline svg -->
-<div class="mt-3 w-full h-8">
-<svg class="w-full h-full text-primary" fill="none" viewBox="0 0 240 32">
-<path d="M0 24 L30 20 L60 26 L90 15 L120 18 L150 9 L180 14 L210 4 L240 8" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path>
-<path d="M0 24 L30 20 L60 26 L90 15 L120 18 L150 9 L180 14 L210 4 L240 8 L240 32 L0 32 Z" fill="currentColor" fill-opacity="0.1"></path>
-</svg>
-</div>
-</div>
-<!-- Metric 2: Active Scam Patterns -->
-<div class="relative overflow-hidden rounded-xl bg-surface-raised p-space-md shadow-lg flex flex-col justify-between">
-<div class="flex items-start justify-between">
-<div class="flex flex-col">
-<span class="font-label-sm text-label-sm uppercase tracking-wider text-text-muted">પકડાયેલ સક્રિય ફ્રોડ પેટર્ન</span>
-<span class="font-headline-sm text-headline-sm text-on-surface">Active Scam Patterns</span>
-</div>
-<div class="p-2.5 rounded-xl bg-surface text-danger">
-<span class="material-symbols-outlined text-[24px]">crisis_alert</span>
-</div>
-</div>
-<div class="my-space-sm flex items-baseline gap-2">
-<span class="font-headline-xl text-headline-xl text-text-primary font-bold">૧૪૨</span>
-<span class="px-2 py-0.5 rounded-full bg-error-container/30 text-error font-label-sm text-label-sm">
-          ૨૩ હાઇ થ્રેટ
-        </span>
-</div>
-<div class="flex flex-col gap-1 text-body-sm font-body-sm text-text-muted">
-<div class="flex justify-between items-center">
-<span class="">૯૨ ડિજિટલ એરેસ્ટ કૉલ્સ</span>
-<span class="text-danger font-label-sm font-semibold">૬૫%</span>
-</div>
-<div class="w-full bg-surface-container rounded-full h-1.5 overflow-hidden">
-<div class="bg-danger h-1.5 rounded-full" style="width: 65%"></div>
-</div>
-<div class="flex justify-between items-center pt-1 text-label-sm">
-<span class="">૩૪ ફેક વીજળી બિલ APK (Torrent/UGVCL)</span>
-<span class="text-tertiary">૨૪%</span>
-</div>
-</div>
-</div>
-<!-- Metric 3: Loss Prevented -->
-<div class="relative overflow-hidden rounded-xl bg-surface-raised p-space-md shadow-lg flex flex-col justify-between"><div class="flex items-start justify-between"><div class="flex flex-col"><span class="font-label-sm text-label-sm uppercase tracking-wider text-text-muted">નિવારિત જોખમી પ્રયાસો</span><span class="font-headline-sm text-headline-sm text-on-surface">Platform Mitigations</span></div><div class="p-2.5 rounded-xl bg-surface text-secondary"><span class="material-symbols-outlined text-[24px]">verified_user</span></div></div><div class="my-space-sm flex items-baseline gap-2"><span class="font-headline-xl text-headline-xl text-secondary font-bold">૧,૮૪૦</span><span class="px-2 py-0.5 rounded-full bg-secondary-container/20 text-secondary font-label-sm text-label-sm">૧૦૦% સક્રિય</span></div><div class="flex flex-col gap-1.5"><div class="flex items-center justify-between text-body-sm font-body-sm text-text-muted"><span class="">ફિલ્ટર થયેલ શંકાસ્પદ રિક્વેસ્ટ:</span><span class="text-secondary font-label-sm font-bold">૯૯.૮% સફળ</span></div><div class="p-2 rounded-lg bg-surface text-label-sm font-label-sm text-text-muted flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-[16px]">shield</span><span class="">ઓટોમેટેડ AI ફિલ્ટર પ્રોટેક્શન</span></div></div></div>
-<!-- Metric 4: District Threat Status -->
-<div class="relative overflow-hidden rounded-xl bg-surface-raised p-space-md shadow-lg flex flex-col justify-between">
-<div class="flex items-start justify-between">
-<div class="flex flex-col">
-<span class="font-label-sm text-label-sm uppercase tracking-wider text-text-muted">જિલ્લાવાર એલર્ટ સ્થિતિ</span>
-<span class="font-headline-sm text-headline-sm text-on-surface">Threat Severity Matrix</span>
-</div>
-<div class="p-2.5 rounded-xl bg-surface text-tertiary">
-<span class="material-symbols-outlined text-[24px]">radar</span>
-</div>
-</div>
-<div class="my-space-sm flex flex-col gap-2">
-<div class="flex items-center justify-between px-2.5 py-1.5 rounded-lg bg-surface">
-<span class="font-label-md text-label-md text-text-primary">અમદાવાદ સાયબર</span>
-<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-error-container/40 text-danger font-label-sm text-label-sm font-semibold">
-<span class="w-1.5 h-1.5 rounded-full bg-danger"></span> હાઇ ક્રિટિકલ
-          </span>
-</div>
-<div class="flex items-center justify-between px-2.5 py-1.5 rounded-lg bg-surface">
-<span class="font-label-md text-label-md text-text-primary">સુરત કમિશનરેટ</span>
-<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-error-container/40 text-danger font-label-sm text-label-sm font-semibold">
-<span class="w-1.5 h-1.5 rounded-full bg-danger"></span> હાઇ થ્રેટ
-          </span>
-</div>
-<div class="flex items-center justify-between px-2.5 py-1.5 rounded-lg bg-surface">
-<span class="font-label-md text-label-md text-text-primary">રાજકોટ / વડોદરા</span>
-<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-tertiary-container/30 text-tertiary font-label-sm text-label-sm font-semibold">
-<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span> મધ્યમ વોચ
-          </span>
-</div>
-</div>
-<span class="text-label-sm font-label-sm text-text-muted">કુલ ૩૩ જિલ્લા સાયબર યુનિટ્સ સક્રિય લિંક્ડ</span>
-</div>
-</div>
-<!-- Operational Center Split: Intelligence Geo & Rule Engine -->
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-md mb-space-lg">
-<!-- Threat Distribution & Geo Analytics (7 cols) -->
-<div class="lg:col-span-7 flex flex-col rounded-xl bg-surface p-space-md shadow-lg">
-<div class="flex items-center justify-between pb-space-sm mb-space-sm border-b border-border-hairline">
-<div class="flex flex-col">
-<h2 class="font-headline-sm text-headline-sm text-text-primary">રાજ્યવ્યાપી સાયબર ટ્રેન્ડ અને જિલ્લાવાર વહેંચણી</h2>
-<span class="font-body-sm text-body-sm text-text-muted">Live Gujarat Geographic Scatter &amp; Hotspot Analytics</span>
-</div>
-<div class="flex items-center gap-2">
-<span class="px-2 py-1 rounded bg-surface-raised font-label-sm text-label-sm text-text-muted">છેલ્લા ૨૪ કલાક</span>
-</div>
-</div>
-<!-- Live Gujarat Cyber Map Visualization -->
-<div class="relative w-full rounded-xl bg-surface-container-lowest p-space-md overflow-hidden mb-space-md">
-<div class="absolute inset-0 opacity-20 pointer-events-none">
-<!-- Ambient grid dots -->
-<svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-<defs>
-<pattern height="20" id="dotPattern" patternUnits="userSpaceOnUse" width="20">
-<circle cx="2" cy="2" fill="#FF7A2F" r="1.5"></circle>
-</pattern>
-</defs>
-<rect fill="url(#dotPattern)" height="100%" width="100%"></rect>
-</svg>
-</div>
-<div class="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-space-md">
-<div class="md:col-span-2 flex flex-col justify-between">
-<div class="flex items-center gap-2 mb-2">
-<span class="material-symbols-outlined text-primary text-[20px]">public</span>
-<span class="font-label-lg text-label-lg text-text-primary">સૌથી વધુ અસરગ્રસ્ત ઝોન મેપ</span>
-</div>
-<!-- Stylized Geo Vector Plot for Gujarat Key Hubs -->
-<div class="w-full h-48 relative flex items-center justify-center bg-surface-container-low/60 rounded-lg p-2">
-<svg class="w-full h-full text-on-surface-variant/40" viewBox="0 0 400 200">
-<!-- Gujarat Outline Representation -->
-<path d="M 60,110 Q 90,80 140,70 Q 200,60 260,80 Q 320,70 360,100 Q 330,140 280,150 Q 220,165 170,160 Q 110,180 80,140 Z" fill="none" stroke="currentColor" stroke-dasharray="3 3" stroke-width="2"></path>
-<!-- Hotspot Ahmedabad -->
-<g class="cursor-pointer group" transform="translate(220, 95)">
-<circle class="animate-ping" fill="#F06464" fill-opacity="0.2" r="14"></circle>
-<circle fill="#F06464" r="7"></circle>
-<text fill="#F8F3ED" font-size="11" font-weight="600" x="12" y="4">અમદાવાદ (૪૨%)</text>
-</g>
-<!-- Hotspot Surat -->
-<g class="cursor-pointer group" transform="translate(235, 140)">
-<circle class="animate-ping" fill="#F06464" fill-opacity="0.25" r="12"></circle>
-<circle fill="#F06464" r="6"></circle>
-<text fill="#F8F3ED" font-size="11" font-weight="600" x="10" y="4">સુરત (૨૬%)</text>
-</g>
-<!-- Hotspot Vadodara -->
-<g class="cursor-pointer group" transform="translate(255, 115)">
-<circle fill="#f9bc4f" r="5"></circle>
-<text fill="#F8F3ED" font-size="10" x="8" y="4">વડોદરા (૧૪%)</text>
-</g>
-<!-- Hotspot Rajkot -->
-<g class="cursor-pointer group" transform="translate(140, 115)">
-<circle fill="#f9bc4f" r="5"></circle>
-<text fill="#F8F3ED" font-size="10" x="-70" y="4">રાજકોટ (૧૧%)</text>
-</g>
-<!-- Hotspot Bhavnagar -->
-<g class="cursor-pointer group" transform="translate(180, 140)">
-<circle fill="#61dcac" r="4"></circle>
-<text fill="#B7AAA0" font-size="9" x="8" y="4">ભાવનગર (૪%)</text>
-</g>
-</svg>
-</div>
-<div class="flex items-center gap-4 mt-2 font-label-sm text-label-sm text-text-muted">
-<span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-danger"></span> ગંભીર (Critical &gt; 25%)</span>
-<span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-tertiary"></span> સાવચેત (Moderate &gt; 10%)</span>
-<span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-secondary"></span> સામાન્ય (Stable &lt; 10%)</span>
-</div>
-</div>
-<!-- Donut Breakdown -->
-<div class="flex flex-col justify-between p-3 rounded-lg bg-surface-container-high/60">
-<span class="font-label-md text-label-md text-text-primary mb-2">સ્કેમ કેટેગરી રેશિયો</span>
-<div class="relative flex items-center justify-center my-2">
-<svg class="w-28 h-28 transform -rotate-90" viewBox="0 0 36 36">
-<!-- Circular segments -->
-<circle cx="18" cy="18" fill="none" r="14" stroke="#241B16" stroke-width="4.5"></circle>
-<!-- Digital Arrest 45% -->
-<circle cx="18" cy="18" fill="none" r="14" stroke="#F06464" stroke-dasharray="39.6 100" stroke-dashoffset="0" stroke-width="4.5"></circle>
-<!-- Electricity APK 28% -->
-<circle cx="18" cy="18" fill="none" r="14" stroke="#FF7A2F" stroke-dasharray="24.6 100" stroke-dashoffset="-39.6" stroke-width="4.5"></circle>
-<!-- Fake Investment 18% -->
-<circle cx="18" cy="18" fill="none" r="14" stroke="#f9bc4f" stroke-dasharray="15.8 100" stroke-dashoffset="-64.2" stroke-width="4.5"></circle>
-<!-- Others 9% -->
-<circle cx="18" cy="18" fill="none" r="14" stroke="#61dcac" stroke-dasharray="8 100" stroke-dashoffset="-80" stroke-width="4.5"></circle>
-</svg>
-<div class="absolute flex flex-col items-center justify-center">
-<span class="font-headline-sm text-headline-sm text-text-primary leading-none">૧૪૨</span>
-<span class="text-[10px] text-text-muted">પેટર્ન</span>
-</div>
-</div>
-<div class="space-y-1 font-label-sm text-label-sm">
-<div class="flex justify-between text-danger"><span class="">ડિજિટલ એરેસ્ટ</span><span class="font-bold">૪૫%</span></div>
-<div class="flex justify-between text-primary-strong"><span class="">વીજળી બિલ APK</span><span class="font-bold">૨૮%</span></div>
-<div class="flex justify-between text-tertiary"><span class="">ફેક ઇન્વેસ્ટમેન્ટ/ટાસ્ક</span><span class="font-bold">૧૮%</span></div>
-</div>
-</div>
-</div>
-</div>
-<!-- District Data Mini Table -->
-<div class="w-full overflow-x-auto">
-<table class="w-full text-left font-body-sm text-body-sm">
-<thead>
-<tr class="bg-surface-raised text-text-muted font-label-sm text-label-sm">
-<th class="p-2.5 rounded-l-lg">વિસ્તાર (નમૂના ડેટા ઝોન)</th>
-<th class="p-2.5">ઘટના શેર (%)</th>
-<th class="p-2.5">મુખ્ય ફ્રોડ પ્રકાર</th>
-<th class="p-2.5">સરેરાશ રિસ્પોન્સ ટાઈમ (ડેમો)</th>
-<th class="p-2.5 rounded-r-lg text-right">સ્થિતિ</th>
-</tr>
-</thead>
-<tbody class="divide-y divide-border-hairline">
-<tr class="hover:bg-surface-container-high/50 transition-colors">
-<td class="p-2.5 font-label-md text-label-md text-text-primary flex items-center gap-2">
-<span class="material-symbols-outlined text-[16px] text-danger">location_on</span>
-                અમદાવાદ શહેર &amp; ગ્રામ્ય
-              </td>
-<td class="p-2.5 text-text-primary font-semibold">૪૨% (૧,૨૪૦ કેસ)</td>
-<td class="p-2.5 text-text-muted">CBI/ED ડિજિટલ અરેસ્ટ વિડીયો કૉલ્સ</td>
-<td class="p-2.5 text-secondary font-medium">૮.૨ મિનિટ</td>
-<td class="p-2.5 text-right">
-<span class="px-2 py-0.5 rounded-full bg-error-container/30 text-error font-label-sm text-label-sm">હાઇ એલર્ટ</span>
-</td>
-</tr>
-<tr class="hover:bg-surface-container-high/50 transition-colors">
-<td class="p-2.5 font-label-md text-label-md text-text-primary flex items-center gap-2">
-<span class="material-symbols-outlined text-[16px] text-danger">location_on</span>
-                સુરત કમિશનરેટ
-              </td>
-<td class="p-2.5 text-text-primary font-semibold">૨૬% (૭૬૫ કેસ)</td>
-<td class="p-2.5 text-text-muted">DGVCL વીજળી બિલ કાપવાના SMS</td>
-<td class="p-2.5 text-secondary font-medium">૯.૫ મિનિટ</td>
-<td class="p-2.5 text-right">
-<span class="px-2 py-0.5 rounded-full bg-error-container/30 text-error font-label-sm text-label-sm">હાઇ એલર્ટ</span>
-</td>
-</tr>
-<tr class="hover:bg-surface-container-high/50 transition-colors">
-<td class="p-2.5 font-label-md text-label-md text-text-primary flex items-center gap-2">
-<span class="material-symbols-outlined text-[16px] text-tertiary">location_on</span>
-                વડોદરા શહેર
-              </td>
-<td class="p-2.5 text-text-primary font-semibold">૧૪% (૪૧૨ કેસ)</td>
-<td class="p-2.5 text-text-muted">ટેલિગ્રામ પાર્ટ-ટાઇમ રિવ્યૂ ટાસ્ક</td>
-<td class="p-2.5 text-secondary font-medium">૧૨.૧ મિનિટ</td>
-<td class="p-2.5 text-right">
-<span class="px-2 py-0.5 rounded-full bg-tertiary-container/30 text-tertiary font-label-sm text-label-sm">નિયંત્રણમાં</span>
-</td>
-</tr>
-<tr class="hover:bg-surface-container-high/50 transition-colors">
-<td class="p-2.5 font-label-md text-label-md text-text-primary flex items-center gap-2">
-<span class="material-symbols-outlined text-[16px] text-secondary">location_on</span>
-                રાજકોટ રેન્જ
-              </td>
-<td class="p-2.5 text-text-primary font-semibold">૧૧% (૩૨૪ કેસ)</td>
-<td class="p-2.5 text-text-muted">UPI પેમેન્ટ રિવર્સલ / ફેક QR</td>
-<td class="p-2.5 text-secondary font-medium">૬.૪ મિનિટ</td>
-<td class="p-2.5 text-right">
-<span class="px-2 py-0.5 rounded-full bg-secondary-container/20 text-secondary font-label-sm text-label-sm">સ્થિર</span>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<!-- Live Scam Pattern Review & Rule Engine (5 cols) -->
-<div class="lg:col-span-5 flex flex-col justify-between rounded-xl bg-surface p-space-md shadow-lg">
-<div>
-<div class="flex items-center justify-between pb-space-sm mb-space-sm border-b border-border-hairline">
-<div class="flex flex-col">
-<h2 class="font-headline-sm text-headline-sm text-text-primary">રૂલ એન્જિન &amp; સ્કેમ પેટર્ન રિવ્યૂ</h2>
-<span class="font-body-sm text-body-sm text-text-muted">Active Pattern Blacklist &amp; AI Filter Pipeline</span>
-</div>
-<span class="px-2.5 py-1 rounded-full bg-primary-container/20 text-primary font-label-sm text-label-sm font-semibold">
-            ૧૪ નવા સસ્પેક્ટ્સ
-          </span>
-</div>
-<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-sm">
-          નાગરિકોના રિપોર્ટ્સ પરથી AI દ્વારા ડીટેક્ટ થયેલ નવા ફિશિંગ ડોમેન, બોટ એકાઉન્ટ્સ અને એન્ડ્રોઇડ માલવેર (APK) હેશિસ ચકાસી ત્વરિત બ્લોક કરો:
-        </p>
-<!-- Rule Engine Card Queue -->
-<div class="space-y-space-sm" id="ruleEngineList">
-<!-- Item 1 -->
-<div class="p-space-sm rounded-xl bg-surface-raised flex flex-col gap-2 hover:bg-surface-soft transition-all">
-<div class="flex items-start justify-between">
-<div class="flex items-center gap-2">
-<span class="px-2 py-0.5 rounded bg-error-container/40 text-danger font-label-sm text-label-sm font-bold">APK માલવેર</span>
-<span class="font-label-md text-label-md text-text-primary">TorrentPower-Bill-Update.apk</span>
-</div>
-<span class="font-label-sm text-label-sm text-danger font-semibold">૯૮% જોખમ સ્કોર</span>
-</div>
-<div class="font-body-sm text-body-sm text-text-muted">
-              સહી હેશ: <code class="text-primary font-mono text-[11px]">e9b1f...882a47</code> · SMS ફોરવર્ડિંગ ટ્રોજન
-            </div>
-<div class="flex items-center justify-between pt-1">
-<span class="font-label-sm text-label-sm text-text-muted">૪૨૮ નાગરિકો દ્વારા રિપોર્ટ</span>
-<div class="flex items-center gap-2">
-<button class="px-3 py-1 rounded-lg bg-danger text-on-error font-label-sm text-label-sm hover:opacity-90 transition-opacity" onclick="approveBlacklist(this)">
-                  બ્લેકલિસ્ટ કરો
-                </button>
-<button class="px-2 py-1 rounded-lg bg-surface text-text-muted hover:text-text-primary font-label-sm text-label-sm" onclick="dismissItem(this)">
-                  રદ
-                </button>
-</div>
-</div>
-</div>
-<!-- Item 2 -->
-<div class="p-space-sm rounded-xl bg-surface-raised flex flex-col gap-2 hover:bg-surface-soft transition-all">
-<div class="flex items-start justify-between">
-<div class="flex items-center gap-2">
-<span class="px-2 py-0.5 rounded bg-primary-container/30 text-primary font-label-sm text-label-sm font-bold">ફિશિંગ ડોમેન</span>
-<span class="font-label-md text-label-md text-text-primary">sbi-reward-yono-kyc.in</span>
-</div>
-<span class="font-label-sm text-label-sm text-danger font-semibold">૯૪% જોખમ સ્કોર</span>
-</div>
-<div class="font-body-sm text-body-sm text-text-muted">
-              હોસ્ટ: Cloudflare IP 104.21.x.x · બેંકિંગ ક્રેડેન્શિયલ થેફ્ટ પૃષ્ઠ
-            </div>
-<div class="flex items-center justify-between pt-1">
-<span class="font-label-sm text-label-sm text-text-muted">૬૧૫ નાગરિકો દ્વારા ફ્લેગ્ડ</span>
-<div class="flex items-center gap-2">
-<button class="px-3 py-1 rounded-lg bg-danger text-on-error font-label-sm text-label-sm hover:opacity-90 transition-opacity" onclick="approveBlacklist(this)">
-                  ડોમેન સીઝ કરો
-                </button>
-<button class="px-2 py-1 rounded-lg bg-surface text-text-muted hover:text-text-primary font-label-sm text-label-sm" onclick="dismissItem(this)">
-                  રદ
-                </button>
-</div>
-</div>
-</div>
-<!-- Item 3 -->
-<div class="p-space-sm rounded-xl bg-surface-raised flex flex-col gap-2 hover:bg-surface-soft transition-all">
-<div class="flex items-start justify-between">
-<div class="flex items-center gap-2">
-<span class="px-2 py-0.5 rounded bg-tertiary-container/30 text-tertiary font-label-sm text-label-sm font-bold">IVR નંબર્સ</span>
-<span class="font-label-md text-label-md text-text-primary">+91 98765-XXXXX (TRAI Spoof)</span>
-</div>
-<span class="font-label-sm text-label-sm text-tertiary font-semibold">૮૧% જોખમ</span>
-</div>
-<div class="font-body-sm text-body-sm text-text-muted">કોલર આઈડી: શંકાસ્પદ ઓટોમેટેડ IVR સ્પૂફિંગ કોલ</div>
-<div class="flex items-center justify-between pt-1">
-<span class="font-label-sm text-label-sm text-text-muted">AI ફિલ્ટર પાઇપલાઇન દ્વારા ફ્લેગ્ડ (ડેમો)</span>
-<div class="flex items-center gap-2">
-<button class="px-3 py-1 rounded-lg bg-danger text-on-error font-label-sm text-label-sm hover:opacity-90 transition-opacity" onclick="approveBlacklist(this)">
-                  નંબર બ્લોક કરો
-                </button>
-<button class="px-2 py-1 rounded-lg bg-surface text-text-muted hover:text-text-primary font-label-sm text-label-sm" onclick="dismissItem(this)">
-                  રદ
-                </button>
-</div>
-</div>
-</div>
-</div>
-</div>
-<!-- Quick Rule Engine Summary Stats -->
-<div class="mt-space-md p-space-sm rounded-xl bg-surface-container-high flex items-center justify-between">
-<div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-secondary text-[20px]">verified_user</span>
-<span class="font-label-sm text-label-sm text-text-primary">ઓટો-બ્લેકલિસ્ટિંગ નિયમો સક્રિય</span>
-</div>
-<span class="font-label-sm text-label-sm text-secondary font-bold">૪,૧૨૦ રૂલ્સ સિંક</span>
-</div>
-</div>
-</div>
-<!-- Citizens Live Incident Dispatch & Investigation Console -->
-<div class="w-full rounded-xl bg-surface p-space-md shadow-lg mb-space-lg">
-<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-sm pb-space-sm mb-space-md border-b border-border-hairline">
-<div class="flex flex-col">
-<div class="flex items-center gap-2"><h2 class="font-headline-sm text-headline-sm text-text-primary">સુરક્ષા ઘટનાઓ મોનિટરિંગ</h2><span class="px-2 py-0.5 rounded-full bg-surface-raised text-tertiary font-label-sm text-label-sm">શૈક્ષણિક નમૂના ડેટા (Synthetic Demo Records)</span></div>
-<p class="font-body-sm text-body-sm text-text-muted">શૈક્ષણિક અને ટેસ્ટિંગ હેતુ માટે જનરેટ કરેલ સિમ્યુલેટેડ કેસોની યાદી.</p>
-</div>
-<div class="flex items-center gap-space-sm">
-<div class="relative">
-<input class="pl-8 pr-3 py-1.5 rounded-xl bg-surface-raised text-text-primary placeholder:text-text-muted text-body-sm font-body-sm focus:outline-none focus:ring-1 focus:ring-primary transition-all" id="incidentSearchInput" placeholder="નાગરિક, નંબર કે FIR શોધો..." type="text">
-<span class="material-symbols-outlined absolute left-2.5 top-2 text-[18px] text-text-muted">search</span>
-</div>
-<select class="px-3 py-1.5 rounded-xl bg-surface-raised text-text-primary text-label-sm font-label-sm focus:outline-none">
-<option>બધા જિલ્લા</option>
-<option>અમદાવાદ</option>
-<option>સુરત</option>
-<option>વડોદરા</option>
-<option>રાજકોટ</option>
-</select>
-</div>
-</div>
-<!-- Incident Data Table -->
-<div class="w-full overflow-x-auto">
-<table class="w-full text-left font-body-sm text-body-sm">
-<thead>
-<tr class="bg-surface-raised text-text-muted font-label-sm text-label-sm">
-<th class="p-3 rounded-l-lg">ID &amp; સમય</th>
-<th class="p-3">નાગરિક વિગત</th>
-<th class="p-3">સ્કેમ પેટર્ન / પ્રકાર</th>
-<th class="p-3">જોખમ / રકમ</th>
-<th class="p-3">સ્થાન &amp; IP રેન્જ</th>
-<th class="p-3">પુરાવા / સ્કેન ફાઈલ</th>
-<th class="p-3 rounded-r-lg text-right">પોલિસ ત્વરિત એક્શન</th>
-</tr>
-</thead>
-<tbody class="divide-y divide-border-hairline" id="incidentTableBody"><tr class="hover:bg-surface-container-high/40 transition-colors"><td class="p-3 align-top"><div class="flex flex-col"><span class="font-mono text-label-sm text-primary font-semibold">#SG-DEMO-01</span><span class="text-text-muted text-[11px]">૫ મિનિટ પહેલાં</span></div></td><td class="p-3 align-top"><div class="flex flex-col"><span class="font-label-md text-label-md text-text-primary">જયેશભાઈ વ્યાસ (નમુનો)</span><span class="text-text-muted text-[12px]">+91 98XXX XXXXX · બોડકદેવ</span></div></td><td class="p-3 align-top"><div class="flex flex-col"><span class="inline-flex items-center gap-1 font-semibold text-danger"><span class="material-symbols-outlined text-[16px]">videocam_off</span>ફેક વીડિયો કૉલ ફ્રોડ</span><span class="text-text-muted text-[12px] line-clamp-1">ડેમો: મની લોન્ડરિંગના બહાને ધમકી</span></div></td><td class="p-3 align-top"><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-danger leading-none">DEMO-UTR-000000000000</span><span class="text-tertiary text-[11px] font-semibold">ડેમો ટ્રાન્ઝેક્શન</span></div></td><td class="p-3 align-top text-text-muted"><div class="">અમદાવાદ (પશ્ચિમ)</div><div class="text-[11px] font-mono">XXX.XXX.XX.XX</div></td><td class="p-3 align-top"><div class="flex items-center gap-2"><span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-surface-raised text-primary text-[11px]"><span class="material-symbols-outlined text-[14px]">image</span> sample.jpg</span></div></td><td class="p-3 align-top text-right"><span class="px-2 py-1 rounded bg-surface-raised text-text-muted text-label-sm font-label-sm">નમૂના રેકોર્ડ</span></td></tr><tr class="hover:bg-surface-container-high/40 transition-colors"><td class="p-3 align-top"><div class="flex flex-col"><span class="font-mono text-label-sm text-primary font-semibold">#SG-DEMO-02</span><span class="text-text-muted text-[11px]">૧૨ મિનિટ પહેલાં</span></div></td><td class="p-3 align-top"><div class="flex flex-col"><span class="font-label-md text-label-md text-text-primary">રસીલાબેન મહેતા (નમુનો)</span><span class="text-text-muted text-[12px]">+91 98XXX XXXXX · અડાજણ</span></div></td><td class="p-3 align-top"><div class="flex flex-col"><span class="inline-flex items-center gap-1 font-semibold text-primary-strong"><span class="material-symbols-outlined text-[16px]">bolt</span>ફેક વીજળી બિલ APK</span><span class="text-text-muted text-[12px] line-clamp-1">ડેમો: અનધિકૃત પેમેન્ટ લિંક SMS</span></div></td><td class="p-3 align-top"><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-primary font-semibold leading-none">DEMO-UTR-000000000000</span><span class="text-secondary text-[11px] font-semibold">ડેમો હોલ્ડ</span></div></td><td class="p-3 align-top text-text-muted"><div class="">સુરત શહેર</div><div class="text-[11px] font-mono">XXX.XXX.XX.XX</div></td><td class="p-3 align-top"><span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-surface-raised text-danger text-[11px]"><span class="material-symbols-outlined text-[14px]">android</span> sample.apk</span></td><td class="p-3 align-top text-right"><span class="px-2 py-1 rounded bg-surface-raised text-text-muted text-label-sm font-label-sm">નમૂના રેકોર્ડ</span></td></tr><tr class="hover:bg-surface-container-high/40 transition-colors"><td class="p-3 align-top"><div class="flex flex-col"><span class="font-mono text-label-sm text-primary font-semibold">#SG-DEMO-03</span><span class="text-text-muted text-[11px]">૨૮ મિનિટ પહેલાં</span></div></td><td class="p-3 align-top"><div class="flex flex-col"><span class="font-label-md text-label-md text-text-primary">કલ્પેશ પરમાર (નમુનો)</span><span class="text-text-muted text-[12px]">+91 98XXX XXXXX · ગોરવા</span></div></td><td class="p-3 align-top"><div class="flex flex-col"><span class="inline-flex items-center gap-1 font-semibold text-tertiary"><span class="material-symbols-outlined text-[16px]">monetization_on</span>પાર્ટ-ટાઇમ રિવ્યૂ સ્કેમ</span><span class="text-text-muted text-[12px] line-clamp-1">ડેમો: ફેક રિવ્યુ કમિશન</span></div></td><td class="p-3 align-top"><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-on-surface leading-none">DEMO-UTR-000000000000</span><span class="text-text-muted text-[11px]">ડેમો રકમ</span></div></td><td class="p-3 align-top text-text-muted"><div class="">વડોદરા શહેર</div><div class="text-[11px] font-mono">XXX.XXX.XX.XX</div></td><td class="p-3 align-top"><span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-surface-raised text-primary text-[11px]"><span class="material-symbols-outlined text-[14px]">chat</span> sample.pdf</span></td><td class="p-3 align-top text-right"><span class="px-2 py-1 rounded bg-surface-raised text-text-muted text-label-sm font-label-sm">નમૂના રેકોર્ડ</span></td></tr><tr class="hover:bg-surface-container-high/40 transition-colors"><td class="p-3 align-top"><div class="flex flex-col"><span class="font-mono text-label-sm text-primary font-semibold">#SG-DEMO-04</span><span class="text-text-muted text-[11px]">૪૧ મિનિટ પહેલાં</span></div></td><td class="p-3 align-top"><div class="flex flex-col"><span class="font-label-md text-label-md text-text-primary">મનસુખભાઈ કાકડિયા (નમુનો)</span><span class="text-text-muted text-[12px]">+91 98XXX XXXXX · કાલાવડ રોડ</span></div></td><td class="p-3 align-top"><div class="flex flex-col"><span class="inline-flex items-center gap-1 font-semibold text-danger"><span class="material-symbols-outlined text-[16px]">candlestick_chart</span>ફેક ઇન્વેસ્ટમેન્ટ એપ</span><span class="text-text-muted text-[12px] line-clamp-1">ડેમો: અનધિકૃત ટ્રેડિંગ પ્લેટફોર્મ</span></div></td><td class="p-3 align-top"><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-danger leading-none">DEMO-UTR-000000000000</span><span class="text-danger text-[11px] font-semibold">ડેમો ફ્લેગ</span></div></td><td class="p-3 align-top text-text-muted"><div class="">રાજકોટ ગ્રામ્ય</div><div class="text-[11px] font-mono">XXX.XXX.XX.XX</div></td><td class="p-3 align-top"><span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-surface-raised text-danger text-[11px]"><span class="material-symbols-outlined text-[14px]">link</span> sample.apk</span></td><td class="p-3 align-top text-right"><span class="px-2 py-1 rounded bg-surface-raised text-text-muted text-label-sm font-label-sm">નમૂના રેકોર્ડ</span></td></tr></tbody>
-</table>
-</div>
-<!-- Table Pagination Footer -->
-<div class="flex items-center justify-between pt-space-md border-t border-border-hairline text-body-sm font-body-sm text-text-muted">
-<span class="">દર્શાવેલ: ૪ માંથી ૨૪૮ સક્રિય કેસો (૨૪ કલાક)</span>
-<div class="flex items-center gap-1">
-<button class="px-3 py-1 rounded-lg bg-surface-raised text-text-primary hover:bg-surface-soft disabled:opacity-50">અગાઉ</button>
-<button class="px-3 py-1 rounded-lg bg-primary-container text-on-primary-container font-semibold">૧</button>
-<button class="px-3 py-1 rounded-lg bg-surface-raised text-text-primary hover:bg-surface-soft">૨</button>
-<button class="px-3 py-1 rounded-lg bg-surface-raised text-text-primary hover:bg-surface-soft">૩</button>
-<button class="px-3 py-1 rounded-lg bg-surface-raised text-text-primary hover:bg-surface-soft">આગળ</button>
-</div>
-</div>
-</div>
-<!-- Operational Intelligence Banner: CID & RBI Coordination -->
-<div class="w-full rounded-xl bg-surface-raised p-space-md flex flex-col md:flex-row items-center justify-between gap-space-md mb-space-md"><div class="flex items-center gap-space-md"><div class="p-3 rounded-xl bg-surface text-tertiary"><span class="material-symbols-outlined text-[28px]">verified</span></div><div class="flex flex-col"><div class="flex items-center gap-2"><span class="font-headline-sm text-headline-sm text-text-primary">સુરક્ષા ડેટાબેઝ સિંક્રોનાઇઝેશન સક્રિય</span><span class="px-2 py-0.5 rounded-full bg-secondary-container/20 text-secondary font-label-sm text-label-sm">System v2.4</span></div><p class="font-body-sm text-body-sm text-text-muted">સમગ્ર પ્લેટફોર્મ પર શંકાસ્પદ ફિશિંગ પેટર્ન અને છેતરપિંડી સૂચકાંકો આપમેળે અપડેટ થાય છે.</p></div></div><div class="flex items-center gap-3"><div class="text-right hidden sm:block"><span class="text-label-sm font-label-sm text-text-muted">સરેરાશ અપડેટ અંતરાલ</span><div class="text-headline-sm font-headline-sm text-secondary font-bold">૫ મિનિટ</div></div><button class="px-4 py-2 rounded-xl bg-surface text-text-primary hover:bg-surface-soft font-label-md text-label-md flex items-center gap-1.5"><span class="material-symbols-outlined text-[18px]">download</span><span class="">ઓડિટ રિપોર્ટ (PDF)</span></button></div></div>
-<!-- MODAL 1: Add New Scam Pattern -->
-<div class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-bg-base/80 backdrop-blur-md hidden" id="newPatternModal">
-<div class="relative w-full max-w-2xl rounded-2xl bg-surface-soft p-space-lg shadow-2xl border border-border-hairline">
-<div class="flex items-center justify-between pb-space-sm mb-space-sm border-b border-border-hairline">
-<div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-primary text-[24px]">security_update_warning</span>
-<h3 class="font-headline-sm text-headline-sm text-text-primary">નવો સ્કેમ પેટર્ન ઉમેરો (Create Threat Signature)</h3>
-</div>
-<button class="text-text-muted hover:text-text-primary" id="closeNewPatternBtn">
-<span class="material-symbols-outlined text-[24px]">close</span>
-</button>
-</div>
-<form class="space-y-space-md" id="scamPatternForm" onsubmit="handlePatternSubmit(event)">
-<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
-<div class="flex flex-col gap-1.5">
-<label class="font-label-md text-label-md text-text-primary">પેટર્ન / સ્કેમ પ્રકાર *</label>
-<select class="p-2.5 rounded-xl bg-surface text-text-primary border border-border-hairline font-body-sm text-body-sm focus:outline-none focus:ring-1 focus:ring-primary" required="">
-<option value="digital_arrest">ડિજિટલ એરેસ્ટ (CBI/ED/Police Impersonation)</option>
-<option value="fake_electricity">ફેક વીજળી બિલ APK (UGVCL/DGVCL/Torrent)</option>
-<option value="investment_task">ટેલિગ્રામ પાર્ટ-ટાઇમ રિવ્યૂ / ટાસ્ક ફ્રોડ</option>
-<option value="banking_phishing">બેંકિંગ KYC / રિવોર્ડ પોઈન્ટ ફિશિંગ</option>
-<option value="loan_app">ગેરકાયદે લોન એપ / બ્લેકમેલ</option>
-</select>
-</div>
-<div class="flex flex-col gap-1.5">
-<label class="font-label-md text-label-md text-text-primary">થ્રેટ લેવલ (Severity) *</label>
-<select class="p-2.5 rounded-xl bg-surface text-text-primary border border-border-hairline font-body-sm text-body-sm focus:outline-none focus:ring-1 focus:ring-primary" required="">
-<option class="text-danger" value="critical">હાઇ ક્રિટિકલ (High Risk - Immediate Auto-Block)</option>
-<option class="text-tertiary" value="medium">મધ્યમ (Suspicious - Warn Citizen)</option>
-<option class="text-secondary" value="low">સામાન્ય મોનિટરિંગ</option>
-</select>
-</div>
-</div>
-<div class="flex flex-col gap-1.5">
-<label class="font-label-md text-label-md text-text-primary">શંકાસ્પદ લિંક, APK ફાઇલ નેમ અથવા ફોન નંબર *</label>
-<input class="p-2.5 rounded-xl bg-surface text-text-primary border border-border-hairline font-body-sm text-body-sm focus:outline-none focus:ring-1 focus:ring-primary" placeholder="દા.ત. https://ugvcl-billpay.top અથવા +91 99999-XXXXX" required="" type="text">
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
-<div class="flex flex-col gap-1.5">
-<label class="font-label-md text-label-md text-text-primary">APK Hash / ફાઇલ હેશ (SHA-256 જો હોય તો)</label>
-<input class="p-2.5 rounded-xl bg-surface text-text-primary font-mono text-[12px] border border-border-hairline focus:outline-none focus:ring-1 focus:ring-primary" placeholder="દા.ત. d2b4e5f67a..." type="text">
-</div>
-<div class="flex flex-col gap-1.5">
-<label class="font-label-md text-label-md text-text-primary">સૌથી વધુ અસરગ્રસ્ત જિલ્લો</label>
-<select class="p-2.5 rounded-xl bg-surface text-text-primary border border-border-hairline font-body-sm text-body-sm focus:outline-none focus:ring-1 focus:ring-primary">
-<option>તમામ ગુજરાત</option>
-<option>અમદાવાદ</option>
-<option>સુરત</option>
-<option>વડોદરા</option>
-<option>રાજકોટ</option>
-<option>ભાવનગર</option>
-</select>
-</div>
-</div>
-<div class="flex flex-col gap-1.5">
-<label class="font-label-md text-label-md text-text-primary">નાગરિકો માટે સલાહ ચેતવણી મેસેજ (ગુજરાતીમાં)</label>
-<textarea class="p-2.5 rounded-xl bg-surface text-text-primary border border-border-hairline font-body-sm text-body-sm focus:outline-none focus:ring-1 focus:ring-primary" placeholder="દા.ત. સાવધાન: વીજળી કંપની ક્યારેય APK ડાઉનલોડ કરવા કહેતી નથી. કોઈ પણ અજાણી લિંક પર ક્લિક ના કરો." rows="3"></textarea>
-</div>
-<div class="flex items-center justify-end gap-space-sm pt-2">
-<button class="px-4 py-2 rounded-xl bg-surface text-text-muted hover:text-text-primary font-label-md text-label-md" id="cancelNewPatternBtn" type="button">
-            રદ કરો
-          </button>
-<button class="px-5 py-2 rounded-xl bg-primary-container text-on-primary-container font-label-md text-label-md shadow-md hover:bg-primary-strong transition-all" type="submit">
-            પેટર્ન એક્ટિવેટ કરો &amp; બ્લેકલિસ્ટ ઉમેરો
-          </button>
-</div>
-</form>
-</div>
-</div>
-<!-- MODAL 2: Broadcast Alert to Citizens -->
-<div class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-bg-base/80 backdrop-blur-md hidden" id="broadcastModal">
-<div class="relative w-full max-w-xl rounded-2xl bg-surface-soft p-space-lg shadow-2xl border border-border-hairline">
-<div class="flex items-center justify-between pb-space-sm mb-space-sm border-b border-border-hairline">
-<div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-tertiary text-[24px]">broadcast_on_personal</span>
-<h3 class="font-headline-sm text-headline-sm text-text-primary">બ્રોડકાસ્ટ એલર્ટ મોકલો (Citizen Emergency Broadcast)</h3>
-</div>
-<button class="text-text-muted hover:text-text-primary" id="closeBroadcastBtn">
-<span class="material-symbols-outlined text-[24px]">close</span>
-</button>
-</div>
-<form class="space-y-space-md" id="broadcastForm" onsubmit="handleBroadcastSubmit(event)">
-<div class="p-3 rounded-xl bg-surface-container flex items-center gap-3">
-<span class="material-symbols-outlined text-tertiary text-[24px]">notification_important</span>
-<p class="font-body-sm text-body-sm text-text-muted">
-            આ એલર્ટ ગુજરાતના પસંદ કરેલા જિલ્લાના નાગરિકોને SMS અને AI કવચ એપ પુશ નોટિફિકેશન દ્વારા તાત્કાલિક મળશે.
-          </p>
-</div>
-<div class="flex flex-col gap-1.5">
-<label class="font-label-md text-label-md text-text-primary">લક્ષ્ય જિલ્લો / વિસ્તાર *</label>
-<div class="grid grid-cols-2 sm:grid-cols-3 gap-2 text-label-sm font-label-sm">
-<label class="flex items-center gap-2 p-2 rounded-lg bg-surface cursor-pointer">
-<input checked="" class="accent-primary-container" type="checkbox"> સમગ્ર ગુજરાત
-            </label>
-<label class="flex items-center gap-2 p-2 rounded-lg bg-surface cursor-pointer">
-<input class="accent-primary-container" type="checkbox"> અમદાવાદ
-            </label>
-<label class="flex items-center gap-2 p-2 rounded-lg bg-surface cursor-pointer">
-<input class="accent-primary-container" type="checkbox"> સુરત
-            </label>
-<label class="flex items-center gap-2 p-2 rounded-lg bg-surface cursor-pointer">
-<input class="accent-primary-container" type="checkbox"> વડોદરા
-            </label>
-<label class="flex items-center gap-2 p-2 rounded-lg bg-surface cursor-pointer">
-<input class="accent-primary-container" type="checkbox"> રાજકોટ
-            </label>
-<label class="flex items-center gap-2 p-2 rounded-lg bg-surface cursor-pointer">
-<input class="accent-primary-container" type="checkbox"> સૌરાષ્ટ્ર-કચ્છ
-            </label>
-</div>
-</div>
-<div class="flex flex-col gap-1.5">
-<label class="font-label-md text-label-md text-text-primary">ચેતવણીનું શીર્ષક (Title) *</label>
-<input class="p-2.5 rounded-xl bg-surface text-text-primary font-body-sm text-body-sm border border-border-hairline focus:outline-none focus:ring-1 focus:ring-primary" required="" type="text" value="⚠️ તાત્કાલિક સાયબર એલર્ટ: ડિજિટલ એરેસ્ટથી સાવધાન">
-</div>
-<div class="flex flex-col gap-1.5">
-<label class="font-label-md text-label-md text-text-primary">એલર્ટ મેસેજ (ગુજરાતીમાં SMS/Push લખાણ) *</label>
-<textarea class="p-2.5 rounded-xl bg-surface text-text-primary font-body-sm text-body-sm border border-border-hairline focus:outline-none focus:ring-1 focus:ring-primary" required="" rows="4">ગુજરાત પોલીસ ચેતવણી: પોલીસ કે CBI ક્યારેય વિડીયો કોલ પર ધરપકડ કે પૈસાની માંગણી કરતી નથી. આવો કૉલ આવે તો તરત કટ કરી 1930 પર કોલ કરો. - સુરક્ષિત ગુજરાત</textarea>
-</div>
-<div class="flex items-center justify-between pt-2">
-<div class="flex items-center gap-2">
-<span class="text-label-sm text-text-muted">અંદાજિત નાગરિકો:</span>
-<span class="font-headline-sm text-headline-sm text-primary font-bold">~૪૫ લાખ</span>
-</div>
-<div class="flex items-center gap-space-sm">
-<button class="px-4 py-2 rounded-xl bg-surface text-text-muted hover:text-text-primary font-label-md text-label-md" id="cancelBroadcastBtn" type="button">
-              રદ કરો
-            </button>
-<button class="px-5 py-2 rounded-xl bg-danger text-on-error font-label-md text-label-md shadow-md hover:opacity-90 transition-all flex items-center gap-1.5" type="submit">
-<span class="material-symbols-outlined text-[18px]">send</span>
-<span class="">લાઈવ બ્રોડકાસ્ટ પુશ કરો</span>
-</button>
-</div>
-</div>
-</form>
-</div>
-</div>
-<!-- Toast Notification Container -->
-<div class="fixed bottom-10 left-1/2 transform -translate-x-1/2 z-50 hidden transition-all duration-300" id="toastNotification">
-<div class="flex items-center gap-3 px-5 py-3 rounded-xl bg-surface-soft text-text-primary shadow-2xl border border-secondary">
-<span class="material-symbols-outlined text-secondary text-[22px]">check_circle</span>
-<span class="font-label-md text-label-md" id="toastMessage">એક્શન સફળતાપૂર્વક પૂર્ણ થઈ.</span>
-</div>
-</div>
-<script>
-    // Modal Control: Add New Scam Pattern
-    const openPatternModal = document.getElementById('openNewPatternBtn');
-    const closePatternModal = document.getElementById('closeNewPatternBtn');
-    const cancelPatternModal = document.getElementById('cancelNewPatternBtn');
-    const newPatternModal = document.getElementById('newPatternModal');
+<!-- Citizen Complaint Drafts -->
+<section id="citizenComplaintSection"
+  class="w-full rounded-xl bg-surface-raised p-space-md mb-space-md">
 
-    if (openPatternModal) {
-      openPatternModal.addEventListener('click', () => newPatternModal.classList.remove('hidden'));
-    }
-    if (closePatternModal) {
-      closePatternModal.addEventListener('click', () => newPatternModal.classList.add('hidden'));
-    }
-    if (cancelPatternModal) {
-      cancelPatternModal.addEventListener('click', () => newPatternModal.classList.add('hidden'));
-    }
+  <div class="flex flex-col md:flex-row justify-between gap-4 mb-5">
+    <div>
+      <h2 class="text-headline-md font-semibold text-text-primary">
+        Citizen Complaint Drafts
+      </h2>
+      <p class="text-body-sm text-text-muted mt-1">
+        Review and manage complaint drafts generated by citizens.
+        These are not officially submitted police complaints.
+      </p>
+    </div>
+    <button id="refreshComplaints"
+      class="px-4 py-2 rounded-lg bg-primary-container text-on-primary-container">
+      Refresh
+    </button>
+  </div>
 
-    // Modal Control: Citizen Broadcast
-    const openBroadcastBtn = document.getElementById('openBroadcastModalBtn');
-    const closeBroadcastBtn = document.getElementById('closeBroadcastBtn');
-    const cancelBroadcastBtn = document.getElementById('cancelBroadcastBtn');
-    const broadcastModal = document.getElementById('broadcastModal');
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mb-4">
+    <input id="complaintSearch"
+      type="search"
+      placeholder="Search ID, platform or description..."
+      class="w-full rounded-lg border border-border-hairline bg-surface p-3 text-text-primary">
 
-    if (openBroadcastBtn) {
-      openBroadcastBtn.addEventListener('click', () => broadcastModal.classList.remove('hidden'));
-    }
-    if (closeBroadcastBtn) {
-      closeBroadcastBtn.addEventListener('click', () => broadcastModal.classList.add('hidden'));
-    }
-    if (cancelBroadcastBtn) {
-      cancelBroadcastBtn.addEventListener('click', () => broadcastModal.classList.add('hidden'));
-    }
+    <select id="complaintStatusFilter"
+      class="w-full rounded-lg border border-border-hairline bg-surface p-3 text-text-primary">
+      <option value="">All statuses</option>
+      <option value="Pending">Pending</option>
+      <option value="Under Review">Under Review</option>
+      <option value="Resolved">Resolved</option>
+      <option value="Rejected">Rejected</option>
+    </select>
+  </div>
 
-    // Toast Utility
-    function showToast(message) {
-      const toast = document.getElementById('toastNotification');
-      const text = document.getElementById('toastMessage');
-      if (toast && text) {
-        text.innerText = message;
-        toast.classList.remove('hidden');
-        setTimeout(() => {
-          toast.classList.add('hidden');
-        }, 3200);
-      }
-    }
+  <div id="complaintsMessage"
+    class="text-body-sm text-text-muted py-4"
+    aria-live="polite">
+    Loading complaint drafts...
+  </div>
 
-    // Interactive Action Handlers
-    function dispatchPolice(caseId, unit) {
-      showToast(`કેસ #${caseId} સફળતાપૂર્વક ${unit} અને ૧૯૩૦ ટીમ તરફ મોકલાયો.`);
-    }
+  <div class="overflow-x-auto">
+    <table class="w-full text-left text-body-sm">
+      <thead>
+        <tr class="border-b border-border-hairline text-text-muted">
+          <th class="p-3">ID</th>
+          <th class="p-3">Platform</th>
+          <th class="p-3">Incident</th>
+          <th class="p-3">Amount</th>
+          <th class="p-3">Risk</th>
+          <th class="p-3">Status</th>
+          <th class="p-3">Created</th>
+          <th class="p-3">Action</th>
+        </tr>
+      </thead>
+      <tbody id="complaintsTableBody"></tbody>
+    </table>
+  </div>
 
-    function approveBlacklist(btn) {
-      const card = btn.closest('.p-space-sm');
-      if (card) {
-        card.style.opacity = '0.4';
-        btn.disabled = true;
-        btn.innerText = 'બ્લેકલિસ્ટ પૂર્ણ';
-        showToast('સ્કેમ સિગ્નેચર સમગ્ર ગુજરાત ગ્રીડમાં બ્લોક કરવામાં આવી.');
-      }
-    }
+  <div class="flex items-center justify-between gap-3 mt-4">
+    <span id="complaintsPaginationInfo"
+      class="text-body-sm text-text-muted">
+      Page 1
+    </span>
+    <div class="flex gap-2">
+      <button id="complaintsPrevious"
+        class="px-3 py-2 rounded-lg bg-surface border border-border-hairline">
+        Previous
+      </button>
+      <button id="complaintsNext"
+        class="px-3 py-2 rounded-lg bg-surface border border-border-hairline">
+        Next
+      </button>
+    </div>
+  </div>
+</section>
 
-    function dismissItem(btn) {
-      const card = btn.closest('.p-space-sm');
-      if (card) {
-        card.remove();
-        showToast('આઇટમ રદ કરવામાં આવી.');
-      }
-    }
+<!-- Complaint Details Modal -->
+<div id="complaintDetailsModal"
+  class="hidden fixed inset-0 z-50 bg-black/60 p-4 overflow-y-auto">
 
-    function handlePatternSubmit(e) {
-      e.preventDefault();
-      newPatternModal.classList.add('hidden');
-      showToast('નવો સ્કેમ પેટર્ન ગુજરાત સેન્ટ્રલ ફાયરવોલ અને AI કવચમાં ઉમેરાયો.');
-    }
+  <div class="max-w-3xl mx-auto my-8 rounded-xl bg-surface-raised p-5">
+    <div class="flex justify-between items-center mb-4">
+      <h2 class="text-headline-md font-semibold text-text-primary">
+        Complaint Details
+      </h2>
+      <button id="closeComplaintModal"
+        class="px-3 py-2 rounded-lg bg-surface">
+        Close
+      </button>
+    </div>
 
-    function handleBroadcastSubmit(e) {
-      e.preventDefault();
-      broadcastModal.classList.add('hidden');
-      showToast('બ્રોડકાસ્ટ એલર્ટ ~૪૫ લાખ નાગરિકોને સફળતાપૂર્વક મોકલવામાં આવ્યો!');
-    }
+    <div id="complaintDetailsContent"
+      class="space-y-3 text-body-sm text-text-primary"></div>
 
-    // Client-side incident table filter
-    const searchInput = document.getElementById('incidentSearchInput');
-    if (searchInput) {
-      searchInput.addEventListener('input', function(e) {
-        const query = e.target.value.toLowerCase();
-        const rows = document.querySelectorAll('#incidentTableBody tr');
-        rows.forEach(row => {
-          const text = row.innerText.toLowerCase();
-          row.style.display = text.includes(query) ? '' : 'none';
-        });
-      });
-    }
-  </script>
+    <div class="border-t border-border-hairline mt-5 pt-5">
+      <label for="complaintNewStatus"
+        class="block mb-2 text-text-primary">
+        Update Status
+      </label>
+
+      <select id="complaintNewStatus"
+        class="w-full rounded-lg border border-border-hairline bg-surface p-3 text-text-primary">
+        <option value="Pending">Pending</option>
+        <option value="Under Review">Under Review</option>
+        <option value="Resolved">Resolved</option>
+        <option value="Rejected">Rejected</option>
+      </select>
+
+      <label for="complaintAdminNotes"
+        class="block mt-3 mb-2 text-text-primary">
+        Admin Notes
+      </label>
+
+      <textarea id="complaintAdminNotes"
+        maxlength="2000"
+        rows="3"
+        class="w-full rounded-lg border border-border-hairline bg-surface p-3 text-text-primary"
+        placeholder="Enter review notes..."></textarea>
+
+      <button id="saveComplaintStatus"
+        class="mt-3 px-4 py-2 rounded-lg bg-primary-container text-on-primary-container">
+        Save Changes
+      </button>
+
+      <p id="complaintUpdateMessage"
+        class="mt-2 text-body-sm"
+        aria-live="polite"></p>
+    </div>
+
+    <div class="border-t border-border-hairline mt-5 pt-5">
+      <h3 class="font-semibold text-text-primary mb-3">
+        Status History
+      </h3>
+      <div id="complaintHistoryContent"
+        class="space-y-3 text-body-sm text-text-muted">
+      </div>
+    </div>
+  </div>
+</div>
+
 </div></main></div>
 
 
@@ -740,5 +218,381 @@
  // keep navigation within the app and allow browser back/forward naturally
 })();
 </script>
+
+<script>
+(async function () {
+  const token = sessionStorage.getItem("sfic_admin_token");
+
+  if (!token) {
+    window.location.replace("/admin/login.html");
+    return;
+  }
+
+  try {
+    const response = await fetch("http://localhost:5000/api/admin/me", {
+      method: "GET",
+      headers: {
+        "Authorization": `Bearer ${token}`
+      }
+    });
+
+    const data = await response.json();
+
+    if (!response.ok || !data.admin) {
+      throw new Error("Admin authentication failed");
+    }
+
+    const profile = document.querySelector(
+      "header .xl\\:flex.flex-col"
+    );
+
+    if (profile) {
+      const name = profile.querySelector("span:first-child");
+      const role = profile.querySelector("span:last-child");
+
+      if (name) name.textContent = data.admin.name;
+      if (role) role.textContent = "સિસ્ટમ એડમિનિસ્ટ્રેટર";
+    }
+
+  } catch (error) {
+    sessionStorage.removeItem("sfic_admin_token");
+    sessionStorage.removeItem("sfic_admin");
+    window.location.replace("/admin/login.html");
+  }
+})();
+</script>
+
 <script src="/route-links.js"></script>
+
+<script>
+(() => {
+  const API = "http://localhost:5000/api/admin";
+
+  const $ = (id) => document.getElementById(id);
+
+  const tableBody = $("complaintsTableBody");
+  const message = $("complaintsMessage");
+  const modal = $("complaintDetailsModal");
+
+  if (!tableBody || !modal) return;
+
+  let currentPage = 1;
+  let totalPages = 1;
+  let currentComplaintId = null;
+  let searchTimer = null;
+
+  function escapeHTML(value) {
+    return String(value ?? "").replace(/[&<>"']/g, char => ({
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      '"': "&quot;",
+      "'": "&#39;"
+    })[char]);
+  }
+
+  function authHeaders(extra = {}) {
+    const token = sessionStorage.getItem("sfic_admin_token");
+
+    if (!token) {
+      window.location.replace("/admin/login.html");
+      throw new Error("Admin session expired.");
+    }
+
+    return {
+      ...extra,
+      Authorization: `Bearer ${token}`
+    };
+  }
+
+  async function apiRequest(path, options = {}) {
+    const response = await fetch(`${API}${path}`, {
+      ...options,
+      headers: authHeaders(options.headers || {})
+    });
+
+    const data = await response.json().catch(() => ({}));
+
+    if (response.status === 401 || response.status === 403) {
+      sessionStorage.removeItem("sfic_admin_token");
+      sessionStorage.removeItem("sfic_admin");
+      window.location.replace("/admin/login.html");
+      throw new Error("Admin session expired.");
+    }
+
+    if (!response.ok || data.success === false) {
+      throw new Error(data.message || "Request failed.");
+    }
+
+    return data;
+  }
+
+  function formatDate(value) {
+    if (!value) return "—";
+
+    const date = new Date(value);
+
+    return Number.isNaN(date.getTime())
+      ? "—"
+      : date.toLocaleString("en-IN");
+  }
+
+  async function loadComplaints() {
+    message.textContent = "Loading complaint drafts...";
+    tableBody.replaceChildren();
+
+    const search = $("complaintSearch").value.trim();
+    const status = $("complaintStatusFilter").value;
+
+    const params = new URLSearchParams({
+      page: currentPage,
+      limit: 10,
+      search,
+      status
+    });
+
+    try {
+      const data = await apiRequest(`/complaints?${params}`);
+
+      const drafts = data.complaint_drafts || [];
+      const pagination = data.pagination;
+
+      totalPages = Math.max(1, pagination.total_pages || 1);
+
+      if (!drafts.length) {
+        message.textContent = "No complaint drafts found.";
+      } else {
+        message.textContent = `${pagination.total} complaint draft(s) found.`;
+
+        drafts.forEach(draft => {
+          const row = document.createElement("tr");
+          row.className = "border-b border-border-hairline";
+
+          const cells = [
+            draft.id,
+            draft.platform || "—",
+            draft.incident_description || "—",
+            draft.amount == null ? "—" : `₹${draft.amount}`,
+            draft.risk_level || "Not available",
+            draft.status || "Pending",
+            formatDate(draft.created_at)
+          ];
+
+          cells.forEach(value => {
+            const cell = document.createElement("td");
+            cell.className = "p-3";
+            cell.textContent = value;
+            row.appendChild(cell);
+          });
+
+          const actionCell = document.createElement("td");
+          actionCell.className = "p-3";
+
+          const viewButton = document.createElement("button");
+          viewButton.type = "button";
+          viewButton.textContent = "View";
+          viewButton.className =
+            "px-3 py-2 rounded-lg bg-primary-container text-on-primary-container";
+
+          viewButton.addEventListener("click", () => {
+            openComplaint(draft.id);
+          });
+
+          actionCell.appendChild(viewButton);
+          row.appendChild(actionCell);
+          tableBody.appendChild(row);
+        });
+      }
+
+      $("complaintsPaginationInfo").textContent =
+        `Page ${pagination.page} of ${totalPages} · ${pagination.total} total`;
+
+      $("complaintsPrevious").disabled = currentPage <= 1;
+      $("complaintsNext").disabled = currentPage >= totalPages;
+
+    } catch (error) {
+      message.textContent = error.message;
+    }
+  }
+
+  async function openComplaint(id) {
+    currentComplaintId = id;
+
+    modal.classList.remove("hidden");
+    $("complaintDetailsContent").textContent = "Loading details...";
+    $("complaintHistoryContent").textContent = "Loading history...";
+    $("complaintUpdateMessage").textContent = "";
+
+    try {
+      const [detailData, historyData] = await Promise.all([
+        apiRequest(`/complaints/${id}`),
+        apiRequest(`/complaints/${id}/history`)
+      ]);
+
+      const complaint = detailData.complaint;
+      const details = $("complaintDetailsContent");
+
+      details.replaceChildren();
+
+      const fields = [
+        ["Complaint ID", complaint.id],
+        ["Platform", complaint.platform],
+        ["Incident Description", complaint.incident_description],
+        ["Incident Date", formatDate(complaint.incident_date)],
+        ["Amount", complaint.amount == null ? "—" : `₹${complaint.amount}`],
+        ["Transaction ID", complaint.transaction_id],
+        ["Suspect Details", complaint.suspect_details],
+        ["Scan Type", complaint.scan_type],
+        ["Risk Level", complaint.risk_level],
+        ["Risk Score", complaint.risk_score],
+        ["Complaint Draft", complaint.complaint_text],
+        ["Current Status", complaint.status],
+        ["Admin Notes", complaint.admin_notes]
+      ];
+
+      fields.forEach(([label, value]) => {
+        const block = document.createElement("div");
+        block.className = "border-b border-border-hairline pb-2";
+
+        const heading = document.createElement("strong");
+        heading.textContent = label;
+
+        const content = document.createElement("p");
+        content.className = "mt-1 whitespace-pre-wrap";
+        content.textContent = value ?? "—";
+
+        block.append(heading, content);
+        details.appendChild(block);
+      });
+
+      $("complaintNewStatus").value =
+        complaint.status || "Pending";
+
+      $("complaintAdminNotes").value =
+        complaint.admin_notes || "";
+
+      const historyContainer = $("complaintHistoryContent");
+      historyContainer.replaceChildren();
+
+      const history = historyData.history || [];
+
+      if (!history.length) {
+        historyContainer.textContent = "No status changes recorded.";
+      } else {
+        history.forEach(item => {
+          const entry = document.createElement("div");
+          entry.className = "border-b border-border-hairline pb-2";
+
+          const status = document.createElement("p");
+          status.textContent =
+            `${item.previous_status || "New"} → ${item.new_status}`;
+
+          const admin = document.createElement("p");
+          admin.textContent =
+            `Updated by: ${item.admin_name || "Unknown admin"}`;
+
+          const date = document.createElement("p");
+          date.textContent = formatDate(item.changed_at);
+
+          const notes = document.createElement("p");
+          notes.textContent = item.admin_notes || "No notes";
+
+          entry.append(status, admin, date, notes);
+          historyContainer.appendChild(entry);
+        });
+      }
+
+    } catch (error) {
+      $("complaintDetailsContent").textContent = error.message;
+      $("complaintHistoryContent").textContent =
+        "Unable to load status history.";
+    }
+  }
+
+  async function saveComplaintStatus() {
+    if (!currentComplaintId) return;
+
+    const button = $("saveComplaintStatus");
+    const result = $("complaintUpdateMessage");
+
+    button.disabled = true;
+    result.textContent = "Saving...";
+
+    try {
+      const data = await apiRequest(
+        `/complaints/${currentComplaintId}/status`,
+        {
+          method: "PATCH",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            status: $("complaintNewStatus").value,
+            adminNotes: $("complaintAdminNotes").value
+          })
+        }
+      );
+
+      result.textContent =
+        `Updated successfully. Status: ${data.complaint.status}`;
+
+      await loadComplaints();
+      await openComplaint(currentComplaintId);
+
+    } catch (error) {
+      result.textContent = error.message;
+    } finally {
+      button.disabled = false;
+    }
+  }
+
+  $("complaintSearch").addEventListener("input", () => {
+    clearTimeout(searchTimer);
+
+    searchTimer = setTimeout(() => {
+      currentPage = 1;
+      loadComplaints();
+    }, 350);
+  });
+
+  $("complaintStatusFilter").addEventListener("change", () => {
+    currentPage = 1;
+    loadComplaints();
+  });
+
+  $("refreshComplaints").addEventListener("click", loadComplaints);
+
+  $("complaintsPrevious").addEventListener("click", () => {
+    if (currentPage > 1) {
+      currentPage--;
+      loadComplaints();
+    }
+  });
+
+  $("complaintsNext").addEventListener("click", () => {
+    if (currentPage < totalPages) {
+      currentPage++;
+      loadComplaints();
+    }
+  });
+
+  $("closeComplaintModal").addEventListener("click", () => {
+    modal.classList.add("hidden");
+    currentComplaintId = null;
+  });
+
+  modal.addEventListener("click", event => {
+    if (event.target === modal) {
+      modal.classList.add("hidden");
+      currentComplaintId = null;
+    }
+  });
+
+  $("saveComplaintStatus").addEventListener(
+    "click",
+    saveComplaintStatus
+  );
+
+  loadComplaints();
+})();
+</script>
+
 </body></html>

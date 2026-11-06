@@ -1,13 +1,17 @@
-
 const express = require("express");
 const router = express.Router();
 
 const {
     analyseMessageController,
-    analyseURLController
+    analyseURLController,
+    getScanHistoryController
 } = require("../controllers/scanController");
 
-router.post("/message", analyseMessageController);
-router.post("/url", analyseURLController);
+const userAuth = require("../middleware/userAuth");
+
+router.get("/history", userAuth, getScanHistoryController);
+
+router.post("/message", userAuth, analyseMessageController);
+router.post("/url", userAuth, analyseURLController);
 
 module.exports = router;

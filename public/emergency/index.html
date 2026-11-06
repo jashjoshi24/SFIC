@@ -337,7 +337,7 @@
 </button>
 
 <!-- Live Generated Complaint Document Preview Box -->
-<div class="flex flex-col gap-2 pt-2">
+<div id="complaint-preview" class="hidden flex flex-col gap-2 pt-2"></div>
 <div class="flex items-center justify-between">
 <span class="font-label-md text-label-md text-text-primary flex items-center gap-1.5 font-semibold">
 <span class="material-symbols-outlined text-secondary text-[18px]">verified</span>
@@ -392,391 +392,406 @@
 </div>
 </div>
 <script>
-  (function initEmergencyHelp() {
-    const scenarioBtns = document.querySelectorAll('.scenario-btn');
-    const categorySelect = document.getElementById('form-category');
-    const amountInput = document.getElementById('form-amount');
-    const utrInput = document.getElementById('form-utr');
-    const datetimeInput = document.getElementById('form-datetime');
-    const senderBankInput = document.getElementById('form-sender-bank');
-    const fraudAccountInput = document.getElementById('form-fraud-account');
-    const complaintText = document.getElementById('complaint-text');
-    const copyBtn = document.getElementById('copy-btn');
-    const copyLabel = document.getElementById('copy-text-label');
-    const downloadPdfBtn = document.getElementById('download-pdf-btn');
+(function initEmergencyHelp() {
+  const scenarioBtns = document.querySelectorAll('.scenario-btn');
 
-    const scenarioData = {
-  upi: {
-    category: 'UPI Fraud / ખોટી પેમેન્ટ કલેક્ટ રિક્વેસ્ટ'
-  },
-  otp: {
-    category: 'ATM / ક્રેડિટ કાર્ડ ક્લોનિંગ અથવા OTP સ્કેમ'
-  },
-  'digital-arrest': {
-    category: 'ડિજિટલ એરેસ્ટ કૉલ મની ટ્રાન્સફર (CBI/Police Extortion)'
-  },
-  'loan-app': {
-    category: 'નકલી લોન એપ બ્લેકમેઇલ અને ઓનલાઇન એક્સટોર્શન'
-  }
-};
+  const categorySelect = document.getElementById('form-category');
+  const amountInput = document.getElementById('form-amount');
+  const utrInput = document.getElementById('form-utr');
+  const datetimeInput = document.getElementById('form-datetime');
+  const senderBankInput = document.getElementById('form-sender-bank');
+  const fraudAccountInput = document.getElementById('form-fraud-account');
 
-    function updateComplaintText() {
-      const cat = categorySelect ? categorySelect.value : '';
+  const complaintText = document.getElementById('complaint-text');
+  const copyBtn = document.getElementById('copy-btn');
+  const copyLabel = document.getElementById('copy-text-label');
+  const downloadPdfBtn = document.getElementById('download-pdf-btn');
+  const complaintForm = document.getElementById('complaint-form');
 
-      const placeholders = currentLang === 'gu'
-        ? {
-            amount: '[રકમ]',
-            utr: '[UTR / રેફરન્સ નંબર]',
-            date: '[તારીખ અને સમય]',
-            bank: '[બેંક / UPI એપ]',
-            suspect: '[ઠગનું UPI ID / મોબાઇલ નંબર]'
-          }
-        : {
-            amount: '[Amount]',
-            utr: '[UTR / Reference Number]',
-            date: '[Date and Time]',
-            bank: '[Bank / UPI App]',
-            suspect: '[Suspect UPI ID / Mobile Number]'
-          };
+  const scenarioData = {
+    upi: {
+      category: 'UPI Fraud / ખોટી પેમેન્ટ કલેક્ટ રિક્વેસ્ટ'
+    },
+    otp: {
+      category: 'ATM / ક્રેડિટ કાર્ડ ક્લોનિંગ અથવા OTP સ્કેમ'
+    },
+    'digital-arrest': {
+      category: 'ડિજિટલ એરેસ્ટ કૉલ મની ટ્રાન્સફર (CBI/Police Extortion)'
+    },
+    'loan-app': {
+      category: 'નકલી લોન એપ બ્લેકમેઇલ અને ઓનલાઇન એક્સટોર્શન'
+    }
+  };
 
-      const amt = amountInput?.value.trim() || placeholders.amount;
-      const utr = utrInput?.value.trim() || placeholders.utr;
-      const dt = datetimeInput?.value.trim() || placeholders.date;
-      const sBank = senderBankInput?.value.trim() || placeholders.bank;
-      const fAcc = fraudAccountInput?.value.trim() || placeholders.suspect;
-
-      if (currentLang === 'gu') {
-        complaintText.value = `પ્રતિ,
-માનનીય સાયબર ક્રાઈમ પોલીસ ઇન્સ્પેક્ટર શ્રી / ૧૯૩૦ હેલ્પડેસ્ક અધિકારીશ્રી,
-સાયબર ક્રાઈમ સેલ, ગુજરાત રાજ્ય.
-
-વિષય: નાણાકીય સાયબર છેતરપિંડી બાબતે ત્વરિત ફરિયાદ અને કાર્યવાહી અંગે.
-
-મહોદયશ્રી,
-હું [તમારું નામ] નમ્રતાપૂર્વક જણાવું છું કે ${dt} ના રોજ મારી સાથે સાયબર છેતરપિંડી સંબંધિત ઘટના બની હતી. ઘટનાની વિગતો નીચે મુજબ છે.
-
-વિગતવાર માહિતી નીચે મુજબ છે:
-૧. છેતરપિંડીનો પ્રકાર: ${cat}
-૨. કપાયેલી રકમ: ₹${amt}
-૩. ટ્રાન્ઝેક્શન UTR / રેફરન્સ નંબર: ${utr}
-૪. મારું બેંક ખાતું: ${sBank}
-૫. સામાવાળા આરોપીનું UPI ID / ખાતું / નંબર: ${fAcc}
-
-જો મેં મારી બેંકનો સંપર્ક કર્યો હોય, તો તેની વિગતો અહીં ઉમેરીશ. મારી ફરિયાદની તપાસ કરી, ઉપલબ્ધ પુરાવા અને લાગુ પડતી પ્રક્રિયા અનુસાર જરૂરી કાર્યવાહી કરવા વિનંતી કરું છું.
-
-ઉપલબ્ધ પુરાવા: [પુરાવાની વિગતો અહીં ઉમેરો].
-
-આપનો/આપની વિશ્વાસુ,
-[તમારું નામ]
-સંપર્ક: [તમારો સંપર્ક નંબર]`;
-      } else {
-        complaintText.value = `To,
-    function getCurrentLang() {
-      // Use the global language engine if available, otherwise fallback to 'gu'
-      if (window.SG && typeof window.SG.lang === 'function') return window.SG.lang();
-      return localStorage.getItem('sg_lang') || 'gu';
+  function getCurrentLang() {
+    if (window.SG && typeof window.SG.lang === 'function') {
+      return window.SG.lang();
     }
 
-    function generateComplaintTriLingual(data) {
-      const lang = getCurrentLang();
-      const cat = data.cat || '';
-      const amt = data.amt || '';
-      const utr = data.utr || '';
-      const dt = data.dt || '';
-      const sBank = data.sBank || '';
-      const fAcc = data.fAcc || '';
+    return localStorage.getItem('sg_lang') || 'gu';
+  }
 
-      if (lang === 'hi') {
-        return `प्रति,
+  function generateComplaintTriLingual(data) {
+    const { cat, amt, utr, dt, sBank, fAcc } = data;
+    const lang = getCurrentLang();
+
+    if (lang === 'hi') {
+      return `प्रति,
 माननीय साइबर क्राइम पुलिस इंस्पेक्टर / 1930 हेल्पडेस्क अधिकारी,
 साइबर क्राइम सेल, गुजरात राज्य।
 
-विषय: वित्तीय साइबर धोखाधड़ी के संबंध में तत्काल शिकायत और खाता फ्रीज करने हेतु।
+विषय: वित्तीय साइबर धोखाधड़ी के संबंध में शिकायत।
 
 महोदय/महोदया,
-मैं (पीड़ित नागरिक) आपको सूचित करना चाहता/चाहती हूँ कि ${dt} को अज्ञात ठगों द्वारा मेरे साथ साइबर धोखाधड़ी की गई और मेरे खाते से अनधिकृत राशि स्थानांतरित की गई।
 
-विस्तृत जानकारी निम्नानुसार है:
-१. धोखाधड़ी का प्रकार: ${cat}
-२. ठगी की गई राशि: ₹${amt}
-३. लेनदेन UTR / संदर्भ संख्या: ${utr}
-४. मेरा बैंक खाता / प्लेटफॉर्म: ${sBank}
-५. संदिग्ध UPI ID / खाता / नंबर: ${fAcc}
+मैं [आपका पूरा नाम] सूचित करना चाहता/चाहती हूँ कि ${dt} को मेरे साथ साइबर धोखाधड़ी की घटना हुई।
 
-मैंने अपने बैंक को भी इस लेनदेन को तुरंत रोकने के लिए सूचित किया है। आपसे विनम्र निवेदन है कि 1930 (CFCFRMS) के अंतर्गत संदिग्ध बैंक खाते में उक्त राशि होल्ड/फ्रीज करवाएं और आरोपी के विरुद्ध कानूनी कार्रवाई करें।
+घटना का विवरण:
+1. धोखाधड़ी का प्रकार: ${cat}
+2. ठगी की गई राशि: ₹${amt || '[राशि]'}
+3. लेनदेन UTR / संदर्भ संख्या: ${utr || '[संदर्भ संख्या]'}
+4. मेरा बैंक / प्लेटफॉर्म: ${sBank || '[बैंक / UPI ऐप]'}
+5. संदिग्ध UPI ID / खाता / नंबर: ${fAcc || '[संदिग्ध विवरण]'}
 
-संलग्न प्रमाण: बैंक डेबिट SMS स्क्रीनशॉट और चैट रिकॉर्ड।
+यदि मैंने अपने बैंक को इस घटना की सूचना दी है, तो उसका विवरण यहाँ जोड़ूँगा/जोड़ूँगी।
+
+कृपया मेरी शिकायत की जाँच कर लागू प्रक्रिया के अनुसार आवश्यक कार्रवाई करें।
+
+उपलब्ध प्रमाण: [प्रमाणों का विवरण]
 
 आपका/आपकी विश्वासपात्र,
 [आपका पूरा नाम]
 संपर्क: [आपका मोबाइल नंबर]
 तारीख: ${new Date().toLocaleDateString('hi-IN')}`;
-      } else if (lang === 'en') {
-        return `To,
-The Cyber Crime Police Station / 1930 Nodal Officer,
-Cyber Crime Investigation Cell, Gujarat State.
+    }
 
-Subject: Formal complaint regarding financial cyber fraud & immediate assistance request.
+    if (lang === 'en') {
+      return `To,
+The Cyber Crime Police Station / 1930 Helpline,
+Cyber Crime Cell, Gujarat State.
+
+Subject: Complaint regarding financial cyber fraud.
 
 Respected Officer,
-I, [Your Name], wish to report a cyber fraud-related incident that occurred on ${dt}. The details of the incident are provided below.
-I, [Your Full Name], wish to report a financial cyber fraud incident that occurred on ${dt}, resulting in unauthorized deduction from my account.
 
-Details of the fraudulent transaction:
+I, [Your Full Name], wish to report a cyber fraud incident that occurred on ${dt}.
+
+Details of the incident:
 1. Category of Incident: ${cat}
-2. Amount Defrauded: INR ${amt}
-3. Transaction UTR / Ref Number: ${utr}
-4. Victim Bank / Platform: ${sBank}
-5. Suspect UPI ID / Mobile / Beneficiary: ${fAcc}
+2. Amount Involved: INR ${amt || '[Amount]'}
+3. Transaction UTR / Reference Number: ${utr || '[Reference Number]'}
+4. Bank / Platform: ${sBank || '[Bank / UPI App]'}
+5. Suspect UPI ID / Account / Number: ${fAcc || '[Suspect Details]'}
 
-If I have contacted my bank, I will provide the details here. I request that the incident be investigated and appropriate action be taken based on the available evidence and applicable procedures.
-I have already requested my bank to place an immediate stop-payment marker. I urgently request the authorities to trigger a freeze on the beneficiary account under the National Citizen Financial Cyber Fraud Reporting Management System (1930 - CFCFRMS) and take necessary legal action against the accused.
+If I have informed my bank about this incident, I will provide the relevant details here.
 
-Available evidence: [Add details of available evidence here].
+I request that the incident be investigated and appropriate action be taken according to the applicable procedures.
+
+Available Evidence: [Add details of available evidence]
 
 Sincerely,
-[Your Name]
-Contact: [Your Contact Number]`;
 [Your Full Name]
 Contact: [Your Mobile Number]
 Date: ${new Date().toLocaleDateString('en-IN')}`;
-      } else {
-        // Default: Gujarati
-        return `પ્રતિ,
-માનનીય સાયબર ક્રાઈમ પોલીસ ઇન્સ્પેક્ટર શ્રી / ૧૯૩૦ હેલ્પડેસ્ક અધિકારીશ્રી,
+    }
+
+    return `પ્રતિ,
+માનનીય સાયબર ક્રાઈમ પોલીસ ઇન્સ્પેક્ટર શ્રી / ૧૯૩૦ હેલ્પલાઇન અધિકારીશ્રી,
 સાયબર ક્રાઈમ સેલ, ગુજરાત રાજ્ય.
 
-વિષય: નાણાકીય સાયબર છેતરપિંડી બાબતે ત્વરિત ફરિયાદ અને ખાતું ફ્રીઝ કરવા અંગે.
+વિષય: નાણાકીય સાયબર છેતરપિંડી અંગે ફરિયાદ.
 
 મહોદયશ્રી,
-હું (પીડિત નાગરિક) નમ્રતાપૂર્વક જણાવું છું કે ${dt} ના રોજ અજાણ્યા ઠગ દ્વારા છેતરપિંડી આચરી મારા ખાતામાંથી અનધિકૃત નાણાં ટ્રાન્સફર કરાવી લેવામાં આવ્યા છે.
 
-વિગતવાર માહિતી નીચે મુજબ છે:
+હું [તમારું પૂરું નામ] જણાવવા માગું છું કે ${dt} ના રોજ મારી સાથે સાયબર છેતરપિંડીની ઘટના બની હતી.
+
+ઘટનાની વિગતો:
 ૧. છેતરપિંડીનો પ્રકાર: ${cat}
-૨. કપાયેલી રકમ: ₹${amt}
-૩. ટ્રાન્ઝેક્શન UTR / રેફરન્સ નંબર: ${utr}
-૪. મારું બેંક ખાતું / પ્લેટફોર્મ: ${sBank}
-૫. સામાવાળા આરોપીનું UPI ID / ખાતું / નંબર: ${fAcc}
+૨. સંડોવાયેલી રકમ: ₹${amt || '[રકમ]'}
+૩. ટ્રાન્ઝેક્શન UTR / રેફરન્સ નંબર: ${utr || '[રેફરન્સ નંબર]'}
+૪. બેંક / પ્લેટફોર્મ: ${sBank || '[બેંક / UPI એપ]'}
+૫. શંકાસ્પદ UPI ID / ખાતું / નંબર: ${fAcc || '[શંકાસ્પદ વિગતો]'}
 
-મેં મારી બેંકને પણ આ ટ્રાન્ઝેક્શન તાત્કાલિક રોકવા માટે જાણ કરી છે. આપ સાહેબને નમ્ર વિનંતી કે ૧૯૩૦ ફાઇનાન્સિયલ ફ્રોડ રિપોર્ટિંગ એન્ડ મેનેજમેન્ટ સિસ્ટમ (CFCFRMS) અંતર્ગત સામાવાળા બેંક ખાતામાં ઉપરોક્ત રકમ હોલ્ડ/ફ્રીઝ કરાવી આપવા અને આરોપી સામે કાયદેસર કાર્યવાહી કરવા કૃપા કરશો.
+જો મેં મારી બેંકને આ ઘટનાની જાણ કરી હોય, તો તેની વિગતો અહીં ઉમેરીશ.
 
-સાથે જોડેલ પુરાવા: બેંક ડેબિટ SMS સ્ક્રીનશોટ અને ચેટ રેકોર્ડ.
+મારી ફરિયાદની તપાસ કરી લાગુ પડતી પ્રક્રિયા મુજબ જરૂરી કાર્યવાહી કરવા વિનંતી કરું છું.
+
+ઉપલબ્ધ પુરાવા: [પુરાવાઓની વિગતો]
 
 આપનો/આપની વિશ્વાસુ,
-[આપનું પૂરું નામ]
-સંપર્ક: [આપનો મોબાઇલ નંબર]
+[તમારું પૂરું નામ]
+સંપર્ક: [તમારો મોબાઇલ નંબર]
 તારીખ: ${new Date().toLocaleDateString('gu-IN')}`;
-      }
+  }
+
+  function updateComplaintText() {
+    if (!complaintText) return;
+
+    const preview = document.getElementById('complaint-preview');
+
+    const data = {
+      cat: categorySelect?.value || '',
+      amt: amountInput?.value.trim() || '',
+      utr: utrInput?.value.trim() || '',
+      dt: datetimeInput?.value || '',
+      sBank: senderBankInput?.value.trim() || '',
+      fAcc: fraudAccountInput?.value.trim() || ''
+    };
+
+    const hasIncidentDetails =
+      data.cat || data.amt || data.utr || data.sBank || data.fAcc;
+
+    if (!data.dt || !hasIncidentDetails) {
+      complaintText.value = '';
+
+      preview?.classList.add('hidden');
+
+      if (copyBtn) copyBtn.disabled = true;
+      if (downloadPdfBtn) downloadPdfBtn.disabled = true;
+
+      return;
     }
 
-    function updateComplaintText() {
-      if (!complaintText) return;
-      const data = {
-        cat: categorySelect ? categorySelect.value : '',
-        amt: amountInput ? amountInput.value : '',
-        utr: utrInput ? utrInput.value : '',
-        dt: datetimeInput ? datetimeInput.value : '',
-        sBank: senderBankInput ? senderBankInput.value : '',
-        fAcc: fraudAccountInput ? fraudAccountInput.value : ''
-      };
+    const generatedText = generateComplaintTriLingual(data);
 
-      // Try the global mock engine first
-      if (window.SG && typeof window.SG.generateComplaintDraft === 'function') {
-        const result = window.SG.generateComplaintDraft({
-          category: data.cat,
-          amount: data.amt,
-          txnId: data.utr,
-          suspectPhone: data.fAcc,
-          suspectLink: '',
-          description: `Fraud on ${data.dt} via ${data.sBank}`
-        });
-        complaintText.value = result || generateComplaintTriLingual(data);
-      } else {
-        complaintText.value = generateComplaintTriLingual(data);
-      }
-    }
+    complaintText.value = generatedText;
 
-    // Scenario switching
-    scenarioBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        scenarioBtns.forEach(b => {
-          b.classList.remove('ring-1', 'ring-primary-container/40', 'bg-surface-raised');
-          b.classList.add('bg-surface');
-          const badge = b.querySelector('.scenario-badge');
-          if (badge) badge.classList.add('hidden');
-        });
+    preview?.classList.remove('hidden');
 
-        btn.classList.add('ring-1', 'ring-primary-container/40', 'bg-surface-raised');
-        btn.classList.remove('bg-surface');
-        const activeBadge = btn.querySelector('.scenario-badge');
-        if (activeBadge) activeBadge.classList.remove('hidden');
+    if (copyBtn) copyBtn.disabled = false;
+    if (downloadPdfBtn) downloadPdfBtn.disabled = false;
+  }
 
-        const key = btn.getAttribute('data-scenario');
-        const data = scenarioData[key];
-        if (data) {
-          categorySelect.value = data.category;
-          if (categorySelect) categorySelect.value = data.category;
-          if (amountInput) amountInput.value = data.amount;
-          if (utrInput) utrInput.value = data.utr;
-          if (datetimeInput) datetimeInput.value = data.datetime;
-          if (senderBankInput) senderBankInput.value = data.senderBank;
-          if (fraudAccountInput) fraudAccountInput.value = data.fraudAccount;
-          updateComplaintText();
-        }
+  // Scenario switching
+  scenarioBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      scenarioBtns.forEach(b => {
+        b.classList.remove(
+          'ring-1',
+          'ring-primary-container/40',
+          'bg-surface-raised'
+        );
+
+        b.classList.add('bg-surface');
+
+        b.querySelector('.scenario-badge')?.classList.add('hidden');
       });
-    });
 
-    // Form inputs live sync
-    [categorySelect, amountInput, utrInput, datetimeInput, senderBankInput, fraudAccountInput].forEach(el => {
-      if (el) {
-        el.addEventListener('input', updateComplaintText);
-        el.addEventListener('change', updateComplaintText);
-      }
-    });
+      btn.classList.add(
+        'ring-1',
+        'ring-primary-container/40',
+        'bg-surface-raised'
+      );
 
-    // React to global language changes
-    document.addEventListener('langchange', updateComplaintText);
+      btn.classList.remove('bg-surface');
 
-    // Submit complaint draft to backend
-    const complaintForm = document.getElementById("complaint-form");
+      btn.querySelector('.scenario-badge')?.classList.remove('hidden');
 
-    if (complaintForm) {
-      complaintForm.addEventListener("submit", async (event) => {
-        event.preventDefault();
+      const key = btn.getAttribute('data-scenario');
+      const data = scenarioData[key];
 
-        const finalComplaintText = complaintText.value.trim();
-
-const hasIncidentDetails =
-  amountInput.value.trim() ||
-  utrInput.value.trim() ||
-  senderBankInput.value.trim() ||
-  fraudAccountInput.value.trim();
-
-if (!datetimeInput.value.trim() || !hasIncidentDetails) {
-  alert("Please enter the incident date/time and at least one incident detail.");
-  return;
-}
-
-        const incidentDescription = finalComplaintText;
-
-        const submitButton = document.getElementById("generate-complaint-btn");
-
-        try {
-          if (submitButton) {
-            submitButton.disabled = true;
-            submitButton.textContent = "Saving draft...";
-          }
-
-          const response = await fetch(
-            `http://localhost:5000/api/guidance/complaint`,
-            {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json"
-              },
-              body: JSON.stringify({
-                incidentDescription,
-                incidentDate: datetimeInput.value,
-                amount: amountInput.value,
-                transactionId: utrInput.value,
-                platform: senderBankInput.value,
-                suspectDetails: fraudAccountInput.value.trim()
-              })
-            }
-          );
-
-          let data;
-
-try {
-  data = await response.json();
-} catch {
-  throw new Error("Invalid response from complaint service.");
-}
-
-          if (!response.ok || !data.success) {
-            throw new Error(data.message || "Unable to save complaint draft.");
-          }
-
-          alert(`Complaint draft saved successfully. Draft ID: ${data.complaintId}`);
-        } catch (error) {
-          console.error("Complaint API error:", error);
-          alert(error.message || "Could not connect to the complaint service.");
-        } finally {
-          if (submitButton) {
-            submitButton.disabled = false;
-            submitButton.textContent = "Save Complaint Draft";
-          }
-        }
-      });
-    }
-
-    // Copy to clipboard
-    if (copyBtn && complaintText) {
-      copyBtn.addEventListener('click', () => {
-        const text = complaintText.value;
-        if (!text.trim()) return;
-        navigator.clipboard.writeText(text).then(() => {
-          if (copyLabel) {
-            const lang = getCurrentLang();
-            const msgs = { gu: 'કૉપિ થઈ ગયું! ✓', hi: 'कॉपी हो गया! ✓', en: 'Copied! ✓' };
-            copyLabel.textContent = msgs[lang] || 'Copied! ✓';
-          }
-          copyBtn.classList.add('text-secondary');
-          setTimeout(() => {
-            if (copyLabel) {
-              const lang = getCurrentLang();
-              const labels = { gu: 'ડ્રાફ્ટ કૉપિ કરો', hi: 'ड्राफ्ट कॉपी करें', en: 'Copy Draft' };
-              copyLabel.textContent = labels[lang] || 'Copy Draft';
-            }
-            copyBtn.classList.remove('text-secondary');
-          }, 2500);
-        }).catch(() => {
-          // Fallback
-          complaintText.select();
-          document.execCommand('copy');
-        });
-      });
-    }
-
-    // Download Text file
-    // Download as .txt
-    if (downloadPdfBtn && complaintText) {
-      downloadPdfBtn.addEventListener('click', () => {
-        const text = complaintText.value;
-        if (!text.trim()) { alert('Please fill in the form fields first.'); return; }
-        const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = 'Cyber_Complaint_1930_' + Date.now() + '.txt';
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-        URL.revokeObjectURL(url);
-      });
-    }
-
-    // Generate initial complaint preview when the page loads
-    updateComplaintText();
-
-    // Wait for engines to load, then generate initial complaint
-    function tryInit() {
-      if (categorySelect && categorySelect.value) {
+      if (data && categorySelect) {
+        categorySelect.value = data.category;
         updateComplaintText();
-      } else {
-        // Trigger first scenario (upi) as default
-        const firstBtn = document.querySelector('.scenario-btn[data-scenario="upi"]');
-        if (firstBtn) firstBtn.click();
-        else updateComplaintText();
       }
-    }
+    });
+  });
 
-    if (document.readyState === 'complete') {
-      setTimeout(tryInit, 300);
-    } else {
-      window.addEventListener('load', () => setTimeout(tryInit, 300));
+  // Form inputs live sync
+  [
+    categorySelect,
+    amountInput,
+    utrInput,
+    datetimeInput,
+    senderBankInput,
+    fraudAccountInput
+  ].forEach(el => {
+    if (el) {
+      el.addEventListener('input', updateComplaintText);
+      el.addEventListener('change', updateComplaintText);
     }
-  })();
+  });
+
+  // React to language changes
+  document.addEventListener('langchange', updateComplaintText);
+
+  // Save complaint draft
+  if (complaintForm) {
+    complaintForm.addEventListener('submit', async event => {
+      event.preventDefault();
+
+      const finalComplaintText = complaintText?.value.trim() || '';
+
+      const category = categorySelect?.value.trim() || '';
+      const amount = amountInput?.value.trim() || '';
+      const utr = utrInput?.value.trim() || '';
+      const dateTime = datetimeInput?.value || '';
+      const bank = senderBankInput?.value.trim() || '';
+      const suspect = fraudAccountInput?.value.trim() || '';
+
+      const hasIncidentDetails =
+        category || amount || utr || bank || suspect;
+
+      if (!dateTime || !hasIncidentDetails || !finalComplaintText) {
+        alert(
+          'Please enter the incident date/time, at least one incident detail, and generate the complaint draft.'
+        );
+        return;
+      }
+
+      const incidentDescription = [
+        category && `Incident type: ${category}`,
+        dateTime && `Incident date/time: ${dateTime}`,
+        amount && `Amount: ${amount}`,
+        utr && `Transaction ID: ${utr}`,
+        bank && `Bank/Platform: ${bank}`,
+        suspect && `Suspect details: ${suspect}`
+      ].filter(Boolean).join('\n');
+
+      const submitButton = document.getElementById('generate-complaint-btn');
+
+      try {
+        if (submitButton) {
+          submitButton.disabled = true;
+          submitButton.textContent = 'Saving draft...';
+        }
+
+        const token = sessionStorage.getItem('citizenToken');
+
+        if (!token) {
+          throw new Error('Please log in again. Citizen token not found.');
+        }
+
+        const response = await fetch('/api/guidance/complaint', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+          },
+          body: JSON.stringify({
+            incidentDescription,
+            complaintText: finalComplaintText,
+            incidentDate: dateTime,
+            amount,
+            transactionId: utr,
+            platform: bank,
+            suspectDetails: suspect
+          })
+        });
+
+        const result = await response.json();
+
+        if (!response.ok || !result.success) {
+          throw new Error(result.message || 'Unable to save complaint draft.');
+        }
+
+        alert(`Complaint draft saved successfully. Draft ID: ${result.complaintId}`);
+
+      } catch (error) {
+        console.error('Complaint API error:', error);
+        alert(error.message || 'Could not connect to the complaint service.');
+      } finally {
+        if (submitButton) {
+          submitButton.disabled = false;
+          submitButton.textContent = 'Save Complaint Draft';
+        }
+      }
+    });
+  }
+
+  // Copy complaint draft
+  if (copyBtn && complaintText) {
+    copyBtn.addEventListener('click', async () => {
+      const text = complaintText.value;
+
+      if (!text.trim()) return;
+
+      try {
+        await navigator.clipboard.writeText(text);
+
+        const lang = getCurrentLang();
+
+        const messages = {
+          gu: 'કૉપિ થઈ ગયું! ✓',
+          hi: 'कॉपी हो गया! ✓',
+          en: 'Copied! ✓'
+        };
+
+        const labels = {
+          gu: 'ડ્રાફ્ટ કૉપિ કરો',
+          hi: 'ड्राफ्ट कॉपी करें',
+          en: 'Copy Draft'
+        };
+
+        if (copyLabel) {
+          copyLabel.textContent = messages[lang] || messages.en;
+        }
+
+        copyBtn.classList.add('text-secondary');
+
+        setTimeout(() => {
+          if (copyLabel) {
+            copyLabel.textContent = labels[getCurrentLang()] || labels.en;
+          }
+
+          copyBtn.classList.remove('text-secondary');
+        }, 2500);
+
+      } catch (error) {
+        complaintText.select();
+        document.execCommand('copy');
+      }
+    });
+  }
+
+  // Download complaint as text file
+  if (downloadPdfBtn && complaintText) {
+    downloadPdfBtn.addEventListener('click', () => {
+      const text = complaintText.value;
+
+      if (!text.trim()) {
+        alert('Please fill in the form fields first.');
+        return;
+      }
+
+      const blob = new Blob([text], {
+        type: 'text/plain;charset=utf-8'
+      });
+
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+
+      a.href = url;
+      a.download = 'Cyber_Complaint_1930_' + Date.now() + '.txt';
+
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+
+      URL.revokeObjectURL(url);
+    });
+  }
+
+  // Initialize page
+  function tryInit() {
+    if (!categorySelect?.value) {
+      const firstBtn = document.querySelector(
+        '.scenario-btn[data-scenario="upi"]'
+      );
+
+      if (firstBtn) firstBtn.click();
+    } else {
+      updateComplaintText();
+    }
+  }
+
+  if (document.readyState === 'complete') {
+    setTimeout(tryInit, 300);
+  } else {
+    window.addEventListener('load', () => setTimeout(tryInit, 300));
+  }
+})();
+
 </script></main></div>
 
 <script id="surakshit-global-navigation">
