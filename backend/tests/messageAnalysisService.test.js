@@ -23,15 +23,6 @@ test('Fake KYC message should detect KYC, OTP, urgency, and suspicious link', ()
     assert.ok(indicatorIds.includes('otp'));
     assert.ok(indicatorIds.includes('link'));
     assert.ok(result.indicators.length >= 3);
-test('Fake KYC message should detect KYC, OTP, and urgency', () => {
-    const message =
-        'Your bank account will be blocked. Update your KYC immediately. Share OTP and click here https://fake-link.com';
-
-    const result = analyseMessage(message);
-
-    assert.equal(result.score, 67);
-    assert.equal(result.riskLevel, 'high');
-    assert.equal(result.indicators.length, 3);
 });
 
 test('Job scam message should detect suspicious job offer', () => {
