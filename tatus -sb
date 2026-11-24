@@ -1,0 +1,20 @@
+* [33mc07f90d[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mjaymin[m[33m)[m Integrate Faster-Whisper transcription service
+*   [33m3178997[m[33m ([m[1;31morigin/anushka[m[33m)[m Merge origin/anushka and integrate UI updates
+[31m|[m[32m\[m  
+* [32m|[m [33m9575501[m Final backend authentication and admin dashboard
+[32m|[m [32m|[m *   [33m0a2faa5[m[33m ([m[1;31morigin/main[m[33m)[m Merge pull request #4 from jashjoshi24/anushka
+[32m|[m [32m|[m [33m|[m[32m\[m  
+[32m|[m [32m|[m [33m|[m[32m/[m  
+[32m|[m [32m|[m[32m/[m[33m|[m   
+[32m|[m * [33m|[m [33m0375dca[m Merge branch 'main' into anushka
+[32m|[m[32m/[m[33m|[m [33m|[m 
+[32m|[m [33m|[m[33m/[m  
+[32m|[m *   [33m3b8ff5a[m Merge pull request #3 from jashjoshi24/jash
+[32m|[m [1;31m|[m[1;32m\[m  
+[32m|[m [1;31m|[m * [33me0ec8e1[m[33m ([m[1;31morigin/jash[m[33m)[m made some changes into the UI
+* [1;31m|[m [1;32m|[m [33md07d536[m Complete backend development and integration
+[1;31m|[m[1;31m/[m [1;32m/[m  
+* [1;32m|[m [33m78ecef6[m Merge pull request #2 from jashjoshi24/jash
+[1;33m|[m[1;32m\[m[1;32m|[m 
+[1;33m|[m * [33mea90a61[m adding the final changes to UI
+[1;33m|[m[1;33m/[m  
