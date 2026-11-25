@@ -1,6 +1,5 @@
 
 const { analyseURLHybrid } = require("../services/urlAnalysisService");
-const { analyseURL } = require("../services/urlAnalysisService");
 const pool = require("../config/db");
 const { analyseMessage } = require("../services/messageAnalysisService");
 const { getGuidance } = require("../services/guidanceService");
@@ -159,13 +158,6 @@ async function analyseURLController(req, res) {
             guidance: guidanceResult.guidance,
             guidanceDisclaimer: guidanceResult.disclaimer
         });
-    success: true,
-    scanId: dbResult.rows[0].id,
-    createdAt: dbResult.rows[0].created_at,
-    result,
-    guidance: guidanceResult.guidance,
-    guidanceDisclaimer: guidanceResult.disclaimer
-});
 
     } catch (error) {
         console.error("URL analysis error:", error.message);
@@ -207,6 +199,7 @@ async function getScanHistoryController(req, res) {
 module.exports = {
     analyseMessageController,
     analyseURLController
+};
 };
 
 module.exports = {

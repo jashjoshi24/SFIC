@@ -13,9 +13,9 @@ const scanRoutes = require("./routes/scanRoutes");
 const imageScanRoutes = require("./routes/imageScanRoutes");
 const guidanceRoutes = require("./routes/guidanceRoutes");
 const transcriptionRoutes = require("./routes/transcriptionRoutes");
-const guidanceRoutes = require("./routes/guidanceRoutes");
 
 const app = express();
+app.set("trust proxy", 1);
 
 const app = express();
 app.set("trust proxy", 1);

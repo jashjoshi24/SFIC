@@ -1,6 +1,5 @@
 
 const { parse } = require("tldts");
-const { parse } = require('tldts');
 
 const HIGH_RISK = 60;
 const MEDIUM_RISK = 25;
@@ -78,7 +77,6 @@ function analyseUrls(message) {
     const bankingSuspensionContext =
         isBankingSuspensionContext(message);
 
-function analyseUrls(message) {
     return extractUrls(message).map(url => {
         let parsedUrl;
 
@@ -106,12 +104,6 @@ function analyseUrls(message) {
             ) {
                 throw new Error("Invalid URL format.");
             }
-            parsedUrl = new URL(
-                url.startsWith("www.") ? `https://${url}` :
-                /^[a-z0-9.-]+\//i.test(url) && !url.includes("://")
-                    ? `https://${url}`
-                    : url
-            );
         } catch {
             return {
                 url,
@@ -178,7 +170,6 @@ const rules = [
             "otp", "one time password", "one-time password",
             "ઓટીપી", "વન ટાઈમ પાસવર્ડ"
         ],
-        keywords: ["otp", "one time password", "one-time password", "ઓટીપી", "વન ટાઈમ પાસવર્ડ"],
         label: "OTP Request",
         description: "The message appears to request a one-time password.",
         weight: 25
@@ -288,7 +279,6 @@ const rules = [
             "provide kyc details",
             "send kyc details",
             "share kyc details"
-            "કેવાયસી અપડેટ", "પાન કાર્ડ અપલોડ"
         ],
         label: "Possible Fake KYC",
         description: "The message contains a KYC or identity verification request.",
@@ -316,7 +306,6 @@ const rules = [
             "avoid arrest warrant", "police will come",
             "ધરપકડ", "અરસ્ટ વોરંટ", "પોલીસ કેસ",
             "સાયબર ક્રાઈમ", "સીબીઆઈ"
-            "સાયબર ક્રાઈમ", "સીબીઆઈ",
         ],
         label: "Impersonation or Arrest Threat",
         description: "The message contains possible law-enforcement impersonation or arrest threats.",
@@ -353,23 +342,6 @@ const rules = [
             "નાર્કોટિક્સ",
             "તમારા નામે પાર્સલ",
             "ડ્રગ્સ પકડાયા"
-"mumbai customs",
-"indian customs",
-"customs department",
-"narcotics control bureau",
-"parcel contains drugs",
-"parcel containing narcotics",
-"confiscated parcel",
-"avoid arrest",
-"case settlement",
-"case khatam",
-"police aavse",
-"ghar par police",
-"police આવશે",
-"કસ્ટમ વિભાગ",
-"નાર્કોટિક્સ",
-"તમારા નામે પાર્સલ",
-"ડ્રગ્સ પકડાયા"
         ],
         label: "Suspicious Job Offer",
         description: "The message contains a job offer with potentially suspicious payment demands.",
@@ -565,7 +537,6 @@ const rules = [
     }
 ];
 
-
 function isOtpRequest(text) {
     const warningPatterns = [
         /(?:do not|don't|never|not to)\s+share.{0,60}(?:otp|one time password)/,
@@ -574,7 +545,6 @@ function isOtpRequest(text) {
         /(?:કોઈની પણ સાથે|કોઈને પણ).{0,40}(?:શેર કરશો નહીં|આપશો નહીં)/
     ];
 
-    // Explicit warnings should not be interpreted as credential requests.
     if (warningPatterns.some(pattern => pattern.test(text))) {
         return false;
     }
@@ -618,7 +588,6 @@ function isLegitimateContext(ruleId, text) {
 
     return false;
 }
-
 
 function isAdvancePaymentDemand(text) {
     const paymentTerms =
@@ -738,60 +707,6 @@ function analyseMessage(message) {
         });
     }
 
-const indicators = rules.map(rule => {
-    const matchedKeywords = getMatchedKeywords(rule, text);
-
-    if (
-        matchedKeywords.length === 0 ||
-        isLegitimateContext(rule.id, text) ||
-        (incidentReport && [
-            "urgency",
-            "kyc",
-            "digital-arrest",
-            "gujarati-bank-threat"
-        ].includes(rule.id))
-    ) {
-        return null;
-    }
-
-    return {
-        id: rule.id,
-        label: rule.label,
-        description: rule.description,
-        weight: rule.weight,
-        evidence: matchedKeywords
-    };
-}).filter(Boolean);
-
-    const advancePaymentCategories = [
-    "job",
-    "loan",
-    "reward",
-    "gujarati-lottery",
-    "digital-arrest",
-    "gujarati-digital-arrest",
-    "delivery",
-    "kyc",
-    "gujarati-kyc"
-];
-
-const hasAdvancePaymentContext = indicators.some(item =>
-    advancePaymentCategories.includes(item.id)
-);
-
-if (
-    hasAdvancePaymentContext &&
-    isAdvancePaymentDemand(text)
-) {
-    indicators.push({
-        id: "advance-payment",
-        label: "Advance Payment Demand",
-        description: "The message combines a suspicious service or offer with a demand for advance payment.",
-        weight: 20,
-        evidence: ["Payment demand detected alongside a suspicious offer or threat"]
-    });
-}
-
     const urlAnalysis = analyseUrls(originalMessage);
 
     const suspiciousUrls = urlAnalysis.filter(
@@ -870,7 +785,6 @@ if (
         100,
         baseScore + combinationScore
     );
-    const score = Math.min(100, baseScore + combinationScore);
 
     let riskLevel = "safe";
 
@@ -898,4 +812,3 @@ if (
 module.exports = {
     analyseMessage
 };
-module.exports = { analyseMessage };

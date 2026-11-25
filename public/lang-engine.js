@@ -68,11 +68,21 @@
   /* ─────────────────── STRING TRANSLATION ─────────────────── */
   function translateString(text, lang) {
     if (!text || typeof text !== 'string') return text;
-    if (lang === 'gu') return text;
 
     const dict = getDict();
     const trimmed = text.trim();
     if (!trimmed) return text;
+
+    // Gujarati is the source language for most copy, but many pages contain
+    // English source labels too. Resolve those through the dictionary's
+    // English/Hindi values so Gujarati is applied just like the other choices.
+    function lookup(phrase) {
+      if (dict[phrase]?.[lang]) return dict[phrase][lang];
+      if (lang === 'gu') {
+        return getGujaratiReverseDictionary(dict).get(phrase) || null;
+      }
+      return null;
+    }
 
     // 1. Direct exact match
     if (dict[trimmed] && dict[trimmed][lang]) {
@@ -108,7 +118,7 @@
     let modified = false;
 
     // Check known phrases in dictionary sorted by length descending
-    const keys = Object.keys(dict);
+    const keys = Object.keys(dict).sort((a, b) => b.length - a.length);
     for (let i = 0; i < keys.length; i++) {
       const phrase = keys[i];
       if (phrase.length > 2 && translated.includes(phrase)) {
@@ -171,8 +181,10 @@
 
         let node;
         while ((node = walker.nextNode())) {
-          // Cache original Gujarati baseline text
-          if (node._origText === undefined) {
+          // Keep the app's newest source text when it updates a live label,
+          // while retaining the original so language switches stay reversible.
+          if (node._origText === undefined ||
+              (node._lastTranslated !== undefined && node.nodeValue !== node._lastTranslated)) {
             node._origText = node.nodeValue;
           }
 
@@ -217,15 +229,15 @@
         document.querySelectorAll('[title], [alt], [aria-label]').forEach(el => {
           if (el.title) {
             if (el._origTitle === undefined) el._origTitle = el.title;
-            el.title = lang === 'gu' ? el._origTitle : translateString(el._origTitle, lang);
+            el.title = translateString(el._origTitle, lang);
           }
           if (el.alt) {
             if (el._origAlt === undefined) el._origAlt = el.alt;
-            el.alt = lang === 'gu' ? el._origAlt : translateString(el._origAlt, lang);
+            el.alt = translateString(el._origAlt, lang);
           }
           if (el.getAttribute('aria-label')) {
             if (el._origAriaLabel === undefined) el._origAriaLabel = el.getAttribute('aria-label');
-            el.setAttribute('aria-label', lang === 'gu' ? el._origAriaLabel : translateString(el._origAriaLabel, lang));
+            el.setAttribute('aria-label', translateString(el._origAriaLabel, lang));
           }
         });
             el.title = translateString(el._origTitle, lang);
@@ -323,7 +335,6 @@
     const observer = new MutationObserver(() => {
       if (isTranslating) return;
       const current = getLang();
-      if (current === 'gu') return; // Default baseline already in DOM
 
       clearTimeout(debounceTimer);
       debounceTimer = setTimeout(() => {

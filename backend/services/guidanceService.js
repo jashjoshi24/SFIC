@@ -98,6 +98,7 @@ function getGuidance(analysis) {
 }
 
 module.exports = { getGuidance };
+module.exports = { getGuidance };
 
 const knowledgeBase = require("../data/guidanceKnowledgeBase.json");
 

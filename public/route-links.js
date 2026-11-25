@@ -64,11 +64,9 @@ document.querySelectorAll('a[href]').forEach((link) => {
   link.href = destination.href
 })
 
-const legacySidebar = document.querySelector(
-  'aside nav a[data-path="landing-page"]',
-)
+const legacySidebar = document.querySelector('aside.fixed.w-72 nav')
 
-if (legacySidebar) {
+if (legacySidebar && !currentRoute.startsWith('/admin')) {
   const sidebar = legacySidebar.closest('aside')
   const nav = legacySidebar.closest('nav')
   const brandLink = sidebar?.querySelector('a[data-path="landing-page"]')
@@ -178,9 +176,6 @@ if (legacySidebar && !currentRoute.startsWith('/admin')) {
         'material-symbols-outlined text-[20px] transition-colors group-hover:text-primary'
       icon.textContent = item.icon
 
-      const labels = document.createElement('div')
-      labels.className = 'flex flex-col'
-
       const title = document.createElement('span')
       title.className = 'font-label-lg text-label-lg'
       title.textContent = item.title
@@ -196,6 +191,43 @@ if (legacySidebar && !currentRoute.startsWith('/admin')) {
       nav.append(link)
     })
   }
+}
+
+// Keep the sidebar selection in sync on every route, including pages that
+// already ship the current dashboard navigation instead of the legacy menu.
+const normalizedRoute = currentRoute.replace(/\/index\.html$/, '') || '/'
+const activePathByRoute = {
+  '/app': 'dashboard',
+  '/app/assistant': 'gujarati-ai-assistant',
+  '/app/check/message': 'check-message-call',
+  '/app/check/url': 'phishing-url-checker',
+  '/app/check/image': 'screenshot-qr-scanner',
+  '/app/complaint': 'complaint-generator',
+  '/complaint': 'complaint-generator',
+  '/awareness': 'scam-alerts',
+  '/awareness/article': 'scam-alerts',
+  '/emergency': 'emergency-help',
+}
+const activePath = activePathByRoute[normalizedRoute]
+const primaryNav = document.querySelector('aside.fixed.w-72 nav')
+
+if (primaryNav && activePath) {
+  const activeClasses = (primaryNav.dataset.activeClasses ||
+    'bg-primary-container text-on-primary-container font-semibold shadow-[0_4px_16px_rgba(241,90,36,0.3)]').split(/\s+/)
+  const inactiveClasses = ['text-on-surface-variant', 'hover:bg-surface-raised', 'hover:text-on-surface']
+
+  primaryNav.querySelectorAll('a[data-path]').forEach((link) => {
+    const isActive = link.dataset.path === activePath
+    if (isActive) {
+      link.classList.remove(...inactiveClasses)
+      link.classList.add(...activeClasses)
+      link.setAttribute('aria-current', 'page')
+    } else {
+      link.classList.remove(...activeClasses)
+      link.classList.add(...inactiveClasses)
+      link.removeAttribute('aria-current')
+    }
+  })
 }
 
 const sidebar = document.querySelector('aside.fixed.w-72')
@@ -397,6 +429,7 @@ if (sidebar && header?.firstElementChild) {
     'gap:2px',
   ].join(';');
 
+  const isAdminPage = normalizedRoute.startsWith('/admin')
   const menuItems = [
     { icon: 'person', label: 'My Profile', sub: 'પ્રોફાઇલ સેટિંગ', href: '/app/profile/index.html', danger: false },
     { icon: 'shield', label: 'Dashboard', sub: 'AI Kavach', href: '/app/index.html', danger: false },

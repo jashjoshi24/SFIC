@@ -9,15 +9,6 @@
 <!-- Top Greeting & Threat Status Strip -->
 <section class="w-full pt-4 pb-6 flex flex-col lg:flex-row lg:items-end justify-between gap-6">
 <div class="flex flex-col gap-2 max-w-2xl">
-<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-raised w-fit shadow-sm">
-<span class="flex h-2 w-2 relative">
-<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
-<span class="relative inline-flex rounded-full h-2 w-2 bg-secondary"></span>
-</span>
-<span class="font-label-md text-label-md text-secondary">સુરક્ષિત સ્થિતિ • Active Kavach Live</span>
-<span class="text-text-muted text-[11px]">•</span>
-<span class="font-label-sm text-label-sm text-text-muted">Ahmedabad West Hub</span>
-</div>
 <h1 class="font-headline-xl text-headline-xl text-text-primary tracking-tight">નમસ્તે, નાગરિક! આજે શું ચકાસવા માંગો છો?</h1>
 <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">તમારી ડિજિટલ સુરક્ષા કવચ સક્રિય છે — શંકાસ્પદ મેસેજ, લિંક કે કૉલની ચકાસણી કરો અને સાયબર ફ્રોડથી સુરક્ષિત રહો.</p>
 </div>
@@ -55,9 +46,6 @@
 <button aria-label="Voice input" class="h-11 w-11 flex items-center justify-center rounded-xl bg-surface-raised text-text-muted hover:text-text-primary hover:bg-surface-soft transition-all shrink-0" id="voiceBtn" title="ગુજરાતીમાં બોલો" type="button">
 <span class="material-symbols-outlined text-xl">mic</span>
 </button>
-<button aria-label="QR / Photo upload" class="h-11 w-11 flex items-center justify-center rounded-xl bg-surface-raised text-text-muted hover:text-text-primary hover:bg-surface-soft transition-all shrink-0" title="સ્ક્રીનશોટ અથવા QR કોડ અપલોડ કરો" type="button">
-<span class="material-symbols-outlined text-xl">photo_camera</span>
-</button>
 <button class="h-11 px-5 rounded-xl bg-primary-container text-on-primary-container font-label-md text-label-md font-bold hover:bg-primary-strong transition-all shadow-[0_4px_16px_rgba(241,90,36,0.3)] shrink-0 inline-flex items-center justify-center gap-2 whitespace-nowrap active:scale-95" id="verifyBtn" type="button">
 <span class="material-symbols-outlined text-[19px]">verified_user</span>
 <span>ચકાસો (Scan)</span>
@@ -77,12 +65,6 @@
 <button class="px-3 py-1.5 rounded-full bg-surface-soft text-on-surface-variant font-label-sm text-label-sm hover:text-text-primary hover:bg-surface-variant transition-all" onclick="fillInput('તમારું બેંક ખાતું KYC વિના બ્લોક થઈ ગયું છે. અનબ્લોક કરવા લિંક ખોલો: http://sbi-kyc-update.xyz')" type="button">
               🏦 નકલી SBI KYC લિંક
 </button>
-<button class="px-3 py-1.5 rounded-full bg-surface-soft text-on-surface-variant font-label-sm text-label-sm hover:text-text-primary hover:bg-surface-variant transition-all" onclick="fillInput('કોંગ્રેચ્યુલેશન્સ! તમે ₹૨૫,૦૦,૦૦૦ ની KBC લોટરી જીતી લીધી છે. પ્રોસેસિંગ ફી માટે ₹૫,૦૦૦ આ UPI પર મોકલો.')" type="button">
-              🎁 લોટરી મેસેજ ચકાસો
-</button>
-<button class="px-3 py-1.5 rounded-full bg-surface-soft text-on-surface-variant font-label-sm text-label-sm hover:text-text-primary hover:bg-surface-variant transition-all" onclick="fillInput('UPI ID: refund-secure-pay@ybl — ₹14,500 રિવર્સલ માટે તમારો પિન દાખલ કરો.')" type="button">
-              💳 શંકાસ્પદ UPI ટ્રાન્ઝેક્શન
-</button>
 </div>
 
 <!-- Structured Full-Width Verification Result Container -->
@@ -98,10 +80,10 @@
 <div class="flex items-center justify-between mb-4">
 <div>
 <h2 class="font-headline-sm text-headline-sm text-text-primary">મુખ્ય સાયબર સુરક્ષા ટૂલ્સ</h2>
-<span class="font-body-sm text-body-sm text-text-muted">AI-સંચાલિત પૃથ્થકરણ સાધનો વડે સુરક્ષિત રહો</span>
+<span class="font-body-sm text-body-sm text-text-muted">તમારી જરૂર મુજબનો વિકલ્પ પસંદ કરો</span>
 </div>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5">
+<div class="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-4 auto-rows-fr gap-5">
 <!-- Tile 1 -->
 <a class="group relative flex flex-col justify-between p-6 rounded-2xl bg-surface-raised hover:bg-surface-soft transition-all duration-300 shadow-md" data-path="check-message-call" href="/app/check/message">
 <span class="font-body-sm text-body-sm text-text-muted">તમારી જરૂર મુજબનો વિકલ્પ પસંદ કરો</span>
@@ -115,9 +97,6 @@
 <div class="p-3 rounded-xl bg-surface text-primary group-hover:scale-110 transition-transform">
 <span class="material-symbols-outlined text-2xl">chat_paste_go</span>
 </div>
-<span class="px-2.5 py-1 rounded-full bg-secondary-container/20 text-secondary font-label-sm text-[11px] font-semibold">
-                99.4% ચોકસાઈ
-</span>
 </div>
 <div class="flex flex-col gap-1">
 <h3 class="font-headline-sm text-headline-sm text-text-primary group-hover:text-primary transition-colors">
@@ -203,9 +182,9 @@
 </div>
 <div class="flex flex-col gap-1">
 <h3 class="font-headline-sm text-headline-sm text-text-primary group-hover:text-primary transition-colors">
-                સાયબર મિત્ર AI
+સાયબર રક્ષક AI માર્ગદર્શિકા
 </h3>
-<span class="font-label-sm text-label-sm text-text-muted">Gujarati AI Copilot</span>
+<span class="font-label-sm text-label-sm text-text-muted">વાતચીત આધારિત સાયબર સુરક્ષા માર્ગદર્શન</span>
 <p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-1">
                 તમારી માતૃભાષામાં સીધી વાતચીત કરી સાયબર સલાહ લો. કોઈપણ સમયે ૨૪x૭ માર્ગદર્શન.
 સાયબર રક્ષક AI માર્ગદર્શિકા
@@ -224,235 +203,6 @@
 </div>
 </section>
 
-<!-- Visual Dashboard Section -->
-<section class="w-full my-6 grid grid-cols-1 xl:grid-cols-12 gap-6">
-<div class="xl:col-span-7 flex flex-col p-6 rounded-3xl bg-surface-raised shadow-xl">
-<div class="flex flex-wrap items-center justify-between gap-3 pb-6">
-<div class="flex flex-col">
-<div class="flex items-center gap-2">
-<h2 class="font-headline-sm text-headline-sm text-text-primary">સાયબર ફ્રોડ પ્રવૃત્તિ ટ્રેકિંગ</h2>
-<span class="px-2 py-0.5 rounded-full bg-surface text-secondary text-[11px] font-label-sm font-semibold">Live Feed</span>
-</div>
-<span class="font-body-sm text-body-sm text-text-muted">Gujarat State Cyber Threat Index (Jan - Apr 2025)</span>
-</div>
-<div class="flex items-center gap-2">
-<button class="px-3 py-1 rounded-lg bg-surface text-text-primary font-label-sm text-label-sm shadow-sm" type="button">ગુજરાત ઝોન</button>
-<button class="px-3 py-1 rounded-lg text-text-muted hover:text-text-primary font-label-sm text-label-sm" type="button">રાષ્ટ્રીય દર</button>
-</div>
-</div>
-<div class="relative w-full h-56 pt-2 pb-2">
-<div class="absolute inset-0 flex flex-col justify-between pointer-events-none opacity-20">
-<div class="w-full h-px bg-on-surface-variant"></div>
-<div class="w-full h-px bg-on-surface-variant"></div>
-<div class="w-full h-px bg-on-surface-variant"></div>
-<div class="w-full h-px bg-on-surface-variant"></div>
-</div>
-<svg class="w-full h-full overflow-visible" preserveAspectRatio="none" viewBox="0 0 540 180">
-<defs>
-<linearGradient id="chartGradient" x1="0" x2="0" y1="0" y2="1">
-<stop offset="0%" stop-color="#FF7A2F" stop-opacity="0.32"></stop>
-<stop offset="100%" stop-color="#FF7A2F" stop-opacity="0.0"></stop>
-</linearGradient>
-</defs>
-<path d="M 0,140 Q 80,130 140,85 T 280,105 T 410,40 T 540,75 L 540,180 L 0,180 Z" fill="url(#chartGradient)"></path>
-<path d="M 0,140 Q 80,130 140,85 T 280,105 T 410,40 T 540,75" fill="none" stroke="#FF7A2F" stroke-linecap="round" stroke-width="3"></path>
-<circle class="animate-pulse" cx="140" cy="85" fill="#FF7A2F" r="4.5"></circle>
-<circle cx="410" cy="40" fill="#F06464" r="5"></circle>
-<circle class="animate-ping" cx="410" cy="40" fill="none" opacity="0.6" r="10" stroke="#F06464" stroke-width="1.5"></circle>
-</svg>
-<div class="absolute top-2 right-1/4 p-2 rounded-xl bg-error-container/80 shadow-md backdrop-blur-md pointer-events-none flex flex-col">
-<div class="flex items-center gap-1">
-<span class="material-symbols-outlined text-xs text-on-error-container">warning</span>
-<span class="font-label-sm text-[10px] text-on-error-container uppercase font-semibold">ડિજિટલ એરેસ્ટ કૌભાંડ</span>
-</div>
-<span class="font-headline-sm text-xs text-on-error-container font-bold">તાજેતરનું સૌથી મોટું જોખમ</span>
-</div>
-</div>
-<div class="flex items-center justify-between text-text-muted font-label-sm text-label-sm pt-4">
-<span>જાન્યુઆરી ૨૦૨૫</span>
-<span>ફેબ્રુઆરી ૨૦૨૫</span>
-<span>માર્ચ ૨૦૨૫</span>
-<span class="text-primary font-semibold">એપ્રિલ ૨૦૨૫ (હાલમાં)</span>
-</div>
-<div class="grid grid-cols-3 gap-3 pt-6 mt-4 bg-surface rounded-2xl p-4">
-<div class="flex flex-col">
-<span class="font-label-sm text-label-sm text-text-muted">કુલ અટકાવેલ ફ્રોડ</span>
-<span class="font-headline-md text-headline-md text-text-primary">૨૪,૮૧૦+</span>
-<span class="font-label-sm text-[11px] text-secondary">આ મહિને સફળતાપૂર્વક બ્લોક</span>
-</div>
-<div class="flex flex-col">
-<span class="font-label-sm text-label-sm text-text-muted">બચાવેલ અંદાજિત રકમ</span>
-<span class="font-headline-md text-headline-md text-tertiary">₹૧૮.૪ કરોડ</span>
-<span class="font-label-sm text-[11px] text-text-muted">ગુજરાતના નાગરિકો માટે</span>
-</div>
-<div class="flex flex-col">
-<span class="font-label-sm text-label-sm text-text-muted">હેલ્પલાઇન સરેરાશ પ્રતિસાદ</span>
-<span class="font-headline-md text-headline-md text-secondary">૪૨ સેકન્ડ</span>
-<span class="font-label-sm text-[11px] text-secondary">MHA 1930 સમન્વય</span>
-</div>
-</div>
-</div>
-
-<div class="xl:col-span-5 flex flex-col p-6 rounded-3xl bg-surface-raised shadow-xl justify-between">
-<div class="flex items-center justify-between pb-4">
-<div class="flex flex-col">
-<h2 class="font-headline-sm text-headline-sm text-text-primary">તાજેતરની ચકાસણીઓ</h2>
-<span class="font-body-sm text-body-sm text-text-muted">Recent Community Threat Analyses</span>
-</div>
-<a class="font-label-sm text-label-sm text-primary hover:underline" data-path="scam-alerts" href="/awareness">
-            બધા જુઓ
-</a>
-</div>
-<div class="flex flex-col gap-3.5 my-auto">
-<div class="p-3.5 rounded-2xl bg-surface flex items-start justify-between gap-3 shadow-sm hover:bg-surface-soft transition-all">
-<div class="flex items-start gap-3 min-w-0">
-<div class="p-2 rounded-xl bg-error-container/30 text-error shrink-0 mt-0.5">
-<span class="material-symbols-outlined text-xl">block</span>
-</div>
-<div class="flex flex-col min-w-0">
-<div class="flex items-center gap-2">
-<span class="font-label-md text-label-md text-text-primary truncate">WhatsApp લોન મંજૂરી મેસેજ</span>
-<span class="px-2 py-0.5 rounded-full bg-danger/20 text-danger font-label-sm text-[10px] font-semibold shrink-0">
-                    ઉચ્ચ જોખમ (88%)
-</span>
-</div>
-<span class="font-body-sm text-body-sm text-text-muted truncate mt-0.5">
-                  "કોઈ દસ્તાવેજ વિના ₹૫ લાખ તુરંત મંજૂર..." • ચાઈનીઝ લોન એપ ફ્રોડ
-</span>
-<span class="font-label-sm text-[11px] text-danger mt-1 flex items-center gap-1">
-<span class="material-symbols-outlined text-xs">shield_lock</span> સિસ્ટમ દ્વારા આપમેળે બ્લોક કરેલ
-</span>
-</div>
-</div>
-<span class="font-label-sm text-[11px] text-text-muted shrink-0">૧૦ મિ. પહેલાં</span>
-</div>
-<div class="p-3.5 rounded-2xl bg-surface flex items-start justify-between gap-3 shadow-sm hover:bg-surface-soft transition-all">
-<div class="flex items-start gap-3 min-w-0">
-<div class="p-2 rounded-xl bg-tertiary-container/30 text-tertiary shrink-0 mt-0.5">
-<span class="material-symbols-outlined text-xl">warning</span>
-</div>
-<div class="flex flex-col min-w-0">
-<div class="flex items-center gap-2">
-<span class="font-label-md text-label-md text-text-primary truncate">વીજળી બિલ કપાત SMS</span>
-<span class="px-2 py-0.5 rounded-full bg-tertiary-container/30 text-tertiary font-label-sm text-[10px] font-semibold shrink-0">
-                    સાવચેત રહો (64%)
-</span>
-</div>
-<span class="font-body-sm text-body-sm text-text-muted truncate mt-0.5">
-                  "PGVCL અધિકારી સંપર્ક નંબર: 98790xxxxx" • નકલી એજન્ટ નંબર
-</span>
-<span class="font-label-sm text-[11px] text-tertiary mt-1 flex items-center gap-1">
-<span class="material-symbols-outlined text-xs">help</span> ચકાસણી પેન્ડિંગ / તપાસ હેઠળ
-</span>
-</div>
-</div>
-<span class="font-label-sm text-[11px] text-text-muted shrink-0">૪૫ મિ. પહેલાં</span>
-</div>
-<div class="p-3.5 rounded-2xl bg-surface flex items-start justify-between gap-3 shadow-sm hover:bg-surface-soft transition-all">
-<div class="flex items-start gap-3 min-w-0">
-<div class="p-2 rounded-xl bg-secondary-container/20 text-secondary shrink-0 mt-0.5">
-<span class="material-symbols-outlined text-xl">verified</span>
-</div>
-<div class="flex flex-col min-w-0">
-<div class="flex items-center gap-2">
-<span class="font-label-md text-label-md text-text-primary truncate">અધિકૃત SBI ટ્રાન્ઝેક્શન એલર્ટ</span>
-<span class="px-2 py-0.5 rounded-full bg-secondary-container/20 text-secondary font-label-sm text-[10px] font-semibold shrink-0">
-                    સુરક્ષિત (Safe)
-</span>
-</div>
-<span class="font-body-sm text-body-sm text-text-muted truncate mt-0.5">
-                  Header: "SBIINB" • માન્ય બેંકિંગ હેડર અને ડિજિટલ સહી ચકાસાયેલ
-</span>
-<span class="font-label-sm text-[11px] text-secondary mt-1 flex items-center gap-1">
-<span class="material-symbols-outlined text-xs">check_circle</span> અધિકૃત સ્ત્રોત
-</span>
-</div>
-</div>
-<span class="font-label-sm text-[11px] text-text-muted shrink-0">૨ કલાક પહેલાં</span>
-</div>
-</div>
-<div class="pt-4 flex items-center justify-between text-text-muted font-label-sm text-label-sm">
-<span>સલામત સંચાલન સ્તર: ૧૦૦% ગોપનીય</span>
-<span class="flex items-center gap-1 text-secondary">
-<span class="w-2 h-2 rounded-full bg-secondary"></span> એન્ડ-ટુ-એન્ડ એન્ક્રિપ્ટેડ
-</span>
-</div>
-</div>
-</section>
-
-<!-- Visual Storytelling Featurettes -->
-<section class="w-full my-6 grid grid-cols-1 md:grid-cols-2 gap-6">
-<div class="relative rounded-3xl overflow-hidden bg-surface-raised p-6 flex flex-col justify-end min-h-[220px] shadow-xl group">
-<div class="absolute inset-0 bg-gradient-to-t from-bg-base via-bg-base/70 to-transparent z-10"></div>
-<img class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-30" data-alt="Smartphone screen" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDlkskaaeCqd-M675U_IqaXptK_NyBpi2RxCK7MVR8uQmrhSwSB0RRrFkJ4YKlYbLiy10nTWeQBm1tj4n9upXKeOLEVMmZGwO2I3prQ4aafXNUu7ijJMeCzbS-bcoHq9orfia_vo1nJHdU2f3KQfhF2ShIS3Y0W9i0kpMF0eok-gP2qkHIkYF95-Q7xF7FM3ySbUAdpx7wgfCOC3dAE7yBHikKZW4uwyx1ssAyPf0">
-<div class="relative z-20 flex flex-col gap-2">
-<span class="px-3 py-1 rounded-full bg-primary-container text-on-primary-container font-label-sm text-[11px] font-semibold w-fit">
-            નવીનતમ ચેતવણી
-</span>
-<h3 class="font-headline-sm text-headline-sm text-text-primary">
-            ગુજરાતમાં 'ડિજિટલ એરેસ્ટ' સાયબર કૌભાંડથી બચો
-</h3>
-<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
-            પોલીસ, CBI કે કસ્ટમ્સ અધિકારી ક્યારેય વીડિયો કોલ પર પૈસાની માંગણી કરતા નથી કે ડિજિટલ અટકાયત કરતા નથી.
-</p>
-</div>
-</div>
-<div class="relative rounded-3xl overflow-hidden bg-surface-raised p-6 flex flex-col justify-end min-h-[220px] shadow-xl group">
-<div class="absolute inset-0 bg-gradient-to-t from-bg-base via-bg-base/70 to-transparent z-10"></div>
-<img class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-30" data-alt="Indian family" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDC2E0xXSLNYNUjRL9sYAtFRX-4C7FE-G-dcoipEn7FXdGlUQs3B8RKuFLddNfsWcbHrhubcErqyr-V0YRKSdNZe2nfNlNWMhUrsosLxBseTxdqFJuo0_Ukb6kgIfebcBGYx03fL28SPMysNPy1RTNLPXJ7TrmGUD0-Ley_dmxiE9HkLGqv2vFevlWagV0E0bHVaLcShbB0WMlkgA_DLq1OM5yGlIH4N21rmH1IruY">
-<div class="relative z-20 flex flex-col gap-2">
-<span class="px-3 py-1 rounded-full bg-secondary-container/30 text-secondary font-label-sm text-[11px] font-semibold w-fit">
-            પરિવાર સુરક્ષા ટિપ
-</span>
-<h3 class="font-headline-sm text-headline-sm text-text-primary">
-            વડીલો માટે UPI પિન સુરક્ષા માર્ગદર્શિકા
-</h3>
-<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
-            યાદ રાખો: પૈસા મેળવવા માટે ક્યારેય UPI પિન નાખવાની જરૂર પડતી નથી. પિન ફક્ત પૈસા ચૂકવવા માટે જ છે.
-</p>
-</div>
-</div>
-</section>
-
-<!-- Emergency Action Card -->
-<section class="w-full my-6">
-<div class="relative rounded-3xl bg-surface-raised p-6 lg:p-8 overflow-hidden shadow-[0_16px_40px_rgba(240,100,100,0.15)]">
-<div class="absolute -right-16 -top-16 w-80 h-80 bg-danger/15 rounded-full blur-[100px] pointer-events-none"></div>
-<div class="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
-<div class="flex items-start gap-4 max-w-2xl">
-<div class="p-3.5 rounded-2xl bg-error-container/40 text-danger shrink-0 mt-1">
-<span class="material-symbols-outlined text-3xl animate-pulse">crisis_alert</span>
-</div>
-<div class="flex flex-col gap-1.5">
-<div class="flex items-center gap-2">
-<span class="px-2.5 py-0.5 rounded-full bg-danger text-on-error font-label-sm text-label-sm font-semibold uppercase">
-                  ઇમરજન્સી હેલ્પલાઇન
-</span>
-<span class="font-label-sm text-label-sm text-danger font-semibold">ગોલ્ડન અવર (Golden Hour) સક્રિય</span>
-</div>
-<h3 class="font-headline-md text-headline-md text-text-primary">
-                નાણાકીય છેતરપિંડી થઈ છે? તાત્કાલિક ૧૯૩૦ પર કૉલ કરો!
-</h3>
-<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-                જો તમારા ખાતામાંથી અજાણ્યા વ્યવહારથી પૈસા કપાયા હોય, તો ૨ કલાકની અંદર ૧૯૩૦ પર સંપર્ક કરો જેથી ગુજરાત સાયબર સેલ બેંક વ્યવહારને તુરંત ફ્રીઝ (હોલ્ડ) કરી શકે.
-</p>
-</div>
-</div>
-<div class="flex flex-wrap items-center gap-3 shrink-0">
-<a class="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-2xl bg-danger text-on-error font-headline-sm text-headline-sm hover:scale-105 active:scale-95 transition-all shadow-[0_8px_25px_rgba(240,100,100,0.4)]" href="tel:1930">
-<span class="material-symbols-outlined text-2xl">call</span>
-<span>કૉલ કરો ૧૯૩૦</span>
-</a>
-<a class="inline-flex items-center gap-2 px-5 py-3.5 rounded-2xl bg-surface text-text-primary hover:bg-surface-soft transition-all font-label-lg text-label-lg" data-path="complaint-generator" href="/app/complaint">
-<span class="material-symbols-outlined text-xl">post_add</span>
-<span>ફરિયાદ ડ્રાફ્ટ બનાવો</span>
-</a>
-</div>
-</div>
-</div>
-</section>
-
-<!-- Bottom Reassurance Strip -->
 <footer class="w-full pt-4 pb-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-text-muted font-body-sm text-body-sm">
 <div class="flex items-center gap-2">
 <span class="material-symbols-outlined text-secondary text-lg">verified_user</span>

@@ -197,16 +197,6 @@ cybercrime.gov.in પોર્ટલ
 </div>
 </button>
 
-<button class="scenario-btn text-left p-3.5 rounded-xl bg-surface shadow-md transition-all flex flex-col justify-between gap-3 group relative overflow-hidden" data-scenario="loan-app" type="button">
-<div class="flex items-center justify-between w-full">
-<span class="material-symbols-outlined text-text-muted group-hover:text-secondary transition-colors text-[22px]">security_update_warning</span>
-<span class="scenario-badge hidden px-2 py-0.5 rounded-full bg-secondary/20 text-secondary font-label-sm text-label-sm">સક્રિય</span>
-</div>
-<div>
-<div class="font-label-lg text-label-lg text-text-primary font-semibold group-hover:text-secondary transition-colors">નકલી લોન એપ / એક્સટોર્શન</div>
-<div class="font-body-sm text-body-sm text-text-muted leading-snug mt-1">APK દ્વારા સંપર્કો ચોરીને મોર્ફ કરેલા ફોટાથી ધમકી અને બ્લેકમેઇલ</div>
-</div>
-</button>
 </div>
 </section>
 
@@ -450,14 +440,6 @@ cybercrime.gov.in પોર્ટલ
     });
 
     const scenarioData = {
-      upi: {
-        category: 'UPI Fraud / ખોટી પેમેન્ટ કલેક્ટ રિક્વેસ્ટ',
-        amount: '25,000',
-        utr: 'UTR-4829104928',
-        datetime: 'આજે બપોરે 02:15 વાગ્યે',
-        senderBank: 'State Bank of India (SBI) / Google Pay',
-        fraudAccount: 'fastrefund.support@icici (+91 98250 19283)'
-      },
       otp: {
         category: 'ATM / ક્રેડિટ કાર્ડ ક્લોનિંગ અથવા OTP સ્કેમ',
         amount: '48,500',
@@ -473,14 +455,6 @@ cybercrime.gov.in પોર્ટલ
         datetime: 'ગઈકાલે સાંજે 05:40 વાગ્યે',
         senderBank: 'HDFC Bank NetBanking',
         fraudAccount: 'A/C 50200918231 (નકલી સરકારી વેરિફિકેશન ખાતું)'
-      },
-      'loan-app': {
-        category: 'નકલી લોન એપ બ્લેકમેઇલ અને ઓનલાઇન એક્સટોર્શન',
-        amount: '15,000',
-        utr: 'IMPS-774910283',
-        datetime: 'આજે બપોરે 12:00 વાગ્યે',
-        senderBank: 'Paytm Payments Bank',
-        fraudAccount: 'InstantCash APK / WhatsApp: +91 91283 00192'
       }
     };
 
@@ -494,24 +468,24 @@ cybercrime.gov.in પોર્ટલ
 
       if (currentDraftLang === 'hi') {
         return `प्रति,
-માનનીય સાયબર ક્રાઈમ પોલીસ ઇન્સ્પેક્ટર / 1930 હેલ્પડેસ્ક અધિકારી,
-સાયબર ક્રાઈમ સેલ, ગુજરાત રાજ્ય।
+माननीय साइबर अपराध पुलिस निरीक्षक / 1930 हेल्पडेस्क अधिकारी,
+साइबर अपराध प्रकोष्ठ, गुजरात राज्य।
 
-વિષય: નાણાકીય સાયબર છેતરપિંડી બાબતે ત્વરિત ફરિયાદ અને ખાતું ફ્રીઝ કરવા અંગે।
+विषय: वित्तीय साइबर धोखाधड़ी की तत्काल शिकायत और खाते को फ्रीज़ करने के संबंध में।
 
-મહોદય/મહોદયા,
-હું નમ્રતાપૂર્વક જણાવું છું કે ${dt} ના રોજ અજાણ્યા ઠગ દ્વારા મારી સાથે સાયબર છેતરપિંડી કરવામાં આવી અને મારા ખાતામાંથી અનધિકૃત નાણાં ટ્રાન્સફર કરાવી લેવામાં આવ્યા છે।
+महोदय/महोदया,
+मैं विनम्रतापूर्वक सूचित करना चाहता/चाहती हूँ कि ${dt} को एक अज्ञात ठग ने मेरे साथ साइबर धोखाधड़ी की, जिसके परिणामस्वरूप मेरे खाते से अनधिकृत धनराशि स्थानांतरित कर दी गई।
 
-વિગતવાર માહિતી નીચે મુજબ છે:
-૧. છેતરપિંડીનો પ્રકાર: ${cat}
-૨. કપાયેલી રકમ: ₹${amt}
-૩. ટ્રાન્ઝેક્શન UTR / સંદર્ભ સંખ્યા: ${utr}
-૪. મારું બેંક ખાતું / પ્લેટફોર્મ: ${sBank}
-૫. શંકાસ્પદ UPI ID / ખાતું / નંબર: ${fAcc}
+लेन-देन का विवरण:
+१. धोखाधड़ी का प्रकार: ${cat}
+२. ठगी गई राशि: ₹${amt}
+३. लेन-देन UTR / संदर्भ संख्या: ${utr}
+४. मेरा बैंक खाता / प्लेटफ़ॉर्म: ${sBank}
+५. संदिग्ध का UPI ID / खाता / नंबर: ${fAcc}
 
-મેં મારી બેંકને પણ આ ટ્રાન્ઝેક્શન તાત્કાલિક રોકવા માટે જાણ કરી છે. આપ સાહેબને નમ્ર વિનંતી કે ૧૯૩૦ (CFCFRMS) અંતર્ગત શંકાસ્પદ બેંક ખાતામાં ઉપરોક્ત રકમ હોલ્ડ/ફ્રીઝ કરાવો અને આરોપી વિરુદ્ધ કાયદેસર કાર્યવાહી કરો।
+मैंने अपने बैंक को भी इस लेन-देन को तुरंत रोकने के लिए सूचित किया है। आपसे अनुरोध है कि १९३० (CFCFRMS) के अंतर्गत संदिग्ध बैंक खाते में उपर्युक्त राशि पर रोक लगाएँ/खाता फ्रीज़ करें और आरोपी के विरुद्ध कानूनी कार्रवाई करें।
 
-સંલગ્ન પ્રમાણ: બેંક ડેબિટ SMS સ્ક્રીનશોટ અને ચેટ રેકોર્ડ।
+संलग्न प्रमाण: बैंक डेबिट SMS का स्क्रीनशॉट और चैट रिकॉर्ड।
 
 આપનો/આપની વિશ્વાસુ,
 [આપનું પૂરું નામ]
@@ -595,8 +569,9 @@ Date: ${new Date().toLocaleDateString('en-IN')}`;
 
     function updateComplaintText() {
       if (!complaintText) return;
+      const localizeKnownValue = value => window.SG_TRANSLATIONS?.[value]?.[currentDraftLang] || value || '';
       const data = {
-        cat: categorySelect ? categorySelect.value : '',
+        cat: localizeKnownValue(categorySelect ? categorySelect.value : ''),
         amt: amountInput ? amountInput.value : '',
         utr: utrInput ? utrInput.value : '',
         dt: datetimeInput ? datetimeInput.value : '',
