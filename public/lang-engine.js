@@ -1,5 +1,6 @@
 /**
  * Surakshit Gujarat — Full-Website Translation Engine
+ * Translates 100% of visible content across every page:
  * Translates catalogued content across every page:
  * - Headings, paragraphs, spans, labels, lists, and tables
  * - Buttons, placeholders, tooltips (title), alt text, and aria-labels
@@ -84,6 +85,20 @@
     }
 
     // 1. Direct exact match
+    if (dict[trimmed] && dict[trimmed][lang]) {
+      return text.replace(trimmed, dict[trimmed][lang]);
+    // Gujarati is the source language for most copy, but many pages contain
+    // English source labels too. Resolve those through the dictionary's
+    // English/Hindi values so Gujarati is applied just like the other choices.
+    function lookup(phrase) {
+      if (dict[phrase]?.[lang]) return dict[phrase][lang];
+      if (lang === 'gu') {
+        return getGujaratiReverseDictionary(dict).get(phrase) || null;
+      }
+      return null;
+    }
+
+    // 1. Direct exact match
     const exact = lookup(trimmed);
     if (exact) {
       return text.replace(trimmed, exact);
@@ -91,6 +106,8 @@
 
     // 2. Normalized whitespace match
     const norm = trimmed.replace(/\s+/g, ' ');
+    if (dict[norm] && dict[norm][lang]) {
+      return text.replace(trimmed, dict[norm][lang]);
     const normalized = lookup(norm);
     if (normalized) {
       return text.replace(trimmed, normalized);
@@ -101,6 +118,11 @@
     let modified = false;
 
     // Check known phrases in dictionary sorted by length descending
+    const keys = Object.keys(dict).sort((a, b) => b.length - a.length);
+    for (let i = 0; i < keys.length; i++) {
+      const phrase = keys[i];
+      if (phrase.length > 2 && translated.includes(phrase)) {
+        const target = dict[phrase][lang];
     const keys = Object.keys(dict).sort((a, b) => b.length - a.length);
     for (let i = 0; i < keys.length; i++) {
       const phrase = keys[i];
@@ -166,6 +188,23 @@
             node._origText = node.nodeValue;
           }
 
+          if (lang === 'gu') {
+            if (node.nodeValue !== node._origText) {
+              node.nodeValue = node._origText;
+            }
+          } else {
+            const translated = translateString(node._origText, lang);
+            if (translated && node.nodeValue !== translated) {
+              node.nodeValue = translated;
+            }
+          }
+          // Keep the app's newest source text when it updates a live label,
+          // while retaining the original so language switches stay reversible.
+          if (node._origText === undefined ||
+              (node._lastTranslated !== undefined && node.nodeValue !== node._lastTranslated)) {
+            node._origText = node.nodeValue;
+          }
+
           const translated = translateString(node._origText, lang);
           if (translated && node.nodeValue !== translated) node.nodeValue = translated;
           node._lastTranslated = translated;
@@ -177,6 +216,11 @@
             if (el._origPlaceholder === undefined) {
               el._origPlaceholder = el.placeholder;
             }
+            if (lang === 'gu') {
+              el.placeholder = el._origPlaceholder;
+            } else {
+              el.placeholder = translateString(el._origPlaceholder, lang);
+            }
             el.placeholder = translateString(el._origPlaceholder, lang);
           }
         });
@@ -185,6 +229,17 @@
         document.querySelectorAll('[title], [alt], [aria-label]').forEach(el => {
           if (el.title) {
             if (el._origTitle === undefined) el._origTitle = el.title;
+            el.title = translateString(el._origTitle, lang);
+          }
+          if (el.alt) {
+            if (el._origAlt === undefined) el._origAlt = el.alt;
+            el.alt = translateString(el._origAlt, lang);
+          }
+          if (el.getAttribute('aria-label')) {
+            if (el._origAriaLabel === undefined) el._origAriaLabel = el.getAttribute('aria-label');
+            el.setAttribute('aria-label', translateString(el._origAriaLabel, lang));
+          }
+        });
             el.title = translateString(el._origTitle, lang);
           }
           if (el.alt) {
@@ -230,6 +285,26 @@
 
   /* ─────────────────── WIRE LANGUAGE BUTTONS ─────────────────── */
   function wireButtons() {
+    const langBtnGroups = document.querySelectorAll(
+      '.flex.items-center.p-1.rounded-full.bg-surface-raised, .lang-switcher-pill'
+    );
+
+    langBtnGroups.forEach(group => {
+      const btns = group.querySelectorAll('button[type="button"]');
+      const labels = ['ગુજરાતી', 'हिंदी', 'English'];
+      const codes = ['gu', 'hi', 'en'];
+
+      btns.forEach(btn => {
+        const txt = btn.textContent.trim();
+        const idx = labels.indexOf(txt);
+        if (idx !== -1) {
+          const langCode = codes[idx];
+          btn.setAttribute('data-lang-btn', langCode);
+          btn.onclick = (e) => {
+            e.preventDefault();
+            setLang(langCode);
+          };
+        }
     const labels = new Map([
       ['ગુજરાતી', 'gu'],
       ['हिंदी', 'hi'],
@@ -263,6 +338,9 @@
 
       clearTimeout(debounceTimer);
       debounceTimer = setTimeout(() => {
+
+      clearTimeout(debounceTimer);
+      debounceTimer = setTimeout(() => {
         wireButtons();
         translateDom(current);
       }, 80);
@@ -271,6 +349,7 @@
     observer.observe(document.body, {
       childList: true,
       subtree: true,
+      characterData: true
       characterData: true,
       attributes: true,
       attributeFilter: ['placeholder', 'title', 'alt', 'aria-label']

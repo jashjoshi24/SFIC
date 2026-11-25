@@ -161,6 +161,7 @@
 
 <script>
 (function () {
+    const API_URL = "http://localhost:5000/api/scans/url";
     const API_ROOT_URL = window.SFIC_API_BASE_URL ||
       ((location.hostname === 'localhost' || location.hostname === '127.0.0.1')
         ? 'https://sfic-backend-7957075383.asia-south1.run.app'
@@ -463,6 +464,20 @@ function displayResult(data) {
         `;
 
         try {
+            const token = sessionStorage.getItem("citizenToken");
+
+if (!token) {
+    throw new Error("Please log in again. Citizen token not found.");
+}
+
+const response = await fetch(API_URL, {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`
+    },
+    body: JSON.stringify({ url })
+});
             const response = await fetch(API_URL, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },

@@ -25,6 +25,17 @@ async function analyseMessageController(req, res) {
         // Existing message analysis.
         const result = analyseMessage(message);
 
+        // Analyse the message.
+        const result = analyseMessage(message);
+        const guidanceResult = getGuidance(result);
+
+        const dbResult = await pool.query(
+            `INSERT INTO scan_history
+            (user_id, scan_type, risk_score, risk_level, indicators, analysis_status)
+            VALUES ($1, $2, $3, $4, $5, $6)
+            RETURNING id, created_at`,
+            [
+                req.user.userId,
         const guidanceResult = getGuidance(result);
 
         // Save scan metadata, not the original message.
@@ -105,6 +116,26 @@ async function analyseURLController(req, res) {
         const guidanceResult = getGuidance(result);
 
         // Save scan metadata, not the submitted URL or API keys.
+                let result;
+
+        try {
+            result = analyseURL(url);
+        } catch (error) {
+            return res.status(400).json({
+                success: false,
+                message: error.message
+            });
+        }
+
+        const guidanceResult = getGuidance(result);
+
+        const dbResult = await pool.query(
+            `INSERT INTO scan_history
+            (user_id, scan_type, risk_score, risk_level, indicators, analysis_status)
+            VALUES ($1, $2, $3, $4, $5, $6)
+            RETURNING id, created_at`,
+            [
+                req.user.userId,
         const dbResult = await pool.query(
             `INSERT INTO scan_history
              (scan_type, risk_score, risk_level, indicators, analysis_status)
@@ -138,6 +169,44 @@ async function analyseURLController(req, res) {
     }
 }
 
+async function getScanHistoryController(req, res) {
+    try {
+        const userId = req.user.userId;
+
+        const result = await pool.query(
+            `SELECT id, created_at
+             FROM scan_history
+             WHERE user_id = $1
+             ORDER BY created_at DESC`,
+            [userId]
+        );
+
+        return res.status(200).json({
+            success: true,
+            count: result.rows.length,
+            scans: result.rows
+        });
+
+    } catch (error) {
+        console.error("Get scan history error:", error);
+
+        return res.status(500).json({
+            success: false,
+            message: "Unable to retrieve scan history."
+        });
+    }
+}
+module.exports = {
+    analyseMessageController,
+    analyseURLController
+};
+};
+
+module.exports = {
+    analyseMessageController,
+    analyseURLController,
+    getScanHistoryController
+};
 module.exports = {
     analyseMessageController,
     analyseURLController

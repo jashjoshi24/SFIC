@@ -68,6 +68,12 @@ const legacySidebar = document.querySelector('aside.fixed.w-72 nav')
 
 if (legacySidebar && !currentRoute.startsWith('/admin')) {
   const sidebar = legacySidebar.closest('aside')
+  const nav = legacySidebar.closest('nav')
+  const brandLink = sidebar?.querySelector('a[data-path="landing-page"]')
+const legacySidebar = document.querySelector('aside.fixed.w-72 nav')
+
+if (legacySidebar && !currentRoute.startsWith('/admin')) {
+  const sidebar = legacySidebar.closest('aside')
   const nav = legacySidebar
   const brandLink =
     sidebar?.querySelector('a[data-path="landing-page"]') ||
@@ -177,6 +183,7 @@ if (legacySidebar && !currentRoute.startsWith('/admin')) {
       const subtitle = document.createElement('span')
       subtitle.className = 'font-label-sm text-label-sm opacity-70'
       subtitle.textContent = item.subtitle
+
       const labels = document.createElement('div')
       labels.className = 'flex flex-col'
       labels.append(title, subtitle)
@@ -185,6 +192,46 @@ if (legacySidebar && !currentRoute.startsWith('/admin')) {
     })
   }
 }
+
+// Keep the sidebar selection in sync on every route, including pages that
+// already ship the current dashboard navigation instead of the legacy menu.
+const normalizedRoute = currentRoute.replace(/\/index\.html$/, '') || '/'
+const activePathByRoute = {
+  '/app': 'dashboard',
+  '/app/assistant': 'gujarati-ai-assistant',
+  '/app/check/message': 'check-message-call',
+  '/app/check/url': 'phishing-url-checker',
+  '/app/check/image': 'screenshot-qr-scanner',
+  '/app/complaint': 'complaint-generator',
+  '/complaint': 'complaint-generator',
+  '/awareness': 'scam-alerts',
+  '/awareness/article': 'scam-alerts',
+  '/emergency': 'emergency-help',
+}
+const activePath = activePathByRoute[normalizedRoute]
+const primaryNav = document.querySelector('aside.fixed.w-72 nav')
+
+if (primaryNav && activePath) {
+  const activeClasses = (primaryNav.dataset.activeClasses ||
+    'bg-primary-container text-on-primary-container font-semibold shadow-[0_4px_16px_rgba(241,90,36,0.3)]').split(/\s+/)
+  const inactiveClasses = ['text-on-surface-variant', 'hover:bg-surface-raised', 'hover:text-on-surface']
+
+  primaryNav.querySelectorAll('a[data-path]').forEach((link) => {
+    const isActive = link.dataset.path === activePath
+    if (isActive) {
+      link.classList.remove(...inactiveClasses)
+      link.classList.add(...activeClasses)
+      link.setAttribute('aria-current', 'page')
+    } else {
+      link.classList.remove(...activeClasses)
+      link.classList.add(...inactiveClasses)
+      link.removeAttribute('aria-current')
+    }
+  })
+}
+
+const sidebar = document.querySelector('aside.fixed.w-72')
+const header = document.querySelector('header.fixed')
 
 // Keep the sidebar selection in sync on every route, including pages that
 // already ship the current dashboard navigation instead of the legacy menu.
@@ -282,6 +329,7 @@ if (sidebar && header) {
     logoutIcon.textContent = 'logout'
     logoutLink.append(logoutIcon)
 
+    userNavActions.append(profileLink, modeSwitchLink, logoutLink)
     userNavActions.append(profileLink)
     if (isAdminPage) userNavActions.append(modeSwitchLink)
     userNavActions.append(logoutLink)
@@ -381,6 +429,12 @@ if (sidebar && header?.firstElementChild) {
     'gap:2px',
   ].join(';');
 
+  const isAdminPage = normalizedRoute.startsWith('/admin')
+  const menuItems = [
+    { icon: 'person', label: 'My Profile', sub: 'પ્રોફાઇલ સેટિંગ', href: '/app/profile/index.html', danger: false },
+    { icon: 'shield', label: 'Dashboard', sub: 'AI Kavach', href: '/app/index.html', danger: false },
+    { divider: true },
+    { icon: 'admin_panel_settings', label: 'Admin Panel', sub: 'System Administration', href: '/admin/index.html', danger: false, badge: 'ADMIN' },
   const isAdminPage = normalizedRoute.startsWith('/admin')
   const menuItems = [
     { icon: 'person', label: 'My Profile', sub: 'પ્રોફાઇલ સેટિંગ', href: '/app/profile/index.html', danger: false },

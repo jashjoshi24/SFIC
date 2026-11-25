@@ -12,6 +12,7 @@
 <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
 </div>
 <h1 class="font-headline-xl text-headline-xl text-text-primary tracking-tight max-w-3xl">
+        સાયબર રક્ષક AI — <span class="bg-gradient-to-r from-primary-container via-primary to-secondary bg-clip-text text-transparent">તમારો અંગત સલાહકાર</span>
         ગુજરાતી AI સહાયક — <span class="bg-gradient-to-r from-primary-container via-primary to-secondary bg-clip-text text-transparent">તમારો અંગત સલાહકાર</span>
 </h1>
 <p class="mt-space-xs font-body-lg text-body-lg text-text-muted max-w-2xl leading-relaxed">કોઈપણ શંકાસ્પદ મેસેજ, કોલ કે ઓનલાઇન જોખમ વિશે ગુજરાતીમાં પૂછો. ગોપનીયતા નીતિ જુઓ · ક્યારેય OTP કે PIN શેર કરશો નહીં.</p>
@@ -102,6 +103,7 @@
 </div>
 <div class="p-space-md rounded-2xl bg-surface-raised text-on-surface shadow-md">
 <div class="flex items-center gap-2 mb-1.5">
+<span class="font-label-md text-label-md text-text-primary font-semibold">સાયબર રક્ષક AI</span>
 <span class="font-label-md text-label-md text-text-primary font-semibold">ગુજરાતી AI સહાયક</span>
 <span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-secondary/10 text-secondary">વેરિફાઇડ શિલ્ડ</span>
 <span class="font-label-sm text-label-sm text-text-muted">હમણાં જ</span>
@@ -227,6 +229,19 @@
 <section class="sticky bottom-6 z-30 w-full mt-space-sm">
 <div class="relative p-2.5 rounded-2xl bg-surface-raised shadow-2xl backdrop-blur-xl">
 <div class="absolute inset-0 rounded-2xl bg-gradient-to-r from-primary/10 via-primary-container/15 to-secondary/10 -z-10 blur-xl pointer-events-none"></div>
+<div id="aiChatResult" class="hidden mb-3 rounded-xl border border-border-hairline bg-surface p-4 text-left" role="status" aria-live="polite">
+  <div class="flex flex-wrap items-center justify-between gap-2">
+    <strong id="aiChatResultTitle" class="text-text-primary"></strong>
+    <span id="aiChatRisk" class="rounded-full bg-surface-raised px-3 py-1 text-sm font-semibold"></span>
+  </div>
+  <p id="aiChatScore" class="mt-2 text-sm text-text-muted"></p>
+  <ul id="aiChatSignals" class="mt-2 list-disc space-y-1 pl-5 text-sm text-text-primary"></ul>
+  <p id="aiChatAdvice" class="mt-3 text-sm leading-relaxed text-text-primary"></p>
+</div>
+<form class="flex flex-col gap-2" onsubmit="handleSend(event)">
+<!-- Text Input Row -->
+<div class="relative flex items-center">
+<textarea class="w-full bg-surface text-text-primary placeholder:text-text-muted/60 px-4 py-3 rounded-xl font-body-md text-body-md focus:outline-none transition-all resize-none leading-relaxed" id="aiPromptInput" placeholder="તમારો પ્રશ્ન પૂછો અથવા મેસેજ પેસ્ટ કરો... (Describe suspicious call, link, SMS or message in Gujarati)..." rows="2"></textarea>
 <div id="aiChatResult" class="hidden mb-3 rounded-xl border border-border-hairline bg-surface p-4 text-left" role="status" aria-live="polite">
   <div class="flex flex-wrap items-center justify-between gap-2">
     <strong id="aiChatResultTitle" class="text-text-primary"></strong>
@@ -415,11 +430,14 @@
     }
   }
 
+  function handleSend(e) {
   async function handleSend(e) {
     e.preventDefault();
     const input = document.getElementById('aiPromptInput');
     if (!input || !input.value.trim()) return;
     const userText = input.value.trim();
+    alert("તપાસ શરૂ કરી: " + userText + "\\n\\nસાયબર રક્ષક AI વિશ્લેષણ કરી રહ્યું છે...");
+    input.value = '';
     const lang = assistantLanguage();
     const copy = ASSISTANT_COPY[lang];
     const submitButton = e.currentTarget.querySelector('button[type="submit"]');
@@ -530,4 +548,5 @@
 })();
 </script>
 <script src="/route-links.js"></script>
+</body></html>
 </body></html>

@@ -3,6 +3,8 @@ const express = require("express");
 const cors = require("cors");
 const helmet = require("helmet");
 const { rateLimit } = require("express-rate-limit");
+const adminRoutes = require("./routes/adminRoutes");
+const authRoutes = require("./routes/authRoutes");
 
 require("dotenv").config();
 
@@ -11,6 +13,9 @@ const scanRoutes = require("./routes/scanRoutes");
 const imageScanRoutes = require("./routes/imageScanRoutes");
 const guidanceRoutes = require("./routes/guidanceRoutes");
 const transcriptionRoutes = require("./routes/transcriptionRoutes");
+
+const app = express();
+app.set("trust proxy", 1);
 
 const app = express();
 app.set("trust proxy", 1);
@@ -35,6 +40,17 @@ const scanLimiter = rateLimit({
     message: {
         success: false,
         message: "Too many scan requests. Please try again later."
+    }
+});
+
+const authLimiter = rateLimit({
+    windowMs: 15 * 60 * 1000,
+    limit: 10,
+    standardHeaders: "draft-8",
+    legacyHeaders: false,
+    message: {
+        success: false,
+        message: "Too many authentication attempts. Try again later."
     }
 });
 
@@ -88,6 +104,12 @@ const transcriptionLimiter = rateLimit({
 app.use("/api/transcription", transcriptionLimiter, transcriptionRoutes);
 
 // Start server
+// API routes
+app.use("/api/scans", scanLimiter, scanRoutes);
+app.use("/api/guidance", guidanceRoutes);
+app.use("/api/admin", adminRoutes);
+app.use("/api/auth", authLimiter, authRoutes);
+
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
