@@ -121,3 +121,4 @@ ON scan_history(user_id);
 
 CREATE INDEX IF NOT EXISTS idx_complaint_drafts_user_id
 ON complaint_drafts(user_id);
+);

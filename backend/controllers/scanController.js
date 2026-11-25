@@ -37,6 +37,15 @@ async function analyseMessageController(req, res) {
             RETURNING id, created_at`,
             [
                 req.user.userId,
+        const guidanceResult = getGuidance(result);
+
+        // Save scan metadata, not the original message.
+        const dbResult = await pool.query(
+            `INSERT INTO scan_history
+             (scan_type, risk_score, risk_level, indicators, analysis_status)
+             VALUES ($1, $2, $3, $4, $5)
+             RETURNING id, created_at`,
+            [
                 "message",
                 result.score,
                 result.riskLevel,
@@ -128,6 +137,12 @@ async function analyseURLController(req, res) {
             RETURNING id, created_at`,
             [
                 req.user.userId,
+        const dbResult = await pool.query(
+            `INSERT INTO scan_history
+             (scan_type, risk_score, risk_level, indicators, analysis_status)
+             VALUES ($1, $2, $3, $4, $5)
+             RETURNING id, created_at`,
+            [
                 "url",
                 result.score,
                 result.riskLevel,
@@ -198,4 +213,8 @@ module.exports = {
     analyseMessageController,
     analyseURLController,
     getScanHistoryController
+};
+module.exports = {
+    analyseMessageController,
+    analyseURLController
 };

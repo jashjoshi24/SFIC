@@ -20,3 +20,14 @@ router.post("/complaint", userAuth, generateComplaint);
 router.get("/complaints/history", userAuth, getComplaintHistory);
 
 module.exports = router;
+  getMessageGuidance
+} = require("../controllers/guidanceController");
+
+const {
+  generateComplaint
+} = require("../controllers/complaintController");
+
+router.post("/", getMessageGuidance);
+router.post("/complaint", generateComplaint);
+
+module.exports = router;

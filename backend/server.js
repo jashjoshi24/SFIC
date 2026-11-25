@@ -17,6 +17,9 @@ const guidanceRoutes = require("./routes/guidanceRoutes");
 
 const app = express();
 
+const app = express();
+app.set("trust proxy", 1);
+
 // Security headers
 app.use(helmet());
 

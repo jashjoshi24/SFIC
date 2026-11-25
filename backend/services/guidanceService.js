@@ -192,3 +192,4 @@ function getGuidance(analysis) {
 }
 
 module.exports = { getGuidance };
+module.exports = { getGuidance };
