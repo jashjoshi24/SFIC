@@ -32,6 +32,180 @@ textarea {
   display: none;
 }
 
+/* Keep the sidebar navigation inside the viewport and scroll its links when
+   the list is taller than the available screen height. */
+body > aside.fixed.w-72 {
+  overflow: hidden;
+}
+
+body > aside.fixed.w-72 > div:first-child {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: hidden;
+}
+
+body > aside.fixed.w-72 > div:first-child > nav {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 122, 47, 0.55) transparent;
+}
+
+body > aside.fixed.w-72 > div:first-child > nav::-webkit-scrollbar {
+  display: block;
+  width: 6px;
+}
+
+body > aside.fixed.w-72 > div:first-child > nav::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: rgba(255, 122, 47, 0.55);
+}
+
+/* Keep the shared citizen sidebar identical when its links are rebuilt by JS. */
+body > aside.fixed.w-72 > div:first-child > nav {
+  box-sizing: border-box;
+  flex: 1 1 auto;
+  min-height: 0;
+  padding: 0 0.25rem 0.5rem;
+  margin-top: 0.5rem;
+}
+
+body > aside.fixed.w-72 > div:first-child > nav a[data-path] {
+  box-sizing: border-box;
+  display: flex;
+  min-height: 3.25rem;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.375rem 0.75rem;
+  border-radius: 0.75rem;
+  line-height: 1.125rem;
+}
+
+body > aside.fixed.w-72 > div:first-child > nav a[data-path] > div {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+}
+
+body > aside.fixed.w-72 > div:first-child > nav a[data-path] > .material-symbols-outlined {
+  flex: 0 0 1.25rem;
+  width: 1.25rem;
+  text-align: center;
+}
+
+body > aside.fixed.w-72 > div:first-child > nav a[data-path] > div > span:first-child {
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.125rem;
+}
+
+body > aside.fixed.w-72 > div:first-child > nav a[data-path] > div > span:nth-child(2) {
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1rem;
+  opacity: 0.72;
+}
+
+/* Use one page rhythm across every citizen route. */
+body > div.pl-72 > main,
+body > div.lg\:pl-72 > main {
+  box-sizing: border-box;
+  min-width: 0;
+  padding-top: 5rem !important;
+  padding-bottom: 2rem !important;
+}
+
+body > div.pl-72 > main h1,
+body > div.lg\:pl-72 > main h1 {
+  font-size: clamp(1.75rem, 3vw, 2.5rem) !important;
+  line-height: 1.2 !important;
+}
+
+body > div.pl-72 > main h2,
+body > div.lg\:pl-72 > main h2 {
+  font-size: clamp(1.25rem, 2vw, 1.5rem) !important;
+  line-height: 1.35 !important;
+}
+
+body > div.pl-72 > main h3,
+body > div.lg\:pl-72 > main h3 {
+  font-size: 1.125rem !important;
+  line-height: 1.4 !important;
+}
+
+body > div.pl-72 > main .grid > *,
+body > div.pl-72 > main .flex > *,
+body > div.lg\:pl-72 > main .grid > *,
+body > div.lg\:pl-72 > main .flex > * {
+  min-width: 0;
+}
+
+body > div.pl-72 > main img,
+body > div.pl-72 > main video,
+body > div.pl-72 > main canvas,
+body > div.lg\:pl-72 > main img,
+body > div.lg\:pl-72 > main video,
+body > div.lg\:pl-72 > main canvas {
+  max-width: 100%;
+}
+
+body > div.pl-72 > main p,
+body > div.pl-72 > main li,
+body > div.lg\:pl-72 > main p,
+body > div.lg\:pl-72 > main li {
+  overflow-wrap: anywhere;
+}
+
+/* Keep the complaint scenario and form panels tidy at every width. */
+.complaint-page #scenario-selector .scenario-btn {
+  box-sizing: border-box;
+  min-width: 0;
+  min-height: 8rem;
+  border: 1px solid rgba(255, 239, 220, 0.08);
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.18);
+  overflow-wrap: anywhere;
+}
+
+.complaint-page .bg-surface-raised.shadow-xl,
+.complaint-page .bg-surface-raised.shadow-lg {
+  border: 1px solid rgba(255, 239, 220, 0.08);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Make Emergency Help recognizable at a glance and keep its active label
+   readable against the highlighted background. */
+body > aside.fixed.w-72 a[data-path="emergency-help"] {
+  border: 1px solid rgba(248, 113, 113, 0.28);
+  background: rgba(127, 29, 29, 0.2);
+  color: #fecaca;
+}
+
+body > aside.fixed.w-72 a[data-path="emergency-help"] .material-symbols-outlined {
+  color: #f87171;
+}
+
+body > aside.fixed.w-72 a[data-path="emergency-help"]:hover {
+  border-color: rgba(248, 113, 113, 0.65);
+  background: rgba(153, 27, 27, 0.38);
+  color: #fff;
+}
+
+body > aside.fixed.w-72 a[data-path="emergency-help"][aria-current="page"] {
+  border-color: #f87171;
+  background: #b42332 !important;
+  color: #fff !important;
+  box-shadow: 0 4px 18px rgba(180, 35, 50, 0.38);
+}
+
+body > aside.fixed.w-72 a[data-path="emergency-help"][aria-current="page"] * {
+  color: #fff !important;
+}
+
 .user-nav-actions {
   display: flex;
   flex: 0 0 auto;
@@ -65,8 +239,27 @@ textarea {
   background: rgba(240, 100, 100, 0.1);
 }
 
+@media (min-width: 1101px) {
+  /* Let the main page sections use the space available beside the sidebar. */
+  body > div.pl-72 > main .mx-auto[class~="max-w-5xl"],
+  body > div.pl-72 > main .mx-auto[class~="max-w-6xl"],
+  body > div.pl-72 > main .mx-auto[class~="max-w-7xl"],
+  body > div.lg\:pl-72 > main .mx-auto[class~="max-w-5xl"],
+  body > div.lg\:pl-72 > main .mx-auto[class~="max-w-6xl"],
+  body > div.lg\:pl-72 > main .mx-auto[class~="max-w-7xl"] {
+    max-width: 100% !important;
+  }
+
+  body > div.pl-72 > main,
+  body > div.lg\:pl-72 > main {
+    padding-right: 1.5rem !important;
+    padding-left: 1.5rem !important;
+  }
+}
+
 @media (max-width: 1100px) {
   body > aside.fixed.w-72 {
+    display: flex !important;
     z-index: 60 !important;
     visibility: hidden;
     transform: translateX(-100%);
@@ -76,6 +269,7 @@ textarea {
   }
 
   body.mobile-nav-open > aside.fixed.w-72 {
+    display: flex !important;
     visibility: visible;
     transform: translateX(0);
   }

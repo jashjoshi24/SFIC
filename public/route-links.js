@@ -9,6 +9,11 @@
     }
   }
   ensureScript('/translations-data.js')
+  ensureScript('/translations-extra.js')
+  ensureScript('/translations-pages.js')
+  ensureScript('/translations-app-pages.js')
+  ensureScript('/translations-awareness-article.js')
+  ensureScript('/translations-admin.js')
   ensureScript('/lang-engine.js')
   ensureScript('/mock-engine.js')
 })()
@@ -59,14 +64,14 @@ document.querySelectorAll('a[href]').forEach((link) => {
   link.href = destination.href
 })
 
-const legacySidebar = document.querySelector(
-  'aside nav a[data-path="landing-page"]',
-)
+const legacySidebar = document.querySelector('aside.fixed.w-72 nav')
 
-if (legacySidebar) {
+if (legacySidebar && !currentRoute.startsWith('/admin')) {
   const sidebar = legacySidebar.closest('aside')
-  const nav = legacySidebar.closest('nav')
-  const brandLink = sidebar?.querySelector('a[data-path="landing-page"]')
+  const nav = legacySidebar
+  const brandLink =
+    sidebar?.querySelector('a[data-path="landing-page"]') ||
+    sidebar?.querySelector('a[href="/"]')
 
   if (brandLink) {
     brandLink.href = '/app/index.html'
@@ -145,6 +150,7 @@ if (legacySidebar) {
 
   if (nav) {
     nav.replaceChildren()
+    nav.className = 'px-space-sm mt-space-sm space-y-1'
     nav.dataset.activeClasses =
       'bg-primary-container text-on-primary-container font-semibold shadow-[0_4px_16px_rgba(241,90,36,0.3)]'
 
@@ -164,9 +170,6 @@ if (legacySidebar) {
         'material-symbols-outlined text-[20px] transition-colors group-hover:text-primary'
       icon.textContent = item.icon
 
-      const labels = document.createElement('div')
-      labels.className = 'flex flex-col'
-
       const title = document.createElement('span')
       title.className = 'font-label-lg text-label-lg'
       title.textContent = item.title
@@ -174,7 +177,8 @@ if (legacySidebar) {
       const subtitle = document.createElement('span')
       subtitle.className = 'font-label-sm text-label-sm opacity-70'
       subtitle.textContent = item.subtitle
-
+      const labels = document.createElement('div')
+      labels.className = 'flex flex-col'
       labels.append(title, subtitle)
       link.append(icon, labels)
       nav.append(link)
@@ -182,8 +186,49 @@ if (legacySidebar) {
   }
 }
 
+// Keep the sidebar selection in sync on every route, including pages that
+// already ship the current dashboard navigation instead of the legacy menu.
+const normalizedRoute = currentRoute.replace(/\/index\.html$/, '') || '/'
+const activePathByRoute = {
+  '/app': 'dashboard',
+  '/app/assistant': 'gujarati-ai-assistant',
+  '/app/check/message': 'check-message-call',
+  '/app/check/url': 'phishing-url-checker',
+  '/app/check/image': 'screenshot-qr-scanner',
+  '/app/complaint': 'complaint-generator',
+  '/complaint': 'complaint-generator',
+  '/awareness': 'scam-alerts',
+  '/awareness/article': 'scam-alerts',
+  '/emergency': 'emergency-help',
+}
+const activePath = activePathByRoute[normalizedRoute]
+const primaryNav = document.querySelector('aside.fixed.w-72 nav')
+
+if (primaryNav && activePath) {
+  const activeClasses = (primaryNav.dataset.activeClasses ||
+    'bg-primary-container text-on-primary-container font-semibold shadow-[0_4px_16px_rgba(241,90,36,0.3)]').split(/\s+/)
+  const inactiveClasses = ['text-on-surface-variant', 'hover:bg-surface-raised', 'hover:text-on-surface']
+
+  primaryNav.querySelectorAll('a[data-path]').forEach((link) => {
+    const isActive = link.dataset.path === activePath
+    if (isActive) {
+      link.classList.remove(...inactiveClasses)
+      link.classList.add(...activeClasses)
+      link.setAttribute('aria-current', 'page')
+    } else {
+      link.classList.remove(...activeClasses)
+      link.classList.add(...inactiveClasses)
+      link.removeAttribute('aria-current')
+    }
+  })
+}
+
 const sidebar = document.querySelector('aside.fixed.w-72')
 const header = document.querySelector('header.fixed')
+
+if (!currentRoute.startsWith('/admin')) {
+  document.querySelectorAll('a[href*="/admin"]').forEach((link) => link.remove())
+}
 
 if (sidebar && header) {
   const headerActions = header.lastElementChild
@@ -237,7 +282,9 @@ if (sidebar && header) {
     logoutIcon.textContent = 'logout'
     logoutLink.append(logoutIcon)
 
-    userNavActions.append(profileLink, modeSwitchLink, logoutLink)
+    userNavActions.append(profileLink)
+    if (isAdminPage) userNavActions.append(modeSwitchLink)
+    userNavActions.append(logoutLink)
     headerActions.insertBefore(userNavActions, userDetails)
   }
 }
@@ -334,11 +381,14 @@ if (sidebar && header?.firstElementChild) {
     'gap:2px',
   ].join(';');
 
+  const isAdminPage = normalizedRoute.startsWith('/admin')
   const menuItems = [
     { icon: 'person', label: 'My Profile', sub: 'પ્રોફાઇલ સેટિંગ', href: '/app/profile/index.html', danger: false },
     { icon: 'shield', label: 'Dashboard', sub: 'AI Kavach', href: '/app/index.html', danger: false },
-    { divider: true },
-    { icon: 'admin_panel_settings', label: 'Admin Panel', sub: 'System Administration', href: '/admin/index.html', danger: false, badge: 'ADMIN' },
+    ...(isAdminPage ? [
+      { divider: true },
+      { icon: 'shield', label: 'Return to Citizen App', sub: 'નાગરિક સેવા', href: '/app/index.html', danger: false },
+    ] : []),
     { divider: true },
     { icon: 'logout', label: 'Log Out', sub: 'સત્ર સમાપ્ત', href: '/login/index.html?mode=login', danger: true },
   ];

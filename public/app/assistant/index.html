@@ -12,7 +12,7 @@
 <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
 </div>
 <h1 class="font-headline-xl text-headline-xl text-text-primary tracking-tight max-w-3xl">
-        સાયબર રક્ષક AI — <span class="bg-gradient-to-r from-primary-container via-primary to-secondary bg-clip-text text-transparent">તમારો અંગત સલાહકાર</span>
+        ગુજરાતી AI સહાયક — <span class="bg-gradient-to-r from-primary-container via-primary to-secondary bg-clip-text text-transparent">તમારો અંગત સલાહકાર</span>
 </h1>
 <p class="mt-space-xs font-body-lg text-body-lg text-text-muted max-w-2xl leading-relaxed">કોઈપણ શંકાસ્પદ મેસેજ, કોલ કે ઓનલાઇન જોખમ વિશે ગુજરાતીમાં પૂછો. ગોપનીયતા નીતિ જુઓ · ક્યારેય OTP કે PIN શેર કરશો નહીં.</p>
 <div class="mt-space-sm flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container shadow-sm">
@@ -102,7 +102,7 @@
 </div>
 <div class="p-space-md rounded-2xl bg-surface-raised text-on-surface shadow-md">
 <div class="flex items-center gap-2 mb-1.5">
-<span class="font-label-md text-label-md text-text-primary font-semibold">સાયબર રક્ષક AI</span>
+<span class="font-label-md text-label-md text-text-primary font-semibold">ગુજરાતી AI સહાયક</span>
 <span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-secondary/10 text-secondary">વેરિફાઇડ શિલ્ડ</span>
 <span class="font-label-sm text-label-sm text-text-muted">હમણાં જ</span>
 </div>
@@ -227,10 +227,19 @@
 <section class="sticky bottom-6 z-30 w-full mt-space-sm">
 <div class="relative p-2.5 rounded-2xl bg-surface-raised shadow-2xl backdrop-blur-xl">
 <div class="absolute inset-0 rounded-2xl bg-gradient-to-r from-primary/10 via-primary-container/15 to-secondary/10 -z-10 blur-xl pointer-events-none"></div>
+<div id="aiChatResult" class="hidden mb-3 rounded-xl border border-border-hairline bg-surface p-4 text-left" role="status" aria-live="polite">
+  <div class="flex flex-wrap items-center justify-between gap-2">
+    <strong id="aiChatResultTitle" class="text-text-primary"></strong>
+    <span id="aiChatRisk" class="rounded-full bg-surface-raised px-3 py-1 text-sm font-semibold"></span>
+  </div>
+  <p id="aiChatScore" class="mt-2 text-sm text-text-muted"></p>
+  <ul id="aiChatSignals" class="mt-2 list-disc space-y-1 pl-5 text-sm text-text-primary"></ul>
+  <p id="aiChatAdvice" class="mt-3 text-sm leading-relaxed text-text-primary"></p>
+</div>
 <form class="flex flex-col gap-2" onsubmit="handleSend(event)">
 <!-- Text Input Row -->
 <div class="relative flex items-center">
-<textarea class="w-full bg-surface text-text-primary placeholder:text-text-muted/60 px-4 py-3 rounded-xl font-body-md text-body-md focus:outline-none transition-all resize-none leading-relaxed" id="aiPromptInput" placeholder="તમારો પ્રશ્ન પૂછો અથવા મેસેજ પેસ્ટ કરો... (Describe suspicious call, link, SMS or message in Gujarati)..." rows="2"></textarea>
+<textarea class="w-full bg-surface text-text-primary placeholder:text-text-muted/60 px-4 py-3 rounded-xl font-body-md text-body-md focus:outline-none transition-all resize-none leading-relaxed" id="aiPromptInput" placeholder="તમારો પ્રશ્ન પૂછો અથવા મેસેજ પેસ્ટ કરો... (Describe suspicious call, link, SMS or message in Gujarati)..." rows="2" onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();this.form.requestSubmit();}"></textarea>
 </div>
 <!-- Bottom Console Utility Actions -->
 <div class="flex flex-wrap items-center justify-between gap-2 px-1">
@@ -271,6 +280,124 @@
 </div>
 </div>
 <script>
+  const ASSISTANT_API_BASE_URL = window.SFIC_API_BASE_URL || 'https://sfic-backend-7957075383.asia-south1.run.app';
+  const ASSISTANT_COPY = {
+    gu: {
+      loading: 'તમારા સંદેશનું વિશ્લેષણ થઈ રહ્યું છે…', complete: 'વિશ્લેષણ પૂર્ણ',
+      high: 'ઊંચું જોખમ', medium: 'મધ્યમ જોખમ', safe: 'ઓછું જોખમ',
+      signals: 'જોખમના સંકેતો', none: 'કોઈ ઓળખાયેલા જોખમી સંકેતો મળ્યા નથી. તેમ છતાં મોકલનાર અને વિનંતીની સ્વતંત્ર રીતે ચકાસણી કરો.',
+      highAdvice: 'લિંક ખોલશો નહીં, OTP અથવા UPI PIN શેર કરશો નહીં અને પૈસા મોકલશો નહીં. સંસ્થાનો સત્તાવાર નંબર જાતે શોધીને ચકાસો. નાણાં ગુમાવ્યા હોય તો તરત ૧૯૩૦ પર ફોન કરો.',
+      mediumAdvice: 'આગળ વધતા પહેલાં વિનંતીની સ્વતંત્ર રીતે ચકાસણી કરો. OTP, UPI PIN અથવા બેંકની વિગતો કોઈ સાથે શેર કરશો નહીં.',
+      safeAdvice: 'આ તપાસમાં જાણીતા જોખમી સંકેતો મળ્યા નથી. છતાં અજાણી વિનંતી, લિંક અથવા ચુકવણીની વિગતો સત્તાવાર માધ્યમથી ચકાસો.',
+      error: 'વિશ્લેષણ સેવા સાથે જોડાઈ શક્યા નથી. ફરી પ્રયાસ કરો.',
+      score: 'નિયમ આધારિત જોખમ સ્કોર', count: 'સંકેતો', disclaimer: 'આ સ્કોર ઓળખાયેલા સંકેતો દર્શાવે છે; છેતરપિંડી થવાની સંભાવના નથી.'
+    },
+    hi: {
+      loading: 'आपके संदेश का विश्लेषण हो रहा है…', complete: 'विश्लेषण पूरा',
+      high: 'उच्च जोखिम', medium: 'मध्यम जोखिम', safe: 'कम जोखिम',
+      signals: 'जोखिम संकेत', none: 'कोई ज्ञात जोखिम संकेत नहीं मिला। फिर भी भेजने वाले और अनुरोध की स्वतंत्र रूप से जाँच करें।',
+      highAdvice: 'लिंक न खोलें, OTP या UPI PIN साझा न करें और पैसे न भेजें। संस्था का आधिकारिक नंबर स्वयं खोजकर जाँचें। पैसे खोए हों तो तुरंत 1930 पर कॉल करें।',
+      mediumAdvice: 'आगे बढ़ने से पहले अनुरोध की स्वतंत्र रूप से जाँच करें। OTP, UPI PIN या बैंक विवरण किसी से साझा न करें।',
+      safeAdvice: 'इस जाँच में ज्ञात जोखिम संकेत नहीं मिले। फिर भी अनजान अनुरोध, लिंक या भुगतान विवरण की आधिकारिक माध्यम से जाँच करें।',
+      error: 'विश्लेषण सेवा से संपर्क नहीं हो सका। फिर से प्रयास करें।',
+      score: 'नियम आधारित जोखिम स्कोर', count: 'संकेत', disclaimer: 'यह स्कोर पहचाने गए संकेत दिखाता है; धोखाधड़ी की संभावना नहीं।'
+    },
+    en: {
+      loading: 'Analyzing your message…', complete: 'Analysis complete',
+      high: 'High risk', medium: 'Medium risk', safe: 'Low risk',
+      signals: 'Risk signals', none: 'No known risk signals were detected. Still verify the sender and request independently.',
+      highAdvice: 'Do not open links, share an OTP or UPI PIN, or send money. Find the institution’s official number yourself and verify. If you lost money, call 1930 promptly.',
+      mediumAdvice: 'Independently verify the request before acting. Never share an OTP, UPI PIN, or bank details.',
+      safeAdvice: 'This check found no known risk signals. Verify unfamiliar requests, links, and payment details through official channels.',
+      error: 'Could not connect to the analysis service. Please try again.',
+      score: 'Rule-based risk score', count: 'signals', disclaimer: 'This score reflects detected signals, not the probability of fraud.'
+    }
+  };
+
+  const ASSISTANT_INDICATORS = {
+    otp: ['OTP અથવા બેંકિંગ વિનંતી', 'OTP या बैंकिंग अनुरोध', 'OTP or banking request'],
+    banking: ['બેંકિંગ વિનંતી', 'बैंकिंग अनुरोध', 'Banking request'],
+    'banking-suspension': ['બેંક ખાતું બંધ કરવાની ધમકી', 'बैंक खाता बंद करने की धमकी', 'Bank account suspension threat'],
+    'suspicious-login-action': ['શંકાસ્પદ લૉગિન વિનંતી', 'संदिग्ध लॉगिन अनुरोध', 'Suspicious login request'],
+    kyc: ['KYC ચકાસણીની વિનંતી', 'KYC सत्यापन अनुरोध', 'KYC verification request'],
+    aadhaar: ['આધાર વિગતોની વિનંતી', 'आधार विवरण का अनुरोध', 'Aadhaar details request'],
+    job: ['નોકરી અથવા ટાસ્કની ઓફર', 'नौकरी या टास्क का प्रस्ताव', 'Job or task offer'],
+    loan: ['શંકાસ્પદ લોન ઓફર', 'संदिग्ध ऋण प्रस्ताव', 'Suspicious loan offer'],
+    'advance-payment': ['પહેલાં ચુકવણીની માંગ', 'पहले भुगतान की माँग', 'Advance payment request'],
+    lottery: ['લોટરી અથવા ઇનામનો દાવો', 'लॉटरी या इनाम का दावा', 'Lottery or prize claim'],
+    reward: ['ઇનામનો દાવો', 'इनाम का दावा', 'Prize claim'],
+    'digital-arrest': ['ડિજિટલ અરેસ્ટની ધમકી', 'डिजिटल अरेस्ट की धमकी', 'Digital arrest threat'],
+    link: ['શંકાસ્પદ લિંક', 'संदिग्ध लिंक', 'Suspicious link'],
+    urgency: ['તાત્કાલિક પગલાં લેવાનું દબાણ', 'तुरंत कार्रवाई का दबाव', 'Urgency pressure'],
+    delivery: ['ડિલિવરી સંબંધી સંદેશ', 'डिलीवरी से जुड़ा संदेश', 'Delivery-related message'],
+    electricity: ['વીજળી કનેક્શન કાપવાની ધમકી', 'बिजली कनेक्शन काटने की धमकी', 'Electricity disconnection threat'],
+    'gujarati-bank-threat': ['બેંક અંગેની ધમકી', 'बैंक संबंधी धमकी', 'Bank-related threat'],
+    'gujarati-digital-arrest': ['ડિજિટલ અરેસ્ટની ધમકી', 'डिजिटल अरेस्ट की धमकी', 'Digital arrest threat'],
+    'gujarati-electricity': ['વીજળી કનેક્શન કાપવાની ધમકી', 'बिजली कनेक्शन काटने की धमकी', 'Electricity disconnection threat'],
+    'gujarati-kyc': ['KYC ચકાસણીની વિનંતી', 'KYC सत्यापन अनुरोध', 'KYC verification request'],
+    'gujarati-loan': ['લોનની શંકાસ્પદ ઓફર', 'संदिग्ध ऋण प्रस्ताव', 'Suspicious loan offer'],
+    'gujarati-lottery': ['લોટરી અથવા ઇનામનો દાવો', 'लॉटरी या इनाम का दावा', 'Lottery or prize claim'],
+    'gujarati-otp': ['OTPની વિનંતી', 'OTP का अनुरोध', 'OTP request'],
+    'threat-link-combination': ['ધમકી સાથે શંકાસ્પદ લિંક', 'धमकी के साथ संदिग्ध लिंक', 'Suspicious link combined with a threat'],
+    'credential-link-combination': ['લૉગિન વિગતો માંગતી લિંક', 'लॉगिन विवरण माँगने वाला लिंक', 'Link requesting login credentials'],
+    'credential-threat-combination': ['ધમકી સાથે લૉગિન વિગતોની માંગ', 'धमकी के साथ लॉगिन विवरण की माँग', 'Credential request combined with a threat']
+  };
+  let lastAssistantAnalysis = null;
+
+  function assistantLanguage() {
+    const lang = window.SG?.lang?.() || document.documentElement.lang || 'gu';
+    return ASSISTANT_COPY[lang] ? lang : 'gu';
+  }
+
+  function showAssistantMessage(text, isError = false) {
+    const panel = document.getElementById('aiChatResult');
+    const lang = assistantLanguage();
+    panel.classList.remove('hidden');
+    document.getElementById('aiChatResultTitle').textContent = isError ? ASSISTANT_COPY[lang].error : text;
+    document.getElementById('aiChatRisk').textContent = '';
+    document.getElementById('aiChatScore').textContent = '';
+    document.getElementById('aiChatSignals').replaceChildren();
+    document.getElementById('aiChatAdvice').textContent = '';
+    panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  function renderAssistantAnalysis(data, shouldScroll = true) {
+    lastAssistantAnalysis = data;
+    const lang = assistantLanguage();
+    const copy = ASSISTANT_COPY[lang];
+    const analysis = data.analysis || {};
+    const risk = String(analysis.riskLevel || data.riskLevel || 'safe').toLowerCase();
+    const indicators = Array.isArray(analysis.indicators) ? analysis.indicators : [];
+    const panel = document.getElementById('aiChatResult');
+    const riskLabel = risk === 'high' ? copy.high : risk === 'medium' ? copy.medium : copy.safe;
+
+    panel.classList.remove('hidden');
+    document.getElementById('aiChatResultTitle').textContent = copy.complete;
+    const riskElement = document.getElementById('aiChatRisk');
+    riskElement.textContent = riskLabel;
+    riskElement.className = `rounded-full px-3 py-1 text-sm font-semibold ${risk === 'high' ? 'bg-error-container/40 text-error' : risk === 'medium' ? 'bg-tertiary/15 text-tertiary' : 'bg-secondary/10 text-secondary'}`;
+    document.getElementById('aiChatScore').textContent = `${copy.score}: ${Number(analysis.score ?? data.score ?? 0)}/100 · ${indicators.length} ${copy.count}. ${copy.disclaimer}`;
+
+    const signalList = document.getElementById('aiChatSignals');
+    signalList.replaceChildren();
+    indicators.slice(0, 5).forEach((indicator) => {
+      const localized = ASSISTANT_INDICATORS[indicator.id]?.[['gu', 'hi', 'en'].indexOf(lang)] || indicator.label || indicator.id;
+      const item = document.createElement('li');
+      item.textContent = localized;
+      signalList.append(item);
+    });
+    signalList.classList.toggle('hidden', indicators.length === 0);
+
+    document.getElementById('aiChatAdvice').textContent = indicators.length === 0
+      ? copy.none
+      : risk === 'high' ? copy.highAdvice : risk === 'medium' ? copy.mediumAdvice : copy.safeAdvice;
+    if (shouldScroll) panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  document.addEventListener('langchange', () => {
+    if (lastAssistantAnalysis) renderAssistantAnalysis(lastAssistantAnalysis, false);
+  });
+
   function insertPrompt(text) {
     const input = document.getElementById('aiPromptInput');
     if (input) {
@@ -288,13 +415,42 @@
     }
   }
 
-  function handleSend(e) {
+  async function handleSend(e) {
     e.preventDefault();
     const input = document.getElementById('aiPromptInput');
     if (!input || !input.value.trim()) return;
     const userText = input.value.trim();
-    alert("તપાસ શરૂ કરી: " + userText + "\\n\\nસાયબર રક્ષક AI વિશ્લેષણ કરી રહ્યું છે...");
-    input.value = '';
+    const lang = assistantLanguage();
+    const copy = ASSISTANT_COPY[lang];
+    const submitButton = e.currentTarget.querySelector('button[type="submit"]');
+    const originalButton = submitButton?.innerHTML;
+    if (submitButton) {
+      submitButton.disabled = true;
+      submitButton.textContent = copy.loading;
+    }
+    showAssistantMessage(copy.loading);
+
+    try {
+      const response = await fetch(`${ASSISTANT_API_BASE_URL}/api/guidance`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: userText })
+      });
+      const data = await response.json().catch(() => ({}));
+      if (!response.ok || !data.success || !data.analysis) {
+        throw new Error(data.message || 'Analysis request failed');
+      }
+      renderAssistantAnalysis(data);
+      input.value = '';
+    } catch (error) {
+      console.error('Gujarati AI analysis failed:', error);
+      showAssistantMessage(copy.error, true);
+    } finally {
+      if (submitButton) {
+        submitButton.disabled = false;
+        submitButton.innerHTML = originalButton;
+      }
+    }
   }
 
   function handleFileUpload(e) {
