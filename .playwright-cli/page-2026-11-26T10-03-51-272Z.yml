@@ -1,0 +1,21 @@
+- generic [active] [ref=e1]:
+  - text: S
+  - strong [ref=e2]: સુરક્ષિત ગુજરાત
+  - generic [ref=e3]: AWARE. SECURE. TOGETHER.
+  - paragraph [ref=e4]: PICK UP WHERE YOU LEFT OFF
+  - heading "Your next step, at your own pace." [level=1] [ref=e5]: Your next step,at your own pace.
+  - paragraph [ref=e6]: તમારો સાચવેલો ડ્રાફ્ટ ફરીથી તપાસો.
+  - paragraph [ref=e7]: Hello Jaymin,
+  - paragraph [ref=e8]: "Draft #42 is still marked Pending in your account. Take a moment to review it and decide your next step. You will receive this reminder only once for this draft."
+  - paragraph [ref=e9]: A moment to review
+  - paragraph [ref=e10]: 01 Check that your draft is accurate.
+  - paragraph [ref=e11]: 02 Use official channels when you are ready to report.
+  - link "Return to your draft →" [ref=e12] [cursor=pointer]:
+    - /url: http://localhost:5173/app/index.html#saved-complaint-drafts
+  - paragraph [ref=e13]: A little awareness goes a long way.
+  - paragraph [ref=e14]:
+    - text: You opted in to this email. Change your subscriptions or unsubscribe in email preferences.
+    - link "Manage preferences / unsubscribe" [ref=e15] [cursor=pointer]:
+      - /url: http://localhost:5173/support/index.html#email-preferences
+  - paragraph [ref=e16]: Surakshit Gujarat is an independent citizen assistance service. Saving a draft does not submit a police complaint. For official reporting, use cybercrime.gov.in or 1930. Never share OTPs, PINs, or passwords.
+  - paragraph [ref=e17]: SURAKSHIT GUJARAT · AWARENESS STARTS WITH US

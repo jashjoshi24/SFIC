@@ -1,0 +1,140 @@
+@media screen {
+  .citizen-workspace {
+    --glass-edge: rgba(255, 214, 179, 0.18);
+    --glass-edge-active: rgba(255, 174, 110, 0.54);
+    --glass-glint: inset 0 1px 0 rgba(255, 239, 221, 0.09);
+    --glass-shadow: 0 12px 30px rgba(0, 0, 0, 0.23);
+    --glass-shell: rgba(23, 18, 15, 0.94);
+    --glass-panel: linear-gradient(148deg, rgba(255, 220, 186, 0.10), rgba(255, 197, 152, 0.018) 57%),
+      linear-gradient(105deg, rgba(39, 29, 23, 0.92), rgba(25, 20, 17, 0.87));
+    --glass-control: linear-gradient(155deg, rgba(255, 220, 186, 0.09), transparent 72%), #241b17;
+    --glass-primary: linear-gradient(155deg, #ffb983 0%, #ff9156 44%, #e8713d 100%);
+    --glass-ink: #231107;
+  }
+
+  .citizen-workspace > div > main {
+    background-image: radial-gradient(ellipse 55rem 33rem at 79% 2%, rgba(162, 85, 44, 0.17), transparent 76%);
+  }
+
+  .citizen-workspace > div > header.fixed,
+  .citizen-workspace > aside.fixed.w-72,
+  .citizen-workspace .account-notifications {
+    background: linear-gradient(151deg, rgba(255, 209, 176, 0.07), transparent 62%), var(--glass-shell);
+    border-color: var(--glass-edge);
+    box-shadow: var(--glass-glint), var(--glass-shadow);
+  }
+
+  .citizen-workspace > div > header.fixed {
+    border-bottom: 1px solid var(--glass-edge);
+  }
+
+  .citizen-workspace > aside.fixed.w-72 {
+    border-right: 1px solid var(--glass-edge);
+  }
+
+  .citizen-workspace [data-glass="panel"],
+  .citizen-workspace [data-glass="card"],
+  .citizen-workspace [data-glass="dock"],
+  .citizen-workspace .profile-overview,
+  .citizen-workspace .guide-card {
+    background: var(--glass-panel);
+    border: 1px solid var(--glass-edge);
+    box-shadow: var(--glass-glint), var(--glass-shadow);
+  }
+
+  .citizen-workspace [data-glass="dock"] {
+    background: linear-gradient(145deg, rgba(253, 197, 155, 0.09), transparent 57%), var(--glass-shell);
+  }
+
+  .citizen-workspace [data-glass="panel"]#dropzone {
+    border-style: dashed;
+  }
+
+  .citizen-workspace [data-glass="card"]:hover,
+  .citizen-workspace [data-glass="card"]:focus-visible,
+  .citizen-workspace #dropzone[data-glass="panel"]:hover,
+  .citizen-workspace .guide-card:hover {
+    border-color: var(--glass-edge-active);
+    box-shadow: var(--glass-glint), 0 14px 34px rgba(0, 0, 0, 0.31);
+  }
+
+  .citizen-workspace [data-glass="primary"],
+  .citizen-workspace .profile-primary,
+  .citizen-workspace .guide-primary,
+  .citizen-workspace header.fixed button[data-lang-btn][aria-pressed="true"] {
+    background: var(--glass-primary);
+    color: var(--glass-ink);
+    border: 1px solid rgba(255, 219, 179, 0.65);
+    box-shadow: inset 0 1px 0 rgba(255, 246, 226, 0.38), 0 5px 15px rgba(217, 98, 49, 0.20);
+  }
+
+  .citizen-workspace :is([data-glass="primary"], .profile-primary, .guide-primary):not(:disabled):not([aria-disabled="true"]):hover {
+    border-color: #ffe0c4;
+    box-shadow: inset 0 1px 0 rgba(255, 246, 226, 0.5), 0 7px 21px rgba(217, 98, 49, 0.32);
+  }
+
+  .citizen-workspace [data-glass="secondary"],
+  .citizen-workspace .guide-reader-actions :is(.guide-secondary, .guide-bookmark),
+  .citizen-workspace .user-nav-action,
+  .citizen-workspace .account-notifications-toggle {
+    background: var(--glass-control);
+    border: 1px solid var(--glass-edge);
+    box-shadow: var(--glass-glint);
+  }
+
+  .citizen-workspace .citizen-avatar {
+    display: inline-grid;
+    place-items: center;
+    flex: 0 0 2rem;
+    inline-size: 2rem;
+    block-size: 2rem;
+    border: 1px solid var(--glass-edge-active);
+    border-radius: 50%;
+    background: linear-gradient(150deg, #56341f, #2c1c15 72%);
+    box-shadow: var(--glass-glint);
+    color: #ffcb9f;
+    font-size: 0.875rem;
+    font-weight: 700;
+    line-height: 1;
+    cursor: pointer;
+  }
+
+  .citizen-workspace .citizen-avatar:is(:hover, :focus-visible, [aria-expanded="true"]) {
+    border-color: #ffb786;
+    color: #ffe8d1;
+  }
+
+  .citizen-workspace :is([data-glass="secondary"], .guide-reader-actions .guide-secondary, .guide-reader-actions .guide-bookmark, .user-nav-action, .account-notifications-toggle):not(:disabled):is(:hover, :focus-visible) {
+    border-color: var(--glass-edge-active);
+    color: #ffe3cc;
+  }
+
+  .citizen-workspace [data-glass="urgent"] {
+    background: linear-gradient(150deg, #ffaaa3, #f07772 54%, #e06462);
+    color: #310e0e;
+    border: 1px solid #ffb2a9;
+    box-shadow: inset 0 1px 0 rgba(255, 244, 240, 0.42), 0 5px 17px rgba(225, 78, 72, 0.25);
+  }
+
+  .citizen-workspace [data-glass="urgent"] div span { color: inherit; }
+  .citizen-workspace [data-glass="urgent"]:hover { border-color: #ffe1db; }
+
+  .citizen-workspace > aside.fixed.w-72 nav a[aria-current="page"]:not([data-path="emergency-help"]),
+  .citizen-workspace [data-glass="segments"] > button.bg-surface-raised,
+  .citizen-workspace .guide-filter[aria-pressed="true"],
+  .citizen-workspace > .sidebar-slide-toggle {
+    background: linear-gradient(135deg, rgba(244, 151, 96, 0.24), rgba(248, 153, 97, 0.07) 84%), #211914;
+    border: 1px solid rgba(255, 174, 110, 0.42);
+    color: #ffe1c9;
+    box-shadow: var(--glass-glint);
+  }
+
+  @supports (backdrop-filter: blur(1px)) {
+    .citizen-workspace { --glass-shell: rgba(23, 18, 15, 0.80); }
+    .citizen-workspace > div > header.fixed,
+    .citizen-workspace .account-notifications,
+    .citizen-workspace [data-glass="dock"] {
+      backdrop-filter: blur(14px) saturate(1.12);
+    }
+  }
+}

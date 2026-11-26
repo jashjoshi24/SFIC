@@ -1,0 +1,57 @@
+- generic [active] [ref=f10e1]:
+  - banner [ref=f10e2]:
+    - link "Surakshit Gujarat" [ref=f10e3] [cursor=pointer]:
+      - /url: /app/index.html
+    - link "Back to dashboard ↗" [ref=f10e4] [cursor=pointer]:
+      - /url: /app/index.html
+  - main [ref=f10e5]:
+    - paragraph [ref=f10e6]: HERE TO HELP
+    - heading "A little help. A clearer next step." [level=1] [ref=f10e7]: A little help.A clearer next step.
+    - paragraph [ref=f10e8]: Ask a question, follow your requests, and choose what arrives in your inbox.
+    - status
+    - generic [ref=f10e9]:
+      - generic [ref=f10e10]:
+        - paragraph [ref=f10e11]: 01 / SUPPORT
+        - heading "Tell us what you need." [level=2] [ref=f10e12]
+        - paragraph [ref=f10e13]: For help using this application. Avoid sharing passwords, OTPs, bank details or sensitive evidence.
+        - generic [ref=f10e14]:
+          - group [ref=f10e15]:
+            - generic [ref=f10e16]:
+              - text: Subject
+              - textbox "Subject" [ref=f10e17]:
+                - /placeholder: What can we help you with?
+            - generic [ref=f10e18]:
+              - text: Your message
+              - textbox "Your message" [ref=f10e19]:
+                - /placeholder: Describe the issue you are facing…
+            - button "Send support request ↗" [ref=f10e20] [cursor=pointer]
+          - status [ref=f10e49]: "Request #108 saved. An acknowledgement is queued for your account email."
+        - generic [ref=f10e21]: This is not an emergency service. Saving a draft or support request does not submit an official police complaint.
+        - heading "Your recent requests" [level=2] [ref=f10e22]
+        - generic [ref=f10e23]: No support requests yet.
+      - generic [ref=f10e24]:
+        - paragraph [ref=f10e25]: 02 / YOUR INBOX, YOUR CHOICE
+        - heading "Only the updates you want." [level=2] [ref=f10e26]
+        - paragraph [ref=f10e27]: These subscriptions are optional and off by default. You can unsubscribe here at any time.
+        - generic [ref=f10e28]:
+          - group [ref=f10e29]:
+            - generic [ref=f10e30]:
+              - checkbox "Saved draft reminders One gentle reminder after a draft has been Pending for three days." [ref=f10e31]
+              - generic [ref=f10e32]:
+                - strong [ref=f10e33]: Saved draft reminders
+                - generic [ref=f10e34]: One gentle reminder after a draft has been Pending for three days.
+            - generic [ref=f10e35]:
+              - checkbox "Scam awareness alerts Practical warnings and steps to protect yourself." [checked] [ref=f10e36]
+              - generic [ref=f10e37]:
+                - strong [ref=f10e38]: Scam awareness alerts
+                - generic [ref=f10e39]: Practical warnings and steps to protect yourself.
+            - generic [ref=f10e40]:
+              - checkbox "The cybersecurity newsletter Safety tips and useful reading, selected by our team." [ref=f10e41]
+              - generic [ref=f10e42]:
+                - strong [ref=f10e43]: The cybersecurity newsletter
+                - generic [ref=f10e44]: Safety tips and useful reading, selected by our team.
+            - button "Save my preferences" [ref=f10e45] [cursor=pointer]
+            - button "Unsubscribe from all three" [ref=f10e46] [cursor=pointer]
+          - status
+        - paragraph [ref=f10e47]: Support acknowledgements relate to requests you submit. Complaint status email settings remain in your dashboard profile.
+  - contentinfo [ref=f10e48]: AWARE. SECURE. TOGETHER. · SURAKSHIT GUJARAT

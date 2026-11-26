@@ -1,0 +1,9 @@
+CREATE TABLE IF NOT EXISTS awareness_guides (
+    id VARCHAR(80) PRIMARY KEY,
+    data JSONB NOT NULL,
+    version INTEGER NOT NULL DEFAULT 1,
+    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    deleted_at TIMESTAMPTZ,
+    updated_by BIGINT REFERENCES admin_users(id) ON DELETE SET NULL
+);

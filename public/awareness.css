@@ -1,0 +1,59 @@
+.guides-page { max-width: 76rem; margin: 0 auto; padding: 1.5rem 0; color: #f8f3ed; }
+.guides-heading { position: static; display: block; margin-bottom: 1.5rem; }
+.guides-eyebrow { color: #ffb47d; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.13em; margin-bottom: 0.75rem; }
+.guides-heading h1, .guide-reader h1 { font-weight: 700; line-height: 1.3; margin-bottom: 1rem; }
+.guides-heading > p:last-child { max-width: 48rem; color: #c4b4a6; line-height: 1.8; }
+.guides-search { display: flex; align-items: center; gap: 0.75rem; padding: 0.65rem 0.9rem; border: 1px solid #66452e; background: #1c1713; border-radius: 1rem; }
+.guides-search > span { flex-shrink: 0; color: #b8a798; }
+.guides-search input { width: 100%; min-width: 0; padding: 0.65rem 0; background: transparent; color: #fff0da; font: inherit; border: 0; outline: none; }
+.guides-search:focus-within { outline: 2px solid #ff8a3d; outline-offset: 2px; }
+.guides-search input::placeholder { color: #a49383; }
+.guide-filters { display: flex; flex-wrap: wrap; gap: 0.6rem; padding: 1rem 0; }
+.guide-filter { padding: 0.65rem 0.95rem; min-height: 2.75rem; border: 1px solid #463123; border-radius: 2rem; background: #261d17; color: #e0cebe; font-size: 0.8rem; cursor: pointer; }
+.guide-filter.is-active { background: #ff8a3d; color: #29180e; border-color: #ff8a3d; font-weight: 600; }
+.guides-count { margin: 0.5rem 0 1.2rem; color: #bca791; font-size: 0.8rem; }
+.guides-status { color: #8bdeb6; font-size: 0.8rem; line-height: 1.7; margin: 0.6rem 0; }
+.guides-status:empty { display: none; }
+.guides-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; }
+.guide-card { display: flex; flex-direction: column; padding: 1.25rem; gap: 1rem; border-radius: 1.25rem; background: #1c1713; border: 1px solid #3c2b1f; min-width: 0; }
+.guide-card-visual { position: relative; display: grid; place-items: center; height: 10rem; border-radius: 0.85rem; overflow: hidden; background: radial-gradient(circle at 60% 20%, #57371f, #211711); }
+.guide-card-visual > img { width: 100%; height: 100%; object-fit: cover; opacity: 0.7; position: absolute; inset: 0; }
+.guide-card-visual::after { content: ''; position: absolute; inset: 0; background: linear-gradient(0deg, #17100b99, transparent); }
+.guide-visual-symbol { position: absolute; left: 1rem; bottom: 1rem; z-index: 1; display: grid; place-items: center; width: 2.8rem; height: 2.8rem; border-radius: 0.8rem; background: #211710e6; color: #ffc28d; border: 1px solid #93603b; }
+.guide-card-meta { display: flex; gap: 0.75rem; align-items: center; justify-content: space-between; flex-wrap: wrap; }
+.guide-category { color: #ffbf8b; font-size: 0.75rem; }
+.guide-readtime { color: #bca791; font-size: 0.75rem; }
+.guide-card h2 { font-size: 1.2rem !important; font-weight: 600; line-height: 1.6 !important; margin: 0; }
+.guide-card h2 a:hover { color: #ffb17a; }
+.guide-summary { color: #c4b4a6; font-size: 0.9rem; line-height: 1.8; margin: 0 0 0.5rem; }
+.guide-card-actions { display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap; margin-top: auto; padding-top: 0.9rem; border-top: 1px solid #3c2b1f; }
+.guide-primary, .guide-secondary, .guide-bookmark { display: inline-flex; justify-content: center; align-items: center; min-height: 2.75rem; padding: 0.7rem 0.9rem; border-radius: 0.7rem; font-size: 0.8rem; font-weight: 600; cursor: pointer; border: 1px solid transparent; text-decoration: none; }
+.guide-primary { background: #ff8a3d; color: #29180e; }
+.guide-primary:hover { background: #ffae72; }
+.guide-secondary, .guide-bookmark { background: #2d2118; color: #f3d8bf; border-color: #513825; }
+.guide-secondary:hover, .guide-bookmark:hover { background: #45301f; }
+.guide-secondary:disabled { opacity: 0.45; cursor: default; }
+.guide-bookmark { padding: 0.6rem; margin-left: auto; }
+.guide-bookmark[aria-pressed="true"] { color: #ffad70; border-color: #ff8a3d; }
+.guides-empty { grid-column: 1 / -1; padding: 3rem 1rem; text-align: center; border: 1px dashed #67472f; border-radius: 1rem; }
+.guides-empty p { margin-bottom: 1rem; }
+.guide-back { display: inline-flex; align-items: center; min-height: 2.75rem; color: #ffb47d; font-size: 0.85rem; margin-bottom: 1rem; }
+.guide-reader { max-width: 56rem; margin: auto; padding: 2rem; border-radius: 1.25rem; border: 1px solid #463123; background: #1c1713; }
+.guide-reader-summary { font-size: 1.05rem; line-height: 1.9; color: #d9c6b5; margin-bottom: 1rem; }
+.guide-reader-actions { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1.25rem 0; padding: 1rem 0; border-top: 1px solid #453022; border-bottom: 1px solid #453022; }
+.guide-reader-actions .guide-bookmark { margin-left: 0; }
+.guide-reader-section { margin-top: 2rem; }
+.guide-reader-section h2, .guide-report h2 { font-size: 1.25rem !important; font-weight: 600; margin-bottom: 1rem; }
+.guide-reader-section ul { padding-left: 1.3rem; list-style: disc; }
+.guide-reader-section li { margin-bottom: 0.85rem; padding-left: 0.3rem; line-height: 1.9; color: #d4c2b1; }
+.guide-report { padding: 1.25rem; margin-top: 2rem; border: 1px solid #75422d; border-radius: 1rem; background: #332117; }
+.guide-report p { line-height: 1.9; color: #e0c7b0; margin-bottom: 1rem; }
+.guide-source { display: inline-block; color: #ffba86; text-decoration: underline; margin-top: 1.5rem; }
+.guide-disclaimer { font-size: 0.75rem; color: #b7a28e; line-height: 1.8; margin-top: 0.8rem; }
+@media(max-width:760px) { .guides-grid { grid-template-columns: minmax(0, 1fr); } .guide-reader { padding: 1.15rem; } .guide-filter { font-size: 0.75rem; padding: 0.55rem 0.8rem; } }
+@media print {
+  body > aside, body > div > header.fixed, .mobile-nav-toggle, .mobile-nav-overlay, .account-notifications, .guide-reader-actions, .guide-back, .guides-status { display: none !important; }
+  body > div.pl-72 { padding-left: 0 !important; }
+  body, main, .guide-reader { background: white !important; color: black !important; padding: 0 !important; border: 0 !important; }
+  .guide-reader * { color: black !important; } .guide-reader section { break-inside: avoid; }
+}

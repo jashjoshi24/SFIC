@@ -1,0 +1,21 @@
+{
+  "name": "surakshit-gujarat-v18-frontend",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "vite build",
+    "preview": "vite preview --host 0.0.0.0",
+    "test:translations": "node --test tests/translation-engine.test.cjs"
+  },
+  "devDependencies": {
+    "vite": "^6.0.0"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "gsap": "^3.15.1",
+    "jsonwebtoken": "^9.0.3",
+    "three": "^0.187.0"
+  }
+}
