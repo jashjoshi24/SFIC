@@ -1,0 +1,14 @@
+node_modules/
+.env
+.git/
+manual-tests/
+tests/
+*.wav
+*.mp3
+*.m4a
+*.webm
+*.flac
+model-cache/
+.venv/
+__pycache__/
+*.pyc

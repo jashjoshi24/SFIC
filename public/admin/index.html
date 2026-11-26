@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="gu"><svg aria-hidden="true" class="inline-defs-container" style="position:absolute;width:0;height:0;overflow:hidden"></svg>
+<head><script src="/theme.js"></script><script src="/api-config.js"></script>
+<meta charset="utf-8"/><title>Administration | Surakshit Gujarat</title><link rel="stylesheet" href="/admin/admin.css"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="web_dashboard" name="shell-type"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700&amp;family=Manrope:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+    @layer base {
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        overscroll-behavior: none;
+      }
+
+      main>:first-child {
+        margin-top: 0 !important;
+      }
+
+      main>:last-child {
+        margin-bottom: 0 !important;
+      }
+    }
+
+    ::-webkit-scrollbar {
+      display: none;
+    }
+  </style>
+<script src="https://cdn.tailwindcss.com"></script>
+<script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: window.SGTheme.colors, borderRadius: { DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px" }, spacing: { "space-lg": "1.5rem", gutter: "1.5rem", "space-md": "1rem", "gutter-mobile": "1rem", margin: "2rem", "space-xs": "0.25rem", "space-sm": "0.5rem", "margin-mobile": "1rem", "space-xl": "2.5rem" }, fontFamily: { "headline-lg": ["Plus Jakarta Sans"], "body-sm": ["Manrope"], "headline-xl-mobile": ["Plus Jakarta Sans"], "headline-xl": ["Plus Jakarta Sans"], "body-lg": ["Manrope"], "label-lg": ["Plus Jakarta Sans"], "headline-md": ["Plus Jakarta Sans"], "headline-sm": ["Plus Jakarta Sans"], "label-md": ["Plus Jakarta Sans"], "label-sm": ["Plus Jakarta Sans"], "headline-lg-mobile": ["Plus Jakarta Sans"], "body-md": ["Manrope"] }, fontSize: { "headline-lg": ["32px", { lineHeight: "40px", letterSpacing: "-0.015em", fontWeight: "600" }], "body-sm": ["13px", { lineHeight: "20px", fontWeight: "400" }], "headline-xl-mobile": ["32px", { lineHeight: "40px", letterSpacing: "-0.01em", fontWeight: "700" }], "headline-xl": ["48px", { lineHeight: "58px", letterSpacing: "-0.02em", fontWeight: "700" }], "body-lg": ["17px", { lineHeight: "28px", fontWeight: "400" }], "label-lg": ["14px", { lineHeight: "20px", letterSpacing: "0.01em", fontWeight: "600" }], "headline-md": ["22px", { lineHeight: "30px", letterSpacing: "-0.01em", fontWeight: "600" }], "headline-sm": ["18px", { lineHeight: "26px", fontWeight: "600" }], "label-md": ["12px", { lineHeight: "16px", letterSpacing: "0.02em", fontWeight: "600" }], "label-sm": ["11px", { lineHeight: "14px", letterSpacing: "0.03em", fontWeight: "500" }], "headline-lg-mobile": ["24px", { lineHeight: "32px", letterSpacing: "-0.01em", fontWeight: "600" }], "body-md": ["15px", { lineHeight: "24px", fontWeight: "400" }] } } } };</script>
+<link href="/brand-mark.svg" rel="icon" type="image/svg+xml"/><script src="/translations-data.js" defer></script>
+<script src="/lang-engine.js" defer></script>
+<link rel="stylesheet" href="/theme.css"></head>
+<body class="bg-bg-base text-on-surface font-body-md text-body-md min-h-screen selection:bg-primary-container selection:text-on-primary-container">
+<aside class="fixed left-0 top-0 h-screen w-72 bg-surface-container-lowest/90 backdrop-blur-2xl z-50 flex flex-col justify-between shadow-[0_0_28px_rgba(0,0,0,0.7)]">
+<div class="flex flex-col">
+<div class="h-20 px-space-md flex items-center justify-between"><a class="flex items-center gap-space-sm" data-path="dashboard" href="/app"><img alt="Surakshit Gujarat Emblem" class="h-8 w-auto object-contain" src="/brand-mark.svg"/>
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5"><span class="font-headline-sm text-headline-sm text-text-primary tracking-tight">સુરક્ષિત ગુજરાત</span><span class="inline-flex items-center px-1.5 py-0.5 rounded-full bg-error-container/30 text-danger text-[10px] font-label-sm font-semibold tracking-wide uppercase">ADMIN</span>
+</div><span class="font-label-sm text-label-sm text-text-muted">System Administration Panel</span>
+</div>
+</a></div>
+<div class="px-space-md py-space-xs">
+<div class="flex items-center justify-between px-space-sm py-1.5 rounded-lg bg-surface-raised">
+<div class="flex items-center gap-2"><span class="relative flex h-2 w-2"><span class="relative inline-flex rounded-full h-2 w-2 bg-secondary"></span></span><span class="font-label-sm text-label-sm text-on-surface-variant">Admin Mode: Active</span></div>
+</div>
+</div>
+<nav class="px-space-sm mt-space-sm space-y-1" data-active-classes="bg-primary-container text-on-primary-container font-semibold shadow-[0_4px_16px_rgba(241,90,36,0.3)]"><a class="block p-3 rounded-xl bg-primary-container text-on-primary-container" href="/admin/index.html">System overview</a><a class="block p-3" href="#scanHistorySection">Scan history</a><a class="block p-3" href="#citizenComplaintSection">Complaint drafts</a><a class="block p-3" href="/app/index.html">Citizen dashboard</a></nav>
+</div>
+</aside>
+<div class="pl-72">
+<header class="fixed top-0 left-72 right-0 h-20 bg-surface-container-lowest/80 backdrop-blur-xl z-40 px-gutter flex items-center justify-between">
+<div class="flex items-center gap-space-md"><a aria-label="Surakshit Gujarat home" class="site-brand" href="/app/index.html" translate="no"><img alt="" class="h-8 w-auto object-contain" height="44" src="/brand-mark.svg" width="44"/><span class="site-brand-wordmark"><span class="site-brand-name">સુરક્ષિત ગુજરાત</span><span class="site-brand-tagline">SURAKSHIT GUJARAT</span></span></a>
+</div>
+<div class="flex items-center gap-space-md">
+<div class="flex items-center p-1 rounded-full bg-surface-raised text-on-surface-variant font-label-sm text-label-sm">
+<button class="px-3 py-1 rounded-full bg-primary-container text-on-primary-container font-semibold transition-all shadow-sm" type="button">ગુજરાતી</button><button class="px-3 py-1 rounded-full text-on-surface-variant hover:text-on-surface transition-all" type="button">हिंदी</button><button class="px-3 py-1 rounded-full text-on-surface-variant hover:text-on-surface transition-all" type="button">English</button></div>
+<div class="flex items-center gap-space-sm pl-2"><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-1 ring-border-hairline" src="/brand-mark.svg"/>
+<div class="hidden xl:flex flex-col text-left"><span class="font-label-md text-label-md text-text-primary leading-tight" data-current-user="" translate="no">Account</span><span class="font-label-sm text-label-sm text-text-muted">Administrator</span></div>
+</div>
+</div>
+</header>
+<main class="w-full pt-20 bg-bg-base min-h-screen px-gutter pb-space-xl"><div class="max-w-7xl mx-auto py-6 space-y-6"><div class="admin-heading"><div><p class="admin-eyebrow">OPERATIONS OVERVIEW</p><h1 class="text-headline-lg text-text-primary">Platform Administration</h1><p class="text-text-muted">Review risk signals, investigate scans and manage citizen complaint drafts.</p></div><div><button class="admin-button" id="refreshActivity" type="button">Refresh overview</button><p id="activityUpdated" class="admin-muted" role="status"></p></div></div>
+<div aria-live="polite" class="admin-metrics" id="admin-live-summary">Loading activity…</div>
+<section class="admin-panel" aria-labelledby="queueTitle"><div class="admin-heading"><div><h2 id="queueTitle">Complaint queue</h2><p class="admin-muted">Choose a status to review its complaint drafts.</p></div></div><div id="admin-complaint-queue" class="admin-metrics" aria-live="polite">Loading queue…</div></section>
+<section class="admin-panel" id="scanHistorySection" aria-labelledby="scansTitle"><div class="admin-heading"><div><h2 id="scansTitle">Scan history</h2><p class="admin-muted">Search recorded scans and inspect the signals behind each result.</p></div><button class="admin-button secondary" id="exportScans" type="button" disabled>Export visible scans (CSV)</button></div>
+<form id="scanFilters" class="admin-filters"><label>Scan ID<input id="scanId" type="text" inputmode="numeric" pattern="[0-9]*" placeholder="e.g. 159"/></label><label>Scan type<select id="scanType"><option value="">All types</option><option value="message">Message</option><option value="url">URL</option><option value="image">Image / QR</option></select></label><label>Risk level<select id="scanRisk"><option value="">All risks</option><option value="high">High</option><option value="medium">Medium</option><option value="low">Low</option><option value="safe">Safe</option></select></label><button class="admin-button" type="submit">Apply filters</button><button class="admin-button secondary" id="resetScans" type="button">Reset</button></form>
+<p id="scanMessage" class="admin-muted" role="status"></p><div class="admin-table-wrap" id="admin-live-scans"></div><div class="admin-pagination"><span id="scanPageInfo" class="admin-muted"></span><div><button id="scanPrevious" class="admin-button secondary" disabled>Previous scans</button><button id="scanNext" class="admin-button secondary" disabled>Next scans</button></div></div></section>
+<dialog id="scanDetailsDialog" aria-labelledby="scanDetailTitle"><div class="admin-heading"><h2 id="scanDetailTitle">Scan details</h2><button class="admin-button secondary" id="closeScanDetails" type="button">Close scan details</button></div><div id="scanDetailsContent" role="status"></div></dialog>
+<section class="w-full rounded-xl bg-surface-raised p-space-md mb-space-md" id="citizenComplaintSection">
+<div class="flex flex-col md:flex-row justify-between gap-4 mb-5">
+<div>
+<h2 class="text-headline-md font-semibold text-text-primary">
+                Citizen Complaint Drafts
+              </h2>
+<p class="text-body-sm text-text-muted mt-1">
+                Review and manage complaint drafts generated by citizens.
+                These are not officially submitted police complaints.
+              </p>
+</div>
+<button class="px-4 py-2 rounded-lg bg-primary-container text-on-primary-container" id="refreshComplaints">
+              Refresh
+            </button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-3 mb-4">
+<input class="w-full rounded-lg border border-border-hairline bg-surface p-3 text-text-primary" aria-label="Search complaints" id="complaintSearch" placeholder="Search ID, platform or description..." type="search"/>
+<select class="w-full rounded-lg border border-border-hairline bg-surface p-3 text-text-primary" aria-label="Complaint status" id="complaintStatusFilter">
+<option value="">All statuses</option>
+<option value="Pending">Pending</option>
+<option value="Under Review">Under Review</option>
+<option value="Resolved">Resolved</option>
+<option value="Rejected">Rejected</option>
+</select>
+</div>
+<div aria-live="polite" class="text-body-sm text-text-muted py-4" id="complaintsMessage">
+            Loading complaint drafts...
+          </div>
+<div class="overflow-x-auto">
+<table class="w-full text-left text-body-sm">
+<thead>
+<tr class="border-b border-border-hairline text-text-muted">
+<th class="p-3">ID</th>
+<th class="p-3">Platform</th>
+<th class="p-3">Incident</th>
+<th class="p-3">Amount</th>
+<th class="p-3">Risk</th>
+<th class="p-3">Status</th>
+<th class="p-3">Created</th>
+<th class="p-3">Action</th>
+</tr>
+</thead>
+<tbody id="complaintsTableBody"></tbody>
+</table>
+</div>
+<div class="flex items-center justify-between gap-3 mt-4">
+<span class="text-body-sm text-text-muted" id="complaintsPaginationInfo">
+              Page 1
+            </span>
+<div class="flex gap-2">
+<button class="px-3 py-2 rounded-lg bg-surface border border-border-hairline" id="complaintsPrevious">
+                Previous
+              </button>
+<button class="px-3 py-2 rounded-lg bg-surface border border-border-hairline" id="complaintsNext">
+                Next
+              </button>
+</div>
+</div>
+</section><div class="hidden fixed inset-0 z-50 bg-black/60 p-4 overflow-y-auto" id="complaintDetailsModal">
+<div class="max-w-3xl mx-auto my-8 rounded-xl bg-surface-raised p-5">
+<div class="flex justify-between items-center mb-4">
+<h2 class="text-headline-md font-semibold text-text-primary">
+                Complaint Details
+              </h2>
+<button class="px-3 py-2 rounded-lg bg-surface" id="closeComplaintModal">
+                Close
+              </button>
+</div>
+<div class="space-y-3 text-body-sm text-text-primary" id="complaintDetailsContent"></div>
+<div class="border-t border-border-hairline mt-5 pt-5">
+<label class="block mb-2 text-text-primary" for="complaintNewStatus">
+                Update Status
+              </label>
+<select class="w-full rounded-lg border border-border-hairline bg-surface p-3 text-text-primary" id="complaintNewStatus">
+<option value="Pending">Pending</option>
+<option value="Under Review">Under Review</option>
+<option value="Resolved">Resolved</option>
+<option value="Rejected">Rejected</option>
+</select>
+<label class="block mt-3 mb-2 text-text-primary" for="complaintAdminNotes">
+                Admin Notes
+              </label>
+<textarea class="w-full rounded-lg border border-border-hairline bg-surface p-3 text-text-primary" id="complaintAdminNotes" maxlength="2000" placeholder="Enter review notes..." rows="3"></textarea>
+<button class="mt-3 px-4 py-2 rounded-lg bg-primary-container text-on-primary-container" id="saveComplaintStatus">
+                Save Changes
+              </button>
+<p aria-live="polite" class="mt-2 text-body-sm" id="complaintUpdateMessage"></p>
+</div>
+<div class="border-t border-border-hairline mt-5 pt-5">
+<h3 class="font-semibold text-text-primary mb-3">
+                Status History
+              </h3>
+<div class="space-y-3 text-body-sm text-text-muted" id="complaintHistoryContent">
+</div>
+</div>
+</div>
+</div></div></main></div>
+<!-- KPI Metric Mosaic -->
+<!-- Operational Center Split: Intelligence Geo & Rule Engine -->
+<!-- Citizens Live Incident Dispatch & Investigation Console -->
+<!-- Operational Intelligence Banner: CID & RBI Coordination -->
+<!-- MODAL 1: Add New Scam Pattern -->
+<!-- MODAL 2: Broadcast Alert to Citizens -->
+<!-- Toast Notification Container -->
+<script id="surakshit-global-navigation">
+    (function () {
+      const routes = {
+        'landing-page': '/', 'dashboard': '/app', 'gujarati-ai-assistant': '/app/assistant',
+        'check-message-call': '/app/check/message', 'phishing-url-checker': '/app/check/url',
+        'screenshot-qr-scanner': '/app/check/image', 'screenshot-qr-analyzer': '/app/check/image',
+        'emergency-help': '/emergency', 'scam-awareness-library': '/awareness',
+        'scam-alerts': '/awareness', 'scam-alerts-district-intel': '/awareness',
+        'complaint-generator': '/app/complaint'
+      };
+      document.querySelectorAll('[data-path]').forEach(el => {
+        const target = routes[el.getAttribute('data-path')];
+        if (target && el.tagName === 'A') el.setAttribute('href', target);
+      });
+      document.querySelectorAll('a[href="#"]').forEach(a => {
+        const label = (a.innerText || a.getAttribute('aria-label') || '').trim().toLowerCase();
+        if (/login|sign in|પ્રવેશ/.test(label)) a.href = '/login';
+        else if (/profile|setting|account|પ્રોફાઇલ/.test(label)) a.href = '/app/profile';
+        else if (/admin/.test(label)) a.href = '/admin';
+        else if (/article|read more|વધુ વાંચો/.test(label)) a.href = '/awareness/article';
+      });
+      // keep navigation within the app and allow browser back/forward naturally
+    })();
+  </script>
+<script>
+    (async function () {
+      const token = sessionStorage.getItem("sfic_admin_token");
+
+      if (!token) {
+        window.location.replace("/admin/login.html");
+        return;
+      }
+
+      try {
+        const apiBase = (window.SFIC_API_BASE_URL || "").replace(/\/$/, "");
+        const response = await fetch(`${apiBase}/api/admin/me`, {
+          method: "GET",
+          headers: {
+            "Authorization": `Bearer ${token}`
+          }
+        });
+
+        const data = await response.json();
+
+        if (response.status === 401 || response.status === 403) {
+          sessionStorage.removeItem("sfic_admin_token");
+          sessionStorage.removeItem("sfic_admin");
+          window.location.replace("/admin/login.html");
+          return;
+        }
+        if (!response.ok || !data.admin) return;
+
+        const profile = document.querySelector(
+          "header .xl\\:flex.flex-col"
+        );
+
+        if (profile) {
+          const name = profile.querySelector("span:first-child");
+          const role = profile.querySelector("span:last-child");
+
+          if (name) name.textContent = data.admin.name;
+          if (role) role.textContent = "સિસ્ટમ એડમિનિસ્ટ્રેટર";
+        }
+
+      } catch (error) {
+        console.error("Unable to check admin session:", error.message);
+      }
+    })();
+  </script>
+<script src="/route-links.js"></script>
+<script src="/admin/complaints.js"></script>
+<script src="/admin/navigation.js"></script><script src="/live-admin.js"></script></body>
+</html>

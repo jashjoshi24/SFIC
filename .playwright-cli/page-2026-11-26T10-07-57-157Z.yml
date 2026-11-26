@@ -1,0 +1,102 @@
+- generic [active] [ref=f11e1]:
+  - complementary [ref=f11e2]:
+    - link "Surakshit Gujarat ADMINISTRATION" [ref=f11e3] [cursor=pointer]:
+      - /url: /admin/index.html
+      - generic [ref=f11e4]:
+        - text: Surakshit Gujarat
+        - generic [ref=f11e5]: ADMINISTRATION
+    - navigation "Administration" [ref=f11e6]:
+      - link "Overview At a glance" [ref=f11e7] [cursor=pointer]:
+        - /url: /admin/index.html
+        - generic [ref=f11e8]: Overview
+        - generic [ref=f11e9]: At a glance
+      - link "Scan history Message, URL & image checks" [ref=f11e10] [cursor=pointer]:
+        - /url: /admin/scans.html
+        - generic [ref=f11e11]: Scan history
+        - generic [ref=f11e12]: Message, URL & image checks
+      - link "Complaint desk Drafts, notes & history" [ref=f11e13] [cursor=pointer]:
+        - /url: /admin/complaints.html
+        - generic [ref=f11e14]: Complaint desk
+        - generic [ref=f11e15]: Drafts, notes & history
+      - link "Citizens Accounts & activity" [ref=f11e16] [cursor=pointer]:
+        - /url: /admin/citizens.html
+        - generic [ref=f11e17]: Citizens
+        - generic [ref=f11e18]: Accounts & activity
+      - link "Activity reports Trends & risk distribution" [ref=f11e19] [cursor=pointer]:
+        - /url: /admin/reports.html
+        - generic [ref=f11e20]: Activity reports
+        - generic [ref=f11e21]: Trends & risk distribution
+      - link "Awareness library Citizen guides & translations" [ref=f11e22] [cursor=pointer]:
+        - /url: /admin/awareness.html
+        - generic [ref=f11e23]: Awareness library
+        - generic [ref=f11e24]: Citizen guides & translations
+      - link "Email & support Campaigns, delivery & requests" [ref=f11e25] [cursor=pointer]:
+        - /url: /admin/emails.html
+        - generic [ref=f11e26]: Email & support
+        - generic [ref=f11e27]: Campaigns, delivery & requests
+    - link "Open citizen website ↗" [ref=f11e28] [cursor=pointer]:
+      - /url: /app/index.html
+  - generic [ref=f11e29]:
+    - banner [ref=f11e30]:
+      - generic [ref=f11e31]: Preview administrator
+      - button "Sign out" [ref=f11e32] [cursor=pointer]
+    - main [ref=f11e33]:
+      - generic [ref=f11e35]:
+        - paragraph [ref=f11e36]: COMMUNICATIONS
+        - heading "A thoughtful inbox." [level=1] [ref=f11e37]
+        - paragraph [ref=f11e38]: Prepare awareness emails, preview the design, and send to citizens who subscribed.
+      - generic [ref=f11e40]:
+        - generic [ref=f11e41]:
+          - heading "Compose an edition" [level=2] [ref=f11e42]
+          - generic [ref=f11e43]:
+            - generic [ref=f11e44]:
+              - text: Email type
+              - combobox "Email type" [ref=f11e45]:
+                - option "Scam awareness alert" [selected]
+                - option "Cybersecurity newsletter"
+            - generic [ref=f11e46]:
+              - text: Title
+              - textbox "Title" [ref=f11e47]:
+                - /placeholder: A safer click starts with a pause
+                - text: Stay safe online
+            - generic [ref=f11e48]:
+              - text: Introduction
+              - textbox "Introduction" [ref=f11e49]:
+                - /placeholder: What should your readers know?
+                - text: Verify unexpected requests independently.
+            - generic [ref=f11e50]:
+              - text: Tips / reading highlights — one per line
+              - textbox "Tips / reading highlights — one per line" [ref=f11e51]:
+                - /placeholder: "Pause before responding.\nCheck through an official channel.\nKeep your OTP private."
+                - text: Never share OTPs.
+            - button "Preview email" [ref=f11e52] [cursor=pointer]
+            - button "Queue this edition" [disabled] [ref=f11e53]
+            - status [ref=f11e82]: "Edition #12 queued for 2 subscribed citizens."
+        - generic [ref=f11e54]:
+          - heading "Inbox preview" [level=2] [ref=f11e55]
+          - iframe [ref=f11e56]:
+            - heading "Safety edition preview" [level=1] [ref=f12e2]
+      - generic [ref=f11e57]:
+        - heading "Delivery queue" [level=2] [ref=f11e58]
+        - paragraph [ref=f11e59]: Accepted means accepted by Brevo; inbox delivery is not confirmed. Scheduled worker required.
+        - button "Refresh workspace" [ref=f11e60] [cursor=pointer]
+        - status [ref=f11e61]: Workspace updated.
+        - table [ref=f11e83]:
+          - rowgroup [ref=f11e84]:
+            - row [ref=f11e85]:
+              - columnheader "Email type" [ref=f11e86]
+              - columnheader "Status" [ref=f11e87]
+              - columnheader "Messages" [ref=f11e88]
+          - rowgroup [ref=f11e89]:
+            - row [ref=f11e90]:
+              - cell "draft reminder" [ref=f11e91]
+              - cell "pending" [ref=f11e92]
+              - cell "3" [ref=f11e93]
+      - generic [ref=f11e74]:
+        - heading "Recent support requests" [level=2] [ref=f11e75]
+        - paragraph [ref=f11e76]: Review requests here. Contact the citizen through your approved support process; closing a request does not send a reply.
+        - generic [ref=f11e94]:
+          - heading "#108 · Help with dashboard" [level=3] [ref=f11e95]
+          - text: Open · 11/26/2026, 3:37:56 PM
+          - paragraph [ref=f11e96]: Please help me find my saved draft.
+          - button "Mark as closed" [ref=f11e97] [cursor=pointer]

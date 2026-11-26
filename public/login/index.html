@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="gu" class="dark">
+<head><script src="/theme.js"></script>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>સુરક્ષિત ગુજરાત | Citizen Login</title>
+<meta name="description" content="સુરક્ષિત ગુજરાતના નાગરિક ખાતામાં પ્રવેશ કરો અથવા નોંધણી કરો.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Noto+Sans+Gujarati:wght@400;500;600;650;700&family=Material+Symbols+Outlined:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/login/auth.css">
+<script src="/api-config.js" defer></script><script src="/translations-data.js" defer></script><script src="/lang-engine.js" defer></script><script src="/login/auth.js" defer></script>
+<link rel="stylesheet" href="/theme.css"></head>
+<body data-no-translate>
+<header class="auth-header">
+<a class="auth-brand" href="/" aria-label="Surakshit Gujarat home"><img src="/brand-mark.svg" alt="" width="62" height="54"><span><strong>સુરક્ષિત ગુજરાત</strong><small>SURAKSHIT GUJARAT</small></span></a>
+<p class="auth-header-note" data-copy="headerNote">નાગરિકોની ડિજિટલ સુરક્ષા માટેનું સ્વતંત્ર પ્લેટફોર્મ</p>
+<nav class="auth-languages" aria-label="Language"><button type="button" data-lang-btn="gu" aria-pressed="true" lang="gu">ગુજરાતી</button><button type="button" data-lang-btn="hi" aria-pressed="false" lang="hi">हिंदी</button><button type="button" data-lang-btn="en" aria-pressed="false" lang="en">English</button></nav>
+</header>
+<main class="auth-layout" id="main-content">
+<section class="auth-introduction login-introduction" aria-labelledby="intro-title">
+<div class="auth-intro-copy"><img class="auth-intro-map" src="/brand-mark.svg" alt="" width="115" height="95"><h1 id="intro-title"><span data-copy="introFirst" style="color:inherit">સુરક્ષિત શરૂઆત</span><span data-copy="introAccent">અહીંથી.</span></h1>
+<div class="auth-benefits"><div class="auth-benefit"><span class="material-symbols-outlined" aria-hidden="true">shield</span><div><p data-copy="benefitOne">ઓનલાઇન જોખમોથી તમારી અને તમારા પરિવારની સુરક્ષા.</p><small data-copy="benefitOneSub">Stay safe from online risks.</small></div></div><div class="auth-benefit"><span class="material-symbols-outlined" aria-hidden="true">menu_book</span><div><p data-copy="benefitTwo">સરળ માર્ગદર્શનથી ડિજિટલ રીતે વધુ સુરક્ષિત બનો.</p><small data-copy="benefitTwoSub">Be safer online with simple guidance.</small></div></div></div></div>
+<img class="auth-family" src="/assets/auth-family.png" alt="" width="1024" height="1024" fetchpriority="high">
+</section>
+<section class="auth-form-column" data-mode="login" aria-labelledby="form-title">
+<div class="auth-tabs" role="tablist" aria-label="Account access"><button type="button" class="auth-tab" id="tab-pwd" role="tab" aria-selected="true" aria-controls="form-pwd-view" tabindex="0" data-copy="loginTab">લોગિન</button><button type="button" class="auth-tab" id="tab-reg" role="tab" aria-selected="false" aria-controls="form-reg-view" tabindex="-1" data-copy="registerTab">નોંધણી</button></div>
+<div class="auth-form-heading"><h2 id="form-title">પાછા આવવા બદલ સ્વાગત</h2><p id="form-desc">તમારી સુરક્ષા તપાસ ચાલુ રાખવા માટે લોગિન કરો.</p></div>
+<form class="auth-form" id="form-pwd-view" role="tabpanel" aria-labelledby="tab-pwd">
+<div class="auth-field"><label for="login-identifier" data-copy="email">ઈમેઇલ સરનામું / Email address</label><div class="auth-input"><span class="material-symbols-outlined" aria-hidden="true">mail</span><input id="login-identifier" name="email" type="email" autocomplete="email" required maxlength="254" data-placeholder="emailPlaceholder" placeholder="તમારું ઈમેઇલ સરનામું દાખલ કરો"></div></div>
+<div class="auth-field"><label for="login-pwd" data-copy="password">પાસવર્ડ / Password</label><div class="auth-input"><span class="material-symbols-outlined" aria-hidden="true">lock</span><input id="login-pwd" name="password" type="password" autocomplete="current-password" required data-placeholder="passwordPlaceholder" placeholder="તમારો પાસવર્ડ દાખલ કરો"><button class="auth-password-toggle" type="button" data-password="login-pwd" aria-label="પાસવર્ડ બતાવો" aria-pressed="false"><span class="material-symbols-outlined" aria-hidden="true">visibility</span></button></div></div>
+<p id="login-message" class="auth-message" role="alert" aria-live="polite"></p>
+<button class="auth-submit" id="btn-login" type="submit"><span data-copy="loginAction">લોગિન કરો</span><span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></button>
+</form>
+<form class="auth-form hidden" id="form-reg-view" role="tabpanel" aria-labelledby="tab-reg" hidden>
+<div class="auth-field"><label for="register-name" data-copy="name">પૂર્ણ નામ / Full name</label><div class="auth-input"><span class="material-symbols-outlined" aria-hidden="true">person</span><input id="register-name" name="name" type="text" autocomplete="name" required minlength="2" maxlength="100" data-placeholder="namePlaceholder" placeholder="તમારું પૂર્ણ નામ દાખલ કરો"></div></div>
+<div class="auth-field"><label for="register-email" data-copy="email">ઈમેઇલ સરનામું / Email address</label><div class="auth-input"><span class="material-symbols-outlined" aria-hidden="true">mail</span><input id="register-email" name="email" type="email" autocomplete="email" required maxlength="254" data-placeholder="emailPlaceholder" placeholder="તમારું ઈમેઇલ સરનામું દાખલ કરો"></div></div>
+<div class="auth-field"><label for="register-password" data-copy="createPassword">પાસવર્ડ બનાવો / Create password</label><div class="auth-input"><span class="material-symbols-outlined" aria-hidden="true">lock</span><input id="register-password" name="password" type="password" autocomplete="new-password" required minlength="8" maxlength="72" aria-describedby="password-hint" data-placeholder="createPlaceholder" placeholder="પાસવર્ડ બનાવો"><button class="auth-password-toggle" type="button" data-password="register-password" aria-label="પાસવર્ડ બતાવો" aria-pressed="false"><span class="material-symbols-outlined" aria-hidden="true">visibility</span></button></div><p id="password-hint" class="auth-hint" data-copy="passwordHint">ઓછામાં ઓછા 8 અક્ષરો.</p></div>
+<div class="auth-field"><label for="register-confirm-password" data-copy="confirmPassword">પાસવર્ડની પુષ્ટિ કરો / Confirm password</label><div class="auth-input"><span class="material-symbols-outlined" aria-hidden="true">lock</span><input id="register-confirm-password" name="confirmPassword" type="password" autocomplete="new-password" required minlength="8" maxlength="72" data-placeholder="confirmPlaceholder" placeholder="પાસવર્ડ ફરીથી દાખલ કરો"><button class="auth-password-toggle" type="button" data-password="register-confirm-password" aria-label="પાસવર્ડ બતાવો" aria-pressed="false"><span class="material-symbols-outlined" aria-hidden="true">visibility</span></button></div></div>
+<p id="register-message" class="auth-message" role="alert" aria-live="polite"></p>
+<button class="auth-submit" id="btn-register" type="submit"><span data-copy="registerAction">ખાતું બનાવો</span><span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></button>
+</form>
+<p class="auth-bottom" id="login-footer"><span class="material-symbols-outlined" aria-hidden="true">manage_accounts</span><a href="/admin/login.html"><span data-copy="adminLogin">એડમિન તરીકે લોગિન કરો</span><span lang="en"> | Admin sign in</span></a></p>
+<p class="auth-bottom auth-register-footer" id="register-footer" hidden><span data-copy="existingAccount">પહેલેથી જ ખાતું છે?</span><a href="?mode=login" data-switch-login data-copy="signIn">લોગિન કરો</a></p>
+</section>
+</main>
+<footer class="auth-footer"><a class="auth-support" href="tel:1930"><span class="material-symbols-outlined" aria-hidden="true">call</span><span data-copy="supportBefore">સહાય માટે</span><strong>1930</strong><span data-copy="supportAfter">પર સંપર્ક કરો</span></a><p class="auth-independent" data-copy="independent">નાગરિકો માટે સ્વતંત્ર સાયબર સુરક્ષા માર્ગદર્શન. આ સરકારી કે પોલીસ સેવા નથી.</p></footer>
+</body></html>

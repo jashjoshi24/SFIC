@@ -1,0 +1,9 @@
+[     101ms] SecurityError: Failed to read the 'sessionStorage' property from 'Window': The document is sandboxed and lacks the 'allow-same-origin' flag.
+    at <anonymous>:2:144
+    at <anonymous>:3:7
+[   47612ms] SecurityError: Failed to read the 'sessionStorage' property from 'Window': The document is sandboxed and lacks the 'allow-same-origin' flag.
+    at <anonymous>:2:144
+    at <anonymous>:3:7
+[   94289ms] SecurityError: Failed to read the 'sessionStorage' property from 'Window': The document is sandboxed and lacks the 'allow-same-origin' flag.
+    at <anonymous>:2:144
+    at <anonymous>:3:7

@@ -1,0 +1,332 @@
+[
+  {
+    "id": "digital-arrest",
+    "icon": "videocam_off",
+    "category": {
+      "en": "Digital arrest",
+      "gu": "ડિજિટલ અરેસ્ટ",
+      "hi": "डिजिटल अरेस्ट"
+    },
+    "source": "https://cybercrime.gov.in/Webform/theme/resources/advisories/ADVISORYTAU-ADV-003DigitalArrest06.03.2025.pdf",
+    "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuBj_GCT-jxTdaSVoKmfmmTBxF6a94ZzgCZ4_Tg7IqQAS8KDIuGf3yQls-sFW6MQJcTYWyOASe_RSUsh-NdZt8emz-oUEEENdaCgh3wQEhRubrQU9wOYX9Gc2aBI9U6wageC6i6228UCR4FqGY4r5RshkPiGh_eUFcUup_Dh1WZBhMWkP1XISDbRv_pHjpcr_LvIJBMdtthF07LDMzspMPsQZYLNWYS7qX0VQFZCPpU",
+    "content": {
+      "en": {
+        "title": "Recognize a digital arrest scam",
+        "summary": "A threatening video call, a fake badge, and a demand for money are warning signs. Pause and verify independently.",
+        "warnings": [
+          "The caller claims to be police or an investigating officer and pressures you to stay on a call.",
+          "You may be told to keep the conversation secret or transfer money to a “safe account”.",
+          "Do not transfer money or share identity documents because of a video-call threat."
+        ],
+        "actions": [
+          "End the call and speak with someone you trust.",
+          "Verify any claim using contact details from an official website, not a number supplied by the caller.",
+          "Save the caller details and screenshots. If money was lost, promptly contact your bank and report the incident."
+        ]
+      },
+      "gu": {
+        "title": "ડિજિટલ અરેસ્ટની છેતરપિંડી ઓળખો",
+        "summary": "ધમકીભર્યો વીડિયો કોલ, નકલી ઓળખ અને પૈસાની માગ ચેતવણીના સંકેત છે. શાંત રહો અને સ્વતંત્ર રીતે તપાસો.",
+        "warnings": [
+          "કોલ કરનાર પોલીસ કે તપાસ અધિકારી હોવાનો દાવો કરીને કોલ ચાલુ રાખવાનું દબાણ કરે છે.",
+          "વાત ગુપ્ત રાખવાનું અથવા “સુરક્ષિત ખાતા”માં પૈસા મોકલવાનું કહી શકે છે.",
+          "વીડિયો કોલની ધમકીથી પૈસા કે ઓળખના દસ્તાવેજો મોકલશો નહીં."
+        ],
+        "actions": [
+          "કોલ બંધ કરો અને વિશ્વાસપાત્ર વ્યક્તિ સાથે વાત કરો.",
+          "સત્તાવાર વેબસાઇટના સંપર્ક પરથી દાવો તપાસો; કોલ કરનારે આપેલો નંબર વાપરશો નહીં.",
+          "કોલની વિગતો અને સ્ક્રીનશોટ સાચવો. પૈસા ગયા હોય તો બેંકને જાણ કરીને ફરિયાદ કરો."
+        ]
+      },
+      "hi": {
+        "title": "डिजिटल अरेस्ट की ठगी पहचानें",
+        "summary": "धमकी वाला वीडियो कॉल, नकली पहचान और पैसे की माँग चेतावनी के संकेत हैं। शांत रहें और स्वतंत्र रूप से जाँचें।",
+        "warnings": [
+          "कॉलर पुलिस या जाँच अधिकारी होने का दावा करके कॉल जारी रखने का दबाव बनाता है।",
+          "बात गुप्त रखने या “सुरक्षित खाते” में पैसे भेजने को कह सकता है।",
+          "वीडियो कॉल की धमकी पर पैसे या पहचान के दस्तावेज़ न भेजें।"
+        ],
+        "actions": [
+          "कॉल समाप्त करें और किसी भरोसेमंद व्यक्ति से बात करें।",
+          "आधिकारिक वेबसाइट के संपर्क से दावे की जाँच करें, कॉलर के दिए नंबर से नहीं।",
+          "कॉलर की जानकारी और स्क्रीनशॉट सहेजें। पैसे गए हों तो बैंक को बताएँ और रिपोर्ट करें।"
+        ]
+      }
+    }
+  },
+  {
+    "id": "jobs",
+    "icon": "work_outline",
+    "category": {
+      "en": "Job & task scams",
+      "gu": "નોકરી અને ટાસ્ક સ્કેમ",
+      "hi": "नौकरी और टास्क स्कैम"
+    },
+    "source": "https://www.mohfw.gov.in/sites/default/files/National%20Cyber%20Security%20Awareness%20Month.pdf",
+    "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuAdNTV4xabsa_4Q4XgNs4roDLeRpyYjCc2PBUwzkhY-NZMSITG9qnmJ5VhaJAjEAy4fSw-zQyWhF6_QvNUotyLwGALrKViEnQ_Xa1QSI0H3MBu6_hBJDOSrXUG3PC4qQE83W2kSC4Go4QcYVbwgBY_ls_5iqHBbw_9M-EeiK33Ax5yT2ZRtz-rqcdj6wXPioPI63DhbmWnx3rPO9Gm3-kmhA6NCgU8pVSP4YrhU1oE",
+    "content": {
+      "en": {
+        "title": "Avoid fake job and rating-task offers",
+        "summary": "A small initial payment can be used to persuade you to deposit larger amounts for tasks or withdrawals.",
+        "warnings": [
+          "An unknown recruiter offers easy money for ratings, likes, or simple tasks.",
+          "You are asked to pay a deposit, upgrade an account, or pay again before withdrawing earnings.",
+          "Promises and screenshots of earnings do not prove the offer is genuine."
+        ],
+        "actions": [
+          "Verify the employer through its official website and independently obtained contacts.",
+          "Stop sending money when a supposed job requires repeated deposits.",
+          "Preserve chats and transaction references. Report suspected fraud through the official portal."
+        ]
+      },
+      "gu": {
+        "title": "નકલી નોકરી અને રેટિંગ ટાસ્કથી બચો",
+        "summary": "શરૂઆતમાં થોડા પૈસા આપીને વધુ ટાસ્ક કે ઉપાડ માટે મોટી રકમ જમા કરાવવાનું કહી શકે છે.",
+        "warnings": [
+          "અજાણ્યો ભરતી કરનાર રેટિંગ, લાઇક અથવા સરળ ટાસ્ક માટે કમાણીની લાલચ આપે છે.",
+          "કમાણી ઉપાડવા પહેલાં ડિપોઝિટ, અપગ્રેડ કે વધારાની ચુકવણી માગે છે.",
+          "કમાણીના વચન કે સ્ક્રીનશોટથી ઓફર સાચી સાબિત થતી નથી."
+        ],
+        "actions": [
+          "સત્તાવાર વેબસાઇટ અને સ્વતંત્ર સંપર્કથી નોકરી આપનારની તપાસ કરો.",
+          "નોકરી માટે વારંવાર પૈસા માગે તો ચુકવણી બંધ કરો.",
+          "ચેટ અને ટ્રાન્ઝેક્શન રેફરન્સ સાચવી સત્તાવાર પોર્ટલ પર જાણ કરો."
+        ]
+      },
+      "hi": {
+        "title": "नकली नौकरी और रेटिंग टास्क से बचें",
+        "summary": "शुरू में थोड़े पैसे देकर अधिक टास्क या निकासी के लिए बड़ी रकम जमा कराने को कहा जा सकता है।",
+        "warnings": [
+          "अनजान भर्ती करने वाला रेटिंग, लाइक या आसान टास्क के बदले कमाई का लालच देता है।",
+          "कमाई निकालने से पहले जमा, अपग्रेड या अतिरिक्त भुगतान माँगता है।",
+          "कमाई के वादे और स्क्रीनशॉट ऑफर के असली होने का प्रमाण नहीं हैं।"
+        ],
+        "actions": [
+          "नियोक्ता की जाँच उसकी आधिकारिक वेबसाइट और स्वतंत्र संपर्क से करें।",
+          "नौकरी के लिए बार-बार पैसे माँगे जाएँ तो भुगतान बंद करें।",
+          "चैट और लेनदेन संदर्भ सहेजकर आधिकारिक पोर्टल पर रिपोर्ट करें।"
+        ]
+      }
+    }
+  },
+  {
+    "id": "electricity",
+    "icon": "bolt",
+    "category": {
+      "en": "Electricity / APK scams",
+      "gu": "વીજળી બિલ / APK સ્કેમ",
+      "hi": "बिजली बिल / APK स्कैम"
+    },
+    "source": "https://www.mohfw.gov.in/sites/default/files/National%20Cyber%20Security%20Awareness%20Month.pdf",
+    "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuBOtwJh8nbiPbdc6jltWZlLoB13hBcl57xmx6n48ZH4GIpCNQlCgbRDeGSu1xBgcDDRDEdtghDmpy3gOzXzerc4JsG6sXqOD4L1lKs-Apr6SJxxmUf-TO1SxuWFaB_nDuMfmzF_vhfIcp2Oj38JWFsEIDmYQw3EoQN_PwE3zsCn3rIBSm0A-4lRV7YwbSSfCINYm_At4GMAa3K9nM3JlmjONNiEIs1kSaecly7AE7A",
+    "content": {
+      "en": {
+        "title": "Check a suspicious electricity bill message",
+        "summary": "Urgent disconnection threats may push you to call an unknown number, open a link, or install an app.",
+        "warnings": [
+          "The message creates panic about an unpaid bill or immediate disconnection.",
+          "The sender asks you to install an APK, share a screen, or allow remote access.",
+          "A familiar logo or company name in a message is not proof of identity."
+        ],
+        "actions": [
+          "Check the bill using the utility’s official app, website, or a contact printed on a genuine bill.",
+          "Do not install an app sent by an unknown caller or grant remote access.",
+          "If you installed a suspicious app, stop financial activity on that device and contact your bank from a trusted device."
+        ]
+      },
+      "gu": {
+        "title": "શંકાસ્પદ વીજળી બિલનો મેસેજ તપાસો",
+        "summary": "જોડાણ કાપવાની તાત્કાલિક ધમકીથી અજાણ્યા નંબર પર કોલ, લિંક ખોલવા કે એપ ઇન્સ્ટોલ કરવાનું કહી શકે છે.",
+        "warnings": [
+          "બાકી બિલ કે તાત્કાલિક જોડાણ કાપવાની વાતથી ગભરાટ ફેલાવે છે.",
+          "APK ઇન્સ્ટોલ, સ્ક્રીન શેર અથવા રિમોટ એક્સેસ આપવાનું કહે છે.",
+          "મેસેજમાં ઓળખીતો લોગો કે કંપનીનું નામ ઓળખનો પુરાવો નથી."
+        ],
+        "actions": [
+          "સત્તાવાર એપ, વેબસાઇટ અથવા સાચા બિલના સંપર્ક પરથી બિલ તપાસો.",
+          "અજાણ્યા વ્યક્તિએ મોકલેલી એપ ઇન્સ્ટોલ કે રિમોટ એક્સેસ આપશો નહીં.",
+          "શંકાસ્પદ એપ ઇન્સ્ટોલ કરી હોય તો તે ઉપકરણથી નાણાકીય કામ બંધ કરી વિશ્વાસપાત્ર ઉપકરણથી બેંકનો સંપર્ક કરો."
+        ]
+      },
+      "hi": {
+        "title": "संदिग्ध बिजली बिल संदेश की जाँच करें",
+        "summary": "तुरंत कनेक्शन काटने की धमकी देकर अनजान नंबर पर कॉल, लिंक खोलने या ऐप इंस्टॉल करने को कहा जा सकता है।",
+        "warnings": [
+          "बकाया बिल या तुरंत कनेक्शन कटने की बात से घबराहट पैदा करता है।",
+          "APK इंस्टॉल, स्क्रीन शेयर या रिमोट एक्सेस देने को कहता है।",
+          "संदेश में परिचित लोगो या कंपनी का नाम पहचान का प्रमाण नहीं है।"
+        ],
+        "actions": [
+          "आधिकारिक ऐप, वेबसाइट या असली बिल पर दिए संपर्क से बिल जाँचें।",
+          "अनजान व्यक्ति का भेजा ऐप इंस्टॉल न करें और रिमोट एक्सेस न दें।",
+          "संदिग्ध ऐप इंस्टॉल किया हो तो उस उपकरण से वित्तीय काम रोकें और भरोसेमंद उपकरण से बैंक से संपर्क करें।"
+        ]
+      }
+    }
+  },
+  {
+    "id": "loans",
+    "icon": "account_balance",
+    "category": {
+      "en": "Loan app scams",
+      "gu": "લોન એપ સ્કેમ",
+      "hi": "लोन ऐप स्कैम"
+    },
+    "source": "https://www.rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx?prid=50846",
+    "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuDfaXrHTFmh6DinWroZNW_TRIIlIqngrnOtfgYIWJiwilofyl57dGSKktf9ccTx4oMyoDLc6nWkkkjMpm8IevmR6wThOPGQihUhCTAdF3KEhN5q9rOXDZJiwGbJntYlXb0CvcpDVLDG-FRnYM9P8tUuF8DXP4nlS2hxaTRXOVGnbb8qq4WhrbyyYqcaYPaeCCvzhyikvw9-xY5qaaFcIjsKGE42GmOE7XSvDCEoegI",
+    "content": {
+      "en": {
+        "title": "Verify a loan app before sharing information",
+        "summary": "Review who the lender is and what permissions the app requests before sharing documents or accepting an offer.",
+        "warnings": [
+          "The lender is unclear or the app demands unnecessary access to contacts and photos.",
+          "The offer uses pressure, unclear fees, or requests payments before providing a loan.",
+          "Threats to contact your family or misuse your photos are warning signs of harassment."
+        ],
+        "actions": [
+          "Check the lender and the app association on the official website of the bank or NBFC.",
+          "Read the terms and permissions before proceeding; do not send documents to unverified contacts.",
+          "Preserve threats and report harassment or suspected fraud. Do not assume another payment will stop blackmail."
+        ]
+      },
+      "gu": {
+        "title": "માહિતી આપતાં પહેલાં લોન એપ તપાસો",
+        "summary": "દસ્તાવેજ આપતાં કે ઓફર સ્વીકારતાં પહેલાં લોન આપનાર અને એપની પરવાનગીઓ તપાસો.",
+        "warnings": [
+          "લોન આપનારની ઓળખ સ્પષ્ટ નથી અથવા એપ બિનજરૂરી કોન્ટેક્ટ અને ફોટાની પરવાનગી માગે છે.",
+          "દબાણ, અસ્પષ્ટ ફી અથવા લોન પહેલાં ચુકવણીની માગ કરે છે.",
+          "પરિવારને સંપર્ક કે ફોટાનો દુરુપયોગ કરવાની ધમકી સતામણીના સંકેત છે."
+        ],
+        "actions": [
+          "બેંક અથવા NBFCની સત્તાવાર વેબસાઇટ પર લોન આપનાર અને એપનો સંબંધ તપાસો.",
+          "શરતો અને પરવાનગીઓ વાંચો; અજાણ્યા સંપર્કને દસ્તાવેજો મોકલશો નહીં.",
+          "ધમકી સાચવો અને સતામણી કે છેતરપિંડીની જાણ કરો. વધુ પૈસા આપવાથી બ્લેકમેઇલ બંધ થશે એવું માનશો નહીં."
+        ]
+      },
+      "hi": {
+        "title": "जानकारी देने से पहले लोन ऐप की जाँच करें",
+        "summary": "दस्तावेज़ देने या ऑफर स्वीकार करने से पहले ऋणदाता और ऐप की अनुमतियाँ जाँचें।",
+        "warnings": [
+          "ऋणदाता की पहचान स्पष्ट नहीं या ऐप अनावश्यक संपर्क और फोटो की अनुमति माँगता है।",
+          "दबाव, अस्पष्ट फीस या ऋण देने से पहले भुगतान की माँग होती है।",
+          "परिवार से संपर्क या फोटो के दुरुपयोग की धमकी उत्पीड़न के संकेत हैं।"
+        ],
+        "actions": [
+          "बैंक या NBFC की आधिकारिक वेबसाइट पर ऋणदाता और ऐप का संबंध जाँचें।",
+          "शर्तें और अनुमतियाँ पढ़ें; असत्यापित संपर्कों को दस्तावेज़ न भेजें।",
+          "धमकी सहेजें और उत्पीड़न या ठगी की रिपोर्ट करें। अधिक पैसे देने से ब्लैकमेल रुक जाएगा, ऐसा न मानें।"
+        ]
+      }
+    }
+  },
+  {
+    "id": "cards",
+    "icon": "credit_card",
+    "category": {
+      "en": "Card reward scams",
+      "gu": "કાર્ડ રિવોર્ડ સ્કેમ",
+      "hi": "कार्ड रिवॉर्ड स्कैम"
+    },
+    "source": "https://www.mohfw.gov.in/sites/default/files/National%20Cyber%20Security%20Awareness%20Month.pdf",
+    "image": null,
+    "content": {
+      "en": {
+        "title": "Protect your card from fake reward offers",
+        "summary": "A reward-points message may lead to a lookalike page asking for card details and an OTP.",
+        "warnings": [
+          "An unsolicited message says points will expire unless you act immediately.",
+          "A linked page requests your full card number, CVV, PIN, or OTP.",
+          "The web address differs from your bank’s official site."
+        ],
+        "actions": [
+          "Open the bank’s official app yourself to check rewards.",
+          "Never share a PIN or OTP with a caller or in response to an unsolicited reward message.",
+          "If details were exposed, contact the bank using its official channel and secure the card."
+        ]
+      },
+      "gu": {
+        "title": "નકલી રિવોર્ડ ઓફરથી કાર્ડ સુરક્ષિત રાખો",
+        "summary": "રિવોર્ડ પોઇન્ટનો મેસેજ નકલી પેજ પર લઈ જઈ કાર્ડની વિગતો અને OTP માગી શકે છે.",
+        "warnings": [
+          "અજાણ્યો મેસેજ તરત પગલું ન લો તો પોઇન્ટ પૂરા થવાની વાત કરે છે.",
+          "લિંકનું પેજ સંપૂર્ણ કાર્ડ નંબર, CVV, PIN કે OTP માગે છે.",
+          "વેબ સરનામું બેંકની સત્તાવાર સાઇટથી જુદું હોય છે."
+        ],
+        "actions": [
+          "રિવોર્ડ તપાસવા બેંકની સત્તાવાર એપ જાતે ખોલો.",
+          "કોલ કરનારને કે અજાણ્યા રિવોર્ડ મેસેજના જવાબમાં PIN અથવા OTP આપશો નહીં.",
+          "વિગતો આપી હોય તો સત્તાવાર સંપર્કથી બેંકને જાણ કરીને કાર્ડ સુરક્ષિત કરો."
+        ]
+      },
+      "hi": {
+        "title": "नकली रिवॉर्ड ऑफर से कार्ड सुरक्षित रखें",
+        "summary": "रिवॉर्ड पॉइंट संदेश नकली पेज पर ले जाकर कार्ड की जानकारी और OTP माँग सकता है।",
+        "warnings": [
+          "अनचाहा संदेश तुरंत कार्रवाई न करने पर पॉइंट खत्म होने की बात करता है।",
+          "लिंक वाला पेज पूरा कार्ड नंबर, CVV, PIN या OTP माँगता है।",
+          "वेब पता बैंक की आधिकारिक साइट से अलग होता है।"
+        ],
+        "actions": [
+          "रिवॉर्ड जाँचने के लिए बैंक का आधिकारिक ऐप स्वयं खोलें।",
+          "कॉलर को या अनचाहे रिवॉर्ड संदेश के जवाब में PIN या OTP न दें।",
+          "जानकारी साझा हो गई हो तो आधिकारिक माध्यम से बैंक को बताएँ और कार्ड सुरक्षित करें।"
+        ]
+      }
+    }
+  },
+  {
+    "id": "upi",
+    "icon": "qr_code_scanner",
+    "category": {
+      "en": "UPI & QR safety",
+      "gu": "UPI અને QR સુરક્ષા",
+      "hi": "UPI और QR सुरक्षा"
+    },
+    "source": "https://www.mohfw.gov.in/sites/default/files/National%20Cyber%20Security%20Awareness%20Month.pdf",
+    "image": null,
+    "content": {
+      "en": {
+        "title": "Understand a UPI collect request before approving",
+        "summary": "Read the amount and recipient carefully. A request presented as a refund can actually ask you to pay.",
+        "warnings": [
+          "A buyer or caller asks you to scan a QR code or approve a collect request to receive money.",
+          "You are asked to enter your UPI PIN for an unexpected refund or prize.",
+          "The payee name or amount does not match the transaction you intended."
+        ],
+        "actions": [
+          "Review every payment screen and reject unexpected requests.",
+          "Do not share a UPI PIN, OTP, or screen access.",
+          "Check your bank’s transaction record. If money was debited fraudulently, notify the bank and report promptly."
+        ]
+      },
+      "gu": {
+        "title": "UPI કલેક્ટ રિક્વેસ્ટ સ્વીકારતાં પહેલાં સમજો",
+        "summary": "રકમ અને મેળવનાર ધ્યાનથી વાંચો. રિફંડ તરીકે બતાવેલી રિક્વેસ્ટ ખરેખર તમારી પાસેથી ચુકવણી માગતી હોઈ શકે છે.",
+        "warnings": [
+          "પૈસા મેળવવા ખરીદનાર કે કોલ કરનાર QR સ્કેન અથવા કલેક્ટ રિક્વેસ્ટ સ્વીકારવાનું કહે છે.",
+          "અણધાર્યા રિફંડ કે ઇનામ માટે UPI PIN નાખવાનું કહે છે.",
+          "મેળવનારનું નામ કે રકમ તમારા ઇચ્છિત વ્યવહારથી જુદાં છે."
+        ],
+        "actions": [
+          "દરેક પેમેન્ટ સ્ક્રીન તપાસો અને અણધારી રિક્વેસ્ટ નકારો.",
+          "UPI PIN, OTP અથવા સ્ક્રીન એક્સેસ આપશો નહીં.",
+          "બેંકનો ટ્રાન્ઝેક્શન રેકોર્ડ તપાસો. છેતરપિંડીથી પૈસા કપાયા હોય તો બેંક અને સત્તાવાર પોર્ટલને તરત જાણ કરો."
+        ]
+      },
+      "hi": {
+        "title": "UPI कलेक्ट अनुरोध स्वीकार करने से पहले समझें",
+        "summary": "राशि और प्राप्तकर्ता ध्यान से पढ़ें। रिफंड बताकर भेजा अनुरोध वास्तव में आपसे भुगतान माँग सकता है।",
+        "warnings": [
+          "पैसे प्राप्त करने के लिए खरीदार या कॉलर QR स्कैन या कलेक्ट अनुरोध मंजूर करने को कहता है।",
+          "अनपेक्षित रिफंड या पुरस्कार के लिए UPI PIN डालने को कहता है।",
+          "प्राप्तकर्ता का नाम या राशि आपके इच्छित लेनदेन से अलग है।"
+        ],
+        "actions": [
+          "हर भुगतान स्क्रीन जाँचें और अनपेक्षित अनुरोध अस्वीकार करें।",
+          "UPI PIN, OTP या स्क्रीन एक्सेस साझा न करें।",
+          "बैंक का लेनदेन रिकॉर्ड जाँचें। धोखे से पैसे कटे हों तो बैंक को बताएँ और तुरंत रिपोर्ट करें।"
+        ]
+      }
+    }
+  }
+]

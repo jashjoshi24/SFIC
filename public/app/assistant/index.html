@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="gu">
+<head><script src="/theme.js"></script><script src="/api-config.js"></script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="web_dashboard" name="shell-type"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700&amp;family=Manrope:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+    @layer base {
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        overscroll-behavior: none;
+      }
+
+      main>:first-child {
+        margin-top: 0 !important;
+      }
+
+      main>:last-child {
+        margin-bottom: 0 !important;
+      }
+    }
+
+    ::-webkit-scrollbar {
+      display: none;
+    }
+  </style>
+<script src="https://cdn.tailwindcss.com"></script>
+<script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: window.SGTheme.colors, borderRadius: { DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px" }, spacing: { "space-lg": "1.5rem", gutter: "1.5rem", "space-md": "1rem", "gutter-mobile": "1rem", margin: "2rem", "space-xs": "0.25rem", "space-sm": "0.5rem", "margin-mobile": "1rem", "space-xl": "2.5rem" }, fontFamily: { "headline-lg": ["Plus Jakarta Sans"], "body-sm": ["Manrope"], "headline-xl-mobile": ["Plus Jakarta Sans"], "headline-xl": ["Plus Jakarta Sans"], "body-lg": ["Manrope"], "label-lg": ["Plus Jakarta Sans"], "headline-md": ["Plus Jakarta Sans"], "headline-sm": ["Plus Jakarta Sans"], "label-md": ["Plus Jakarta Sans"], "label-sm": ["Plus Jakarta Sans"], "headline-lg-mobile": ["Plus Jakarta Sans"], "body-md": ["Manrope"] }, fontSize: { "headline-lg": ["32px", { lineHeight: "40px", letterSpacing: "-0.015em", fontWeight: "600" }], "body-sm": ["13px", { lineHeight: "20px", fontWeight: "400" }], "headline-xl-mobile": ["32px", { lineHeight: "40px", letterSpacing: "-0.01em", fontWeight: "700" }], "headline-xl": ["48px", { lineHeight: "58px", letterSpacing: "-0.02em", fontWeight: "700" }], "body-lg": ["17px", { lineHeight: "28px", fontWeight: "400" }], "label-lg": ["14px", { lineHeight: "20px", letterSpacing: "0.01em", fontWeight: "600" }], "headline-md": ["22px", { lineHeight: "30px", letterSpacing: "-0.01em", fontWeight: "600" }], "headline-sm": ["18px", { lineHeight: "26px", fontWeight: "600" }], "label-md": ["12px", { lineHeight: "16px", letterSpacing: "0.02em", fontWeight: "600" }], "label-sm": ["11px", { lineHeight: "14px", letterSpacing: "0.03em", fontWeight: "500" }], "headline-lg-mobile": ["24px", { lineHeight: "32px", letterSpacing: "-0.01em", fontWeight: "600" }], "body-md": ["15px", { lineHeight: "24px", fontWeight: "400" }] } } } };</script>
+<title>Gujarati AI Assistant | Surakshit Gujarat</title>
+<style>
+    @media(max-width:1023px) {
+      body>aside {
+        display: none
+      }
+
+      body>div.pl-72 {
+        padding-left: 0
+      }
+
+      header.fixed {
+        left: 0;
+        gap: 8px
+      }
+
+      header.fixed label,
+      header.fixed input,
+      header.fixed kbd {
+        display: none
+      }
+
+      header.fixed div.relative:has(input) {
+        display: none
+      }
+    }
+
+    @media(max-width:600px) {
+      header.fixed button[aria-label="Notifications"] {
+        display: none
+      }
+
+      main {
+        padding-left: 12px !important;
+        padding-right: 12px !important
+      }
+
+      h1 {
+        font-size: 30px !important;
+        line-height: 1.3 !important
+      }
+    }
+  </style>
+<link href="/brand-mark.svg" rel="icon" type="image/svg+xml"/><script src="/translations-data.js" defer></script>
+<script src="/lang-engine.js" defer></script>
+<link rel="stylesheet" href="/theme.css"></head>
+<body class="bg-bg-base text-on-surface font-body-md text-body-md min-h-screen selection:bg-primary-container selection:text-on-primary-container">
+<aside class="fixed left-0 top-0 h-screen w-72 bg-surface-container-lowest/90 backdrop-blur-2xl z-50 flex flex-col justify-between shadow-[0_0_28px_rgba(0,0,0,0.7)]">
+<div class="flex flex-col">
+<div class="h-20 px-space-md flex items-center justify-between"><a class="flex items-center gap-space-sm" data-path="dashboard" href="/app"><img alt="Surakshit Gujarat Emblem" class="h-8 w-auto object-contain" src="/brand-mark.svg"/>
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5"><span class="font-headline-sm text-headline-sm text-text-primary tracking-tight">સુરક્ષિત ગુજરાત</span><span class="inline-flex items-center px-1.5 py-0.5 rounded-full bg-secondary-container/20 text-secondary text-[10px] font-label-sm font-semibold tracking-wide uppercase">AI
+                Kavach</span></div><span class="font-label-sm text-label-sm text-text-muted">Cyber Suraksha
+              Kendra</span>
+</div>
+</a></div>
+<div class="px-space-md py-space-xs">
+<div class="flex items-center justify-between px-space-sm py-1.5 rounded-lg bg-surface-raised">
+<div class="flex items-center gap-2"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-secondary"></span></span><span class="font-label-sm text-label-sm text-on-surface-variant">Cyber Awareness</span></div><span class="font-label-sm text-label-sm text-secondary font-medium">Online Tool</span>
+</div>
+</div>
+<nav class="px-space-sm mt-space-sm space-y-1" data-active-classes="bg-primary-container text-on-primary-container font-semibold shadow-[0_4px_16px_rgba(241,90,36,0.3)]">
+<a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-raised hover:text-on-surface transition-all group" data-path="dashboard" href="/app"><span class="material-symbols-outlined text-[20px] transition-colors group-hover:text-primary">shield</span>
+<div class="flex flex-col"><span class="font-label-lg text-label-lg">Dashboard</span><span class="font-label-sm text-label-sm opacity-70">મુખ્ય પૃષ્ઠ</span></div>
+</a><a aria-current="page" class="flex items-center gap-space-sm px-space-md py-2.5 rounded-xl transition-all group bg-primary-container text-on-primary-container font-semibold shadow-[0_4px_16px_rgba(241,90,36,0.3)]" data-path="gujarati-ai-assistant" href="/app/assistant"><span class="material-symbols-outlined text-[20px] transition-colors group-hover:text-primary">smart_toy</span>
+<div class="flex flex-col"><span class="font-label-lg text-label-lg">Gujarati AI Assistant</span><span class="font-label-sm text-label-sm opacity-70">સાયબર સહાયક AI</span></div>
+</a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-raised hover:text-on-surface transition-all group" data-path="check-message-call" href="/app/check/message"><span class="material-symbols-outlined text-[20px] transition-colors group-hover:text-primary">sms</span>
+<div class="flex flex-col"><span class="font-label-lg text-label-lg">Check Message / Call</span><span class="font-label-sm text-label-sm opacity-70">શંકાસ્પદ મેસેજ તપાસો</span></div>
+</a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-raised hover:text-on-surface transition-all group" data-path="phishing-url-checker" href="/app/check/url"><span class="material-symbols-outlined text-[20px] transition-colors group-hover:text-primary">link</span>
+<div class="flex flex-col"><span class="font-label-lg text-label-lg">Phishing URL Checker</span><span class="font-label-sm text-label-sm opacity-70">લિંક સુરક્ષા સ્કેનર</span></div>
+</a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-raised hover:text-on-surface transition-all group" data-path="screenshot-qr-scanner" href="/app/check/image"><span class="material-symbols-outlined text-[20px] transition-colors group-hover:text-primary">qr_code_scanner</span>
+<div class="flex flex-col"><span class="font-label-lg text-label-lg">Screenshot / QR Scanner</span><span class="font-label-sm text-label-sm opacity-70">QR સ્કેન અને સ્ક્રીનશોટ</span></div>
+</a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-raised hover:text-on-surface transition-all group" data-path="complaint-generator" href="/app/complaint"><span class="material-symbols-outlined text-[20px] transition-colors group-hover:text-primary">description</span>
+<div class="flex flex-col"><span class="font-label-lg text-label-lg">Complaint Generator</span><span class="font-label-sm text-label-sm opacity-70">સાયબર ફરિયાદ ડ્રાફ્ટ</span></div>
+</a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-raised hover:text-on-surface transition-all group" data-path="scam-alerts" href="/awareness"><span class="material-symbols-outlined text-[20px] transition-colors group-hover:text-primary">warning</span>
+<div class="flex flex-col"><span class="font-label-lg text-label-lg">Scam Alerts</span><span class="font-label-sm text-label-sm opacity-70">તાજા ફ્રોડ એલર્ટ્સ</span></div>
+</a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-raised hover:text-on-surface transition-all group" data-path="emergency-help" href="/emergency"><span class="material-symbols-outlined text-[20px] text-danger">fmd_bad</span>
+<div class="flex flex-col"><span class="font-label-lg text-label-lg text-danger">Emergency Help</span><span class="font-label-sm text-label-sm opacity-70">ત્વરિત સહાય (1930)</span></div>
+</a></nav>
+</div>
+<div class="p-space-md">
+<div class="p-3.5 rounded-xl bg-surface-raised/80 backdrop-blur-md flex flex-col gap-2.5">
+<div class="flex items-center justify-between"><span class="font-label-sm text-label-sm text-text-muted">Helpline Desk</span><span class="font-label-sm text-label-sm text-primary font-semibold">National Portal</span></div>
+<div class="flex items-center gap-2"><span class="material-symbols-outlined text-tertiary text-lg">phone_in_talk</span><span class="font-headline-sm text-headline-sm text-text-primary tracking-wider">1930</span></div><span class="font-body-sm text-body-sm text-text-muted">રાષ્ટ્રીય સાયબર ક્રાઇમ સહાયતા કેન્દ્ર (1930)</span>
+</div>
+</div>
+</aside>
+<div class="pl-72">
+<header class="fixed top-0 left-72 right-0 h-20 bg-surface-container-lowest/80 backdrop-blur-xl z-40 px-gutter flex items-center justify-between">
+<div class="flex items-center gap-space-md"><a aria-label="Surakshit Gujarat home" class="site-brand" href="/app/index.html" translate="no"><img alt="" class="h-8 w-auto object-contain" height="44" src="/brand-mark.svg" width="44"/><span class="site-brand-wordmark"><span class="site-brand-name">સુરક્ષિત ગુજરાત</span><span class="site-brand-tagline">SURAKSHIT GUJARAT</span></span></a>
+</div>
+<div class="flex items-center gap-space-md">
+<div class="flex items-center p-1 rounded-full bg-surface-raised text-on-surface-variant font-label-sm text-label-sm">
+<button class="px-3 py-1 rounded-full bg-primary-container text-on-primary-container font-semibold transition-all shadow-sm" type="button">ગુજરાતી</button><button class="px-3 py-1 rounded-full text-on-surface-variant hover:text-on-surface transition-all" type="button">हिंदी</button><button class="px-3 py-1 rounded-full text-on-surface-variant hover:text-on-surface transition-all" type="button">English</button></div>
+<div class="flex items-center gap-space-sm pl-2"><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-1 ring-border-hairline" src="/brand-mark.svg"/>
+<div class="hidden xl:flex flex-col text-left"><span class="font-label-md text-label-md text-text-primary leading-tight" data-current-user="" translate="no">Account</span><span class="font-label-sm text-label-sm text-text-muted">Citizen account</span></div>
+</div>
+</div>
+</header>
+<main class="w-full pt-20 bg-bg-base min-h-screen px-gutter pb-space-xl">
+<div class="flex flex-col w-full">
+<div class="relative w-full max-w-5xl mx-auto flex flex-col gap-space-lg">
+<!-- Ambient Radiance Backgrounds -->
+<div class="absolute -top-24 left-1/2 -translate-x-1/2 w-[640px] h-[320px] bg-gradient-to-b from-primary-container/20 via-primary-strong/10 to-transparent blur-3xl pointer-events-none -z-10 rounded-full">
+</div>
+<div class="absolute top-96 right-10 w-72 h-72 bg-secondary/5 blur-3xl pointer-events-none -z-10 rounded-full">
+</div>
+<!-- Top Hero Area -->
+<section class="flex flex-col items-center text-center pt-space-sm pb-space-xs relative">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-raised shadow-md mb-space-sm">
+<span class="font-label-sm text-label-sm text-primary tracking-wide uppercase font-semibold">સાયબર સુરક્ષા
+                માર્ગદર્શન</span>
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+</div>
+<h1 class="font-headline-xl text-headline-xl text-text-primary tracking-tight max-w-3xl">
+
+              ગુજરાતી AI સહાયક — <span class="bg-gradient-to-r from-primary-container via-primary to-secondary bg-clip-text text-transparent">તમારો
+                અંગત સલાહકાર</span>
+</h1>
+<p class="mt-space-xs font-body-lg text-body-lg text-text-muted max-w-2xl leading-relaxed">કોઈપણ શંકાસ્પદ
+              મેસેજ, કોલ કે ઓનલાઇન જોખમ વિશે ગુજરાતીમાં પૂછો. ગોપનીયતા નીતિ જુઓ · ક્યારેય OTP કે PIN શેર કરશો નહીં.</p>
+<div class="mt-space-sm flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container shadow-sm">
+<span class="material-symbols-outlined text-[16px] text-tertiary">translate</span>
+<span class="font-label-sm text-label-sm text-primary font-semibold">ગુજરાતી (Default)</span>
+<span class="text-text-muted text-xs">•</span>
+<span class="font-label-sm text-label-sm text-text-muted">English</span>
+<span class="text-text-muted text-xs">•</span>
+<span class="font-label-sm text-label-sm text-text-muted">हिंदी</span>
+</div>
+</section>
+<!-- Suggested Query Action Cards -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+<!-- Card 1: UPI Fraud -->
+<button class="group text-left p-space-md rounded-xl bg-surface-raised hover:bg-surface-soft transition-all duration-300 shadow-md flex flex-col justify-between relative overflow-hidden" data-glass="card" onclick="insertPrompt('મારા બેંક ખાતામાંથી અજાણી UPI લિંક દ્વારા પૈસા કપાઈ ગયા છે. તાત્કાલિક શું કરવું?')" type="button">
+<div class="absolute top-0 right-0 w-24 h-24 bg-danger/10 rounded-bl-full pointer-events-none group-hover:scale-110 transition-transform">
+</div>
+<div>
+<div class="flex items-center justify-between mb-space-sm">
+<span class="w-9 h-9 rounded-lg bg-danger/15 text-danger flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">account_balance_wallet</span>
+</span>
+<span class="font-label-sm text-label-sm text-danger bg-danger/10 px-2 py-0.5 rounded-full font-medium">ઇમરજન્સી
+                    સ્ટેપ્સ</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-text-primary group-hover:text-primary transition-colors">
+                  UPI ફ્રોડ થઈ ગયું છે?
+                </h2>
+<p class="mt-space-xs font-body-sm text-body-sm text-text-muted leading-relaxed">
+                  ખાતું તાત્કાલિક ફ્રીઝ કરવાની રીત, બેંક હેલ્પલાઇન નંબરો અને નેશનલ ૧૯૩૦ ગાઇડ મેળવો.
+                </p>
+</div>
+<div class="mt-space-md flex items-center gap-1.5 text-primary font-label-sm text-label-sm">
+<span class="">સલાહ મેળવો</span>
+<span class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</div>
+</button>
+<!-- Card 2: Digital Arrest Notice -->
+<button class="group text-left p-space-md rounded-xl bg-surface-raised hover:bg-surface-soft transition-all duration-300 shadow-md flex flex-col justify-between relative overflow-hidden" data-glass="card" onclick="insertPrompt('મને CBI / પોલીસ વીડિયો કોલ દ્વારા ડિજિટલ એરેસ્ટની ધમકી આપી છે, શું આ સાચું છે?')" type="button">
+<div class="absolute top-0 right-0 w-24 h-24 bg-tertiary/10 rounded-bl-full pointer-events-none group-hover:scale-110 transition-transform">
+</div>
+<div>
+<div class="flex items-center justify-between mb-space-sm">
+<span class="w-9 h-9 rounded-lg bg-tertiary/15 text-tertiary flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">gavel</span>
+</span>
+<span class="font-label-sm text-label-sm text-tertiary bg-tertiary/10 px-2 py-0.5 rounded-full font-medium">ખોટો
+                    ડર દૂર કરો</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-text-primary group-hover:text-primary transition-colors">
+                  ડિજિટલ એરેસ્ટ નોટિસ સાચી છે?
+                </h2>
+<p class="mt-space-xs font-body-sm text-body-sm text-text-muted leading-relaxed">
+                  પોલીસ કે CBI ક્યારેય Skype કે WhatsApp વિડીયો કોલ દ્વારા ધરપકડ કે નાણાં માંગતી નથી.
+                </p>
+</div>
+<div class="mt-space-md flex items-center gap-1.5 text-primary font-label-sm text-label-sm">
+<span class="">સત્યતા ચકાસો</span>
+<span class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</div>
+</button>
+<!-- Card 3: OTP Share Issue -->
+<button class="group text-left p-space-md rounded-xl bg-surface-raised hover:bg-surface-soft transition-all duration-300 shadow-md flex flex-col justify-between relative overflow-hidden" data-glass="card" onclick="insertPrompt('મેં ભૂલથી ફોન પર આવેલો OTP અજાણ્યા વ્યક્તિને આપી દીધો છે, હવે શું કરવું?')" type="button">
+<div class="absolute top-0 right-0 w-24 h-24 bg-secondary/10 rounded-bl-full pointer-events-none group-hover:scale-110 transition-transform">
+</div>
+<div>
+<div class="flex items-center justify-between mb-space-sm">
+<span class="w-9 h-9 rounded-lg bg-secondary/15 text-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">lock_reset</span>
+</span>
+<span class="font-label-sm text-label-sm text-secondary bg-secondary/10 px-2 py-0.5 rounded-full font-medium">ઝડપી
+                    સુરક્ષા પગલાં</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-text-primary group-hover:text-primary transition-colors">
+                  ઓટીપી ભૂલથી શેર થઈ ગયો?
+                </h2>
+<p class="mt-space-xs font-body-sm text-body-sm text-text-muted leading-relaxed">
+                  તત્કાલ ચેકલિસ્ટ: સિમ કાર્ડ બ્લોક, નેટબેન્કિંગ પાસવર્ડ રીસેટ અને ઔપચારિક ફરિયાદ ડ્રાફ્ટ.
+                </p>
+</div>
+<div class="mt-space-md flex items-center gap-1.5 text-primary font-label-sm text-label-sm">
+<span class="">પગલાં જુઓ</span>
+<span class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</div>
+</button>
+</section>
+<!-- Active Conversational Thread Area -->
+<section class="flex flex-col gap-space-md my-space-xs">
+<!-- AI Welcome Note -->
+<div class="flex items-start gap-space-sm max-w-3xl">
+<div class="w-10 h-10 rounded-full bg-surface-raised shadow-md flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary-container text-[22px]">smart_toy</span>
+</div>
+<div class="p-space-md rounded-2xl bg-surface-raised text-on-surface shadow-md">
+<div class="flex items-center gap-2 mb-1.5">
+<span class="font-label-md text-label-md text-text-primary font-semibold">ગુજરાતી AI સહાયક</span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-secondary/10 text-secondary">સ્વતંત્ર
+                    સહાયક</span>
+<span class="font-label-sm text-label-sm text-text-muted">હમણાં જ</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface leading-relaxed">નમસ્તે! હું એક સ્વતંત્ર નાગરિક
+                  સાયબર સુરક્ષા સહાયક છું. તમે મને કોઈપણ સંદિગ્ધ SMS, WhatsApp જોબ ઓફર, પાર્ટ-ટાઇમ કમાણી લિંક, કુરિયર
+                  મેસેજ અથવા રોકાણની સ્કીમ વિશે પૂછી શકો છો. આ સલાહ માત્ર શૈક્ષણિક અને જાગૃતિ હેતુ માટે છે. સંવેદનશીલ
+                  વિગતો મોકલશો નહીં.</p>
+</div>
+</div>
+</section>
+<!-- Bottom Conversational Console (Floating Focus Area) -->
+<section class="sticky bottom-6 z-30 w-full mt-space-sm">
+<div data-glass="dock" class="relative p-2.5 rounded-2xl bg-surface-raised shadow-2xl backdrop-blur-xl">
+<div class="absolute inset-0 rounded-2xl bg-gradient-to-r from-primary/10 via-primary-container/15 to-secondary/10 -z-10 blur-xl pointer-events-none">
+</div>
+<div aria-live="polite" class="hidden mb-3 rounded-xl border border-border-hairline bg-surface p-4 text-left" id="aiChatResult" role="status">
+<div class="flex flex-wrap items-center justify-between gap-2">
+<strong class="text-text-primary" id="aiChatResultTitle"></strong>
+<span class="rounded-full bg-surface-raised px-3 py-1 text-sm font-semibold" id="aiChatRisk"></span>
+</div>
+<p class="mt-2 text-sm text-text-muted" id="aiChatScore"></p>
+<ul class="mt-2 list-disc space-y-1 pl-5 text-sm text-text-primary" id="aiChatSignals"></ul>
+<p class="mt-3 text-sm leading-relaxed text-text-primary" id="aiChatAdvice"></p>
+<div class="hidden flex flex-wrap gap-2 mt-3" id="resultActions">
+<button class="px-3 py-2 rounded-xl bg-surface-soft" onclick="toggleAudio()" type="button"><span class="material-symbols-outlined align-middle" id="ttsIcon">volume_up</span> <span id="ttsText">Listen</span></button>
+<button class="px-3 py-2 rounded-xl bg-surface-soft" onclick="copyAdvice()" type="button">Copy
+                    advice</button>
+<a class="px-3 py-2 rounded-xl bg-primary-container text-on-primary-container" href="/app/complaint">Generate Complaint
+                    Draft</a>
+</div>
+</div>
+<form class="flex flex-col gap-2" onsubmit="handleSend(event)">
+<!-- Text Input Row -->
+<div class="relative flex items-center">
+<textarea class="w-full bg-surface text-text-primary placeholder:text-text-muted/60 px-4 py-3 rounded-xl font-body-md text-body-md focus:outline-none transition-all resize-none leading-relaxed" id="aiPromptInput" onkeydown="if(event.key==='Enter'&amp;&amp;!event.shiftKey){event.preventDefault();this.form.requestSubmit();}" placeholder="તમારો પ્રશ્ન પૂછો અથવા મેસેજ પેસ્ટ કરો... (Describe suspicious call, link, SMS or message in Gujarati)..." rows="2"></textarea>
+</div>
+<!-- Bottom Console Utility Actions -->
+<div class="flex flex-wrap items-center justify-between gap-2 px-1">
+<!-- Left Tools -->
+<div class="flex items-center gap-1">
+<label class="cursor-pointer inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface hover:bg-surface-soft text-on-surface-variant transition-colors font-label-sm text-label-sm" title="Upload screenshot">
+<input accept="image/png,image/jpeg,image/webp" class="hidden" id="assistantFile" onchange="handleFileUpload(event)" type="file"/>
+<span class="material-symbols-outlined text-[18px] text-primary">attach_file</span>
+<span class="hidden sm:inline">સ્ક્રીનશોટ</span>
+</label>
+<button class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface hover:bg-surface-soft text-on-surface-variant transition-colors font-label-sm text-label-sm" onclick="triggerOCR()" title="Scan text from image" type="button">
+<span class="material-symbols-outlined text-[18px] text-tertiary">document_scanner</span>
+<span class="hidden sm:inline">OCR સ્કેનર</span>
+</button>
+<button class="p-1.5 rounded-lg text-text-muted hover:text-text-primary hover:bg-surface transition-colors" onclick="clearInput()" title="ઇનપુટ સાફ કરો" type="button">
+<span class="material-symbols-outlined text-[18px]">backspace</span>
+</button>
+</div>
+<!-- Right Controls (Voice Mic + Saffron Send Button) -->
+<div class="flex items-center gap-2">
+<button class="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-surface-soft hover:bg-surface-container text-text-primary transition-all font-label-sm text-label-sm shadow-sm" id="micBtn" onclick="toggleVoiceInput()" type="button">
+<span class="material-symbols-outlined text-[18px] text-secondary" id="micIcon">mic</span>
+<span class="" id="micLabel">બોલો</span>
+</button>
+<button class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-primary-container text-on-primary-container font-headline-sm text-headline-sm shadow-lg hover:scale-102 active:scale-98 transition-all" data-glass="primary" type="submit">
+<span class="">ચર્ચા શરૂ કરો</span>
+<span class="material-symbols-outlined text-[20px]">send</span>
+</button>
+</div>
+</div>
+</form>
+</div>
+<!-- Trust Disclaimer -->
+<div class="text-center mt-space-xs">
+<p class="font-body-sm text-body-sm text-text-muted/80">આ AI સલાહ માત્ર શૈક્ષણિક જાગૃતિ અને માર્ગદર્શન
+                માટે છે, કાનૂની કે પોલીસ સલાહ નથી. કટોકટીમાં હંમેશા સત્તાવાર <strong class="text-primary">૧૯૩૦</strong>
+                હેલ્પલાઇન અને તમારી બેંકનો સીધો સંપર્ક કરો.</p>
+</div>
+</section>
+</div>
+</div>
+<script>
+        const ASSISTANT_API_BASE_URL = String(window.SFIC_API_BASE_URL || 'https://sfic-backend-7957075383.asia-south1.run.app').replace(/\/+$/, '');
+        const ASSISTANT_COPY = {
+          gu: {
+            loading: 'તમારા સંદેશનું વિશ્લેષણ થઈ રહ્યું છે…', complete: 'વિશ્લેષણ પૂર્ણ',
+            high: 'ઊંચું જોખમ', medium: 'મધ્યમ જોખમ', safe: 'ઓછું જોખમ',
+            signals: 'જોખમના સંકેતો', none: 'કોઈ ઓળખાયેલા જોખમી સંકેતો મળ્યા નથી. તેમ છતાં મોકલનાર અને વિનંતીની સ્વતંત્ર રીતે ચકાસણી કરો.',
+            highAdvice: 'લિંક ખોલશો નહીં, OTP અથવા UPI PIN શેર કરશો નહીં અને પૈસા મોકલશો નહીં. સંસ્થાનો સત્તાવાર નંબર જાતે શોધીને ચકાસો. નાણાં ગુમાવ્યા હોય તો તરત ૧૯૩૦ પર ફોન કરો.',
+            mediumAdvice: 'આગળ વધતા પહેલાં વિનંતીની સ્વતંત્ર રીતે ચકાસણી કરો. OTP, UPI PIN અથવા બેંકની વિગતો કોઈ સાથે શેર કરશો નહીં.',
+            safeAdvice: 'આ તપાસમાં જાણીતા જોખમી સંકેતો મળ્યા નથી. છતાં અજાણી વિનંતી, લિંક અથવા ચુકવણીની વિગતો સત્તાવાર માધ્યમથી ચકાસો.',
+            error: 'વિશ્લેષણ સેવા સાથે જોડાઈ શક્યા નથી. ફરી પ્રયાસ કરો.',
+            score: 'નિયમ આધારિત જોખમ સ્કોર', count: 'સંકેતો', disclaimer: 'આ સ્કોર ઓળખાયેલા સંકેતો દર્શાવે છે; છેતરપિંડી થવાની સંભાવના નથી.'
+          },
+          hi: {
+            loading: 'आपके संदेश का विश्लेषण हो रहा है…', complete: 'विश्लेषण पूरा',
+            high: 'उच्च जोखिम', medium: 'मध्यम जोखिम', safe: 'कम जोखिम',
+            signals: 'जोखिम संकेत', none: 'कोई ज्ञात जोखिम संकेत नहीं मिला। फिर भी भेजने वाले और अनुरोध की स्वतंत्र रूप से जाँच करें।',
+            highAdvice: 'लिंक न खोलें, OTP या UPI PIN साझा न करें और पैसे न भेजें। संस्था का आधिकारिक नंबर स्वयं खोजकर जाँचें। पैसे खोए हों तो तुरंत 1930 पर कॉल करें।',
+            mediumAdvice: 'आगे बढ़ने से पहले अनुरोध की स्वतंत्र रूप से जाँच करें। OTP, UPI PIN या बैंक विवरण किसी से साझा न करें।',
+            safeAdvice: 'इस जाँच में ज्ञात जोखिम संकेत नहीं मिले। फिर भी अनजान अनुरोध, लिंक या भुगतान विवरण की आधिकारिक माध्यम से जाँच करें।',
+            error: 'विश्लेषण सेवा से संपर्क नहीं हो सका। फिर से प्रयास करें।',
+            score: 'नियम आधारित जोखिम स्कोर', count: 'संकेत', disclaimer: 'यह स्कोर पहचाने गए संकेत दिखाता है; धोखाधड़ी की संभावना नहीं।'
+          },
+          en: {
+            loading: 'Analyzing your message…', complete: 'Analysis complete',
+            high: 'High risk', medium: 'Medium risk', safe: 'Low risk',
+            signals: 'Risk signals', none: 'No known risk signals were detected. Still verify the sender and request independently.',
+            highAdvice: 'Do not open links, share an OTP or UPI PIN, or send money. Find the institution’s official number yourself and verify. If you lost money, call 1930 promptly.',
+            mediumAdvice: 'Independently verify the request before acting. Never share an OTP, UPI PIN, or bank details.',
+            safeAdvice: 'This check found no known risk signals. Verify unfamiliar requests, links, and payment details through official channels.',
+            error: 'Could not connect to the analysis service. Please try again.',
+            score: 'Rule-based risk score', count: 'signals', disclaimer: 'This score reflects detected signals, not the probability of fraud.'
+          }
+        };
+
+        const ASSISTANT_INDICATORS = {
+          otp: ['OTP અથવા બેંકિંગ વિનંતી', 'OTP या बैंकिंग अनुरोध', 'OTP or banking request'],
+          banking: ['બેંકિંગ વિનંતી', 'बैंकिंग अनुरोध', 'Banking request'],
+          'banking-suspension': ['બેંક ખાતું બંધ કરવાની ધમકી', 'बैंक खाता बंद करने की धमकी', 'Bank account suspension threat'],
+          'suspicious-login-action': ['શંકાસ્પદ લૉગિન વિનંતી', 'संदिग्ध लॉगिन अनुरोध', 'Suspicious login request'],
+          kyc: ['KYC ચકાસણીની વિનંતી', 'KYC सत्यापन अनुरोध', 'KYC verification request'],
+          aadhaar: ['આધાર વિગતોની વિનંતી', 'आधार विवरण का अनुरोध', 'Aadhaar details request'],
+          job: ['નોકરી અથવા ટાસ્કની ઓફર', 'नौकरी या टास्क का प्रस्ताव', 'Job or task offer'],
+          loan: ['શંકાસ્પદ લોન ઓફર', 'संदिग्ध ऋण प्रस्ताव', 'Suspicious loan offer'],
+          'advance-payment': ['પહેલાં ચુકવણીની માંગ', 'पहले भुगतान की माँग', 'Advance payment request'],
+          lottery: ['લોટરી અથવા ઇનામનો દાવો', 'लॉटरी या इनाम का दावा', 'Lottery or prize claim'],
+          reward: ['ઇનામનો દાવો', 'इनाम का दावा', 'Prize claim'],
+          'digital-arrest': ['ડિજિટલ અરેસ્ટની ધમકી', 'डिजिटल अरेस्ट की धमकी', 'Digital arrest threat'],
+          link: ['શંકાસ્પદ લિંક', 'संदिग्ध लिंक', 'Suspicious link'],
+          urgency: ['તાત્કાલિક પગલાં લેવાનું દબાણ', 'तुरंत कार्रवाई का दबाव', 'Urgency pressure'],
+          delivery: ['ડિલિવરી સંબંધી સંદેશ', 'डिलीवरी से जुड़ा संदेश', 'Delivery-related message'],
+          electricity: ['વીજળી કનેક્શન કાપવાની ધમકી', 'बिजली कनेक्शन काटने की धमकी', 'Electricity disconnection threat'],
+          'gujarati-bank-threat': ['બેંક અંગેની ધમકી', 'बैंक संबंधी धमकी', 'Bank-related threat'],
+          'gujarati-digital-arrest': ['ડિજિટલ અરેસ્ટની ધમકી', 'डिजिटल अरेस्ट की धमकी', 'Digital arrest threat'],
+          'gujarati-electricity': ['વીજળી કનેક્શન કાપવાની ધમકી', 'बिजली कनेक्शन काटने की धमकी', 'Electricity disconnection threat'],
+          'gujarati-kyc': ['KYC ચકાસણીની વિનંતી', 'KYC सत्यापन अनुरोध', 'KYC verification request'],
+          'gujarati-loan': ['લોનની શંકાસ્પદ ઓફર', 'संदिग्ध ऋण प्रस्ताव', 'Suspicious loan offer'],
+          'gujarati-lottery': ['લોટરી અથવા ઇનામનો દાવો', 'लॉटरी या इनाम का दावा', 'Lottery or prize claim'],
+          'gujarati-otp': ['OTPની વિનંતી', 'OTP का अनुरोध', 'OTP request'],
+          'threat-link-combination': ['ધમકી સાથે શંકાસ્પદ લિંક', 'धमकी के साथ संदिग्ध लिंक', 'Suspicious link combined with a threat'],
+          'credential-link-combination': ['લૉગિન વિગતો માંગતી લિંક', 'लॉगिन विवरण माँगने वाला लिंक', 'Link requesting login credentials'],
+          'credential-threat-combination': ['ધમકી સાથે લૉગિન વિગતોની માંગ', 'धमकी के साथ लॉगिन विवरण की माँग', 'Credential request combined with a threat']
+        };
+        let lastAssistantAnalysis = null;
+        let assistantBusy = false;
+
+        function assistantLanguage() {
+          const lang = window.SG?.lang?.() || document.documentElement.lang || 'gu';
+          return ASSISTANT_COPY[lang] ? lang : 'gu';
+        }
+
+        function showAssistantMessage(text, isError = false) {
+          const panel = document.getElementById('aiChatResult');
+          const lang = assistantLanguage();
+          document.getElementById('resultActions').classList.add('hidden');
+          panel.classList.remove('hidden');
+          document.getElementById('aiChatResultTitle').textContent = isError ? ASSISTANT_COPY[lang].error : text;
+          document.getElementById('aiChatRisk').textContent = '';
+          document.getElementById('aiChatScore').textContent = '';
+          document.getElementById('aiChatSignals').replaceChildren();
+          document.getElementById('aiChatAdvice').textContent = '';
+          panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        function renderAssistantAnalysis(data, shouldScroll = true) {
+          lastAssistantAnalysis = data;
+          const lang = assistantLanguage();
+          const copy = ASSISTANT_COPY[lang];
+          const analysis = data.analysis;
+          if (!analysis || !Array.isArray(analysis.indicators) || !['high', 'medium', 'low', 'safe'].includes(String(analysis.riskLevel || data.riskLevel).toLowerCase())) throw new Error('Invalid analysis response');
+          document.getElementById('resultActions').classList.remove('hidden');
+          const risk = String(analysis.riskLevel || data.riskLevel || 'safe').toLowerCase();
+          const indicators = Array.isArray(analysis.indicators) ? analysis.indicators : [];
+          const panel = document.getElementById('aiChatResult');
+          const riskLabel = risk === 'high' ? copy.high : risk === 'medium' ? copy.medium : copy.safe;
+
+          panel.classList.remove('hidden');
+          document.getElementById('aiChatResultTitle').textContent = copy.complete;
+          const riskElement = document.getElementById('aiChatRisk');
+          riskElement.textContent = riskLabel;
+          riskElement.className = `rounded-full px-3 py-1 text-sm font-semibold ${risk === 'high' ? 'bg-error-container/40 text-error' : risk === 'medium' ? 'bg-tertiary/15 text-tertiary' : 'bg-secondary/10 text-secondary'}`;
+          document.getElementById('aiChatScore').textContent = `${copy.score}: ${(analysis.score ?? data.score ?? "N/A")}/100 · ${indicators.length} ${copy.count}. ${copy.disclaimer}`;
+
+          const signalList = document.getElementById('aiChatSignals');
+          signalList.replaceChildren();
+          indicators.forEach((indicator) => {
+            const localized = ASSISTANT_INDICATORS[indicator?.id]?.[['gu', 'hi', 'en'].indexOf(lang)] || indicator?.label || indicator?.id || String(indicator ?? "");
+            const item = document.createElement('li');
+            item.textContent = localized;
+            signalList.append(item);
+          });
+          signalList.classList.toggle('hidden', indicators.length === 0);
+
+          document.getElementById('aiChatAdvice').textContent = risk === 'high' ? copy.highAdvice : risk === 'medium' ? copy.mediumAdvice : indicators.length === 0 ? copy.none : copy.safeAdvice;
+          if (shouldScroll) panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        document.addEventListener('langchange', () => {
+          if (lastAssistantAnalysis) renderAssistantAnalysis(lastAssistantAnalysis, false);
+        });
+
+        function insertPrompt(text) {
+          const input = document.getElementById('aiPromptInput');
+          if (input) {
+            input.value = window.SG?.translate?.(text) || text;
+            input.focus();
+            input.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+        }
+
+        function clearInput() {
+          const input = document.getElementById('aiPromptInput');
+          if (input) {
+            input.value = '';
+            input.focus();
+          }
+        }
+
+        async function handleSend(e) {
+          e.preventDefault();
+          const input = document.getElementById('aiPromptInput');
+          if (!input || !input.value.trim()) return;
+          if (assistantBusy) return;
+          const userText = input.value.trim();
+          assistantBusy = true;
+          lastAssistantAnalysis = null;
+          const lang = assistantLanguage();
+          const copy = ASSISTANT_COPY[lang];
+          const submitButton = e.currentTarget.querySelector('button[type="submit"]');
+          const originalButton = submitButton?.innerHTML;
+          if (submitButton) {
+            submitButton.disabled = true;
+            submitButton.textContent = copy.loading;
+          }
+          showAssistantMessage(copy.loading);
+
+          try {
+            const token = sessionStorage.getItem('citizenToken');
+            if (!token) throw new Error('Please log in before using the assistant.');
+            const response = await fetch(`${ASSISTANT_API_BASE_URL}/api/guidance`, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
+              body: JSON.stringify({ message: userText })
+            });
+            const data = await response.json().catch(() => ({}));
+            if (!response.ok || !data.success || !data.analysis) {
+              throw new Error(data.message || 'Analysis request failed');
+            }
+            renderAssistantAnalysis(data);
+            if (input.value.trim() === userText) input.value = '';
+          } catch (error) {
+            console.error('Gujarati AI analysis failed:', error);
+            showAssistantMessage(copy.error, true);
+          } finally {
+            assistantBusy = false;
+            if (submitButton) {
+              submitButton.disabled = false;
+              submitButton.innerHTML = originalButton;
+            }
+          }
+        }
+
+        async function handleFileUpload(e) {
+          const file = e.target.files?.[0]; e.target.value = '';
+          if (!file || assistantBusy) return;
+          if (!['image/png', 'image/jpeg', 'image/webp'].includes(file.type) || !file.size || file.size > 15 * 1024 * 1024) {
+            showAssistantMessage('Choose a PNG, JPG or WebP image up to 15 MB.'); return;
+          }
+          assistantBusy = true; lastAssistantAnalysis = null;
+          showAssistantMessage('Extracting text from image…');
+          try {
+            const token = sessionStorage.getItem('citizenToken');
+            if (!token) throw new Error('Please log in before scanning an image.');
+            const form = new FormData(); form.append('image', file);
+            const response = await fetch(`${ASSISTANT_API_BASE_URL}/api/scans/image`, { method: 'POST', headers: { Authorization: `Bearer ${token}` }, body: form });
+            const data = await response.json();
+            if (!response.ok || data.success === false) throw new Error(data.message || 'Image scan failed.');
+            const r = data.result || data;
+            const text = r.extractedText || r.extracted_text || r.ocrText || r.ocr_text;
+            if (typeof text !== 'string' || !text.trim()) throw new Error('No text detected. Try a clearer image.');
+            const input = document.getElementById('aiPromptInput');
+            input.value = window.SG?.translate?.(text) || text; input.focus();
+            showAssistantMessage('Text extracted. Review it and press Send to analyze.');
+          } catch (error) { showAssistantMessage(error.message || 'Image scan failed.'); }
+          finally { assistantBusy = false; }
+        }
+        function triggerOCR() { if (!assistantBusy) document.getElementById('assistantFile').click(); }
+        function adviceText() {
+          return ['aiChatRisk', 'aiChatScore', 'aiChatSignals', 'aiChatAdvice'].map(id => document.getElementById(id).innerText).filter(Boolean).join('\n');
+        }
+        function toggleAudio() {
+          if (!lastAssistantAnalysis) return;
+          if (!window.speechSynthesis || !window.SpeechSynthesisUtterance) { alert('Speech synthesis is unavailable.'); return; }
+          const icon = document.getElementById('ttsIcon'), label = document.getElementById('ttsText');
+          if (speechSynthesis.speaking) { speechSynthesis.cancel(); icon.textContent = 'volume_up'; label.textContent = 'Listen'; return; }
+          const utterance = new SpeechSynthesisUtterance(adviceText());
+          utterance.lang = assistantLanguage() + '-IN';
+          utterance.onend = utterance.onerror = () => { icon.textContent = 'volume_up'; label.textContent = 'Listen'; };
+          icon.textContent = 'stop'; label.textContent = 'Stop'; speechSynthesis.speak(utterance);
+        }
+        let recognition = null;
+        function toggleVoiceInput() {
+          if (recognition) { recognition.stop(); return; }
+          const Recognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+          if (!Recognition) { alert('Voice recognition is unavailable in this browser. Please type your message.'); return; }
+          const rec = new Recognition(); recognition = rec; rec.lang = assistantLanguage() + '-IN';
+          const icon = document.getElementById('micIcon'), label = document.getElementById('micLabel');
+          const reset = () => { recognition = null; icon.textContent = 'mic'; label.textContent = 'બોલો'; };
+          rec.onresult = e => { const input = document.getElementById('aiPromptInput'); input.value = e.results[0][0].transcript; input.focus(); };
+          rec.onend = reset; rec.onerror = () => { reset(); alert('Voice recognition failed. Please try again or type.'); };
+          try { rec.start(); icon.textContent = 'graphic_eq'; label.textContent = 'Stop'; } catch (e) { reset(); alert('Microphone unavailable.'); }
+        }
+        async function copyAdvice() {
+          if (!lastAssistantAnalysis) return;
+          try { await navigator.clipboard.writeText(adviceText()); alert('Advice copied.'); }
+          catch { alert('Clipboard unavailable. Select and copy the result manually.'); }
+        }
+      </script>
+</main>
+</div>
+<script id="surakshit-global-navigation">
+    (function () {
+      const routes = {
+        'landing-page': '/', 'dashboard': '/app', 'gujarati-ai-assistant': '/app/assistant',
+        'check-message-call': '/app/check/message', 'phishing-url-checker': '/app/check/url',
+        'screenshot-qr-scanner': '/app/check/image', 'screenshot-qr-analyzer': '/app/check/image',
+        'emergency-help': '/emergency', 'scam-awareness-library': '/awareness',
+        'scam-alerts': '/awareness', 'scam-alerts-district-intel': '/awareness',
+        'complaint-generator': '/app/complaint'
+      };
+      document.querySelectorAll('[data-path]').forEach(el => {
+        const target = routes[el.getAttribute('data-path')];
+        if (target && el.tagName === 'A') el.setAttribute('href', target);
+      });
+      document.querySelectorAll('a[href="#"]').forEach(a => {
+        const label = (a.innerText || a.getAttribute('aria-label') || '').trim().toLowerCase();
+        if (/login|sign in|પ્રવેશ/.test(label)) a.href = '/login';
+        else if (/profile|setting|account|પ્રોફાઇલ/.test(label)) a.href = '/app/profile';
+        else if (/admin/.test(label)) a.href = '/admin';
+        else if (/article|read more|વધુ વાંચો/.test(label)) a.href = '/awareness/article';
+      });
+      // keep navigation within the app and allow browser back/forward naturally
+    })();
+  </script>
+<script src="/route-links.js"></script>
+</body>
+</html>
