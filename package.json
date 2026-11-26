@@ -7,7 +7,8 @@
     "dev": "vite --host 0.0.0.0",
     "build": "vite build",
     "preview": "vite preview --host 0.0.0.0",
-    "test:translations": "node --test tests/translation-engine.test.cjs"
+    "test:translations": "node --test tests/translation-engine.test.cjs",
+    "test:image-results": "node --test tests/image-scan-results.test.cjs"
   },
   "devDependencies": {
     "vite": "^6.0.0"

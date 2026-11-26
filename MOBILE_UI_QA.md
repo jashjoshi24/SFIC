@@ -11,6 +11,7 @@ Reviewed locally on the `priyanshu` branch on 26 November 2026. These changes af
 - Scanner and assistant: emergency action no longer floats over uploads; the assistant composer is pinned to the bottom on mobile with its measured height reserved below the conversation; decorative overflow is clipped. The composer responds to viewport changes and keeps long results scrollable.
 - Login and support: wrapping headers and language/theme controls on narrow screens.
 - Icon fonts: fixed icon space prevents text fallback from pushing controls outside the viewport while fonts load.
+- Image-scan results: OCR text has readable preserved line breaks and a copy button; structured risk findings show titles, explanations, and brand/domain evidence; safety guidance uses numbered actions, precautions, and reference links. Copied reports use the same readable output, and the emergency action no longer covers result text.
 
 ## Page coverage
 
@@ -50,5 +51,6 @@ Reviewed locally on the `priyanshu` branch on 26 November 2026. These changes af
 - `npm run test:translations`: all six tests passed.
 - JavaScript syntax and `git diff --check`: passed.
 - Navbar follow-up: 96 header checks across 12 shared-shell routes at 320, 390, 641, 768, 812 (landscape), 1024, 1100, and 1440 pixels passed. No control overlaps or offscreen controls were found. Focus trapping, notification dismissal, scroll locking, and restoration of desktop controls also passed.
+- Image-result follow-up: five formatter tests pass (`npm run test:image-results`), including structured response shapes, safe escaping, safe reference links, and localized section labels. Browser checks at 320, 390, 768, 1154, and 1440 pixels passed in Gujarati, Hindi, and English, including light/dark themes, OCR copying, readable report copying, and unchanged OCR text.
 
 API responses were mocked for frontend review, including account identity, histories, awareness content, and sample admin data. This review does not validate backend operations or live data. The hosted site has not been deployed or changed.
