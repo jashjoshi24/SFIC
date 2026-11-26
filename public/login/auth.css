@@ -14,3 +14,11 @@ mask-composite:intersect}
 @media(max-width:1023px){.auth-introduction{display:none}.auth-layout{display:block;min-height:calc(100svh - 190px)}.auth-header{height:86px;padding:0 24px}.auth-header-note{display:none}.auth-form-column{max-width:600px;padding:34px 24px 48px;margin:auto}.auth-form-heading h2{font-size:31px}.auth-tabs{margin-bottom:28px}.auth-footer{margin:0 24px;flex-direction:column-reverse;gap:14px;text-align:center}.auth-independent{font-size:12px}.auth-footer .auth-support{font-size:14px}}
 @media(max-width:480px){.auth-header{height:auto;min-height:84px;padding:16px;gap:12px;flex-wrap:wrap}.auth-brand{gap:10px}.auth-brand img{width:42px;height:38px}.auth-brand strong{font-size:20px}.auth-brand small{font-size:7px;letter-spacing:.15em}.auth-languages{padding:3px;gap:0}.auth-languages button{font-size:11px;padding:6px 9px}.auth-form-column{padding:24px 20px 38px}.auth-form-heading h2{font-size:27px}.auth-form-heading p{font-size:13px;margin-bottom:26px}.auth-tab{font-size:19px;padding:13px 10px}.auth-form{gap:22px}.auth-field label{font-size:14px}.auth-input input{font-size:16px;padding-top:14px;padding-bottom:14px}.auth-input input::placeholder{font-size:13px}.auth-submit{font-size:19px;min-height:56px}.auth-footer{margin:0 20px}.auth-support{gap:9px}.auth-bottom{font-size:13px}.auth-register-footer{flex-wrap:wrap}}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+@media (max-width: 640px) {
+  .auth-header { flex-wrap: wrap; height: auto; padding-block: 14px; }
+  .auth-header .sg-theme-group { width: 100%; justify-content: space-between; }
+  .auth-languages button { min-height: 44px; }
+  .auth-input { min-width: 0; }
+  .auth-support { flex-wrap: wrap; justify-content: center; white-space: normal; }
+  .auth-bottom a { display: inline-flex; align-items: center; min-height: 44px; }
+}

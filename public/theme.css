@@ -1,3 +1,6 @@
+/* Reserve icon space while the web font loads, including on slow mobile links. */
+.material-symbols-outlined { width: 1em; overflow: hidden; flex-shrink: 0; vertical-align: middle; }
+
 .sg-theme-toggle {
   display: inline-grid;
   grid-template-columns: 1fr 1fr;

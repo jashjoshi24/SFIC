@@ -214,6 +214,30 @@ if (primaryNav && activePath) {
 }
 const sidebar = document.querySelector('aside.fixed.w-72')
 const header = document.querySelector('header.fixed')
+if (sidebar && header) {
+  document.body.classList.add('workspace-shell')
+  document.body.dataset.page = currentRoute.split('/').filter(Boolean).join('-')
+  header.classList.add('workspace-toolbar')
+  header.firstElementChild?.classList.add('workspace-toolbar-brand')
+  const actions = header.lastElementChild
+  actions?.classList.add('workspace-toolbar-actions')
+  const languages = [...(actions?.children || [])].find(el => el.querySelector('button[data-lang-btn], button[data-dlang]') || el.textContent.includes('ગુજરાતી') && el.textContent.includes('English'))
+  if (languages) {
+    languages.classList.add('workspace-language-buttons')
+    const select = document.createElement('select')
+    select.className = 'workspace-language-select'
+    select.setAttribute('aria-label', 'Language')
+    select.setAttribute('translate', 'no')
+    for (const [value, label] of [['gu', 'ગુજરાતી'], ['hi', 'हिंदी'], ['en', 'English']]) {
+      select.add(new Option(label, value))
+    }
+    const syncLanguage = () => { select.value = window.SG?.lang?.() || document.documentElement.lang.split('-')[0] }
+    select.addEventListener('change', () => window.SG?.setLang?.(select.value))
+    document.addEventListener('langchange', syncLanguage)
+    syncLanguage()
+    languages.after(select)
+  }
+}
 
 if (sidebar && header) {
   const headerActions = header.lastElementChild
@@ -270,6 +294,7 @@ if (sidebar && header) {
 }
 if (sidebar && header && !document.querySelector('.mobile-nav-toggle')) {
   if (!sidebar.id) sidebar.id = 'primary-navigation'
+  sidebar.querySelector(':scope > div:first-child > div:first-child')?.classList.add('workspace-sidebar-brand')
   const desktop = window.matchMedia('(min-width: 1101px)')
   let collapsed = false
   try { collapsed = localStorage.getItem('sg_sidebar_collapsed') === 'true' } catch {}
@@ -286,17 +311,45 @@ if (sidebar && header && !document.querySelector('.mobile-nav-toggle')) {
   overlay.setAttribute('aria-label', 'Close navigation menu')
   overlay.setAttribute('aria-hidden', 'true')
   document.body.append(overlay)
+  const preferences = document.createElement('section')
+  preferences.className = 'workspace-mobile-preferences'
+  preferences.setAttribute('aria-label', 'Navigation settings')
+  const preferenceControls = document.createElement('div')
+  preferenceControls.className = 'workspace-mobile-preference-controls'
+  preferences.append(preferenceControls)
+  const accountLinks = document.createElement('div')
+  accountLinks.className = 'workspace-mobile-account-links'
+  header.querySelectorAll('.user-nav-actions a').forEach(link => {
+    const accountLink = link.cloneNode(true)
+    const label = document.createElement('span')
+    label.textContent = link.getAttribute('aria-label')
+    accountLink.append(label)
+    accountLinks.append(accountLink)
+  })
+  preferences.append(accountLinks)
+  sidebar.querySelector('nav')?.append(preferences)
+  const movableControls = [...header.querySelectorAll('.sg-theme-toggle, .workspace-language-select')].map(control => {
+    const marker = document.createComment('Navigation control desktop position')
+    control.before(marker)
+    return {control, marker}
+  })
   const content = sidebar.nextElementSibling
   const syncMenu = () => {
     const isOpen = desktop.matches ? !collapsed : document.body.classList.contains('mobile-nav-open')
+    movableControls.forEach(({control, marker}) => {
+      if (desktop.matches) marker.after(control)
+      else preferenceControls.append(control)
+    })
+    if (!desktop.matches && isOpen) header.querySelector('#notifications-button[aria-expanded="true"]')?.click()
     document.body.classList.toggle('sidebar-collapsed', desktop.matches && collapsed)
     document.body.classList.toggle('sidebar-visible', isOpen)
+    document.documentElement.classList.toggle('workspace-menu-open', !desktop.matches && isOpen)
     sidebar.inert = !isOpen
     if (content && content !== toggle) content.inert = !desktop.matches && isOpen
     toggle.setAttribute('aria-expanded', String(isOpen))
     toggle.setAttribute('aria-label', isOpen ? 'Hide navigation menu' : 'Show navigation menu')
     toggle.title = isOpen ? 'Hide navigation menu' : 'Show navigation menu'
-    toggle.querySelector('span').textContent = isOpen ? '‹' : '›'
+    toggle.querySelector('span').textContent = desktop.matches ? (isOpen ? '‹' : '›') : (isOpen ? '×' : '☰')
   }
   const closeMenu = () => {
     document.body.classList.remove('mobile-nav-open')
@@ -310,15 +363,23 @@ if (sidebar && header && !document.querySelector('.mobile-nav-toggle')) {
       document.body.classList.toggle('mobile-nav-open')
     }
     syncMenu()
+    if (!desktop.matches && document.body.classList.contains('mobile-nav-open')) sidebar.querySelector('nav a')?.focus()
   })
   overlay.addEventListener('click', () => { closeMenu(); toggle.focus() })
   sidebar.querySelectorAll('a[href]').forEach((link) => {
     link.addEventListener('click', () => { if (!desktop.matches) closeMenu() })
   })
   document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape' && !desktop.matches && document.body.classList.contains('mobile-nav-open')) {
+    if (desktop.matches || !document.body.classList.contains('mobile-nav-open')) return
+    if (event.key === 'Escape') {
       closeMenu()
       toggle.focus()
+    }
+    if (event.key === 'Tab') {
+      const controls = [toggle, ...sidebar.querySelectorAll('a[href], button, select, input')].filter(el => !el.disabled && el.getClientRects().length)
+      const first = controls[0], last = controls[controls.length - 1]
+      if (event.shiftKey && (document.activeElement === first || !controls.includes(document.activeElement))) { event.preventDefault(); last?.focus() }
+      else if (!event.shiftKey && (document.activeElement === last || !controls.includes(document.activeElement))) { event.preventDefault(); first?.focus() }
     }
   })
   desktop.addEventListener('change', closeMenu)

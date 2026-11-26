@@ -36,10 +36,28 @@
   }
   document.getElementById('adminSignOut')?.addEventListener('click',signOut);
   const menu=document.getElementById('adminMenu');
-  menu?.addEventListener('click',()=>{
-    const open=document.body.classList.toggle('admin-menu-open'); menu.setAttribute('aria-expanded',String(open));
-  });
-  document.addEventListener('keydown',e=>{if(e.key==='Escape'){document.body.classList.remove('admin-menu-open');menu?.setAttribute('aria-expanded','false');}});
+  if (menu) {
+    const sidebar = document.getElementById('adminSidebar');
+    const mobile = matchMedia('(max-width: 1000px)');
+    const backdrop = node('button', null, 'admin-menu-backdrop');
+    backdrop.type = 'button'; backdrop.tabIndex = -1;
+    backdrop.setAttribute('aria-label', 'Close administration menu');
+    document.body.append(backdrop);
+    const setMenu = open => {
+      document.body.classList.toggle('admin-menu-open', open);
+      menu.setAttribute('aria-expanded', String(open));
+      if (sidebar) sidebar.inert = mobile.matches && !open;
+      const main = document.querySelector('.workspace-content main');
+      if (main) main.inert = mobile.matches && open;
+    };
+    menu.addEventListener('click', () => setMenu(!document.body.classList.contains('admin-menu-open')));
+    backdrop.addEventListener('click', () => { setMenu(false); menu.focus(); });
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && document.body.classList.contains('admin-menu-open')) { setMenu(false); menu.focus(); }
+    });
+    mobile.addEventListener('change', () => setMenu(false));
+    setMenu(false);
+  }
   request('/me').then(data=>{
     document.querySelectorAll('#adminIdentity,[data-current-user]').forEach(el=>el.textContent=data.admin.name);
   }).catch(e=>{const identity=document.getElementById('adminIdentity');if(identity)identity.textContent=errorText(e);});

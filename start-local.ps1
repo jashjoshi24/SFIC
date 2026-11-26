@@ -1,10 +1,16 @@
-param([string]$WhisperModel = 'small')
+param(
+    [string]$WhisperModel = 'small',
+    [ValidateRange(1024,65535)][int]$FrontendPort = 5173
+)
 $ErrorActionPreference = 'Stop'
 $projectRoot = $PSScriptRoot
 $logRoot = Join-Path $projectRoot '.local-logs'
 New-Item -ItemType Directory -Force $logRoot | Out-Null
 $nodePath = (Get-Command node).Source
 $pythonPath = Join-Path $projectRoot 'whisper-service\.venv\Scripts\python.exe'
+if (!(Test-Path -LiteralPath $pythonPath)) {
+    $pythonPath = Join-Path $projectRoot 'SFIC-jaymin\whisper-service\.venv\Scripts\python.exe'
+}
 if (!(Test-Path -LiteralPath $pythonPath)) { throw 'Install whisper-service/requirements.txt in whisper-service/.venv first.' }
 $env:WHISPER_MODEL = $WhisperModel
 if ($WhisperModel -eq 'small') {
@@ -18,7 +24,7 @@ $env:WHISPER_DEVICE = 'cpu'
 $env:WHISPER_COMPUTE_TYPE = 'int8'
 $env:WHISPER_MODEL_DIR = Join-Path $projectRoot 'whisper-service\model-cache'
 $env:PORT = '5000'
-$env:FRONTEND_URL = 'http://localhost:5173'
+$env:FRONTEND_URL = "http://localhost:$FrontendPort"
 $env:WHISPER_SERVICE_URL = 'http://127.0.0.1:8000'
 $processes = @{}
 $pidFile = Join-Path $logRoot 'processes.json'
@@ -28,7 +34,7 @@ if (Test-Path -LiteralPath $pidFile) {
 }
 $services = @(
     @{ Name='backend'; Port=5000; File=$nodePath; Arguments='server.js'; Directory=(Join-Path $projectRoot 'backend') },
-    @{ Name='frontend'; Port=5173; File=$nodePath; Arguments='node_modules/vite/bin/vite.js --host 127.0.0.1 --port 5173 --strictPort'; Directory=$projectRoot },
+    @{ Name='frontend'; Port=$FrontendPort; File=$nodePath; Arguments="node_modules/vite/bin/vite.js --host 127.0.0.1 --port $FrontendPort --strictPort"; Directory=$projectRoot },
     @{ Name='whisper'; Port=8000; File=$pythonPath; Arguments='-m uvicorn main:app --host 127.0.0.1 --port 8000'; Directory=(Join-Path $projectRoot 'whisper-service') }
 )
 foreach ($service in $services) {
@@ -44,6 +50,6 @@ foreach ($service in $services) {
     $processes | ConvertTo-Json | Set-Content -LiteralPath $pidFile
     Write-Host "Started $($service.Name) (PID $($process.Id))."
 }
-Write-Host 'Frontend: http://localhost:5173'
+Write-Host "Frontend: http://localhost:$FrontendPort"
 Write-Host 'API: http://localhost:5000'
 Write-Host 'Speech health: http://localhost:8000/health (first launch downloads the model)'
